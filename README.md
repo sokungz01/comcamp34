@@ -1,7 +1,7 @@
 <p align="center"> 
   <h1 align="center">  :desktop_computer: Comcamp34 </h1>
 </p>
-Repo for Comcamp34 registration platform using [Vite](https://github.com/vitejs/vite) with [React](https://github.com/facebook/react)
+Repo for Comcamp34 registration platform using <a href="https://github.com/vitejs/vite">Vite</a> and <a href="https://github.com/facebook/react">React<a/>
 
 
 # :hammer_and_wrench: Run locally
