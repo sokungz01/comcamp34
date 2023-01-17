@@ -26,7 +26,7 @@ Open http://localhost:5173 with your browser to see the result.
 
 
 # :page_facing_up: Contributing
-To start contributing, create a branch for feature or fix (for example feat(some-feature) or  fix(some-bug)) then make a PR.
+To start contributing, create a branch for feature or fix (for example feat(some-feature) or fix(some-bug)) then make a PR to the dev branch.
 
 # Guidelines
 - [Building a component](https://github.com/cpe-kmutt-student/bangmod-hackathon-2023/blob/main/.github/guildelines/building-component.md)
