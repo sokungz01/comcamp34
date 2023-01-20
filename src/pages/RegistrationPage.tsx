@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import SelectInput from '@/components/SelectInput';
 export const RegistrationPage = () => {
     return(
         <>
