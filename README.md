@@ -13,14 +13,12 @@ First, clone the project:
 Then,install dependencies
 ```
   npm install
-  #or
-  yarn
+  
 ```
 Run the server
 ```
   npm run dev
-  #or
-  yarn dev
+
 ```
 Open http://localhost:5173 with your browser to see the result.
 
