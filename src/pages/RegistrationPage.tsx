@@ -1,3 +1,4 @@
+import FileUploaderComponent from '@/components/FileUploaderComponent';
 import { Link } from 'react-router-dom';
 export const RegistrationPage = () => {
     return(
