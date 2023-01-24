@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.stroke-pink{
+    -webkit-text-stroke: 0.5px #D2364C; /* width and color */
+}
