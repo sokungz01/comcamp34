@@ -14,14 +14,14 @@ const EmailInput = ({
   placeholder: string;
   required?: boolean;
 }) => {
-  const [valid, setValid] = useState<boolean>(false);
+  const [valid, setValid] = useState<boolean>(true);
   const RegEx =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!(e.target instanceof HTMLInputElement)) return;
     const email = e.target.value;
-    if (RegEx.test(email) === true) setValid(true);
-    else setValid(false);
+    if (RegEx.test(email) === false) setValid(false);
+    else setValid(true);
     setObj(email);
   };
 
