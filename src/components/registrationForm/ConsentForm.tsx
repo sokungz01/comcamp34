@@ -100,9 +100,9 @@ export const ConsentForm = () => {
                <div className='flex flex-row items-center -ml-4'>
                   <input
                      name='policy'
-                     type='radio'
-                     className='form-check-input appearance-none rounded-md h-5 w-5 border-2 border-red1 bg-white checked:bg-red1/75 checked:border-red1 focus:outline-none'
-                     onClick={() => setAcceptPolicy(true)}
+                     type="checkbox"
+                     className="form-check-input appearance-none rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white"
+                     onClick={acceptPolicy === true ? () => setAcceptPolicy(false) : () => setAcceptPolicy(true)}
                   />
                   <p className='text-base-black ml-2'>ยินยอมข้อตกลงนโยบายข้อมูลส่วนบุคคล</p>
                </div>
