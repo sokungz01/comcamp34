@@ -28,24 +28,26 @@ const Inputbox = ({
 
   return (
     <>
-      <div className="flex">
-        {label ? <p> {label} </p> : <p>{name}</p>}
-        {required ? <p className="text-red-900">*</p> : <p></p>}
+      <div className="flex flex-col">
+        <div className="flex">
+          {label ? <p> {label} </p> : <p>{name}</p>}
+          {required ? <p className="text-red-900">*</p> : <p></p>}
+        </div>
+        <input
+          type="text"
+          className="border"
+          placeholder={placeholder}
+          name={name}
+          value={obj}
+          onChange={handleChange}
+          required={required}
+        />
+        {valid ? (
+          <p className="text-red-900">Please enter valid form</p>
+        ) : (
+          <label></label>
+        )}
       </div>
-      <input
-        type="text"
-        className="border"
-        placeholder={placeholder}
-        name={name}
-        value={obj}
-        onChange={handleChange}
-        required={required}
-      />
-      {valid ? (
-        <p className="text-red-900">Please enter valid form</p>
-      ) : (
-        <label></label>
-      )}
     </>
   );
 };
