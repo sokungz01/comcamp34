@@ -1,4 +1,5 @@
 import { ConsentForm } from '@/components/registrationForm/ConsentForm';
+import UploadFilesForm from '@/components/registrationForm/UploadFilesForm';
 import { Link } from 'react-router-dom';
 export const RegistrationPage = () => {
     return(
@@ -9,7 +10,8 @@ export const RegistrationPage = () => {
                     <Link to="/" className="bg-blue-500 rounded-full px-3 py-2 text-white">
                         <button>Home</button>
                     </Link>
-                    <ConsentForm/>
+                {/*<ConsentForm/>*/}
+                <UploadFilesForm/>
                 </div>
             </div>
         </>

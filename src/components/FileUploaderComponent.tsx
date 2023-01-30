@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 const FileUploaderComponent=({
     name,
@@ -40,15 +41,18 @@ const FileUploaderComponent=({
     return(
         <>
             <div className="flex flex-col">
-                {label ? <p>{label}</p> : <p>{name}</p>}
+                {label ? <p className="font-semibold text-lg">{label}</p> : <p>{name}</p>}
                 <div className="flex justify-between">
                 {!isUpload ?<input type="file" name={name} onChange={handleFile} accept={
                     fileType == "pdf" ? "application/pdf": //accept pdf document file
                     fileType == "image" ? "image/jpeg,image/png"://accpet image file only jpg and png
                     "image/jpeg,image/png,application/pdf"/* accept both image and pdf if not pass props or wrong spell file format */}/>
                     : file}
-                {!isUpload ? <button onClick={uploadFile}>Upload</button>:<button onClick={deleteFile}>Delete</button>}
+                {!isUpload ? <Button label="Upload" setObj={uploadFile} variant="primary" isDisabled={false}/>
+                :
+                <Button label="Delete" setObj={deleteFile} variant="danger" isDisabled={false}/>}
                 </div>
+                
             </div>
         </>
     )
