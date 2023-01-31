@@ -29,19 +29,21 @@ const EmailInput = ({
     <>
       <div>
         <div className="flex">
-          {label ? <p> {label} </p> : <p>{name}</p>}
-          {required ? <p className="text-red-900">*</p> : <p></p>}
+          <p className="text-gray-700 xl:text-xl lg:text-xl md:text-xs sm:text-xs"> 
+            { label ? label : name } 
+          </p>
+          {required ? <p className="text-orange">*</p> : <p></p>}
         </div>
         <input
           type="text"
-          className="border"
+          className="bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black -mt-1.5 xl:mt-1 lg:mt-1 invalid:ring-red1"
           onChange={handleChange}
           name={name}
           value={obj}
           placeholder={placeholder}
         />
         {valid ? null : (
-          <p className="text-red-900">Please enter valid email.</p>
+          <p className="text-orange text-xs">Please enter valid form</p>
         )}
       </div>
     </>
