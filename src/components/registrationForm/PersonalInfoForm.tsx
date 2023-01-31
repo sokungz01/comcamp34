@@ -17,32 +17,59 @@ export const PersonalInfoForm = () => {
    }));
    return (
       <>
-         <div className='flex flex-col font-bai-jamjuree'>
-            <h4 className='text-2xl'> ข้อมูลผู้สมัคร </h4>
-            <div className='flex justify-between'>
-               <SelectInput
-                  label='คำนำหน้าชื่อ'
-                  name='pname'
-                  options={[
-                     { label: "นาย", value: "นาย" },
-                     { label: "นาง", value: "นาง" },
-                     { label: "นางสาว", value: "นางสาว" },
-                  ]}
-                  required
-               />
-               <Inputbox label='ชื่อ' name='fname' placeholder='' required />
-               <Inputbox label='ชื่อกลาง (ถ้ามี)' name='mname' placeholder='' required />
-               <Inputbox label='นามสกุล' name='sname' placeholder='' required />
+         <div className='bg-red1 bg-opacity-10 w-full rounded-xl flex flex-col font-bai-jamjuree px-16 py-4 mx-8'>
+            <h4 className='text-4xl text-red2 font-semibold mb-2'> ข้อมูลผู้สมัคร </h4>
+            <div className='flex mt-4 '>
+               <div className='w-1/6 mr-2'>
+                  <SelectInput
+                     label='คำนำหน้าชื่อ'
+                     name='pname'
+                     options={[
+                        { label: "นาย", value: "นาย" },
+                        { label: "นาง", value: "นาง" },
+                        { label: "นางสาว", value: "นางสาว" },
+                     ]}
+                     required
+                  />
+               </div>
+               <div className='flex flex-row w-5/6'>
+                  <div className='mx-2 w-full'>
+                     <Inputbox label='ชื่อ' name='fname' placeholder='ธนาธร' required />
+                  </div>
+                  <div className='mx-2 w-full'>
+                     <Inputbox label='ชื่อกลาง (ถ้ามี)' name='mname' placeholder='' required />
+                  </div>
+                  <div className='mx-2 w-full'>
+                     <Inputbox label='นามสกุล' name='sname' placeholder='' required />
+                  </div>
+               </div>
             </div>
-            <div className='flex justify-between'>
-               <Inputbox label='ชื่อเล่น' name='nickname' placeholder='' required />
-               <SelectInput label='วัน' name='date' options={date_data} required />
-               <SelectInput label='เดือน' name='month' options={month_data} required />
-               <SelectInput label='ปีเกิด' name='birth_year' options={year_data} required />
-               <TelInput label='เบอร์โทรศัพท์' name='mobile' placeholder='' required />
-               <EmailInput label='Email' name='email' placeholder='' required />
+            <div className='flex  mt-2'>
+               <div className='w-1/6 mr-3'>
+                  <Inputbox label='ชื่อเล่น' name='nickname' placeholder='' required />
+               </div>
+               <div className='flex mr-3'>
+                  <div className='mr-1.5'>
+                     <SelectInput label='วัน' name='date' options={date_data} required />
+                  </div>
+                  <div className='ml-1.5 mr-1.5'>
+                     <SelectInput label='เดือน' name='month' options={month_data} required />
+                  </div>
+                  <div className='ml-1.5'>
+                     <SelectInput label='ปีเกิด' name='birth_year' options={year_data} required />
+                  </div>
+               </div>
+               <div className='flex justify-center'>
+                  <div className='w-full mr-2'>
+                     <TelInput label='เบอร์โทรศัพท์' name='mobile' placeholder='' required />
+                  </div>
+                  <div className='w-full ml-2'>
+                     <EmailInput label='Email' name='email' placeholder='' required />
+                  </div>
+               </div>
             </div>
-            <div className='flex justify-between'>
+
+            <div className='flex justify-between mt-6'>
                <div className='flex'>
                   <SelectInput
                      label='จังหวัดที่พักอาศัย'
@@ -63,7 +90,7 @@ export const PersonalInfoForm = () => {
                   <Inputbox label='โรคประจำตัว' name='underlying' placeholder='' required />
                </div>
             </div>
-            <div className='flex justify-between'>
+            <div className='flex justify-between mt-2'>
                <div className='flex'>
                   <Inputbox
                      label='วิธีการเดินทางมหาวิทยาลัย'
@@ -88,10 +115,10 @@ export const PersonalInfoForm = () => {
                   />
                </div>
             </div>
-            <div className='flex'>
-               <p className='-mt-2 mr-2'> น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่ </p>
+            <div className='flex mt-4'>
+               <p className='mr-2'> น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่ </p>
                <CheckboxInput name='notebook' label=' ' />
-               <p className='-mt-2 ml-2'> (สะดวก) </p>
+               <p className='ml-2'> (สะดวก) </p>
             </div>
          </div>
       </>
