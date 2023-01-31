@@ -26,7 +26,14 @@ const CheckboxInput = ({name,label,placeholder,obj,setobj,required,checked} : {n
         <>
         <div>
             <div className="flex">
-                <input type="checkbox" name={name} placeholder={placeholder} onChange={handleChange} defaultChecked={checked} />
+                <input 
+                    type="checkbox" 
+                    name={name} 
+                    placeholder={placeholder} 
+                    onChange={handleChange} 
+                    defaultChecked={checked} 
+                    className="form-check-input appearance-none rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white"
+                    />
                 {label? <p>{label}</p>:<p>{name}</p>}<br/>
                 {required ? <p className="text-red-900">*</p> : <p></p>}
             </div>
