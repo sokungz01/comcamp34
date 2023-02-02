@@ -3,14 +3,13 @@ import { useState } from "react";
 export const ConsentForm = () => {
    const [acceptPolicy, setAcceptPolicy] = useState<boolean>(false);
    return (
-      <div className='font-bai-jamjuree relative h-full flex justify-center items-center my-8'>
-         <div className='w-2/3 flex flex-col p-5 bg-white bg-opacity-20 rounded-lg '>
-            <div className='text-lg font-bold text-base-black text-center mb-5'>
+      <div className='relative h-full font-bai-jamjuree flex justify-center items-center'>
+         <div className='xl:w-2/3 lg:2/3 md:w-4/5 sm:w-4/5 w-11/12 flex flex-col p-2 lg:p-5 xl:p-5 bg-[#D9D9D9] bg-opacity-20 rounded-lg '>
+            <div className='font-bold text-base-black text-center mb-5 text-xl  lg:text-2xl xl:text-2xl'>
                นโยบายข้อมูลส่วนบุคคล
             </div>
-
-            <div className='text-sm bg-white h-96 overflow-y-auto rounded-lg p-6 mb-4'>
-               <p className='font-semibold'> นโยบายส่วนบุคคล </p>
+            <div className='text-sm bg-white h-96 overflow-y-auto rounded-lg p-6 mb-4 mx-2 lg:mx-3 xl:mx-4'>
+               <p className='font-semibold '> นโยบายส่วนบุคคล </p>
                <p className='font-semibold ml-4 mt-2'>1. ข้อมูลเกี่ยวกับโครงการ </p>
                <p className='ml-8 mt-2'>
                   โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์ ครั้งที่ 34 หรือ Comcamp34
@@ -97,14 +96,20 @@ export const ConsentForm = () => {
             </div>
 
             <div className='flex flex-col px-4'>
-               <div className='flex flex-row items-center -ml-4'>
+               <div className='flex flex-row items-center '>
                   <input
                      name='policy'
-                     type="checkbox"
-                     className="form-check-input appearance-none rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white"
-                     onClick={acceptPolicy === true ? () => setAcceptPolicy(false) : () => setAcceptPolicy(true)}
+                     type='checkbox'
+                     className='form-check-input appearance-none rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
+                     onClick={
+                        acceptPolicy === true
+                           ? () => setAcceptPolicy(false)
+                           : () => setAcceptPolicy(true)
+                     }
                   />
-                  <p className='text-base-black ml-2'>ยินยอมข้อตกลงนโยบายข้อมูลส่วนบุคคล</p>
+                  <p className='text-base-black ml-2 font-bold sm:text-sm md:text-sm lg:text-base xl:text-base text-xs'>
+                     ยินยอมข้อตกลงนโยบายข้อมูลส่วนบุคคล
+                  </p>
                </div>
             </div>
 

@@ -27,16 +27,15 @@ const EmailInput = ({
 
   return (
     <>
-      <div>
         <div className="flex">
-          <p className="text-gray-700 xl:text-xl lg:text-xl md:text-xs sm:text-xs"> 
+          <p className='text-gray-700 xl:text-xl lg:text-xl md:text-xs sm:text-xs'>
             { label ? label : name } 
           </p>
           {required ? <p className="text-orange">*</p> : <p></p>}
         </div>
         <input
           type="text"
-          className="bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black -mt-1.5 xl:mt-1 lg:mt-1 invalid:ring-red1"
+          className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1"
           onChange={handleChange}
           name={name}
           value={obj}
@@ -45,7 +44,6 @@ const EmailInput = ({
         {valid ? null : (
           <p className="text-orange text-xs">Please enter valid form</p>
         )}
-      </div>
     </>
   );
 };

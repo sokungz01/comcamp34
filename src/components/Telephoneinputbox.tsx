@@ -47,14 +47,13 @@ const TelInput = ({
          <input
             type='tel'
             name={name}
-            className='bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black -mt-1.5 xl:mt-1 lg:mt-1 invalid:ring-red1'
+            className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1"
             placeholder={placeholder}
             maxLength={10}
             minLength={10}
             onChange={handleChange}
             value={obj}
          />
-         <br />
          {valid ? null : <p className='text-orange text-xs'>Please enter valid form</p>}
       </>
    );
