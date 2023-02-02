@@ -43,7 +43,7 @@ export const RegistrationPage = () => {
                </div>
             </div>
             <div className='absolute bottom-0 sw-full'>
-               <img src='/assets/regisPage/building.png' className='w-full' />
+               <img src='/assets/regisPage/building.svg' className='w-full' />
             </div>
          </div>
       </>
