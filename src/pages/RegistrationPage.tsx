@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-export const FrontPage = () => {
+export const RegistrationPage = () => {
     return(
         <>
            <div className="flex h-screen">
