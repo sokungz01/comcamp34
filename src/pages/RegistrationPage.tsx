@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
+import { PersonalInfoForm } from "@/components/registrationForm/PersonalInfoForm";
 export const RegistrationPage = () => {
    const [page, setPage] = useState<number>(1);
    return (
@@ -34,15 +35,15 @@ export const RegistrationPage = () => {
             </div>
             <div className='flex justify-center'>
                <p className='xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-teko tracking-widest text-red2 font-semibold mt-3 mb-3'>
-                  {page === 1 || page <= 1 ? null : "Registration"}
+                  {page === 1 || page <= 1 ? "Registration" : "Registration"}
                </p>
             </div>
             <div>
                <div className='absolute z-10 w-full'>
-                  {page === 1 || page <= 1 ? <ConsentForm /> : null}
+                  {page === 1 || page <= 1 ? <PersonalInfoForm /> : null}
                </div>
             </div>
-            <div className='absolute bottom-0 sw-full'>
+            <div className='absolute bottom-0 w-full'>
                <img src='/assets/regisPage/building.svg' className='w-full' />
             </div>
          </div>

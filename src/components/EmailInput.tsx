@@ -28,7 +28,7 @@ const EmailInput = ({
   return (
     <>
         <div className="flex">
-          <p className='text-gray-700 xl:text-xl lg:text-xl md:text-xs sm:text-xs'>
+          <p className='text-gray-700 xl:text-xl lg:text-lg md:text-xs sm:text-xs'>
             { label ? label : name } 
           </p>
           {required ? <p className="text-orange">*</p> : <p></p>}
