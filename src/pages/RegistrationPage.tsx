@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LeftArrow from "/assets/svg/LeftArrow.svg";
+import RightArrow from "/assets/svg/RightArrow.svg";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
 import { PersonalInfoForm } from "@/components/registrationForm/PersonalInfoForm";
 export const RegistrationPage = () => {
-   const [page, setPage] = useState<number>(1);
+   const [page, setPage] = useState<number>(0);
+   const nextPage = () => {
+      if (page >= 1 && page < 7) setPage(page + 1);
+   };
+
+   const prevPage = () => {
+      if (page > 1) {
+         setPage(page - 1);
+      }
+   };
    return (
       <>
          <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative'>
@@ -40,8 +51,22 @@ export const RegistrationPage = () => {
             </div>
             <div>
                <div className='w-full h-full relative z-10'>
-                  {page === 1 || page <= 1 ? <PersonalInfoForm /> : null}
+                  {page === 0 || page <= 0 ? <ConsentForm setPage={setPage} /> : null}
+                  {page === 1 ? <PersonalInfoForm /> : null}
                </div>
+            </div>
+            <div className='flex justify-center pt-4'>
+               {page > 0 ? (
+                  <div className='flex items-center gap-y-4 bottom-5 z-10'>
+                     <button onClick={prevPage}>
+                        <img src={LeftArrow} className='w-6 lg:w-9' />
+                     </button>
+                     <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
+                     <button onClick={nextPage}>
+                        <img src={RightArrow} className='w-6 lg:w-9' />
+                     </button>
+                  </div>
+               ) : null}
             </div>
             <div className='absolute z-0 bottom-0 w-full'>
                <img src='/assets/regisPage/building.svg' className='w-full' />
