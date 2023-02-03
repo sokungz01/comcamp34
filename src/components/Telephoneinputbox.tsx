@@ -11,7 +11,7 @@ const TelInput = ({
    name: string;
    label?: string;
    placeholder?: string;
-   obj?: string;
+   obj?: string | number;
    setobj?: any;
    required?: boolean;
 }) => {
@@ -34,6 +34,7 @@ const TelInput = ({
       } else {
          setvalid(false);
       }
+      setobj(obj);
    };
 
    return (

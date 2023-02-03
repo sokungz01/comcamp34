@@ -12,7 +12,25 @@ import provinces_data from "@/components/registrationForm/DropdownData/provinces
 import shirtsize_data from "@/components/registrationForm/DropdownData/shirtsize_data.json";
 
 export const PersonalInfoForm = () => {
-   const [name,setName] = useState<string>("");
+   const [pname, setPname] = useState<string>("");
+   const [fname, setFname] = useState<string>("");
+   const [mname, setMname] = useState<string>("");
+   const [sname, setSname] = useState<string>("");
+   const [nickname, setNickname] = useState<string>("");
+   const [date, setDate] = useState<string>("");
+   const [month, setMonth] = useState<string>("");
+   const [birth_year, setBirthyear] = useState<string>("");
+   const [telephone, setTelephone] = useState<number>();
+   const [email, setEmail] = useState<string>("");
+   const [province, setProvince] = useState<string>("");
+   const [shirtsize, setShirtsize] = useState<string>("");
+   const [medicine, setMedicine] = useState<string>("");
+   const [allergic_medicine, setAllergic_medicine] = useState<string>("");
+   const [underlying, setUnderlying] = useState<string>("");
+   const [travelby, setTravelby] = useState<string>("");
+   const [allergic, setAllergic] = useState<string>("");
+   const [special, setSpecial] = useState({ label: "", value: "" });
+
    const provinces = provinces_data.map(item => ({
       label: item.name_th,
       value: item.name_en,
@@ -20,16 +38,23 @@ export const PersonalInfoForm = () => {
    return (
       <>
          <div className='flex justify-center mt-8'>
-            <div className='relative bg-red1 bg-opacity-10 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4'>
-               <div className="flex">
-                  <img src="/assets/regisPage/green_postit.svg" className="lg:w-16 lg:mt-8 mt-8 w-8"/>
-                  <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'> ข้อมูลผู้สมัคร </p>
+            <div className='bg-red1 bg-opacity-10 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4'>
+               <div className='flex'>
+                  <img
+                     src='/assets/regisPage/green_postit.svg'
+                     className='lg:w-16 lg:mt-8 mt-8 w-8'
+                  />
+                  <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>
+                     ข้อมูลผู้สมัคร
+                  </p>
                </div>
-               <div className='grid grid-cols-7 mt-16'>
-                  <div className='col-span-1 w-full xl:pr-6 lg:pr-2'>
+               <div className='grid lg:grid-cols-7 grid-cols-3 mt-8 lg:mt-16'>
+                  <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
                      <SelectInput
                         label='คำนำหน้าชื่อ'
                         name='pname'
+                        obj={pname}
+                        setObj={setPname}
                         options={[
                            { label: "นาย", value: "นาย" },
                            { label: "นาง", value: "นาง" },
@@ -38,52 +63,104 @@ export const PersonalInfoForm = () => {
                         required
                      />
                   </div>
-                  <div className='col-span-2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
-                     <Inputbox 
-                        label='ชื่อ' 
-                        name='fname' 
-                        placeholder='ธนาธร' 
-                        setObj={setName}
-                        obj={name}
-                        required />
+                  <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
+                     <Inputbox
+                        label='ชื่อ'
+                        name='fname'
+                        placeholder='ธนาธร'
+                        setObj={setFname}
+                        obj={fname}
+                        required
+                     />
                   </div>
-                  <div className='col-span-2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
-                     <Inputbox label='ชื่อกลาง (ถ้ามี)' name='mname' placeholder='' required />
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <Inputbox
+                        label='ชื่อกลาง (ถ้ามี)'
+                        name='mname'
+                        placeholder=''
+                        required
+                        obj={mname}
+                        setObj={setMname}
+                     />
                   </div>
-                  <div className='col-span-2 w-full xl:pl-6 lg:pl-2'>
-                     <Inputbox label='นามสกุล' name='sname' placeholder='' required />
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
+                     <Inputbox
+                        label='นามสกุล'
+                        name='sname'
+                        placeholder=''
+                        required
+                        obj={sname}
+                        setObj={setSname}
+                     />
                   </div>
                </div>
-               <div className='grid grid-cols-7 mt-6'>
-                  <div className='col-span-1 w-full xl:pr-6 lg:pr-2'>
-                     <Inputbox label='ชื่อเล่น' name='nickname' placeholder='' required />
+               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6'>
+                  <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-6 lg:pr-2'>
+                     <Inputbox
+                        label='ชื่อเล่น'
+                        name='nickname'
+                        placeholder=''
+                        required
+                        obj={nickname}
+                        setObj={setNickname}
+                     />
                   </div>
-                  <div className='col-span-2 xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
                      <div className='flex flex-row'>
-                        <div className='w-full pr-3'>
-                           <SelectInput label='วัน' name='date' options={date_data} required />
+                        <div className='w-full lg:pr-2 pr-2'>
+                           <SelectInput
+                              label='วัน'
+                              name='date'
+                              options={date_data}
+                              required
+                              obj={date}
+                              setObj={setDate}
+                           />
                         </div>
-                        <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
-                           <SelectInput label='เดือน' name='month' options={month_data} required />
+                        <div className='w-full lg:pr-2 lg:pl-2 pr-1 pl-1'>
+                           <SelectInput
+                              label='เดือน'
+                              name='month'
+                              options={month_data}
+                              required
+                              obj={month}
+                              setObj={setMonth}
+                           />
                         </div>
-                        <div className='w-full xl:pl-6 lg:pl-2'>
+                        <div className='w-full  lg:pl-2 pr-1 pl-1'>
                            <SelectInput
                               label='ปีเกิด'
                               name='birth_year'
                               options={year_data}
+                              obj={birth_year}
+                              setObj={setBirthyear}
                               required
                            />
                         </div>
                      </div>
                   </div>
-                  <div className='col-span-2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
-                     <TelInput label='เบอร์โทรศัพท์' name='mobile' placeholder='' required />
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <TelInput
+                        label='เบอร์โทรศัพท์'
+                        name='mobile'
+                        placeholder=''
+                        required
+                        obj={telephone}
+                        setobj={setTelephone}
+                     />
                   </div>
-                  <div className='col-span-2 w-full xl:pl-6 lg:pl-2'>
-                     <EmailInput label='Email' name='email' placeholder='' required />
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
+                     <EmailInput
+                        label='Email'
+                        name='email'
+                        placeholder=''
+                        required
+                        obj={email}
+                        setObj={setEmail}
+                     />
                   </div>
                </div>
-               <div className='grid grid-cols-7 mt-16'>
+               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-16 mt-2'>
                   <div className='col-span-3'>
                      <div className='flex flex-row'>
                         <div className='w-1/2 mr-4'>
@@ -92,61 +169,90 @@ export const PersonalInfoForm = () => {
                               name='province'
                               options={provinces}
                               required
+                              obj={province}
+                              setObj={setProvince}
                            />
                         </div>
-                        <div className='w-1/3 ml-4'>
+                        <div className='w-1/2 lg:w-1/3 ml-4'>
                            <SelectInput
                               label='ขนาดเสื้อ'
                               name='shirt_size'
                               options={shirtsize_data}
                               required
+                              obj={shirtsize}
+                              setObj={setShirtsize}
                            />
                         </div>
                      </div>
                   </div>
-                  <div className='col-span-4 flex flex-row'>
+                  <div className='lg:col-span-4 col-span-3 flex lg:flex-row flex-col mt-2 lg:mt-0'>
                      <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
-                        <Inputbox label='ยาประจำตัว' name='medicine' placeholder='' required />
+                        <Inputbox
+                           label='ยาประจำตัว'
+                           name='medicine'
+                           placeholder=''
+                           required
+                           obj={medicine}
+                           setObj={setMedicine}
+                        />
                      </div>
-                     <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 mt-2 lg:mt-0'>
                         <Inputbox
                            label='ยาที่แพ้'
                            name='allergic_medicine'
                            placeholder=''
                            required
+                           obj={allergic_medicine}
+                           setObj={setAllergic_medicine}
                         />
                      </div>
-                     <div className='w-full xl:pl-6 lg:pl-2'>
-                        <Inputbox label='โรคประจำตัว' name='underlying' placeholder='' required />
+                     <div className='w-full xl:pl-6 lg:pl-2 mt-2 lg:mt-0'>
+                        <Inputbox
+                           label='โรคประจำตัว'
+                           name='underlying'
+                           placeholder=''
+                           required
+                           obj={underlying}
+                           setObj={setUnderlying}
+                        />
                      </div>
                   </div>
                </div>
-               <div className='grid grid-cols-7 mt-6'>
+               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6 mt-2'>
                   <div className='col-span-3'>
                      <div className='flex flex-row'>
-                        <div className='w-1/2 mr-4'>
+                        <div className='lg:w-1/2 w-full lg:placeholder:mr-4'>
                            <Inputbox
                               label='วิธีการเดินทางมหาวิทยาลัย'
                               name='travelby'
                               placeholder=''
                               required
+                              obj={travelby}
+                              setObj={setTravelby}
                            />
                         </div>
                      </div>
                   </div>
-                  <div className='col-span-4 flex flex-row'>
-                     <div className='w-1/2 xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
-                        <Inputbox label='อาหารที่แพ้' name='allergic' placeholder='' required />
+                  <div className='lg:col-span-4 col-span-3 flex lg:flex-row flex-col'>
+                     <div className='lg:w-1/2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                        <Inputbox
+                           label='อาหารที่แพ้'
+                           name='allergic'
+                           placeholder=''
+                           required
+                           obj={allergic}
+                           setObj={setAllergic}
+                        />
                      </div>
-                     <div className='w-1/2 xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <div className='lg:w-1/2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
                         <DropdownSearch
                            label='อาหารที่ต้องการเป็นพิเศษ'
                            name='special'
-                           obj={{ label: "", value: "" }}
-                           setObj={""}
+                           obj={special}
+                           setObj={setSpecial}
                            data={[
-                           { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
-                           { label: "อาหารเจ", value: "อาหารเจ" },
+                              { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
+                              { label: "อาหารเจ", value: "อาหารเจ" },
                            ]}
                            placeholder=''
                            required
@@ -154,12 +260,14 @@ export const PersonalInfoForm = () => {
                      </div>
                   </div>
                </div>
-               <div className="flex flex-row my-8">             
-                  <p className='text-xl font-semibold mr-2'> น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่ </p>
-                  <div className="mt-1">
+               <div className='flex flex-row my-8'>
+                  <p className='lg:text-xl text-xs font-semibold mr-2'>
+                     น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่
+                  </p>
+                  <div className='lg:mt-1 -mt-1'>
                      <CheckboxInput name='notebook' label=' ' />
                   </div>
-                  <p className='text-xl font-semibold ml-2'> (สะดวก) </p>
+                  <p className='lg:text-xl text-xs  font-semibold ml-2'> (สะดวก) </p>
                </div>
             </div>
          </div>

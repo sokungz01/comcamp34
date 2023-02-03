@@ -1,58 +1,5 @@
 import React from 'react'
 import Creatable from 'react-select/creatable';
-
-const customStyles = {
-    container: (base:any, state:any) => ({
-      ...base,
-      className: 'mt-2 block form-select appearance-none bg-white w-full text-xs border shadow-lg py-1 pl-2.5 px-6 -mt-1.5 rounded-lg text-base-black',
-      '&:focus': {
-        borderColor: 'blue'
-      },
-      '&.invalid': {
-        borderColor: 'red1',
-        '&:focus': {
-          borderColor: 'red1'
-        }
-      }
-    }),
-    control: (base:any, state:any) => ({
-      ...base,
-      '&:hover': {
-        borderColor: state.isFocused ? 'blue' : '#d2d6dc'
-      },
-      '&.invalid': {
-        borderColor: 'red1',
-        '&:hover': {
-          borderColor: 'red1'
-        }
-      }
-    }),
-    input: (base:any, state:any) => ({
-      ...base,
-      '&.invalid': {
-        color: 'red1'
-      }
-    }),
-    singleValue: (base:any, state:any) => ({
-      ...base,
-      color: '#333',
-      '&.invalid': {
-        color: 'red1'
-      }
-    }),
-    placeholder: (base:any, state:any) => ({
-      ...base,
-      color: '#555',
-      '&.invalid': {
-        color: 'red1'
-      }
-    }),
-    indicatorSeparator: (base:any) => ({
-      ...base,
-      display: 'none'
-    })
-  };
-
 const DropdownSearch = ({
     label,
     name,
@@ -90,7 +37,6 @@ const DropdownSearch = ({
             options={data} 
             onChange={handleChange} 
             value={obj} 
-            styles={customStyles}
         />
         </div>
     );

@@ -39,11 +39,11 @@ export const RegistrationPage = () => {
                </p>
             </div>
             <div>
-               <div className='absolute z-10 w-full'>
+               <div className='w-full h-full relative z-10'>
                   {page === 1 || page <= 1 ? <PersonalInfoForm /> : null}
                </div>
             </div>
-            <div className='absolute bottom-0 w-full'>
+            <div className='absolute z-0 bottom-0 w-full'>
                <img src='/assets/regisPage/building.svg' className='w-full' />
             </div>
          </div>
