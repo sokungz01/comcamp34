@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
 import { PersonalInfoForm } from "@/components/registrationForm/PersonalInfoForm";
+import UploadFilesForm from "@/components/registrationForm/UploadFilesForm";
 export const RegistrationPage = () => {
    const [page, setPage] = useState<number>(1);
    return (
@@ -40,7 +41,7 @@ export const RegistrationPage = () => {
             </div>
             <div>
                <div className='w-full h-full relative z-10'>
-                  {page === 1 || page <= 1 ? <PersonalInfoForm /> : null}
+                  {page === 1 || page <= 1 ? <UploadFilesForm /> : null}
                </div>
             </div>
             <div className='absolute z-0 bottom-0 w-full'>
