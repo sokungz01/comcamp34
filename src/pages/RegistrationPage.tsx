@@ -4,6 +4,7 @@ import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
 import { PersonalInfoForm } from "@/components/registrationForm/PersonalInfoForm";
+import UploadFilesForm from "@/components/registrationForm/UploadFilesForm";
 export const RegistrationPage = () => {
    const [page, setPage] = useState<number>(0);
    const nextPage = () => {
