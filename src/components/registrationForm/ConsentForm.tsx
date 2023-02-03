@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ConsentForm = () => {
+export const ConsentForm = ({ setPage }: { setPage: any }) => {
    const [acceptPolicy, setAcceptPolicy] = useState<boolean>(false);
    return (
       <div className='relative h-full font-bai-jamjuree flex justify-center items-center'>
@@ -100,7 +100,7 @@ export const ConsentForm = () => {
                   <input
                      name='policy'
                      type='checkbox'
-                     className='form-check-input appearance-none rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
+                     className='form-check-input appearance-none rounded-md h-5 w-5 cursor-pointer border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                      onClick={
                         acceptPolicy === true
                            ? () => setAcceptPolicy(false)
@@ -115,6 +115,7 @@ export const ConsentForm = () => {
 
             <button
                className='mt-4 py-2 text-lg text-white disabled:text-white/50 bg-red1 hover:bg-red2 disabled:bg-red3 rounded-lg '
+               onClick={() => setPage(1)}
                disabled={acceptPolicy === false}
             >
                ยอมรับ

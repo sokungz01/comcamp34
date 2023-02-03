@@ -4,19 +4,21 @@ const DropdownSearch = ({
     label,
     name,
     data,
-    obj,
+    defaultValue,
     setObj,
     placeholder,
-    required
+    required,
+    className
 
 }: {
     label?: string;
     name: string;
     data: { label: string; value: string; }[];
-    obj: { label: string; value: string; };
-    setObj: any;
+    defaultValue?: { label: string; value: string; }; //default value
+    setObj: any; 
     placeholder?: string;
     required?: boolean;
+    className?: string;
 
 
 }) => {
@@ -33,10 +35,11 @@ const DropdownSearch = ({
           {required ? <p className="text-orange text-xl">*</p> : <p></p>}
         </div>
         <Creatable
+            className={className}
             placeholder={placeholder ? placeholder : "Select..."} 
             options={data} 
             onChange={handleChange} 
-            value={obj} 
+            defaultValue={defaultValue ? defaultValue : ""} 
         />
         </div>
     );

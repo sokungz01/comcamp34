@@ -246,15 +246,15 @@ export const PersonalInfoForm = () => {
                      </div>
                      <div className='lg:w-1/2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
                         <DropdownSearch
+                           className=''
                            label='อาหารที่ต้องการเป็นพิเศษ'
                            name='special'
-                           obj={special}
                            setObj={setSpecial}
                            data={[
                               { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
                               { label: "อาหารเจ", value: "อาหารเจ" },
                            ]}
-                           placeholder=''
+                           placeholder='เลือก'
                            required
                         />
                      </div>
