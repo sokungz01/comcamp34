@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Inputbox = ({
   label,
+  row,
   name,
   obj,
   setObj,
@@ -9,6 +10,7 @@ const Inputbox = ({
   required,
 }: {
   label?: string;
+  row?: number;
   name: string;
   obj?: string;
   setObj?: any;
@@ -33,8 +35,8 @@ const Inputbox = ({
           {label ? <p> {label} </p> : <></>}
           {required ? <p className="text-red-900">*</p> : <p></p>}
         </div>
-        <textarea className="form-controlblock px-8 py-8 mx-7 mt-12 mb-16 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0
-         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name={name} rows={4} placeholder={placeholder}></textarea>
+        <textarea className="lg:px-8 lg:py-8 px-3 py-2 lg:mx-7 mx-1 lg:mt-12 mt-6 lg:mb-16 mb-7 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0
+         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name={name} rows={row} placeholder={placeholder}></textarea>
         {valid ? (
           <p className="text-red-900">Please enter valid form</p>
         ) : (
