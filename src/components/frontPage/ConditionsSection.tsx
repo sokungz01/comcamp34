@@ -2,8 +2,9 @@ const ConditionsSection = () => {
    return (
       <div className='w-full text-center bg-contain bg-base-white lg:bg-[url("/assets/frontPage/bgConditionsSection.png")] bg-[url("/assets/frontPage/bgformobile.png")]'>
          <p
-            className='text-red2 drop-shadow-lg lg:text-9xl text-6xl md:text-8xl font-semibold mt-8 ml-2 font-teko tracking-wider '
-            data-aos='fade-down' >
+            className='text-red2 drop-shadow-lg lg:text-9xl text-6xl md:text-8xl font-semibold mt-8  font-teko tracking-wider '
+            data-aos='fade-down'
+         >
             Conditions
          </p>
          <div className='max-w-7xl m-auto my-32 grid lg:grid-cols-4 grid-cols-1 gap-1 font-bai-jamjuree text-center '>
@@ -31,7 +32,7 @@ const ConditionsSection = () => {
                   โดยไม่จำเป็นต้องมีพื้นฐาน
                </p>
             </div>
-            <div className=' mx-auto relative' data-aos='fade-down' data-aos-delay='500'>
+            <div className='mx-auto relative' data-aos='fade-down' data-aos-delay='500'>
                <img src='assets/frontPage/card3.png' />
                <p className='absolute bottom-[15%] mx-5 inset-x-0'>
                   สามารถเข้าพักในระยะเวลา
