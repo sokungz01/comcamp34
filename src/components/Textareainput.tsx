@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Inputbox = ({
   label,
+  row,
   name,
   obj,
   setObj,
@@ -9,10 +10,11 @@ const Inputbox = ({
   required,
 }: {
   label?: string;
+  row?: number;
   name: string;
   obj?: string;
   setObj?: any;
-  placeholder: string;
+  placeholder?: string;
   required?: boolean;
 }) => {
   const [valid, setValid] = useState<boolean>(false);
@@ -30,22 +32,13 @@ const Inputbox = ({
     <>
       <div className="flex flex-col">
         <div className="flex">
-          <p className="text-gray-700 xl:text-xl lg:text-lg md:text-xs sm:text-xs"> 
-            { label ? label : name } 
-          </p>
-          {required ? <p className="text-orange text-xl">*</p> : <p></p>}
+          {label ? <p> {label} </p> : <></>}
+          {required ? <p className="text-red-900">*</p> : <p></p>}
         </div>
-        <input
-          type="text"
-          className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1"
-          placeholder={placeholder}
-          name={name}
-          value={obj}
-          onChange={handleChange}
-          required={required}
-        />
+        <textarea className="lg:px-8 lg:py-8 px-3 py-2 lg:mx-7 mx-1 lg:mt-12 mt-6 lg:mb-16 mb-7 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0
+         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name={name} rows={row} placeholder={placeholder}></textarea>
         {valid ? (
-          <p className="text-orange text-xs">Please enter valid form</p>
+          <p className="text-red-900">Please enter valid form</p>
         ) : (
           <label></label>
         )}

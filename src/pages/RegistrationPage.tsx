@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LeftArrow from "/assets/svg/LeftArrow.svg";
+import RightArrow from "/assets/svg/RightArrow.svg";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
-import { EducationForm } from "@/components/registrationForm/EducationForm";
 import { PersonalInfoForm } from "@/components/registrationForm/PersonalInfoForm";
-import { InterestForm } from "@/components/registrationForm/InterestForm";
+import UploadFilesForm from "@/components/registrationForm/UploadFilesForm";
 export const RegistrationPage = () => {
-   const [page, setPage] = useState<number>(1);
+   const [page, setPage] = useState<number>(0);
+   const nextPage = () => {
+      if (page >= 1 && page < 7) setPage(page + 1);
+   };
+
+   const prevPage = () => {
+      if (page > 1) {
+         setPage(page - 1);
+      }
+   };
    return (
       <>
          <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative'>
@@ -37,17 +47,29 @@ export const RegistrationPage = () => {
             </div>
             <div className='flex justify-center'>
                <p className='xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-teko tracking-widest text-red2 font-semibold mt-3 mb-3'>
-                  {page === 1 || page <= 1 ? null : "Registration"}
+                  {page === 1 || page <= 1 ? "Registration" : "Registration"}
                </p>
             </div>
             <div>
-               <div className='absolute z-10 w-full'>
-                  {/* {page === 1 || page <= 1 ? <ConsentForm /> : null} */}
-                  {/* {page === 1 || page <= 1 ? <EducationForm /> : null} */}
-                  {page === 1 || page <= 1 ? <InterestForm /> : null}
+               <div className='w-full h-full relative z-10'>
+                  {page === 0 || page <= 0 ? <ConsentForm setPage={setPage} /> : null}
+                  {page === 1 ? <PersonalInfoForm /> : null}
                </div>
             </div>
-            <div className='absolute bottom-0 sw-full'>
+            <div className='flex justify-center pt-4'>
+               {page > 0 ? (
+                  <div className='flex items-center gap-y-4 bottom-5 z-10'>
+                     <button onClick={prevPage}>
+                        <img src={LeftArrow} className='w-6 lg:w-9' />
+                     </button>
+                     <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
+                     <button onClick={nextPage}>
+                        <img src={RightArrow} className='w-6 lg:w-9' />
+                     </button>
+                  </div>
+               ) : null}
+            </div>
+            <div className='absolute z-0 bottom-0 w-full'>
                <img src='/assets/regisPage/building.svg' className='w-full' />
             </div>
          </div>
