@@ -37,7 +37,7 @@ const Inputbox = ({
         </div>
         <input
           type="text"
-          className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1"
+          className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1"
           placeholder={placeholder}
           name={name}
           value={obj}
