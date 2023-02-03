@@ -11,7 +11,7 @@ const TelInput = ({
    name: string;
    label?: string;
    placeholder?: string;
-   obj?: string;
+   obj?: string | number;
    setobj?: any;
    required?: boolean;
 }) => {
@@ -34,12 +34,13 @@ const TelInput = ({
       } else {
          setvalid(false);
       }
+      setobj(obj);
    };
 
    return (
       <>
          <div className='flex'>
-            <p className='text-gray-700 xl:text-xl lg:text-xl md:text-xs sm:text-xs'>
+            <p className='text-gray-700 xl:text-xl lg:text-lg md:text-xs sm:text-xs'>
                {label ? label : name}
             </p>
             {required ? <p className='text-orange'>*</p> : <p></p>}
