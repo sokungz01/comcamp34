@@ -1,16 +1,17 @@
-import {BrowserRouter , Routes , Route} from 'react-router-dom';
-import { FrontPage } from '@/pages/FrontPage';
-import { RegistrationPage } from '@/pages/RegistrationPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { FrontPage } from "@/pages/FrontPage";
+import { RegistrationPage } from "@/pages/RegistrationPage";
+import { FAQPage } from "@/pages/FAQPage";
 function App() {
-
-  return (
-    <BrowserRouter basename="/">
-        <Routes>
-            <Route path="/" element={<FrontPage />} />
-            <Route path="/registration" element={<RegistrationPage />} />
-        </Routes>
-    </BrowserRouter>
-  );
+   return (
+      <BrowserRouter basename='/'>
+         <Routes>
+            <Route path='/' element={<FrontPage />} />
+            <Route path='/registration' element={<RegistrationPage />} />
+            <Route path='/faq' element={<FAQPage />} />
+         </Routes>
+      </BrowserRouter>
+   );
 }
 
 export default App;
