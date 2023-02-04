@@ -6,6 +6,7 @@ import React,{useEffect} from "react";
 import Navbar from '@/components/registrationForm/Navbar';
 import LandingSection from '@/components/frontPage/LandingSection';
 import FAQSection from '@/components/homePage/FAQSection';
+import ContactSection from '@/components/homePage/ContactSection';
 export const FrontPage = () => {
     useEffect(() => {
         AOS.init();
@@ -17,6 +18,7 @@ export const FrontPage = () => {
                 <LandingSection/>
                 <ConditionsSection/> 
                 <FAQSection/>
+                <ContactSection/>
             </div>
         </>
     );
