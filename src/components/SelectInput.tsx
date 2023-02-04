@@ -41,7 +41,7 @@ const SelectInput = ({
                      <option value={e.value}>{e.label}</option>
                   ))}
                </select>
-               <span className='absolute pointer-events-none w-[30px] h-full lg:-top-1 -top-3 right-0 flex align-center justify-center text-red1 font-bold text-3xl'>
+               <span className='absolute pointer-events-none w-[30px] h-full lg:-top-1  -top-4 right-0 flex align-center justify-center text-red1 font-bold lg:text-3xl text-xl'>
                ⌄
                </span>
             </div>
