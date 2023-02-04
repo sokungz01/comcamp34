@@ -1,7 +1,7 @@
 import Inputbox from "@/components/Inputbox";
 import SelectInput from "@/components/SelectInput";
 import CheckboxInput from "@/components/Checkboxinput";
-import Textareainput from "@/components/Textareainput.tsx";
+import Textareainput from "@/components/Textareainput";
 import course_name from "@/components/registrationForm/DropdownData/course_name.json";
 
 export const InterestForm = () => {
