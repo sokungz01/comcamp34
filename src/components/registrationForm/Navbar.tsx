@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
     const [hamburger, setHamburger] = useState(false);
     return (
         <nav className={`flex items-center flex-wrap bg-base-white p-3 font-teko tracking-wider drop-shadow-xl ${hamburger ? "justify-between" : "justify-end"}`}>
-            <div className={`flex items-center flex-shrink-0 text-base-black mr-6 ${mobile() && !hamburger ? "hidden" : ""}`}>
+            <div className={`flex items-center flex-shrink-0 text-base-black mr-[60px] ${mobile() && !hamburger ? "hidden" : ""}`}>
                 <img className="lg:w-16 w-14" src={logo} />
             </div>
             <div className="block lg:hidden">
@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
                     </a>
                 </div>
                 <div>
-                    <a href="#" className="inline-block lg:text-xl lg:font-normal px-8 py-1 leading-none text-red2 hover:bg-red2 lg:border-2 lg:border-red2 hover:border-transparent hover:text-base-white bg-base-white mt-4 lg:mt-0 rounded-xl">Register</a>
+                    <a href="#" className={`inline-block lg:text-xl lg:font-normal px-8 py-1 leading-none text-red2 hover:bg-red2 lg:border-2 lg:border-red2 hover:border-transparent hover:text-base-white bg-base-white mt-4 lg:mt-0 rounded-xl `}>Register</a>
                 </div>
             </div>
         </nav>
