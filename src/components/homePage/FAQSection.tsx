@@ -18,7 +18,7 @@ const FAQSection=()=>{
                 <p className="font-semibold text-6xl tracking-wider drop-shadow-lg text-red1">FAQ??</p>
                 <p className="font-normal text-xl">คำถามที่พบบ่อย</p>
             </div>
-            <div className="lg:block hidden" data-aos="fade-right">
+            <div className="lg:block hidden" data-aos="fade-left">
                 <img src="assets/frontPage/FAQimage1.png"/>
             </div>
             <div className="col-span-2 relative lg:block hidden" data-aos="fade-down">
@@ -55,10 +55,10 @@ const FAQSection=()=>{
                 </Link>
                 
             </div>
-            <div className="col-span-1 relative hidden lg:block" data-aos="fade-left">
+            <div className="col-span-1 relative hidden lg:block" data-aos="fade-right">
                 <img src='assets/frontPage/FAQimage2.png' className="bottom-0 absolute"/>
             </div>
-            <div className="col-span-1 relative lg lg:hidden">
+            <div className="col-span-1 relative block lg:hidden">
                 <img src='assets/frontPage/FAQimage2.png' className="bottom-0 absolute"/>
             </div>
          </div>
