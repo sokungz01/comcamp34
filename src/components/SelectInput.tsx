@@ -33,7 +33,7 @@ const SelectInput = ({
             <div className='flex relative'>
                <select
                   name={name}
-                  className='block form-select appearance-none bg-white w-full xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 px-6 rounded-lg text-base-black invalid:ring-red1'
+                  className='block form-select appearance-none bg-white w-full xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 px-6  -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1'
                   onChange={handleOnChange}
                   value={obj}
                >

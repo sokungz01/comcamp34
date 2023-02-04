@@ -11,11 +11,11 @@ const TelInput = ({
    name: string;
    label?: string;
    placeholder?: string;
-   obj?: string | number;
+   obj?: string;
    setobj?: any;
    required?: boolean;
 }) => {
-   const [valid, setvalid] = useState(true);
+   const [valid, setvalid] = useState<boolean>(true);
    function isNumber(str: any) {
       if (str.trim() === "") {
          return false;
@@ -27,16 +27,11 @@ const TelInput = ({
       return !isNaN(str);
    }
 
-   const handleChange = (event: any) => {
+   const handleChange = (event : any) => {
       const phoneNumber = event.target.value;
-      if (phoneNumber.length === 10 && isNumber(phoneNumber) && phoneNumber[0] === "0") {
-         setvalid(true);
-      } else {
-         setvalid(false);
-      }
-      setobj(obj);
-   };
-
+      setvalid(phoneNumber.length == 10 && isNumber(phoneNumber));
+      setobj(phoneNumber);
+   }
    return (
       <>
          <div className='flex'>
@@ -48,7 +43,7 @@ const TelInput = ({
          <input
             type='tel'
             name={name}
-            className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1"
+            className='w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1'
             placeholder={placeholder}
             maxLength={10}
             minLength={10}

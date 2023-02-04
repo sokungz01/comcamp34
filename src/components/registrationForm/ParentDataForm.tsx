@@ -12,21 +12,18 @@ export const ParentDataForm = () => {
    const [parent_mname, setparent_mname] = useState<string>("");
    const [parent_sname, setparent_sname] = useState<string>("");
    const [parent_relation, setparent_relation] = useState<string>("");
-   const [parent_mobile, setparent_mobile] = useState<number>();
-   const [parent_email, setparent_email] = useState();
-
+   const [parent_mobile, setparent_mobile] = useState<string>("");
+   const [parent_email, setparent_email] = useState<string>("");
    const [emergency_fname, setemergency_fname] = useState<string>("");
    const [emergency_pname, setemergency_pname] = useState();
    const [emergency_mname, setemergency_mname] = useState<string>("");
    const [emergency_sname, setemergency_sname] = useState<string>("");
    const [emergency_relation, setemergency_relation] = useState<string>("");
-   const [emergency_mobile, setemergency_mobile] = useState<number>();
-   const [emergency_email, setemergency_email] = useState();
+   const [emergency_mobile, setemergency_mobile] = useState<string>("");
+   const [emergency_email, setemergency_email] = useState<string>("");
 
    useEffect(() => {
       if (sameParent) {
-         console.log(parent_mobile);
-
          setemergency_fname(parent_fname);
          setemergency_pname(parent_pname);
          setemergency_mname(parent_mname);
@@ -37,8 +34,8 @@ export const ParentDataForm = () => {
       }
    });
    return (
-      <>
-         <div className='bg-red1 bg-opacity-10 w-full rounded-xl flex flex-col font-bai-jamjuree px-16 py-4 mx-8'>
+      <div className="flex justify-center">
+         <div className='bg-red1 bg-opacity-10 w-11/12 rounded-xl flexflex-col font-bai-jamjuree px-16 py-4'>
             <h4 className='text-4xl text-red2 font-semibold mb-2'> ข้อมูลผู้ปกครอง </h4>
             <div className='flex mt-4 '>
                <div className='w-1/6 mr-2'>
@@ -122,11 +119,8 @@ export const ParentDataForm = () => {
                </div>
             </div>
 
-            <br></br>
-
-            <h4 className='text-4xl text-red2 font-semibold mb-2'>
-               {" "}
-               ผู้ปกครองที่ติดต่อได้ในกรณีฉุกเฉิน{" "}
+            <h4 className='text-4xl text-red2 font-semibold mb-2 mt-2'>
+               ผู้ปกครองที่ติดต่อได้ในกรณีฉุกเฉิน
             </h4>
             <div className='flex mt-4'>
                <p className='mr-2'> เหมือนกับผู้ปกครอง </p>
@@ -221,6 +215,6 @@ export const ParentDataForm = () => {
                </div>
             </div>
          </div>
-      </>
+      </div>
    );
 };
