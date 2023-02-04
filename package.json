@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/aos": "^3.0.4",
     "aos": "^2.3.4",
+    "is-mobile": "^3.1.1",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

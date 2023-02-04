@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import mobile from 'is-mobile'
 import logo from '../../assets/nav-logo.png'
 
 const Navbar: React.FC = () => {
@@ -6,7 +7,7 @@ const Navbar: React.FC = () => {
     const [hamburger, setHamburger] = useState(false);
     return (
         <nav className={`flex items-center flex-wrap bg-base-white p-3 font-teko tracking-wider drop-shadow-xl ${hamburger ? "justify-between" : "justify-end"}`}>
-            <div className={`flex items-center flex-shrink-0 text-base-black mr-6 ${hamburger ? "" : "hidden"}`}>
+            <div className={`flex items-center flex-shrink-0 text-base-black mr-6 ${mobile() && !hamburger ? "hidden" : ""}`}>
                 <img className="lg:w-16 w-14" src={logo} />
             </div>
             <div className="block lg:hidden">
