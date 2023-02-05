@@ -56,7 +56,7 @@ const UploadFilesForm = () => {
                      />
                   </div>
                </div>
-               <img className="hidden xl:block xl:absolute z-20 xl:-right-32 2xl:-right-24 bottom-0 h-3/4" src="assets/regisPage/uploadFormBG.png"/>
+               <img className="hidden xl:block xl:absolute z-20 xl:-right-32 2xl:-right-24 bottom-0 h-3/4" src="/assets/regisPage/uploadFormBG.png"/>
             </div>
          </div>
       </div>
