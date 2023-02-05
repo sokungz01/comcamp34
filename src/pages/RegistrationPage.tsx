@@ -5,7 +5,35 @@ import RightArrow from "/assets/svg/RightArrow.svg";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
 import { PersonalInfoForm } from "@/components/registrationForm/PersonalInfoForm";
 import UploadFilesForm from "@/components/registrationForm/UploadFilesForm";
+import { EducationForm } from "@/components/registrationForm/EducationForm";
+import { InterestForm } from "@/components/registrationForm/InterestForm";
+import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
+import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
+import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
+import Swal from "sweetalert2";
 export const RegistrationPage = () => {
+   const ConfirmationPopup = () => {
+      Swal.fire({
+         html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
+         icon: "warning",
+         iconColor: "#000",
+         background: "#FDFDFD",
+         showConfirmButton: true,
+         showCancelButton: true,
+         confirmButtonColor: "#B12E45",
+         confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
+         cancelButtonColor: "#eee",
+         cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
+         customClass: {
+            actions: "flex flex-row w-full justify-center ",
+            confirmButton: "mr-2 sm:mr-8",
+            cancelButton: "ml-2 sm:ml-8",
+         },
+         backdrop: `
+         rgba(0,0,0,0.6)
+         `,
+      });
+   };
    const [page, setPage] = useState<number>(0);
    const nextPage = () => {
       if (page >= 1 && page < 7) setPage(page + 1);
@@ -54,21 +82,42 @@ export const RegistrationPage = () => {
                <div className='w-full h-full relative z-10'>
                   {page === 0 || page <= 0 ? <ConsentForm setPage={setPage} /> : null}
                   {page === 1 ? <PersonalInfoForm /> : null}
+                  {page === 2 ? <EducationForm /> : null}
+                  {page === 3 ? <InterestForm /> : null}
+                  {page === 4 ? <ParentDataForm /> : null}
+                  {page === 5 ? <UploadFilesForm /> : null}
+                  {page === 6 ? <QuestionFormpage1 /> : null}
+                  {page === 7 ? <QuestionFormpage2 /> : null}
                </div>
             </div>
-            <div className='flex justify-center pt-4'>
-               {page > 0 ? (
-                  <div className='flex items-center gap-y-4 bottom-5 z-10'>
-                     <button onClick={prevPage}>
-                        <img src={LeftArrow} className='w-6 lg:w-9' />
-                     </button>
-                     <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
-                     <button onClick={nextPage}>
-                        <img src={RightArrow} className='w-6 lg:w-9' />
+            <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
+               {page === 7 ? (
+                  <div className='flex flex-row justify-center mb-8'>
+                     <button
+                        onClick={ConfirmationPopup}
+                        className='text-2xl lg:text-3xl text-white font-teko bg-red2 lg:px-12 lg:py-1.5 px-8 py-1 rounded-lg '
+                     >
+                        Submit
                      </button>
                   </div>
                ) : null}
+               {page > 0 ? (
+                  <div className='flex flex-row justify-center items-center gap-y-4 bottom-5 z-10'>
+                     {page === 1 ? null : (
+                        <button onClick={prevPage}>
+                           <img src={LeftArrow} className='w-6 lg:w-9' />
+                        </button>
+                     )}
+                     <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
+                     {page === 7 ? null : (
+                        <button onClick={nextPage}>
+                           <img src={RightArrow} className='w-6 lg:w-9' />
+                        </button>
+                     )}
+                  </div>
+               ) : null}
             </div>
+
             <div className='absolute z-0 bottom-0 w-full'>
                <img src='/assets/regisPage/building.svg' className='w-full' />
             </div>

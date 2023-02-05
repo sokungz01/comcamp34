@@ -20,7 +20,7 @@ export const PersonalInfoForm = () => {
    const [date, setDate] = useState<string>("");
    const [month, setMonth] = useState<string>("");
    const [birth_year, setBirthyear] = useState<string>("");
-   const [telephone, setTelephone] = useState<number>();
+   const [telephone, setTelephone] = useState<string>("");
    const [email, setEmail] = useState<string>("");
    const [province, setProvince] = useState<string>("");
    const [shirtsize, setShirtsize] = useState<string>("");
@@ -42,13 +42,13 @@ export const PersonalInfoForm = () => {
                <div className='flex'>
                   <img
                      src='/assets/regisPage/green_postit.svg'
-                     className='lg:w-16 lg:mt-8 mt-8 w-8'
+                     className='lg:w-16 lg:mt-8 mt-2 w-8'
                   />
-                  <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>
+                  <p className='text-red2 lg:text-5xl text-2xl font-semibold lg:mt-8 mt-2 ml-2'>
                      ข้อมูลผู้สมัคร
                   </p>
                </div>
-               <div className='grid lg:grid-cols-7 grid-cols-3 mt-8 lg:mt-16'>
+               <div className='grid lg:grid-cols-7 grid-cols-3  mt-2 lg:mt-8'>
                   <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
                      <SelectInput
                         label='คำนำหน้าชื่อ'

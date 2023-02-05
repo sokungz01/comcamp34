@@ -37,12 +37,12 @@ export const ParentDataForm = () => {
       <div className='flex mt-8 justify-center'>
          <div className='bg-red1 bg-opacity-10 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 pb-12'>
             <div className='flex'>
-               <img src='/assets/regisPage/green_postit.svg' className='lg:w-16 lg:mt-8 mt-8 w-8' />
-               <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>
+               <img src='/assets/regisPage/green_postit.svg' className='lg:w-16 lg:mt-8 mt-2 w-8' />
+               <p className='text-red2 lg:text-5xl text-2xl font-semibold lg:mt-8 mt-2 ml-2'>
                   ข้อมูลติดต่อผู้ปกครอง
                </p>
             </div>
-            <div className='grid lg:grid-cols-7 grid-cols-3 mt-8 lg:mt-7'>
+            <div className='grid lg:grid-cols-7 grid-cols-3 mt-2 lg:mt-8'>
                <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
                   <SelectInput
                      label='คำนำหน้าชื่อ'
@@ -120,8 +120,8 @@ export const ParentDataForm = () => {
                </div>
             </div>
             <div className='flex'>
-               <img src='/assets/regisPage/red_postit.svg' className='lg:w-16 lg:mt-8 mt-8 w-8' />
-               <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>
+               <img src='/assets/regisPage/red_postit.svg' className='lg:w-16 lg:mt-8 mt-2 w-8' />
+               <p className='text-red2 lg:text-5xl text-2xl font-semibold lg:mt-8 mt-2 ml-2'>
                   ผู้ปกครองที่ติดต่อได้ในกรณีฉุกเฉิน
                </p>
             </div>

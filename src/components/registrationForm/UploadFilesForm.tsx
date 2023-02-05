@@ -49,8 +49,8 @@ const UploadFilesForm = () => {
       <div className='flex justify-center mt-8'>
          <div className='bg-[#FAD9AA] bg-opacity-70 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4'>
             <div className='flex'>
-               <img src='/assets/regisPage/green_postit.svg' className='lg:w-16 lg:mt-8 mt-8 w-8' />
-               <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>
+               <img src='/assets/regisPage/green_postit.svg' className='lg:w-16 lg:mt-8 mt-2 w-8' />
+               <p className='text-red2 lg:text-5xl text-2xl font-semibold lg:mt-8 mt-2 ml-2'>
                เอกสารที่ต้องอัพโหลด
                </p>
             </div>
