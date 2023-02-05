@@ -150,7 +150,7 @@ const FileUploaderComponent = ({
                      </div>
                       <div className="col-span-1 flex justify-end">
                         <button className='' onClick={() => deleteFile()}>
-                           <img src="assets/regisPage/trash.svg" className="w-5 h-5" />
+                           <img src="/assets/regisPage/trash.svg" className="w-5 h-5" />
                         </button>
                       </div>
                  </div>
