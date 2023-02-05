@@ -7,6 +7,7 @@ import Navbar from '@/components/registrationForm/Navbar';
 import LandingSection from '@/components/frontPage/LandingSection';
 import FAQSection from '@/components/homePage/FAQSection';
 import ContactSection from '@/components/homePage/ContactSection';
+import LearningSection from '@/components/homePage/LearningSection';
 export const FrontPage = () => {
     useEffect(() => {
         AOS.init();
@@ -18,6 +19,7 @@ export const FrontPage = () => {
         </div>
            <div className="flex h-screen flex-col">
                 <LandingSection/>
+                <LearningSection/>
                 <ConditionsSection/> 
                 <FAQSection/>
                 <ContactSection/>
