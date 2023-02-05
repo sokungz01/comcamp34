@@ -61,7 +61,7 @@ export const ParentDataForm = () => {
                   <Inputbox
                      label='ชื่อ'
                      name='parent_fname'
-                     placeholder='ธนาธร'
+                     placeholder='สมชาย'
                      required
                      obj={parent_fname}
                      setObj={setparent_fname}
@@ -71,17 +71,17 @@ export const ParentDataForm = () => {
                   <Inputbox
                      label='ชื่อกลาง (ถ้ามี)'
                      name='parent_mname'
-                     placeholder=''
+                     placeholder='-'
                      required
                      obj={parent_mname}
                      setObj={setparent_mname}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
                   <Inputbox
                      label='นามสกุล'
                      name='parent_sname'
-                     placeholder=''
+                     placeholder='อารมณ์ดี'
                      required
                      obj={parent_sname}
                      setObj={setparent_sname}
@@ -93,7 +93,7 @@ export const ParentDataForm = () => {
                   <Inputbox
                      label='ความสัมพันธ์'
                      name='parent_relation'
-                     placeholder=''
+                     placeholder='บิดา'
                      required
                      obj={parent_relation}
                      setObj={setparent_relation}
@@ -103,17 +103,17 @@ export const ParentDataForm = () => {
                   <TelInput
                      label='เบอร์โทรศัพท์'
                      name='parent_mobile'
-                     placeholder=''
+                     placeholder='0911000000'
                      required
                      obj={parent_mobile}
                      setobj={setparent_mobile}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
                   <EmailInput
                      label='Email'
                      name='parent_email'
-                     placeholder=''
+                     placeholder='somchai@gmail.com'
                      obj={parent_email}
                      setObj={setparent_email}
                   />
@@ -156,7 +156,7 @@ export const ParentDataForm = () => {
                   <Inputbox
                      label='ชื่อ'
                      name='emergency_fname'
-                     placeholder='ธนาธร'
+                     placeholder='สมหญิง'
                      required
                      setObj={setemergency_fname}
                      obj={emergency_fname}
@@ -166,17 +166,17 @@ export const ParentDataForm = () => {
                   <Inputbox
                      label='ชื่อกลาง (ถ้ามี)'
                      name='emergency_mname'
-                     placeholder=''
+                     placeholder='-'
                      required
                      setObj={setemergency_mname}
                      obj={emergency_mname}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
                   <Inputbox
                      label='นามสกุล'
                      name='emergency_sname'
-                     placeholder=''
+                     placeholder='อารมณ์ดี'
                      required
                      setObj={setemergency_sname}
                      obj={emergency_sname}
@@ -188,7 +188,7 @@ export const ParentDataForm = () => {
                   <Inputbox
                      label='ความสัมพันธ์'
                      name='emergency_relation'
-                     placeholder=''
+                     placeholder='มารดา'
                      required
                      setObj={setemergency_relation}
                      obj={emergency_relation}
@@ -199,17 +199,17 @@ export const ParentDataForm = () => {
                   <TelInput
                      label='เบอร์โทรศัพท์'
                      name='emergency_mobile'
-                     placeholder=''
+                     placeholder='0922000000'
                      required
                      setobj={setemergency_mobile}
                      obj={emergency_mobile}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
                   <EmailInput
                      label='Email'
                      name='emergency_email'
-                     placeholder=''
+                     placeholder='-'
                      setObj={setemergency_email}
                      obj={emergency_email}
                   />

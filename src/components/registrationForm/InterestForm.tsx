@@ -3,12 +3,22 @@ import SelectInput from "@/components/SelectInput";
 import CheckboxInput from "@/components/Checkboxinput";
 import Textareainput from "@/components/Textareainput";
 import course_name from "@/components/registrationForm/DropdownData/course_name.json";
+import { useState } from "react";
 
 export const InterestForm = () => {
    const course = course_name.map(item => ({
       label: item.name,
       value: item.name,
    }));
+
+   const [previousComcamp, setPreviousComcamp] = useState();
+   const [choosecourse, setChooseCourse] = useState();
+   const [answer, setAnswer] = useState<string>("");
+   const [camp1, setCamp1] = useState<string>("");
+   const [by1, setBy1] = useState<string>("");
+   const [camp2, setCamp2] = useState<string>("");
+   const [by2, setBy2] = useState<string>("");
+   const [no_previous_camp, setNo_previous_camp] = useState();
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-green1 bg-opacity-30 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 w-11/12'>
@@ -20,7 +30,12 @@ export const InterestForm = () => {
                <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
                   เคยเข้าร่วมค่ายคอมแคมป์มาก่อนหรือไม่
                </h6>
-               <CheckboxInput name='status' label=' ' />
+               <CheckboxInput
+                  name='status'
+                  label=' '
+                  obj={previousComcamp}
+                  setobj={setPreviousComcamp}
+               />
                <p className='ml-2'>(เคย)</p>
             </div>
             <p className='text-black lg:text-center text-xs lg:text-lg lg:mt-6 mt-2'>
@@ -31,16 +46,24 @@ export const InterestForm = () => {
                <div className='lg:flex'>
                   <h6 className='lg:mr-6 lg:mb-0 mb-3'> หลักสูตร </h6>
                   <div className='w-1/2 lg:w-full'>
-                     <SelectInput label=' ' name='course' options={course} />
+                     <SelectInput
+                        label=' '
+                        name='course'
+                        options={course}
+                        obj={choosecourse}
+                        setObj={setChooseCourse}
+                     />
                   </div>
                </div>
                <div className='lg:flex lg:ml-6 lg:mt-0 mt-2'>
                   <h6 className='lg:mb-0 mb-2'>เหตุผล</h6>
                   <Textareainput
-                     label=' '
+                     question=''
                      name='a'
                      row={2}
                      className='xl:px-80 lg:px-36 lg:ml-6 py-3 lg:rounded-2xl rounded-xl'
+                     obj={answer}
+                     setObj={setAnswer}
                   />
                </div>
             </div>
@@ -49,25 +72,41 @@ export const InterestForm = () => {
             </h6>
             <div className='lg:flex lg:mt-6 lg:ml-12'>
                <div className='lg:w-3/12 lg:mr-24 mt-2'>
-                  <Inputbox label='ชื่อค่ายลำดับที่ 1' name='' placeholder='Comcamp 31' />
+                  <Inputbox
+                     label='ชื่อค่ายลำดับที่ 1'
+                     name='camp1'
+                     placeholder='Comcamp 31'
+                     obj={camp1}
+                     setObj={setCamp1}
+                  />
                </div>
                <div className='lg:w-7/12 lg:mt-0 mt-2'>
                   <Inputbox
                      label='มหาวิทยาลัยหรือหน่วยงานที่จัด'
-                     name=''
+                     name='by1'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี'
+                     obj={by1}
+                     setObj={setBy1}
                   />
                </div>
             </div>
             <div className='lg:flex lg:mt-6 lg:ml-12'>
                <div className='lg:w-3/12 lg:mr-24 mt-2'>
-                  <Inputbox label='ชื่อค่ายลำดับที่ 2' name='' placeholder='Comcamp 33' />
+                  <Inputbox
+                     label='ชื่อค่ายลำดับที่ 2'
+                     name='camp2'
+                     placeholder='Comcamp 33'
+                     obj={camp2}
+                     setObj={setCamp2}
+                  />
                </div>
                <div className='lg:w-7/12 lg:mt-0 mt-2'>
                   <Inputbox
                      label='มหาวิทยาลัยหรือหน่วยงานที่จัด'
-                     name=''
+                     name='by2'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี'
+                     obj={by2}
+                     setObj={setBy2}
                   />
                </div>
             </div>
@@ -75,7 +114,12 @@ export const InterestForm = () => {
                <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
                   ไม่เคยเข้าร่วมค่ายใด ๆ มาก่อน
                </h6>
-               <CheckboxInput name='status' label=' ' />
+               <CheckboxInput
+                  name='no_previous_camp'
+                  label=' '
+                  obj={no_previous_camp}
+                  setobj={setNo_previous_camp}
+               />
             </div>
          </div>
       </div>

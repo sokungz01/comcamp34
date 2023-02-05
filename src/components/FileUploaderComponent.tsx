@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Trash from "assets/regisPage/trash.svg";
-
 const FileUploaderComponent = ({
    name,
    label,
@@ -43,9 +41,9 @@ const FileUploaderComponent = ({
 
    return (
       <>
-         <div className='grid lg:grid-cols-3 grid-cols-1 bg-white rounded-lg shadow-lg px-5 py-4 justify-center items-center'>
-            <div className='lg:col-span-2 col-span-1 w-full '>
-               <div className='flex flex-row justify-center lg:justify-start  '>
+         <div className='grid lg:grid-cols-3 xl:grid-cols-5 grid-cols-1 bg-white rounded-lg shadow-lg px-5 py-4 justify-center items-center'>
+            <div className='xl:col-span-2 lg:col-span-2 col-span-1 w-full'>
+               <div className='flex flex-row justify-center lg:justify-start'>
                   {label ? (
                      <p className='font-semibold text-sm lg:text-lg'>{label}</p>
                   ) : (
@@ -54,9 +52,16 @@ const FileUploaderComponent = ({
                   <p className='text-orange'>{required ? "*" : null}</p>
                </div>
             </div>
-            <div className='w-full h-full flex flex-col lg:flex-row justify-center lg:justify-center relative mt-4 lg:mt-0 items-center'>
+            <div className='xl:col-span-3 lg:col-span-1 col-span-1 w-full h-full flex flex-col lg:flex-row justify-center lg:justify-center relative mt-4 lg:mt-0 items-center'>
                {downloadURL ? (
-                  <a href={downloadURL} target="_blank" className='w-1/2 mb-4 lg:mb-0 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5'>
+                  <a href={downloadURL} target="_blank" 
+                  
+                     className={
+                        isUpload ? "w-1/2 mb-4 lg:mb-0 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:-mt-6":
+                        "w-1/2 mb-4 lg:mb-0 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5"
+                     }
+                     
+                  >
                      <div className='flex flex-row justify-center items-center'>
                         <svg
                            xmlns='http://www.w3.org/2000/svg'
@@ -80,11 +85,7 @@ const FileUploaderComponent = ({
                         type='file'
                         name={name}
                         onChange={handleFile}
-                        className={
-                           downloadURL
-                              ? "form-control appearance-none bg-blue-100 h-full w-1/2 lg:w-1/3 xl:w-2/5 z-10 opacity-0 py-0 lg:py-2 ml-3 xl:ml-0 2xl:ml-0"
-                              : "form-control appearance-none bg-blue-100 h-full w-1/2 lg:w-2/3 z-10 opacity-0 py-0 lg:py-2"
-                        }
+                        className={ "form-control appearance-none bg-blue-100 h-full w-1/2 lg:w-1/3 xl:w-2/5 z-10 opacity-0 py-0 lg:py-2  xl:ml-0 2xl:ml-0" }
                         accept={
                            fileType == "pdf"
                               ? "application/pdf" //accept pdf document file
@@ -97,7 +98,7 @@ const FileUploaderComponent = ({
                         className={
                            downloadURL
                               ? "absolute w-1/2 lg:w-1/3 bg-blue1 mt-8 lg:mt-0 lg:right-10 xl:right-12 2xl:right-16 rounded-lg text-white font-teko tracking-wider py-0.5"
-                              : "absolute w-1/2 lg:w-2/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              : "absolute w-1/2 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5"
                         }
                      >
                         <div className='flex flex-row justify-center items-center'>
@@ -120,7 +121,8 @@ const FileUploaderComponent = ({
                      </button>
                   </>
                ) : (
-                  <button className='h-2/3 lg:h-full w-1/2 lg:w-2/3 ml-6 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 '>
+                  <div className="w-1/2 xl:w-1/3 lg:mr-3 lg:ml-3">
+                  <button className='lg:h-full w-full bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5'>
                      <div className='flex flex-row justify-center items-center'>
                         <svg
                            xmlns='http://www.w3.org/2000/svg'
@@ -140,24 +142,20 @@ const FileUploaderComponent = ({
                         <p>Preview File</p>
                      </div>
                   </button>
+                  {
+               !isUpload ? null : (
+                 <div className="grid grid-cols-5 mr-3" >
+                     <div className="col-span-4 overflow-hidden"> 
+                        <p className="truncate"> {file} </p>
+                     </div>
+                      <div className="col-span-1 flex justify-end">
+                        <button className='' onClick={() => deleteFile()}>
+                           <img src="assets/regisPage/trash.svg" className="w-5 h-5" />
+                        </button>
+                      </div>
+                 </div>
                )}
-               {!isUpload ? null : (
-                  <button className='' onClick={() => deleteFile()}>
-                     <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        strokeWidth='1.5'
-                        stroke='#B12E45'
-                        className='w-6 h-6'
-                     >
-                        <path
-                           strokeLinecap='round'
-                           strokeLinejoin='round'
-                           d='M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0'
-                        />
-                     </svg>
-                  </button>
+               </div>
                )}
             </div>
          </div>

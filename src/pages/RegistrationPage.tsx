@@ -11,7 +11,9 @@ import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
 import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 export const RegistrationPage = () => {
+   const Navigate = useNavigate();
    const ConfirmationPopup = () => {
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
@@ -32,6 +34,21 @@ export const RegistrationPage = () => {
          backdrop: `
          rgba(0,0,0,0.6)
          `,
+      }).then((result) => {
+         if(result.isConfirmed)
+         {
+            Swal.fire({
+               html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social media</p>  </div> ',
+               icon: "success",
+               background: "#FDFDFD",
+               showConfirmButton: true,
+               confirmButtonColor: "#FDFDFD",
+               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
+               backdrop: `
+               rgba(0,0,0,0.6)
+               `,
+            }).then( () => {Navigate('/');} );
+         }
       });
    };
    const [page, setPage] = useState<number>(0);
