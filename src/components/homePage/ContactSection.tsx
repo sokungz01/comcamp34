@@ -1,6 +1,6 @@
 const ContactSection = () => {
    return (
-      <div className='bg-base-black w-full'>
+      <div className='bg-base-black w-full overflow-x-hidden min-h-screen'>
          <div className='font-teko text-base-white text-5xl text-center tracking-widest lg:hidden my-8'>
             Contact
          </div>
