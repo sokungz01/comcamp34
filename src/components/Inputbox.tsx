@@ -33,7 +33,9 @@ const Inputbox = ({
           <p className="text-gray-700 xl:text-xl lg:text-lg md:text-xs sm:text-xs"> 
             { label ? label : name } 
           </p>
-          {required ? <p className="text-orange text-xl">*</p> : <p></p>}
+          <p className="text-orange text-xl">
+            {required ? "*" : ""}
+          </p>
         </div>
         <input
           type="text"

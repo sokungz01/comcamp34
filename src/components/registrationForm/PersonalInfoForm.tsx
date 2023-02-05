@@ -20,7 +20,7 @@ export const PersonalInfoForm = () => {
    const [date, setDate] = useState<string>("");
    const [month, setMonth] = useState<string>("");
    const [birth_year, setBirthyear] = useState<string>("");
-   const [telephone, setTelephone] = useState<number>();
+   const [telephone, setTelephone] = useState<string>("");
    const [email, setEmail] = useState<string>("");
    const [province, setProvince] = useState<string>("");
    const [shirtsize, setShirtsize] = useState<string>("");
@@ -42,13 +42,13 @@ export const PersonalInfoForm = () => {
                <div className='flex'>
                   <img
                      src='/assets/regisPage/green_postit.svg'
-                     className='lg:w-16 lg:mt-8 mt-8 w-8'
+                     className='lg:w-16 lg:mt-8 mt-2 w-8'
                   />
-                  <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>
+                  <p className='text-red2 lg:text-5xl text-2xl font-semibold lg:mt-8 mt-2 ml-2'>
                      ข้อมูลผู้สมัคร
                   </p>
                </div>
-               <div className='grid lg:grid-cols-7 grid-cols-3 mt-8 lg:mt-16'>
+               <div className='grid lg:grid-cols-7 grid-cols-3  mt-2 lg:mt-8'>
                   <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
                      <SelectInput
                         label='คำนำหน้าชื่อ'
@@ -77,7 +77,7 @@ export const PersonalInfoForm = () => {
                      <Inputbox
                         label='ชื่อกลาง (ถ้ามี)'
                         name='mname'
-                        placeholder=''
+                        placeholder='-'
                         required
                         obj={mname}
                         setObj={setMname}
@@ -87,7 +87,7 @@ export const PersonalInfoForm = () => {
                      <Inputbox
                         label='นามสกุล'
                         name='sname'
-                        placeholder=''
+                        placeholder='อารมณ์ดี'
                         required
                         obj={sname}
                         setObj={setSname}
@@ -99,7 +99,7 @@ export const PersonalInfoForm = () => {
                      <Inputbox
                         label='ชื่อเล่น'
                         name='nickname'
-                        placeholder=''
+                        placeholder='ซัน'
                         required
                         obj={nickname}
                         setObj={setNickname}
@@ -143,7 +143,7 @@ export const PersonalInfoForm = () => {
                      <TelInput
                         label='เบอร์โทรศัพท์'
                         name='mobile'
-                        placeholder=''
+                        placeholder='0903540000'
                         required
                         obj={telephone}
                         setobj={setTelephone}
@@ -153,7 +153,7 @@ export const PersonalInfoForm = () => {
                      <EmailInput
                         label='Email'
                         name='email'
-                        placeholder=''
+                        placeholder='comcamp34@gmail.com'
                         required
                         obj={email}
                         setObj={setEmail}
@@ -190,7 +190,7 @@ export const PersonalInfoForm = () => {
                         <Inputbox
                            label='ยาประจำตัว'
                            name='medicine'
-                           placeholder=''
+                           placeholder='Aspirin'
                            required
                            obj={medicine}
                            setObj={setMedicine}
@@ -200,17 +200,17 @@ export const PersonalInfoForm = () => {
                         <Inputbox
                            label='ยาที่แพ้'
                            name='allergic_medicine'
-                           placeholder=''
+                           placeholder='Paracetamol'
                            required
                            obj={allergic_medicine}
                            setObj={setAllergic_medicine}
                         />
                      </div>
-                     <div className='w-full xl:pl-6 lg:pl-2 mt-2 lg:mt-0'>
+                     <div className='w-full xl:pl-6 lg:pl-2 mt-2 lg:mt-0 lg:pr-2'>
                         <Inputbox
                            label='โรคประจำตัว'
                            name='underlying'
-                           placeholder=''
+                           placeholder='หอบหืด'
                            required
                            obj={underlying}
                            setObj={setUnderlying}
@@ -225,7 +225,7 @@ export const PersonalInfoForm = () => {
                            <Inputbox
                               label='วิธีการเดินทางมหาวิทยาลัย'
                               name='travelby'
-                              placeholder=''
+                              placeholder='รถยนต์ส่วนตัว'
                               required
                               obj={travelby}
                               setObj={setTravelby}
@@ -238,7 +238,7 @@ export const PersonalInfoForm = () => {
                         <Inputbox
                            label='อาหารที่แพ้'
                            name='allergic'
-                           placeholder=''
+                           placeholder='กุ้ง,ปลาหมึก'
                            required
                            obj={allergic}
                            setObj={setAllergic}

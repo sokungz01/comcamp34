@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Inputbox = ({
-   label,
+   question,
    row,
    name,
    className,
@@ -10,7 +10,7 @@ const Inputbox = ({
    placeholder,
    required,
 }: {
-   label?: string;
+   question?: string;
    row?: number;
    name: string;
    className?: string;
@@ -24,7 +24,6 @@ const Inputbox = ({
    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (!(event.target instanceof HTMLTextAreaElement)) return;
       const value = event.target.value;
-
       if (Reg.test(value) === true) setValid(true);
       else setValid(false);
       setObj(value);
@@ -34,13 +33,13 @@ const Inputbox = ({
       <>
          <div className='flex flex-col'>
             <div className='flex'>
-               {label ? <p> {label} </p> : <></>}
-               {required ? <p className='text-red-900'>*</p> : <p></p>}
+               <p className="lg:text-lg text-sm"> {question ?  (question) : null} </p>
+               <p className='text-red-900'> {required ? ("*") : null}</p> 
             </div>
             <textarea
                className={
                   className +
-                  " text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none resize-none"
+                  "lg:px-8 lg:py-12 px-3 py-6 lg:mx-7 mx-1 lg:mb-8 mt-4 mb-6 lg:rounded-2xl rounded-lg text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none resize-none"
                }
                name={name}
                onChange={handleChange}

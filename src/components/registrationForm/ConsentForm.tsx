@@ -3,7 +3,7 @@ import { useState } from "react";
 export const ConsentForm = ({ setPage }: { setPage: any }) => {
    const [acceptPolicy, setAcceptPolicy] = useState<boolean>(false);
    return (
-      <div className='relative h-full font-bai-jamjuree flex justify-center items-center'>
+      <div className='relative h-full font-bai-jamjuree flex justify-center items-center mt-8'>
          <div className='xl:w-2/3 lg:2/3 md:w-4/5 sm:w-4/5 w-11/12 flex flex-col p-2 lg:p-5 xl:p-5 bg-[#D9D9D9] bg-opacity-20 rounded-lg '>
             <div className='font-bold text-base-black text-center mb-5 text-xl  lg:text-2xl xl:text-2xl'>
                นโยบายข้อมูลส่วนบุคคล

@@ -4,3 +4,7 @@
 .stroke-pink{
     -webkit-text-stroke: 0.5px #D2364C; /* width and color */
 }
+body.swal2-shown > [aria-hidden="true"] {
+  transition: 0.1s filter;
+  filter: blur(1px);
+}

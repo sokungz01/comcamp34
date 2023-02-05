@@ -38,7 +38,7 @@ const GpaxInput = ({
         <p className="text-gray-700 xl:text-xl lg:text-xl md:text-xs sm:text-xs"> 
             { label ? label : name } 
         </p>
-        {required ? <p className="text-red-900">*</p> : <p></p>}
+        {required ? <p className="text-orange">*</p> : <p></p>}
       </div>
       <input
         type="text"
