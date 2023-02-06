@@ -30,7 +30,8 @@ export const PersonalInfoForm = () => {
       underlying:"",
       travelby:"",
       allergic:"",
-      special:{ label: "", value: "" }
+      special:{ label: "", value: "" },
+      notebook:false
    });
 
    const provinces = provinces_data.map(item => ({
@@ -287,7 +288,13 @@ export const PersonalInfoForm = () => {
                      น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่
                   </p>
                   <div className='lg:mt-1 -mt-1'>
-                     <CheckboxInput name='notebook' label=' ' />
+                     <CheckboxInput 
+                     name='notebook' 
+                     label=' ' 
+                     setObj={setValue}
+                     obj={value}
+                     checked={value.notebook}
+                     />
                   </div>
                   <p className='lg:text-xl text-xs  font-semibold ml-2'> (สะดวก) </p>
                </div>
