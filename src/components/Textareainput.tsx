@@ -7,6 +7,7 @@ const Inputbox = ({
    className,
    obj,
    setObj,
+   value,
    placeholder,
    required,
 }: {
@@ -14,8 +15,9 @@ const Inputbox = ({
    row?: number;
    name: string;
    className?: string;
-   obj?: string;
+   obj?: object;
    setObj?: any;
+   value : string;
    placeholder?: string;
    required?: boolean;
 }) => {
@@ -26,7 +28,7 @@ const Inputbox = ({
       const value = event.target.value;
       if (Reg.test(value) === true) setValid(true);
       else setValid(false);
-      setObj(value);
+      setObj({...obj, [name]:value});
    };
 
    return (

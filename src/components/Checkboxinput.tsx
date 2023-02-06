@@ -5,7 +5,7 @@ const CheckboxInput = ({
    label,
    placeholder,
    obj,
-   setobj,
+   setObj,
    required,
    checked,
    onclick,
@@ -13,30 +13,17 @@ const CheckboxInput = ({
    name: string;
    label?: string;
    placeholder?: string;
-   obj?: any;
-   setobj?: any;
+   obj?: object;
+   setObj?: any;
+   value?: string;
    required?: boolean;
    checked?: boolean;
    onclick?:any;
-}) => {
-   const [valid, setvalid] = useState(true);    
-
-
-   let check: boolean;
+}) => {  
 
    const handleChange = (e: any) => {
-      if (e.target.checked) {
-         setvalid(true);
-      } else {
-         setvalid(false);
-      }
+      setObj({...obj,[name]:e.target.checked});
    };
-
-   const handleRequired = (valid: boolean) => {
-      if (valid === true) return;
-      else return <p>need permisssion</p>;
-   };
-
    return (
       <>
          <div>
@@ -54,7 +41,6 @@ const CheckboxInput = ({
                <br />
                {required ? <p className='text-red-900'>*</p> : <p></p>}
             </div>
-            {required ? handleRequired(valid) : <></>}
          </div>
       </>
    );

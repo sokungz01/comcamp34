@@ -2,9 +2,11 @@ import Textarea from "@/components/Textareainput";
 import { useState } from "react";
 
 export const QuestionFormpage2 = () => {
-    const [q4, setQ4] = useState<string>("");
-    const [q5, setQ5] = useState<string>("");
-    const [q6, setQ6] = useState<string>("");
+    const [ value ,setValue ] = useState({
+      q4:"",
+      q5:"",
+      q6:""
+    });
     return (
       <>
          <div className='flex justify-center mt-8'>
@@ -21,20 +23,23 @@ export const QuestionFormpage2 = () => {
                <Textarea
                   question='4.น้อง ๆ คิดว่า ในอีก 10 ปีข้างหน้า อะไรจะเปลี่ยนแปลงไป และอะไรจะยังคงเหมือนเดิมบ้าง (ยกตัวอย่างมาอย่างน้อย 3 ข้อ ไม่จำเป็นต้องเป็นเรื่องเทคโนโลยี) และน้อง ๆ คิดว่าตัวเองจะปรับตัวให้เข้ากับสิ่งที่เปลี่ยนแปลงอย่างไร และจะใช้ประโยชน์จากสิ่งที่จะไม่เปลี่ยนแปลงได้อย่างไรบ้าง'
                   name='q4'
-                  setObj={setQ4}
-                  obj={q4}
+                  setObj={setValue}
+                  obj={value}
+                  value={value.q4}
                />
                <Textarea
                   question='5.ถ้าหากน้องได้รับทุนในการทำธุรกิจก้อนหนึ่ง น้องจะเลือกทำธุรกิจอะไร เพราะอะไรน้องถึงเลือกทำธุรกิจนั้น และจะสร้างเทคโนโลยีอะไรมาเพื่อมาพัฒนาธุรกิจของตนเอง และเพราะอะไรถึงเลือกเทคโนโลยีนั้น'
                   name='q5'
-                  setObj={setQ5}
-                  obj={q5}
+                  setObj={setValue}
+                  obj={value}
+                  value={value.q5}
                />
                <Textarea
                   question='6.จงแต่งเรื่องจากคำที่กำหนดให้ต่อไปนี้  comcamp34, นัมโดซาน, ห่านบางมด, y2k, พุดดิ้งมะพร้าวอ่อน, ทรงอย่างแบด, โมโม่, ตึกแดง'
                   name='q6'
-                  setObj={setQ6}
-                  obj={q6}
+                  setObj={setValue}
+                  obj={value}
+                  value={value.q6}
                />
             </div>
          </div>

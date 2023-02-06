@@ -6,33 +6,38 @@ import EmailInput from "@/components/EmailInput";
 import CheckboxInput from "@/components/Checkboxinput";
 
 export const ParentDataForm = () => {
-   const [sameParent, setsameParent] = useState(false);
-   const [parent_pname, setparent_pname] = useState();
-   const [parent_fname, setparent_fname] = useState<string>("");
-   const [parent_mname, setparent_mname] = useState<string>("");
-   const [parent_sname, setparent_sname] = useState<string>("");
-   const [parent_relation, setparent_relation] = useState<string>("");
-   const [parent_mobile, setparent_mobile] = useState<string>("");
-   const [parent_email, setparent_email] = useState<string>("");
-   const [emergency_fname, setemergency_fname] = useState<string>("");
-   const [emergency_pname, setemergency_pname] = useState();
-   const [emergency_mname, setemergency_mname] = useState<string>("");
-   const [emergency_sname, setemergency_sname] = useState<string>("");
-   const [emergency_relation, setemergency_relation] = useState<string>("");
-   const [emergency_mobile, setemergency_mobile] = useState<string>("");
-   const [emergency_email, setemergency_email] = useState<string>("");
+   const [value,setValue] = useState({
+      parent_pname:'',
+      parent_fname:'',
+      parent_mname:'',
+      parent_sname:'',
+      parent_relation:'',
+      parent_mobile:'',
+      parent_email:'',
+      same_parent:false,
+      emergency_pname:'',
+      emergency_fname:'',
+      emergency_mname:'',
+      emergency_sname:'',
+      emergency_relation:'',
+      emergency_mobile:'',
+      emergency_email:'',
+   });
 
    useEffect(() => {
-      if (sameParent) {
-         setemergency_fname(parent_fname);
-         setemergency_pname(parent_pname);
-         setemergency_mname(parent_mname);
-         setemergency_sname(parent_sname);
-         setemergency_relation(parent_relation);
-         setemergency_mobile(parent_mobile);
-         setemergency_email(parent_email);
+      if (value.same_parent) {
+         setValue({ ...value , 
+            emergency_pname : value.parent_pname,
+            emergency_fname : value.parent_fname,
+            emergency_mname : value.parent_mname,
+            emergency_sname : value.parent_sname,
+            emergency_relation : value.parent_relation,
+            emergency_mobile : value.parent_mobile,
+            emergency_email : value.parent_email
+         });
       }
-   });
+   },[value.same_parent,value.parent_pname,value.parent_fname,value.parent_mname,value.parent_sname,value.parent_relation,value.parent_mobile,value.parent_email]);
+
    return (
       <div className='flex mt-8 justify-center'>
          <div className='bg-red1 bg-opacity-10 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 pb-12'>
@@ -53,8 +58,9 @@ export const ParentDataForm = () => {
                         { label: "นางสาว", value: "นางสาว" },
                      ]}
                      required
-                     setObj={setparent_pname}
-                     obj={parent_pname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_pname}
                   />
                </div>
                <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
@@ -63,8 +69,9 @@ export const ParentDataForm = () => {
                      name='parent_fname'
                      placeholder='สมชาย'
                      required
-                     obj={parent_fname}
-                     setObj={setparent_fname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_fname}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
@@ -73,8 +80,9 @@ export const ParentDataForm = () => {
                      name='parent_mname'
                      placeholder='-'
                      required
-                     obj={parent_mname}
-                     setObj={setparent_mname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_mname}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
@@ -83,8 +91,9 @@ export const ParentDataForm = () => {
                      name='parent_sname'
                      placeholder='อารมณ์ดี'
                      required
-                     obj={parent_sname}
-                     setObj={setparent_sname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_sname}
                   />
                </div>
             </div>
@@ -95,8 +104,9 @@ export const ParentDataForm = () => {
                      name='parent_relation'
                      placeholder='บิดา'
                      required
-                     obj={parent_relation}
-                     setObj={setparent_relation}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_relation}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
@@ -105,8 +115,9 @@ export const ParentDataForm = () => {
                      name='parent_mobile'
                      placeholder='0911000000'
                      required
-                     obj={parent_mobile}
-                     setobj={setparent_mobile}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_mobile}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
@@ -114,8 +125,9 @@ export const ParentDataForm = () => {
                      label='Email'
                      name='parent_email'
                      placeholder='somchai@gmail.com'
-                     obj={parent_email}
-                     setObj={setparent_email}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.parent_email}
                   />
                </div>
             </div>
@@ -129,11 +141,11 @@ export const ParentDataForm = () => {
                <p className='mr-2'> ข้อมูลติดต่อเดียวกันกับข้อมูลด้านบน </p>
                <div >
                   <CheckboxInput
-                     onclick={() => (sameParent ? setsameParent(false) : setsameParent(true))}
-                     setobj={setsameParent}
-                     obj={sameParent}
                      name='same_parent'
                      label=' '
+                     checked={value.same_parent}
+                     obj={value}
+                     setObj={setValue}
                   />
                </div>
             </div>
@@ -148,8 +160,9 @@ export const ParentDataForm = () => {
                         { label: "นางสาว", value: "นางสาว" },
                      ]}
                      required
-                     setObj={setemergency_pname}
-                     obj={emergency_pname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_pname}
                   />
                </div>
                <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
@@ -158,8 +171,9 @@ export const ParentDataForm = () => {
                      name='emergency_fname'
                      placeholder='สมหญิง'
                      required
-                     setObj={setemergency_fname}
-                     obj={emergency_fname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_fname}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
@@ -168,8 +182,9 @@ export const ParentDataForm = () => {
                      name='emergency_mname'
                      placeholder='-'
                      required
-                     setObj={setemergency_mname}
-                     obj={emergency_mname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_mname}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
@@ -178,8 +193,9 @@ export const ParentDataForm = () => {
                      name='emergency_sname'
                      placeholder='อารมณ์ดี'
                      required
-                     setObj={setemergency_sname}
-                     obj={emergency_sname}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_sname}
                   />
                </div>
             </div>
@@ -190,8 +206,9 @@ export const ParentDataForm = () => {
                      name='emergency_relation'
                      placeholder='มารดา'
                      required
-                     setObj={setemergency_relation}
-                     obj={emergency_relation}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_relation}
                   />
                </div>
 
@@ -201,8 +218,9 @@ export const ParentDataForm = () => {
                      name='emergency_mobile'
                      placeholder='0922000000'
                      required
-                     setobj={setemergency_mobile}
-                     obj={emergency_mobile}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_mobile}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
@@ -210,8 +228,9 @@ export const ParentDataForm = () => {
                      label='Email'
                      name='emergency_email'
                      placeholder='-'
-                     setObj={setemergency_email}
-                     obj={emergency_email}
+                     setObj={setValue}
+                     obj={value}
+                     value={value.emergency_email}
                   />
                </div>
             </div>

@@ -9,17 +9,21 @@ const SelectInput = ({
    setObj,
    options,
    required,
+   placeholder,
+   value
 }: {
    label?: string;
    name: string;
-   obj?: string;
+   obj?: object;
    setObj?: any;
    options: option[];
    required?: boolean;
+   placeholder?: string;
+   value:string;
 }) => {
    const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const value = e.currentTarget.value;
-      setObj(value);
+      setObj({...obj,[name]:value});
    };
    return (
       <>
@@ -35,8 +39,9 @@ const SelectInput = ({
                   name={name}
                   className='block form-select appearance-none bg-white w-full xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 px-6  -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1'
                   onChange={handleOnChange}
-                  value={obj}
+                  value={value}
                >
+                  <option value="" disabled>{placeholder ? placeholder : label}</option>
                   {options.map((e: option) => (
                      <option value={e.value}>{e.label}</option>
                   ))}

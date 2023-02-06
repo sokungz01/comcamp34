@@ -7,13 +7,15 @@ const GpaxInput = ({
   setObj,
   placeholder,
   required,
+  value
 }: {
   label?: string;
   name: string;
-  obj?: string;
+  obj?: object;
   setObj?: any;
   placeholder: string;
   required?: boolean;
+  value:string;
 }) => {
   const [valid, setValid] = useState<boolean>(false);
 
@@ -29,7 +31,7 @@ const GpaxInput = ({
     } else {
       setValid(true);
     }
-    setObj(value);
+    setObj({...obj,[name]:value});
   };
 
   return (
@@ -45,7 +47,7 @@ const GpaxInput = ({
         className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1"
         placeholder={placeholder}
         name={name}
-        value={obj}
+        value={value}
         onChange={handleChange}
         required={required}
       />
