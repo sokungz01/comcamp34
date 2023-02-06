@@ -262,7 +262,7 @@ export const PersonalInfoForm = () => {
                </div>
                <div className='flex flex-row my-8'>
                   <p className='lg:text-xl text-xs font-semibold mr-2'>
-                     น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่
+                     น้องๆ สะดวกที่จะนำ laptop มาด้วยหรือไม่
                   </p>
                   <div className='lg:mt-1 -mt-1'>
                      <CheckboxInput name='notebook' label=' ' />
