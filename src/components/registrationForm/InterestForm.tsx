@@ -25,8 +25,8 @@ export const InterestForm = () => {
       <div className='flex justify-center mt-8'>
          <div className='bg-green1 bg-opacity-30 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 w-11/12'>
             <div className='flex'>
-               <img src='/assets/regisPage/green_postit.svg' className='lg:w-16 lg:mt-8 mt-8 w-8' />
-               <p className='text-red2 lg:text-5xl text-3xl font-semibold mt-8 ml-2'>ความสนใจ</p>
+               <img src='/assets/regisPage/green_postit.svg' className='lg:w-16 lg:mt-8 mt-2 w-8' />
+               <p className='text-red2 lg:text-5xl text-3xl font-semibold lg:mt-8 mt-2 ml-2'>ความสนใจ</p>
             </div>
             <div className='flex mt-3'>
                <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
@@ -48,10 +48,11 @@ export const InterestForm = () => {
             <div className='lg:flex lg:pl-12 lg:mt-6 mt-3'>
                <div className='lg:flex'>
                   <h6 className='lg:mr-6 lg:mb-0 mb-3'> หลักสูตร </h6>
-                  <div className='w-1/2 lg:w-full'>
+                  <div className='w-full'>
                      <SelectInput
                         label=' '
                         name='course'
+                        placeholder="หลักสูตรที่สนใจ"
                         options={course}
                         obj={value}
                         setObj={setValue}
@@ -60,7 +61,7 @@ export const InterestForm = () => {
                   </div>
                </div>
                <div className='lg:flex lg:ml-6 lg:mt-0 mt-2'>
-                  <h6 className='lg:mb-0 mb-2'>เหตุผล</h6>
+                  <h6 className='lg:mb-0'>เหตุผล</h6>
                   <Textareainput
                      question=''
                      name='a'
@@ -76,7 +77,7 @@ export const InterestForm = () => {
                ค่ายที่เคยเข้าร่วมแล้วประทับใจ 2 ลำดับของน้อง ๆ*
             </h6>
             <div className='lg:flex lg:mt-6 lg:ml-12'>
-               <div className='lg:w-3/12 lg:mr-24 mt-2'>
+               <div className='lg:w-3/12 lg:mr-24 mt-2 lg:mt-0'>
                   <Inputbox
                      label='ชื่อค่ายลำดับที่ 1'
                      name='camp1'
@@ -98,7 +99,7 @@ export const InterestForm = () => {
                </div>
             </div>
             <div className='lg:flex lg:mt-6 lg:ml-12'>
-               <div className='lg:w-3/12 lg:mr-24 mt-2'>
+               <div className='lg:w-3/12 lg:mr-24 mt-2 lg:mt-0'>
                   <Inputbox
                      label='ชื่อค่ายลำดับที่ 2'
                      name='camp2'

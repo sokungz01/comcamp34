@@ -53,7 +53,7 @@ export const PersonalInfoForm = () => {
                   </p>
                </div>
                <div className='grid lg:grid-cols-7 grid-cols-3  mt-2 lg:mt-8'>
-                  <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
+                  <div className='col-span-1 lg:col-span-1 w-full xl:pr-2 lg:pr-1'>
                      <SelectInput
                         label='คำนำหน้าชื่อ'
                         name='pname'
@@ -68,7 +68,7 @@ export const PersonalInfoForm = () => {
                         required
                      />
                   </div>
-                  <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
+                  <div className='col-span-2  w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 pl-3'>
                      <Inputbox
                         label='ชื่อ'
                         name='fname'
@@ -79,7 +79,7 @@ export const PersonalInfoForm = () => {
                         required
                      />
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                      <Inputbox
                         label='ชื่อกลาง (ถ้ามี)'
                         name='mname'
@@ -90,7 +90,7 @@ export const PersonalInfoForm = () => {
                         value={value.mname}
                      />
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 lg:pl-1'>
                      <Inputbox
                         label='นามสกุล'
                         name='sname'
@@ -103,7 +103,7 @@ export const PersonalInfoForm = () => {
                   </div>
                </div>
                <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6'>
-                  <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-6 lg:pr-2'>
+                  <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-2 lg:pr-1'>
                      <Inputbox
                         label='ชื่อเล่น'
                         name='nickname'
@@ -114,9 +114,9 @@ export const PersonalInfoForm = () => {
                         value={value.nickname}
                      />
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                      <div className='flex flex-row'>
-                        <div className='w-full lg:pr-2 pr-2'>
+                        <div className='w-3/5 lg:pr-0.5 pr-2'>
                            <SelectInput
                               label='วัน'
                               name='date'
@@ -127,7 +127,7 @@ export const PersonalInfoForm = () => {
                               value={value.date}
                            />
                         </div>
-                        <div className='w-full lg:pr-2 lg:pl-2 pr-1 pl-1'>
+                        <div className='w-full lg:pr-0.5 lg:pl-0.5 pr-1 pl-1'>
                            <SelectInput
                               label='เดือน'
                               name='month'
@@ -138,7 +138,7 @@ export const PersonalInfoForm = () => {
                               value={value.month}
                            />
                         </div>
-                        <div className='w-full  lg:pl-2 pr-1 pl-1'>
+                        <div className='w-2/3 lg:pl-0.5 pr-1 pl-1'>
                            <SelectInput
                               label='ปีเกิด'
                               name='birth_year'
@@ -151,7 +151,7 @@ export const PersonalInfoForm = () => {
                         </div>
                      </div>
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                      <TelInput
                         label='เบอร์โทรศัพท์'
                         name='mobile'
@@ -162,7 +162,7 @@ export const PersonalInfoForm = () => {
                         value={value.mobile}
                      />
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
+                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 lg:pl-1'>
                      <EmailInput
                         label='Email'
                         name='email'
@@ -202,7 +202,7 @@ export const PersonalInfoForm = () => {
                      </div>
                   </div>
                   <div className='lg:col-span-4 col-span-3 flex lg:flex-row flex-col mt-2 lg:mt-0'>
-                     <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <div className='w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                         <Inputbox
                            label='ยาประจำตัว'
                            name='medicine'
@@ -213,7 +213,7 @@ export const PersonalInfoForm = () => {
                            value={value.medicine}
                         />
                      </div>
-                     <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 mt-2 lg:mt-0'>
+                     <div className='w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
                         <Inputbox
                            label='ยาที่แพ้'
                            name='allergic_medicine'
@@ -224,7 +224,7 @@ export const PersonalInfoForm = () => {
                            value={value.allergic_medicine}
                         />
                      </div>
-                     <div className='w-full xl:pl-6 lg:pl-2 mt-2 lg:mt-0 lg:pr-2'>
+                     <div className='w-full xl:pl-2 lg:pl-1 mt-2 lg:mt-0 lg:pr-2'>
                         <Inputbox
                            label='โรคประจำตัว'
                            name='underlying'
@@ -254,7 +254,7 @@ export const PersonalInfoForm = () => {
                      </div>
                   </div>
                   <div className='lg:col-span-4 col-span-3 flex lg:flex-row flex-col'>
-                     <div className='lg:w-1/2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
                         <Inputbox
                            label='อาหารที่แพ้'
                            name='allergic'
@@ -265,9 +265,8 @@ export const PersonalInfoForm = () => {
                            value={value.allergic}
                         />
                      </div>
-                     <div className='lg:w-1/2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+                     <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                         <DropdownSearch
-                           className=''
                            label='อาหารที่ต้องการเป็นพิเศษ'
                            name='special'
                            obj={value}

@@ -15,7 +15,7 @@ const TelInput = ({
    obj?: object;
    setObj?: any;
    required?: boolean;
-   value:string;
+   value: string;
 }) => {
    const [valid, setvalid] = useState<boolean>(true);
    function isNumber(str: any) {
@@ -29,23 +29,24 @@ const TelInput = ({
       return !isNaN(str);
    }
 
-   const handleChange = (event : any) => {
+   const handleChange = (event: any) => {
       const phoneNumber = event.target.value;
       setvalid(phoneNumber.length == 10 && isNumber(phoneNumber));
-      setObj({...obj,[name]:phoneNumber});
-   }
+      setObj({ ...obj, [name]: phoneNumber });
+   };
    return (
-      <>
-         <div className='flex'>
+      <div>
+         <div className='flex mb-2'>
             <p className='text-gray-700 xl:text-xl lg:text-lg md:text-xs sm:text-xs'>
                {label ? label : name}
             </p>
-            {required ? <p className='text-orange'>*</p> : <p></p>}
+            {required ? <p className='text-orange text-md'>*</p> : <p></p>}
          </div>
+         
          <input
             type='tel'
             name={name}
-            className='w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1'
+            className='w-full bg-white xl:text-2xl lg:text-2xl text-md border shadow-lg py-2.5 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1'
             placeholder={placeholder}
             maxLength={10}
             minLength={10}
@@ -53,7 +54,7 @@ const TelInput = ({
             value={value}
          />
          {valid ? null : <p className='text-orange text-xs'>Please enter valid form</p>}
-      </>
+      </div>
    );
 };
 
