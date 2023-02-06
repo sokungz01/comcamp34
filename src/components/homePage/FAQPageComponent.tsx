@@ -1,8 +1,8 @@
 import question from "@/components/homePage/FAQdata.json";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 const FAQPageComponent = () => {
-   const [selectedQuestion, setSelectedQuestion] = useState(null);
+   const [selectedQuestion, setSelectedQuestion] = useState<any>(null);
 
    const toggleFAQ = (i: any) => {
       if (selectedQuestion === i) {
@@ -10,10 +10,13 @@ const FAQPageComponent = () => {
       }
       setSelectedQuestion(i);
    };
+   useEffect(()=>{
+      setSelectedQuestion(0);
+  },[])
 
    return (
 
-         <div className=' w-full lg:bg-contain bg-base-white h-full lg:bg-[url("/assets/frontPage/bgFAQpage.png")]'>
+         <div className=' w-full lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/bgFAQpage.png")]'>
             <div className='relative max-w-7xl m-auto my-8 lg:my-16 flex justify-center font-bai-jamjuree '>
                <div
                   className='w-5/6 lg:my-auto mt-4 cursor-pointer relative z-10'
@@ -33,8 +36,8 @@ const FAQPageComponent = () => {
                                  ? "border-base-black/50"
                                  : "border-base-black/25"
                            } 
-                        ${selectedQuestion != index ? "hover:bg-yellow3/25" : null} ${
-                              selectedQuestion === index ? "bg-yellow3/50" : "bg-inherit"
+                        ${selectedQuestion != index ? "hover:bg-[#f8e4cc]" : null} ${
+                              selectedQuestion === index ? "bg-yellow3/50" : "bg-base-white"
                            }`}
                         >
                            <p className='ml-1 mr-5 text-base lg:text-lg font-semibold text-left text-base-black/75'>
