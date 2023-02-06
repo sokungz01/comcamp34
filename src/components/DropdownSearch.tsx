@@ -5,6 +5,7 @@ const DropdownSearch = ({
     name,
     data,
     defaultValue,
+    obj,
     setObj,
     placeholder,
     required,
@@ -15,6 +16,7 @@ const DropdownSearch = ({
     name: string;
     data: { label: string; value: string; }[];
     defaultValue?: { label: string; value: string; }; //default value
+    obj: object;
     setObj: any; 
     placeholder?: string;
     required?: boolean;
@@ -23,7 +25,7 @@ const DropdownSearch = ({
 
 }) => {
     const handleChange = (e: any) => {
-        setObj(e.value)
+        setObj({...obj, [name]:e.value})
     }
 
     return (

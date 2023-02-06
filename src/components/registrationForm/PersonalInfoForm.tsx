@@ -12,29 +12,33 @@ import provinces_data from "@/components/registrationForm/DropdownData/provinces
 import shirtsize_data from "@/components/registrationForm/DropdownData/shirtsize_data.json";
 
 export const PersonalInfoForm = () => {
-   const [pname, setPname] = useState<string>("");
-   const [fname, setFname] = useState<string>("");
-   const [mname, setMname] = useState<string>("");
-   const [sname, setSname] = useState<string>("");
-   const [nickname, setNickname] = useState<string>("");
-   const [date, setDate] = useState<string>("");
-   const [month, setMonth] = useState<string>("");
-   const [birth_year, setBirthyear] = useState<string>("");
-   const [telephone, setTelephone] = useState<string>("");
-   const [email, setEmail] = useState<string>("");
-   const [province, setProvince] = useState<string>("");
-   const [shirtsize, setShirtsize] = useState<string>("");
-   const [medicine, setMedicine] = useState<string>("");
-   const [allergic_medicine, setAllergic_medicine] = useState<string>("");
-   const [underlying, setUnderlying] = useState<string>("");
-   const [travelby, setTravelby] = useState<string>("");
-   const [allergic, setAllergic] = useState<string>("");
-   const [special, setSpecial] = useState({ label: "", value: "" });
+   const [value,setValue] = useState({
+      pname:"",
+      fname:"",
+      mname:"",
+      sname:"",
+      nickname:"",
+      date:"",
+      month:"",
+      birth_year:"",
+      mobile:"",
+      email:"",
+      province:"",
+      shirt_size:"",
+      medicine:"",
+      allergic_medicine:"",
+      underlying:"",
+      travelby:"",
+      allergic:"",
+      special:{ label: "", value: "" },
+      notebook:false
+   });
 
    const provinces = provinces_data.map(item => ({
       label: item.name_th,
-      value: item.name_en,
+      value: item.name_th,
    }));
+
    return (
       <>
          <div className='flex justify-center mt-8'>
@@ -53,8 +57,9 @@ export const PersonalInfoForm = () => {
                      <SelectInput
                         label='คำนำหน้าชื่อ'
                         name='pname'
-                        obj={pname}
-                        setObj={setPname}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.pname}
                         options={[
                            { label: "นาย", value: "นาย" },
                            { label: "นาง", value: "นาง" },
@@ -68,8 +73,9 @@ export const PersonalInfoForm = () => {
                         label='ชื่อ'
                         name='fname'
                         placeholder='ธนาธร'
-                        setObj={setFname}
-                        obj={fname}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.fname}
                         required
                      />
                   </div>
@@ -79,8 +85,9 @@ export const PersonalInfoForm = () => {
                         name='mname'
                         placeholder='-'
                         required
-                        obj={mname}
-                        setObj={setMname}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.mname}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
@@ -89,8 +96,9 @@ export const PersonalInfoForm = () => {
                         name='sname'
                         placeholder='อารมณ์ดี'
                         required
-                        obj={sname}
-                        setObj={setSname}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.sname}
                      />
                   </div>
                </div>
@@ -101,8 +109,9 @@ export const PersonalInfoForm = () => {
                         name='nickname'
                         placeholder='ซัน'
                         required
-                        obj={nickname}
-                        setObj={setNickname}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.nickname}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
@@ -113,8 +122,9 @@ export const PersonalInfoForm = () => {
                               name='date'
                               options={date_data}
                               required
-                              obj={date}
-                              setObj={setDate}
+                              obj={value}
+                              setObj={setValue}
+                              value={value.date}
                            />
                         </div>
                         <div className='w-full lg:pr-2 lg:pl-2 pr-1 pl-1'>
@@ -123,8 +133,9 @@ export const PersonalInfoForm = () => {
                               name='month'
                               options={month_data}
                               required
-                              obj={month}
-                              setObj={setMonth}
+                              obj={value}
+                              setObj={setValue}
+                              value={value.month}
                            />
                         </div>
                         <div className='w-full  lg:pl-2 pr-1 pl-1'>
@@ -132,8 +143,9 @@ export const PersonalInfoForm = () => {
                               label='ปีเกิด'
                               name='birth_year'
                               options={year_data}
-                              obj={birth_year}
-                              setObj={setBirthyear}
+                              obj={value}
+                              setObj={setValue}
+                              value={value.birth_year}
                               required
                            />
                         </div>
@@ -145,8 +157,9 @@ export const PersonalInfoForm = () => {
                         name='mobile'
                         placeholder='0903540000'
                         required
-                        obj={telephone}
-                        setobj={setTelephone}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.mobile}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2'>
@@ -155,8 +168,9 @@ export const PersonalInfoForm = () => {
                         name='email'
                         placeholder='comcamp34@gmail.com'
                         required
-                        obj={email}
-                        setObj={setEmail}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.email}
                      />
                   </div>
                </div>
@@ -169,8 +183,9 @@ export const PersonalInfoForm = () => {
                               name='province'
                               options={provinces}
                               required
-                              obj={province}
-                              setObj={setProvince}
+                              obj={value}
+                              setObj={setValue}
+                              value={value.province}
                            />
                         </div>
                         <div className='w-1/2 lg:w-1/3 ml-4'>
@@ -179,8 +194,9 @@ export const PersonalInfoForm = () => {
                               name='shirt_size'
                               options={shirtsize_data}
                               required
-                              obj={shirtsize}
-                              setObj={setShirtsize}
+                              obj={value}
+                              setObj={setValue}
+                              value={value.shirt_size}
                            />
                         </div>
                      </div>
@@ -192,8 +208,9 @@ export const PersonalInfoForm = () => {
                            name='medicine'
                            placeholder='Aspirin'
                            required
-                           obj={medicine}
-                           setObj={setMedicine}
+                           obj={value}
+                           setObj={setValue}
+                           value={value.medicine}
                         />
                      </div>
                      <div className='w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 mt-2 lg:mt-0'>
@@ -202,8 +219,9 @@ export const PersonalInfoForm = () => {
                            name='allergic_medicine'
                            placeholder='Paracetamol'
                            required
-                           obj={allergic_medicine}
-                           setObj={setAllergic_medicine}
+                           obj={value}
+                           setObj={setValue}
+                           value={value.allergic_medicine}
                         />
                      </div>
                      <div className='w-full xl:pl-6 lg:pl-2 mt-2 lg:mt-0 lg:pr-2'>
@@ -212,8 +230,9 @@ export const PersonalInfoForm = () => {
                            name='underlying'
                            placeholder='หอบหืด'
                            required
-                           obj={underlying}
-                           setObj={setUnderlying}
+                           obj={value}
+                           setObj={setValue}
+                           value={value.underlying}
                         />
                      </div>
                   </div>
@@ -227,8 +246,9 @@ export const PersonalInfoForm = () => {
                               name='travelby'
                               placeholder='รถยนต์ส่วนตัว'
                               required
-                              obj={travelby}
-                              setObj={setTravelby}
+                              obj={value}
+                              setObj={setValue}
+                              value={value.travelby}
                            />
                         </div>
                      </div>
@@ -240,8 +260,9 @@ export const PersonalInfoForm = () => {
                            name='allergic'
                            placeholder='กุ้ง,ปลาหมึก'
                            required
-                           obj={allergic}
-                           setObj={setAllergic}
+                           obj={value}
+                           setObj={setValue}
+                           value={value.allergic}
                         />
                      </div>
                      <div className='lg:w-1/2 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
@@ -249,7 +270,9 @@ export const PersonalInfoForm = () => {
                            className=''
                            label='อาหารที่ต้องการเป็นพิเศษ'
                            name='special'
-                           setObj={setSpecial}
+                           obj={value}
+                           setObj={setValue}
+                           defaultValue={value.special}
                            data={[
                               { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
                               { label: "อาหารเจ", value: "อาหารเจ" },
@@ -265,7 +288,13 @@ export const PersonalInfoForm = () => {
                      น้องๆ สะดวกที่จะนำ laptop มาด้วยหรือไม่
                   </p>
                   <div className='lg:mt-1 -mt-1'>
-                     <CheckboxInput name='notebook' label=' ' />
+                     <CheckboxInput 
+                     name='notebook' 
+                     label=' ' 
+                     setObj={setValue}
+                     obj={value}
+                     checked={value.notebook}
+                     />
                   </div>
                   <p className='lg:text-xl text-xs  font-semibold ml-2'> (สะดวก) </p>
                </div>

@@ -5,15 +5,17 @@ const TelInput = ({
    label,
    placeholder,
    obj,
-   setobj,
+   setObj,
    required,
+   value,
 }: {
    name: string;
    label?: string;
    placeholder?: string;
-   obj?: string;
-   setobj?: any;
+   obj?: object;
+   setObj?: any;
    required?: boolean;
+   value:string;
 }) => {
    const [valid, setvalid] = useState<boolean>(true);
    function isNumber(str: any) {
@@ -30,7 +32,7 @@ const TelInput = ({
    const handleChange = (event : any) => {
       const phoneNumber = event.target.value;
       setvalid(phoneNumber.length == 10 && isNumber(phoneNumber));
-      setobj(phoneNumber);
+      setObj({...obj,[name]:phoneNumber});
    }
    return (
       <>
@@ -48,7 +50,7 @@ const TelInput = ({
             maxLength={10}
             minLength={10}
             onChange={handleChange}
-            value={obj}
+            value={value}
          />
          {valid ? null : <p className='text-orange text-xs'>Please enter valid form</p>}
       </>

@@ -6,13 +6,15 @@ const EmailInput = ({
   setObj,
   placeholder,
   required,
+  value
 }: {
   label?: string;
   name: string;
-  obj?: string;
+  obj?: object;
   setObj?: any;
   placeholder: string;
   required?: boolean;
+  value:string;
 }) => {
   const [valid, setValid] = useState<boolean>(true);
   const RegEx =
@@ -22,7 +24,7 @@ const EmailInput = ({
     const email = e.target.value;
     if (RegEx.test(email) === false) setValid(false);
     else setValid(true);
-    setObj(email);
+    setObj({...obj,[name]:email});
   };
 
   return (
@@ -38,7 +40,7 @@ const EmailInput = ({
           className="w-full bg-white xl:text-2xl lg:text-2xl text-xs border shadow-lg py-1 pl-2.5 rounded-lg text-base-black invalid:ring-red1"
           onChange={handleChange}
           name={name}
-          value={obj}
+          value={value}
           placeholder={placeholder}
         />
         {valid ? null : (

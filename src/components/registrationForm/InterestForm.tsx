@@ -11,14 +11,16 @@ export const InterestForm = () => {
       value: item.name,
    }));
 
-   const [previousComcamp, setPreviousComcamp] = useState();
-   const [choosecourse, setChooseCourse] = useState();
-   const [answer, setAnswer] = useState<string>("");
-   const [camp1, setCamp1] = useState<string>("");
-   const [by1, setBy1] = useState<string>("");
-   const [camp2, setCamp2] = useState<string>("");
-   const [by2, setBy2] = useState<string>("");
-   const [no_previous_camp, setNo_previous_camp] = useState();
+   const [value,setValue] = useState({
+      status : false,
+      course : "",
+      a:"",
+      camp1:"",
+      by1:"",
+      camp2:"",
+      by2:"",
+      no_previous_camp:false,
+   });
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-green1 bg-opacity-30 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 w-11/12'>
@@ -33,8 +35,9 @@ export const InterestForm = () => {
                <CheckboxInput
                   name='status'
                   label=' '
-                  obj={previousComcamp}
-                  setobj={setPreviousComcamp}
+                  obj={value}
+                  setObj={setValue}
+                  checked={value.status}
                />
                <p className='ml-2'>(เคย)</p>
             </div>
@@ -50,8 +53,9 @@ export const InterestForm = () => {
                         label=' '
                         name='course'
                         options={course}
-                        obj={choosecourse}
-                        setObj={setChooseCourse}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.course}
                      />
                   </div>
                </div>
@@ -62,8 +66,9 @@ export const InterestForm = () => {
                      name='a'
                      row={2}
                      className='xl:px-80 lg:px-36 lg:ml-6 py-3 lg:rounded-2xl rounded-xl'
-                     obj={answer}
-                     setObj={setAnswer}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.a}
                   />
                </div>
             </div>
@@ -76,8 +81,9 @@ export const InterestForm = () => {
                      label='ชื่อค่ายลำดับที่ 1'
                      name='camp1'
                      placeholder='Comcamp 31'
-                     obj={camp1}
-                     setObj={setCamp1}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.camp1}
                   />
                </div>
                <div className='lg:w-7/12 lg:mt-0 mt-2'>
@@ -85,8 +91,9 @@ export const InterestForm = () => {
                      label='มหาวิทยาลัยหรือหน่วยงานที่จัด'
                      name='by1'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี'
-                     obj={by1}
-                     setObj={setBy1}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.by1}
                   />
                </div>
             </div>
@@ -96,8 +103,9 @@ export const InterestForm = () => {
                      label='ชื่อค่ายลำดับที่ 2'
                      name='camp2'
                      placeholder='Comcamp 33'
-                     obj={camp2}
-                     setObj={setCamp2}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.camp2}
                   />
                </div>
                <div className='lg:w-7/12 lg:mt-0 mt-2'>
@@ -105,8 +113,9 @@ export const InterestForm = () => {
                      label='มหาวิทยาลัยหรือหน่วยงานที่จัด'
                      name='by2'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี'
-                     obj={by2}
-                     setObj={setBy2}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.by2}
                   />
                </div>
             </div>
@@ -117,8 +126,9 @@ export const InterestForm = () => {
                <CheckboxInput
                   name='no_previous_camp'
                   label=' '
-                  obj={no_previous_camp}
-                  setobj={setNo_previous_camp}
+                  obj={value}
+                  setObj={setValue}
+                  checked={value.no_previous_camp}
                />
             </div>
          </div>

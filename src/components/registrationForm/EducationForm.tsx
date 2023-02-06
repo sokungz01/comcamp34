@@ -25,21 +25,22 @@ export const EducationForm = () => {
       value: item.name,
    }));
 
-   const [school_name, setSchool_name] = useState<string>("");
-   const [school_location, setSchool_location] = useState<string>("");
-   const [school_grade, setSchool_grade] = useState<string>("");
-   const [school_study_plan, setSchool_study_plan] = useState<string>("");
-   const [gpax, setGpax] = useState<string>("");
-
-   const [university1, setUniversity1] = useState<string>("");
-   const [facalty1, setFacalty1] = useState<string>("");
-   const [major1, setMajor1] = useState<string>("");
-   const [university2, setUniversity2] = useState<string>("");
-   const [facalty2, setFacalty2] = useState<string>("");
-   const [major2, setMajor2] = useState<string>("");
-   const [university3, setUniversity3] = useState<string>("");
-   const [facalty3, setFacalty3] = useState<string>("");
-   const [major3, setMajor3] = useState<string>("");
+   const [value, setValue] = useState({
+      school_name: "",
+      location: "",
+      grade: "",
+      study_plan: "",
+      gpax: "",
+      university_1: "",
+      facalty_1: "",
+      major_1: "",
+      university_2: "",
+      facalty_2: "",
+      major_2: "",
+      university_3: "",
+      facalty_3: "",
+      major_3: "",
+   });
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-yellow3 bg-opacity-40 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 w-11/12'>
@@ -59,8 +60,9 @@ export const EducationForm = () => {
                      name='school_name'
                      placeholder='โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ กำแพงเพชร'
                      required
-                     obj={school_name}
-                     setObj={setSchool_name}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.school_name}
                   />
                </div>
             </div>
@@ -71,8 +73,9 @@ export const EducationForm = () => {
                         label='จังหวัดที่ตั้งสถานศึกษา'
                         name='location'
                         options={provinces}
-                        obj={school_location}
-                        setObj={school_location}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.location}
                         required
                      />
                   </div>
@@ -81,8 +84,9 @@ export const EducationForm = () => {
                         label='ระดับการศึกษาปัจจุบัน'
                         name='grade'
                         options={grade}
-                        obj={school_grade}
-                        setObj={setSchool_grade}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.grade}
                         required
                      />
                   </div>
@@ -93,8 +97,9 @@ export const EducationForm = () => {
                         label='แผนการเรียน'
                         name='study_plan'
                         options={study_plan}
-                        obj={school_study_plan}
-                        setObj={setSchool_study_plan}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.study_plan}
                         required
                      />
                   </div>
@@ -103,8 +108,9 @@ export const EducationForm = () => {
                         label='เกรดเฉลี่ย'
                         name='gpax'
                         placeholder='4.00'
-                        obj={gpax}
-                        setObj={setGpax}
+                        obj={value}
+                        setObj={setValue}
+                        value={value.gpax}
                         required
                      />
                   </div>
@@ -123,8 +129,9 @@ export const EducationForm = () => {
                      label='มหาวิทยาลัย'
                      name='university_1'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     obj={university1}
-                     setObj={setUniversity1}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.university_1}
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -132,8 +139,9 @@ export const EducationForm = () => {
                      label='คณะ'
                      name='facalty_1'
                      options={faculty}
-                     obj={facalty1}
-                     setObj={setFacalty1}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.facalty_1}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -141,8 +149,9 @@ export const EducationForm = () => {
                      label='สาขา'
                      name='major_1'
                      placeholder='วิศวกรรมคอมพิวเตอร์'
-                     obj={major1}
-                     setObj={setMajor1}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.major_1}
                   />
                </div>
             </div>
@@ -155,8 +164,9 @@ export const EducationForm = () => {
                      label='มหาวิทยาลัย'
                      name='university_2'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     obj={university2}
-                     setObj={setUniversity2}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.university_2}
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -164,8 +174,9 @@ export const EducationForm = () => {
                      label='คณะ'
                      name='facalty_2'
                      options={faculty}
-                     obj={facalty2}
-                     setObj={setFacalty2}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.facalty_2}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -173,8 +184,9 @@ export const EducationForm = () => {
                      label='สาขา'
                      name='major_2'
                      placeholder='วิศวกรรมคอมพิวเตอร์'
-                     obj={major2}
-                     setObj={setMajor2}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.major_2}
                   />
                </div>
             </div>
@@ -187,8 +199,9 @@ export const EducationForm = () => {
                      label='มหาวิทยาลัย'
                      name='university_3'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     obj={university3}
-                     setObj={setUniversity3}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.university_3}
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -196,8 +209,9 @@ export const EducationForm = () => {
                      label='คณะ'
                      name='facalty_3'
                      options={faculty}
-                     obj={facalty3}
-                     setObj={setFacalty3}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.facalty_3}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -205,8 +219,9 @@ export const EducationForm = () => {
                      label='สาขา'
                      name='major_3'
                      placeholder='วิศวกรรมคอมพิวเตอร์'
-                     obj={major3}
-                     setObj={setMajor3}
+                     obj={value}
+                     setObj={setValue}
+                     value={value.major_3}
                   />
                </div>
             </div>
