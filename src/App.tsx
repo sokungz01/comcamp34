@@ -13,6 +13,7 @@ function App() {
                <Route path='/' element={<FrontPage />} />
                <Route path='/registration' element={<RegistrationPage />} />
                <Route path='/faq' element={<FAQPage />} />
+               <Route path='*' element={<FrontPage />} />
             </Routes>
          </BrowserRouter>
       </ParallaxProvider>
