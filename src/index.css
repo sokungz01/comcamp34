@@ -8,3 +8,20 @@ body.swal2-shown > [aria-hidden="true"] {
   transition: 0.1s filter;
   filter: blur(1px);
 }
+
+#Hammer {
+  animation-name: HammerTimelineanimate;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes HammerTimelineanimate {
+  from {
+      transform: rotate(30deg);
+  }
+
+  to {
+      transform: rotate(-45deg);
+  }
+}

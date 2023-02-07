@@ -8,6 +8,7 @@ import LandingSection from '@/components/frontPage/LandingSection';
 import FAQSection from '@/components/homePage/FAQSection';
 import ContactSection from '@/components/homePage/ContactSection';
 import LearningSection from '@/components/homePage/LearningSection';
+import TimelineSection from '@/components/homePage/TimelineSection';
 export const FrontPage = () => {
     useEffect(() => {
         AOS.init();
@@ -21,6 +22,7 @@ export const FrontPage = () => {
                 <LandingSection/>
                 <LearningSection/>
                 <ConditionsSection/> 
+                <TimelineSection/>
                 <FAQSection/>
                 <ContactSection/>
             </div>
