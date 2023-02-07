@@ -11,7 +11,6 @@ import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
 import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 export const RegistrationPage = () => {
    const Navigate = useNavigate();
    const ConfirmationPopup = () => {
@@ -47,7 +46,9 @@ export const RegistrationPage = () => {
                backdrop: `
                rgba(0,0,0,0.6)
                `,
-            }).then( () => {Navigate('/');} );
+            }).then( () => {
+               location.href = '/';
+            } );
          }
       });
    };
