@@ -23,7 +23,7 @@ const Inputbox = ({
 }) => {
    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (!(event.target instanceof HTMLTextAreaElement)) return;
-      value = event.target.value;
+      const value = event.target.value;
       setObj({...obj, [name]:value});
    };
 
@@ -43,6 +43,7 @@ const Inputbox = ({
                onChange={handleChange}
                rows={row}
                placeholder={placeholder}
+               value={value}
             ></textarea>
          </div>
       </>

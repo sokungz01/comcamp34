@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Inputbox from "@/components/Inputbox";
 import SelectInput from "@/components/SelectInput";
 import TelInput from "@/components/Telephoneinputbox";
@@ -11,29 +10,33 @@ import year_data from "@/components/registrationForm/DropdownData/year_data.json
 import provinces_data from "@/components/registrationForm/DropdownData/provinces_data.json";
 import shirtsize_data from "@/components/registrationForm/DropdownData/shirtsize_data.json";
 
-export const PersonalInfoForm = () => {
-   const [value,setValue] = useState({
-      pname:"",
-      fname:"",
-      mname:"",
-      sname:"",
-      nickname:"",
-      date:"",
-      month:"",
-      birth_year:"",
-      mobile:"",
-      email:"",
-      province:"",
-      shirt_size:"",
-      medicine:"",
-      allergic_medicine:"",
-      underlying:"",
-      travelby:"",
-      allergic:"",
-      special:{ label: "", value: "" },
-      notebook:false
-   });
-
+export const PersonalInfoForm = ({
+   data,
+   setData,
+}: {
+   data: {
+      pname: string;
+      fname: string;
+      mname: string;
+      sname: string;
+      nickname: string;
+      date: string;
+      month: string;
+      birth_year: string;
+      mobile: string;
+      email: string;
+      province: string;
+      shirt_size: string;
+      medicine: string;
+      allergic_medicine: string;
+      underlying: string;
+      travelby: string;
+      allergic: string;
+      special: { label: string; value: string };
+      notebook: boolean;
+   };
+   setData: any;
+}) => {
    const provinces = provinces_data.map(item => ({
       label: item.name_th,
       value: item.name_th,
@@ -57,9 +60,9 @@ export const PersonalInfoForm = () => {
                      <SelectInput
                         label='คำนำหน้าชื่อ'
                         name='pname'
-                        obj={value}
-                        setObj={setValue}
-                        value={value.pname}
+                        obj={data}
+                        setObj={setData}
+                        value={data.pname}
                         options={[
                            { label: "นาย", value: "นาย" },
                            { label: "นาง", value: "นาง" },
@@ -73,9 +76,9 @@ export const PersonalInfoForm = () => {
                         label='ชื่อ'
                         name='fname'
                         placeholder='ธนาธร'
-                        obj={value}
-                        setObj={setValue}
-                        value={value.fname}
+                        obj={data}
+                        setObj={setData}
+                        value={data.fname}
                         required
                      />
                   </div>
@@ -85,9 +88,9 @@ export const PersonalInfoForm = () => {
                         name='mname'
                         placeholder='-'
                         required
-                        obj={value}
-                        setObj={setValue}
-                        value={value.mname}
+                        obj={data}
+                        setObj={setData}
+                        value={data.mname}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 lg:pl-1'>
@@ -96,9 +99,9 @@ export const PersonalInfoForm = () => {
                         name='sname'
                         placeholder='อารมณ์ดี'
                         required
-                        obj={value}
-                        setObj={setValue}
-                        value={value.sname}
+                        obj={data}
+                        setObj={setData}
+                        value={data.sname}
                      />
                   </div>
                </div>
@@ -109,9 +112,9 @@ export const PersonalInfoForm = () => {
                         name='nickname'
                         placeholder='ซัน'
                         required
-                        obj={value}
-                        setObj={setValue}
-                        value={value.nickname}
+                        obj={data}
+                        setObj={setData}
+                        value={data.nickname}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
@@ -122,9 +125,9 @@ export const PersonalInfoForm = () => {
                               name='date'
                               options={date_data}
                               required
-                              obj={value}
-                              setObj={setValue}
-                              value={value.date}
+                              obj={data}
+                              setObj={setData}
+                              value={data.date}
                            />
                         </div>
                         <div className='w-full lg:pr-0.5 lg:pl-0.5 pr-1 pl-1'>
@@ -133,9 +136,9 @@ export const PersonalInfoForm = () => {
                               name='month'
                               options={month_data}
                               required
-                              obj={value}
-                              setObj={setValue}
-                              value={value.month}
+                              obj={data}
+                              setObj={setData}
+                              value={data.month}
                            />
                         </div>
                         <div className='w-2/3 lg:pl-0.5 pr-1 pl-1'>
@@ -143,9 +146,9 @@ export const PersonalInfoForm = () => {
                               label='ปีเกิด'
                               name='birth_year'
                               options={year_data}
-                              obj={value}
-                              setObj={setValue}
-                              value={value.birth_year}
+                              obj={data}
+                              setObj={setData}
+                              value={data.birth_year}
                               required
                            />
                         </div>
@@ -157,9 +160,9 @@ export const PersonalInfoForm = () => {
                         name='mobile'
                         placeholder='0903540000'
                         required
-                        obj={value}
-                        setObj={setValue}
-                        value={value.mobile}
+                        obj={data}
+                        setObj={setData}
+                        value={data.mobile}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 lg:pl-1'>
@@ -168,9 +171,9 @@ export const PersonalInfoForm = () => {
                         name='email'
                         placeholder='comcamp34@gmail.com'
                         required
-                        obj={value}
-                        setObj={setValue}
-                        value={value.email}
+                        obj={data}
+                        setObj={setData}
+                        value={data.email}
                      />
                   </div>
                </div>
@@ -183,9 +186,9 @@ export const PersonalInfoForm = () => {
                               name='province'
                               options={provinces}
                               required
-                              obj={value}
-                              setObj={setValue}
-                              value={value.province}
+                              obj={data}
+                              setObj={setData}
+                              value={data.province}
                            />
                         </div>
                         <div className='w-1/2 lg:w-1/3 ml-4'>
@@ -194,9 +197,9 @@ export const PersonalInfoForm = () => {
                               name='shirt_size'
                               options={shirtsize_data}
                               required
-                              obj={value}
-                              setObj={setValue}
-                              value={value.shirt_size}
+                              obj={data}
+                              setObj={setData}
+                              value={data.shirt_size}
                            />
                         </div>
                      </div>
@@ -208,9 +211,9 @@ export const PersonalInfoForm = () => {
                            name='medicine'
                            placeholder='Aspirin'
                            required
-                           obj={value}
-                           setObj={setValue}
-                           value={value.medicine}
+                           obj={data}
+                           setObj={setData}
+                           value={data.medicine}
                         />
                      </div>
                      <div className='w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
@@ -219,9 +222,9 @@ export const PersonalInfoForm = () => {
                            name='allergic_medicine'
                            placeholder='Paracetamol'
                            required
-                           obj={value}
-                           setObj={setValue}
-                           value={value.allergic_medicine}
+                           obj={data}
+                           setObj={setData}
+                           value={data.allergic_medicine}
                         />
                      </div>
                      <div className='w-full xl:pl-2 lg:pl-1 mt-2 lg:mt-0 lg:pr-2'>
@@ -230,9 +233,9 @@ export const PersonalInfoForm = () => {
                            name='underlying'
                            placeholder='หอบหืด'
                            required
-                           obj={value}
-                           setObj={setValue}
-                           value={value.underlying}
+                           obj={data}
+                           setObj={setData}
+                           value={data.underlying}
                         />
                      </div>
                   </div>
@@ -246,9 +249,9 @@ export const PersonalInfoForm = () => {
                               name='travelby'
                               placeholder='รถยนต์ส่วนตัว'
                               required
-                              obj={value}
-                              setObj={setValue}
-                              value={value.travelby}
+                              obj={data}
+                              setObj={setData}
+                              value={data.travelby}
                            />
                         </div>
                      </div>
@@ -260,18 +263,18 @@ export const PersonalInfoForm = () => {
                            name='allergic'
                            placeholder='กุ้ง,ปลาหมึก'
                            required
-                           obj={value}
-                           setObj={setValue}
-                           value={value.allergic}
+                           obj={data}
+                           setObj={setData}
+                           value={data.allergic}
                         />
                      </div>
                      <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                         <DropdownSearch
                            label='อาหารที่ต้องการเป็นพิเศษ'
                            name='special'
-                           obj={value}
-                           setObj={setValue}
-                           defaultValue={value.special}
+                           obj={data}
+                           setObj={setData}
+                           defaultValue={data.special}
                            data={[
                               { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
                               { label: "อาหารเจ", value: "อาหารเจ" },
@@ -287,12 +290,12 @@ export const PersonalInfoForm = () => {
                      น้องๆ สะดวกที่จะนำโน๊ตบุคมาด้วยหรือไม่
                   </p>
                   <div className='lg:mt-1 -mt-1'>
-                     <CheckboxInput 
-                     name='notebook' 
-                     label=' ' 
-                     setObj={setValue}
-                     obj={value}
-                     checked={value.notebook}
+                     <CheckboxInput
+                        name='notebook'
+                        label=' '
+                        setObj={setData}
+                        obj={data}
+                        checked={data.notebook}
                      />
                   </div>
                   <p className='lg:text-xl text-xs  font-semibold ml-2'> (สะดวก) </p>

@@ -7,6 +7,7 @@ const EmailInput = ({
    placeholder,
    required,
    value,
+   disabled
 }: {
    label?: string;
    name: string;
@@ -15,6 +16,7 @@ const EmailInput = ({
    placeholder: string;
    required?: boolean;
    value: string;
+   disabled?:boolean;
 }) => {
    const [valid, setValid] = useState<boolean>(true);
    const RegEx =
@@ -24,7 +26,7 @@ const EmailInput = ({
       const email = e.target.value;
       if (RegEx.test(email) === false) setValid(false);
       else setValid(true);
-      setObj({ ...obj, [name]: email });
+      setObj({...obj, [name]:email});
    };
 
    return (
@@ -37,11 +39,12 @@ const EmailInput = ({
          </div>
          <input
             type='text'
-            className='w-full bg-white xl:text-2xl lg:text-2xl text-md border shadow-lg py-2.5 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1'
+            className='w-full bg-white xl:text-2xl lg:text-2xl text-md border shadow-lg py-2.5 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1 disabled:bg-gray-200 disabled:text-gray-500'
             onChange={handleChange}
             name={name}
             value={value}
             placeholder={placeholder}
+            disabled={disabled}
          />
          {valid ? null : <p className='text-orange text-xs'>Please enter valid form</p>}
       </div>

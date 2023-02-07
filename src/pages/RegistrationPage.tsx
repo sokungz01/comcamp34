@@ -12,6 +12,87 @@ import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpag
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
 export const RegistrationPage = () => {
+   const [dataPersonalInfoForm, setPersonalInfoForm] = useState({
+      pname: "",
+      fname: "",
+      mname: "",
+      sname: "",
+      nickname: "",
+      date: "",
+      month: "",
+      birth_year: "",
+      mobile: "",
+      email: "",
+      province: "",
+      shirt_size: "",
+      medicine: "",
+      allergic_medicine: "",
+      underlying: "",
+      travelby: "",
+      allergic: "",
+      special: { label: "", value: "" },
+      notebook: false,
+   });
+   const [dataEducationForm, setEducationForm] = useState({
+      school_name: "",
+      location: "",
+      grade: "",
+      study_plan: "",
+      gpax: "",
+      university_1: "",
+      facalty_1: "",
+      major_1: "",
+      university_2: "",
+      facalty_2: "",
+      major_2: "",
+      university_3: "",
+      facalty_3: "",
+      major_3: "",
+   });
+   const [dataInterestForm, setInterestForm] = useState({
+      status: false,
+      course: "",
+      a: "",
+      camp1: "",
+      by1: "",
+      camp2: "",
+      by2: "",
+      no_previous_camp: false,
+   });
+   const [dataParentDataForm, setParentDataForm] = useState({
+      parent_pname: "",
+      parent_fname: "",
+      parent_mname: "",
+      parent_sname: "",
+      parent_relation: "",
+      parent_mobile: "",
+      parent_email: "",
+      same_parent: false,
+      emergency_pname: "",
+      emergency_fname: "",
+      emergency_mname: "",
+      emergency_sname: "",
+      emergency_relation: "",
+      emergency_mobile: "",
+      emergency_email: "",
+   });
+   const [dataUploadFilesForm, setUploadFilesForm] = useState({
+      image_URL: "",
+      agreement_URL: "",
+      card_URL: "",
+      pp7_URL: "",
+      pp1_URL: "",
+   });
+   const [dataQuestionFormpage1, setQuestionFormpage1] = useState({
+      q1: "",
+      q2: "",
+      q3: "",
+   });
+   const [dataQuestionFormpage2, setQuestionFormpage2] = useState({
+      q4: "",
+      q5: "",
+      q6: "",
+   });
    const ConfirmationPopup = () => {
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
@@ -32,22 +113,22 @@ export const RegistrationPage = () => {
          backdrop: `
          rgba(0,0,0,0.6)
          `,
-      }).then((result) => {
-         if(result.isConfirmed)
-         {
+      }).then(result => {
+         if (result.isConfirmed) {
             Swal.fire({
                html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social media</p>  </div> ',
                icon: "success",
                background: "#FDFDFD",
                showConfirmButton: true,
                confirmButtonColor: "#FDFDFD",
-               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
+               confirmButtonText:
+                  '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
                backdrop: `
                rgba(0,0,0,0.6)
                `,
-            }).then( () => {
-               location.href = '/';
-            } );
+            }).then(() => {
+               location.href = "/";
+            });
          }
       });
    };
@@ -98,13 +179,25 @@ export const RegistrationPage = () => {
             <div>
                <div className='w-full h-full relative z-10'>
                   {page === 0 || page <= 0 ? <ConsentForm setPage={setPage} /> : null}
-                  {page === 1 ? <PersonalInfoForm /> : null}
-                  {page === 2 ? <EducationForm /> : null}
-                  {page === 3 ? <InterestForm /> : null}
-                  {page === 4 ? <ParentDataForm /> : null}
-                  {page === 5 ? <UploadFilesForm /> : null}
-                  {page === 6 ? <QuestionFormpage1 /> : null}
-                  {page === 7 ? <QuestionFormpage2 /> : null}
+                  {page === 1 ? (
+                     <PersonalInfoForm data={dataPersonalInfoForm} setData={setPersonalInfoForm} />
+                  ) : null}
+                  {page === 2 ? (
+                     <EducationForm data={dataEducationForm} setData={setEducationForm} />
+                  ) : null}
+                  {page === 3 ? <InterestForm data={dataInterestForm} setData={setInterestForm} /> : null}
+                  {page === 4 ? (
+                     <ParentDataForm data={dataParentDataForm} setData={setParentDataForm} />
+                  ) : null}
+                  {page === 5 ? (
+                     <UploadFilesForm data={dataUploadFilesForm} setData={setUploadFilesForm} />
+                  ) : null}
+                  {page === 6 ? (
+                     <QuestionFormpage1 data={dataQuestionFormpage1} setData={setQuestionFormpage1} />
+                  ) : null}
+                  {page === 7 ? (
+                     <QuestionFormpage2 data={dataQuestionFormpage2} setData={setQuestionFormpage2} />
+                  ) : null}
                </div>
             </div>
             <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>

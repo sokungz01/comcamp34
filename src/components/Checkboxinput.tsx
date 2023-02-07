@@ -22,7 +22,7 @@ const CheckboxInput = ({
 }) => {  
 
    const handleChange = (e: any) => {
-      setObj({...obj,[name]:e.target.checked});
+      setObj({...obj, [name]:e.target.checked});
    };
    return (
       <>

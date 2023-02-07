@@ -7,7 +7,28 @@ import study_plan_name from "@/components/registrationForm/DropdownData/study_pl
 import grade_data from "@/components/registrationForm/DropdownData/grade_data.json";
 import { useState } from "react";
 
-export const EducationForm = () => {
+export const EducationForm = ({
+   data,
+   setData,
+}: {
+   data: {
+      school_name: string;
+      location: string;
+      grade: string;
+      study_plan: string;
+      gpax: string;
+      university_1: string;
+      facalty_1: string;
+      major_1: string;
+      university_2: string;
+      facalty_2: string;
+      major_2: string;
+      university_3: string;
+      facalty_3: string;
+      major_3: string;
+   };
+   setData: any;
+}) => {
    const provinces = provinces_data.map((item, index) => ({
       label: item.name_th,
       value: item.name_en,
@@ -25,22 +46,6 @@ export const EducationForm = () => {
       value: item.name,
    }));
 
-   const [value, setValue] = useState({
-      school_name: "",
-      location: "",
-      grade: "",
-      study_plan: "",
-      gpax: "",
-      university_1: "",
-      facalty_1: "",
-      major_1: "",
-      university_2: "",
-      facalty_2: "",
-      major_2: "",
-      university_3: "",
-      facalty_3: "",
-      major_3: "",
-   });
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-yellow3 bg-opacity-40 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 w-11/12'>
@@ -60,9 +65,9 @@ export const EducationForm = () => {
                      name='school_name'
                      placeholder='โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ กำแพงเพชร'
                      required
-                     obj={value}
-                     setObj={setValue}
-                     value={value.school_name}
+                     obj={data}
+                     setObj={setData}
+                     value={data.school_name}
                   />
                </div>
             </div>
@@ -73,9 +78,9 @@ export const EducationForm = () => {
                         label='จังหวัดที่ตั้งสถานศึกษา'
                         name='location'
                         options={provinces}
-                        obj={value}
-                        setObj={setValue}
-                        value={value.location}
+                        obj={data}
+                        setObj={setData}
+                        value={data.location}
                         required
                      />
                   </div>
@@ -84,9 +89,9 @@ export const EducationForm = () => {
                         label='ระดับการศึกษาปัจจุบัน'
                         name='grade'
                         options={grade}
-                        obj={value}
-                        setObj={setValue}
-                        value={value.grade}
+                        obj={data}
+                        setObj={setData}
+                        value={data.grade}
                         required
                      />
                   </div>
@@ -97,9 +102,9 @@ export const EducationForm = () => {
                         label='แผนการเรียน'
                         name='study_plan'
                         options={study_plan}
-                        obj={value}
-                        setObj={setValue}
-                        value={value.study_plan}
+                        obj={data}
+                        setObj={setData}
+                        value={data.study_plan}
                         required
                      />
                   </div>
@@ -108,9 +113,9 @@ export const EducationForm = () => {
                         label='เกรดเฉลี่ย'
                         name='gpax'
                         placeholder='4.00'
-                        obj={value}
-                        setObj={setValue}
-                        value={value.gpax}
+                        obj={data}
+                        setObj={setData}
+                        value={data.gpax}
                         required
                      />
                   </div>
@@ -129,9 +134,9 @@ export const EducationForm = () => {
                      label='มหาวิทยาลัย'
                      name='university_1'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     obj={value}
-                     setObj={setValue}
-                     value={value.university_1}
+                     obj={data}
+                     setObj={setData}
+                     value={data.university_1}
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -139,9 +144,9 @@ export const EducationForm = () => {
                      label='คณะ'
                      name='facalty_1'
                      options={faculty}
-                     obj={value}
-                     setObj={setValue}
-                     value={value.facalty_1}
+                     obj={data}
+                     setObj={setData}
+                     value={data.facalty_1}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -149,9 +154,9 @@ export const EducationForm = () => {
                      label='สาขา'
                      name='major_1'
                      placeholder='วิศวกรรมคอมพิวเตอร์'
-                     obj={value}
-                     setObj={setValue}
-                     value={value.major_1}
+                     obj={data}
+                     setObj={setData}
+                     value={data.major_1}
                   />
                </div>
             </div>
@@ -164,9 +169,9 @@ export const EducationForm = () => {
                      label='มหาวิทยาลัย'
                      name='university_2'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     obj={value}
-                     setObj={setValue}
-                     value={value.university_2}
+                     obj={data}
+                     setObj={setData}
+                     value={data.university_2}
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -174,9 +179,9 @@ export const EducationForm = () => {
                      label='คณะ'
                      name='facalty_2'
                      options={faculty}
-                     obj={value}
-                     setObj={setValue}
-                     value={value.facalty_2}
+                     obj={data}
+                     setObj={setData}
+                     value={data.facalty_2}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -184,9 +189,9 @@ export const EducationForm = () => {
                      label='สาขา'
                      name='major_2'
                      placeholder='วิศวกรรมคอมพิวเตอร์'
-                     obj={value}
-                     setObj={setValue}
-                     value={value.major_2}
+                     obj={data}
+                     setObj={setData}
+                     value={data.major_2}
                   />
                </div>
             </div>
@@ -199,9 +204,9 @@ export const EducationForm = () => {
                      label='มหาวิทยาลัย'
                      name='university_3'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     obj={value}
-                     setObj={setValue}
-                     value={value.university_3}
+                     obj={data}
+                     setObj={setData}
+                     value={data.university_3}
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -209,9 +214,9 @@ export const EducationForm = () => {
                      label='คณะ'
                      name='facalty_3'
                      options={faculty}
-                     obj={value}
-                     setObj={setValue}
-                     value={value.facalty_3}
+                     obj={data}
+                     setObj={setData}
+                     value={data.facalty_3}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -219,9 +224,9 @@ export const EducationForm = () => {
                      label='สาขา'
                      name='major_3'
                      placeholder='วิศวกรรมคอมพิวเตอร์'
-                     obj={value}
-                     setObj={setValue}
-                     value={value.major_3}
+                     obj={data}
+                     setObj={setData}
+                     value={data.major_3}
                   />
                </div>
             </div>

@@ -11,6 +11,7 @@ const SelectInput = ({
    required,
    placeholder,
    value,
+   disabled,
 }: {
    label?: string;
    name: string;
@@ -20,10 +21,11 @@ const SelectInput = ({
    required?: boolean;
    placeholder?: string;
    value: string;
+   disabled?:boolean;
 }) => {
    const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const value = e.currentTarget.value;
-      setObj({ ...obj, [name]: value });
+      setObj({...obj, [name]:value});
    };
    return (
       <>
@@ -37,9 +39,10 @@ const SelectInput = ({
             <div className='flex relative'>
                <select
                   name={name}
-                  className='block form-select appearance-none bg-white w-full xl:text-2xl lg:text-2xl text-md border shadow-lg py-2.5 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1'
+                  className='block form-select appearance-none bg-white w-full xl:text-2xl lg:text-2xl text-md border shadow-lg py-2.5 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1 disabled:bg-gray-300 disabled:text-gray-500 disabled:bg-opacity-100'
                   onChange={handleOnChange}
                   value={value}
+                  disabled={disabled}
                >
                   <option value='' disabled>
                      {placeholder ? placeholder : label}
