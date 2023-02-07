@@ -15,7 +15,7 @@ export const FrontPage = () => {
       }, [])
     return(
         <>
-        <div className='absolute mx-auto left-0 right-0'>
+        <div className='z-[999] absolute mx-auto left-0 right-0'>
         <Navbar />
         </div>
            <div className="flex h-screen flex-col">
