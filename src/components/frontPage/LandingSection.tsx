@@ -12,7 +12,7 @@ const LandingSection: React.FC = () => {
         <div className="min-h-screen overflow-hidden flex flex-col content-start justify-center font-teko tracking-wider bg-base-white">
 
             <div className='lg:z-[99] absolute mx-auto top-0 left-0 right-0 flex flex-col content-start justify-center'>
-                <img className='mt-40 mb-10 lg:w-1/4 w-2/3 mx-auto' src='/assets/frontPage/logo.gif' />
+                <img className='mt-40 mb-10 lg:w-1/4 w-2/3 mx-auto' src='/assets/frontPage/animated-logo.png' />
                 <div className='flex flex-col content-start justify-center mx-auto'>
                     <p className='mx-auto font-normal lg:font-medium lg:text-5xl text-3xl text-red2'>Open 15 February - 5 March 2023</p>
                     <a href="#" className="z-2 inline-block mx-auto lg:text-3xl lg:font-normal px-8 py-2 leading-none text-base-white bg-red2 lg:border-2 lg:border-red2 my-4 lg:mt-8 rounded-xl">Register</a>
