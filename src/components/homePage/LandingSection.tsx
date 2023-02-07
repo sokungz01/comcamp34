@@ -19,7 +19,7 @@ const LandingSection: React.FC = () => {
                 </div>
 
             </div>
-            <Parallax speed={isMobile() ? 50 :250} >
+            <Parallax speed={isMobile() ? 30 :250} >
                 <img className='relative lg:-bottom-1/3 w-screen -bottom-2/3' data-aos="fade-up" data-aos-offset="-1000" data-aos-delay="50" data-aos-duration="3000" src="/assets/frontPage/bgTower.png" />
             </Parallax>
 
