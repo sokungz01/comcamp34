@@ -1,7 +1,7 @@
 // import React from 'react'
 const TimelineSection = () => {
    return (
-      <div className='w-full h-screen text-center bg-contain bg-base-white bg-[url("/assets/frontPage/bgTimelineSection.svg")]'>
+      <div className='w-full text-center bg-contain bg-base-white bg-[url("/assets/frontPage/bgTimelineSection.svg")]'>
          <div className='flex mx-auto justify-center relative '>
             <p
                className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8 ml-2 font-teko tracking-wider '
