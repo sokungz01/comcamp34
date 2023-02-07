@@ -11,9 +11,7 @@ import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
 import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 export const RegistrationPage = () => {
-   const Navigate = useNavigate();
    const ConfirmationPopup = () => {
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
@@ -47,7 +45,9 @@ export const RegistrationPage = () => {
                backdrop: `
                rgba(0,0,0,0.6)
                `,
-            }).then( () => {Navigate('/');} );
+            }).then( () => {
+               location.href = '/';
+            } );
          }
       });
    };
