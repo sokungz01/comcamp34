@@ -1,6 +1,18 @@
 import { useState } from "react";
 import FileUploaderComponent from "../FileUploaderComponent";
-const UploadFilesForm = () => {
+const UploadFilesForm = ({
+   data,
+   setData,
+}: {
+   data: {
+      image_URL: string;
+      agreement_URL: string;
+      card_URL: string;
+      pp7_URL: string;
+      pp1_URL: string;
+   };
+   setData: any;
+}) => {
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-[#FAD9AA] bg-opacity-70 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 pt-4 pb-12'>
@@ -56,7 +68,10 @@ const UploadFilesForm = () => {
                      />
                   </div>
                </div>
-               <img className="hidden xl:block xl:absolute z-20 xl:-right-32 2xl:-right-24 bottom-0 h-3/4" src="/assets/regisPage/uploadFormBG.png"/>
+               <img
+                  className='hidden xl:block xl:absolute z-20 xl:-right-32 2xl:-right-24 bottom-0 h-3/4'
+                  src='/assets/regisPage/uploadFormBG.png'
+               />
             </div>
          </div>
       </div>

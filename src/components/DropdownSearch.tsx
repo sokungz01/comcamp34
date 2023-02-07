@@ -20,7 +20,7 @@ const DropdownSearch = ({
    required?: boolean;
 }) => {
    const handleChange = (e: any) => {
-      setObj({ ...obj, [name]: e.value });
+      setObj({...obj, [name]:e.value });
    };
    return (
       <div>

@@ -30,6 +30,7 @@ const FileUploaderComponent = ({
       // else if upload submit, call method to store file in firebase storage maybe by format -> "userId_file" in defined path
       // * waiting for firebase setup
       setIsUpload(true);
+      
    };
    const deleteFile = () => {
       if (!isUpload) return;

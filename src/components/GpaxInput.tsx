@@ -30,7 +30,7 @@ const GpaxInput = ({
       } else {
          setValid(true);
       }
-      setObj({ ...obj, [name]: value });
+      setObj({...obj, [name]:value});
    };
 
    return (

@@ -1,13 +1,18 @@
 import Textarea from "@/components/Textareainput";
 import { useState } from "react";
 
-export const QuestionFormpage1 = () => {
-    const [value ,setValue] = useState({
-      q1:"",
-      q2:"",
-      q3:"",
-    });
-    return (
+export const QuestionFormpage1 = ({
+   data,
+   setData,
+}: {
+   data: {
+      q1: string;
+      q2: string;
+      q3: string;
+   };
+   setData: any;
+}) => {
+   return (
       <>
          <div className='flex justify-center mt-8'>
             <div className='bg-[#A1CDC7] bg-opacity-70 flex flex-col font-bai-jamjuree w-11/12 lg:rounded-2xl rounded-lg lg:mx-40 mx-6 lg:px-8 xl:px-32 px-6 py-4 pb-8'>
@@ -23,23 +28,24 @@ export const QuestionFormpage1 = () => {
                <Textarea
                   question='1.น้อง ๆ คาดหวังอะไรจากค่าย comcamp'
                   name='q1'
-                  setObj={setValue}
-                  obj={value}
-                  value={value.q1}
+                  setObj={setData}
+                  obj={data}
+                  value={data.q1}
                />
+               
                <Textarea
                   question='2.หากน้องได้มาเข้าร่วมค่าย comcamp โดยที่น้องยังไม่ค่อยมีพื้นฐานทางด้านคอมพิวเตอร์มาก่อน และน้องสามารถเลือกกลุ่มได้ น้องจะเลือกอยู่กับกลุ่มที่ยังไม่มีพื้นฐานทางด้านคอมพิวเตอร์เหมือนกัน หรือกลุ่มที่มีพื้นฐานคอมพิวเตอร์ในระดับกลาง-สูง พร้อมเหตุผล'
                   name='q2'
-                  setObj={setValue}
-                  obj={value}
-                  value={value.q2}
+                  setObj={setData}
+                  obj={data}
+                  value={data.q2}
                />
                <Textarea
                   question='3.หากระหว่างการเข้าค่าย comcamp น้อง ๆ พบว่าเพื่อนในกลุ่มมีปัญหา ไม่สนุกกับการทำกิจกรรม หรือไม่อยากมีส่วนร่วมกับกิจกรรมที่กำลังเกิดขึ้น น้อง ๆ จะมีวิธีการพูดคุยหรือแก้ไขปัญหานี้กับเพื่อนคนนั้นอย่างไร?'
                   name='q3'
-                  setObj={setValue}
-                  obj={value}
-                  value={value.q3}
+                  setObj={setData}
+                  obj={data}
+                  value={data.q3}
                />
             </div>
          </div>
