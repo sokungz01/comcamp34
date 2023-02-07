@@ -27,7 +27,6 @@ const TelInput = ({
       if (str.includes("E") === true || str.includes("e") === true) {
          return false;
       }
-
       return !isNaN(str);
    }
 

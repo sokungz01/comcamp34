@@ -32,7 +32,7 @@ export const PersonalInfoForm = ({
       underlying: string;
       travelby: string;
       allergic: string;
-      special: { label: string; value: string };
+      special: string;
       notebook: boolean;
    };
    setData: any;
@@ -87,7 +87,6 @@ export const PersonalInfoForm = ({
                         label='ชื่อกลาง (ถ้ามี)'
                         name='mname'
                         placeholder='-'
-                        required
                         obj={data}
                         setObj={setData}
                         value={data.mname}
@@ -274,7 +273,7 @@ export const PersonalInfoForm = ({
                            name='special'
                            obj={data}
                            setObj={setData}
-                           defaultValue={data.special}
+                           defaultValue={{ label: data.special, value: data.special }}
                            data={[
                               { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
                               { label: "อาหารเจ", value: "อาหารเจ" },

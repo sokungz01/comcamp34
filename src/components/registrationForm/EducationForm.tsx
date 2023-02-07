@@ -5,7 +5,8 @@ import provinces_data from "@/components/registrationForm/DropdownData/provinces
 import faculty_name from "@/components/registrationForm/DropdownData/faculty_name.json";
 import study_plan_name from "@/components/registrationForm/DropdownData/study_plan_name.json";
 import grade_data from "@/components/registrationForm/DropdownData/grade_data.json";
-import { useState } from "react";
+import DropdownSearch from "../DropdownSearch";
+import university_data from "@/components/registrationForm/DropdownData/university.json";
 
 export const EducationForm = ({
    data,
@@ -29,9 +30,13 @@ export const EducationForm = ({
    };
    setData: any;
 }) => {
-   const provinces = provinces_data.map((item, index) => ({
+   const provinces = provinces_data.map((item) => ({
       label: item.name_th,
       value: item.name_en,
+   }));
+   const university = university_data.map((item) => ({
+      label: item.name,
+      value: item.name,
    }));
    const faculty = faculty_name.map(item => ({
       label: item.faculty_name,
@@ -98,14 +103,15 @@ export const EducationForm = ({
                </div>
                <div className='flex flex-row lg:mt-0 mt-2'>
                   <div className='lg:w-4/6 w-1/2 mr-2'>
-                     <SelectInput
-                        label='แผนการเรียน'
-                        name='study_plan'
-                        options={study_plan}
-                        obj={data}
-                        setObj={setData}
-                        value={data.study_plan}
-                        required
+                  <DropdownSearch
+                     label='แผนการเรียน'
+                     name='study_plan'
+                     obj={data}
+                     setObj={setData}
+                     defaultValue={{ label: data.study_plan, value: data.study_plan }}
+                     data={study_plan}
+                     placeholder='แผนการเรียน'
+                     required
                      />
                   </div>
                   <div className='lg:w-4/6 w-1/2'>
@@ -130,17 +136,19 @@ export const EducationForm = ({
             </h6>
             <div className='lg:flex'>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-                  <Inputbox
+                  <DropdownSearch
                      label='มหาวิทยาลัย'
                      name='university_1'
-                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
                      obj={data}
                      setObj={setData}
-                     value={data.university_1}
-                  />
+                     defaultValue={{ label: data.university_1, value: data.university_1 }}
+                     data={university}
+                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
+                     required
+                     />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-                  <SelectInput
+               <SelectInput
                      label='คณะ'
                      name='facalty_1'
                      options={faculty}
@@ -165,14 +173,16 @@ export const EducationForm = ({
             </h6>
             <div className='lg:flex'>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-                  <Inputbox
+               <DropdownSearch
                      label='มหาวิทยาลัย'
                      name='university_2'
-                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
                      obj={data}
                      setObj={setData}
-                     value={data.university_2}
-                  />
+                     defaultValue={{ label: data.university_2, value: data.university_2 }}
+                     data={university}
+                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
+                     required
+                     />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput
@@ -200,14 +210,16 @@ export const EducationForm = ({
             </h6>
             <div className='lg:flex lg:mb-12 mb-4'>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-                  <Inputbox
+               <DropdownSearch
                      label='มหาวิทยาลัย'
                      name='university_3'
-                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
                      obj={data}
                      setObj={setData}
-                     value={data.university_3}
-                  />
+                     defaultValue={{ label: data.university_3, value: data.university_3 }}
+                     data={university}
+                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
+                     required
+                     />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput

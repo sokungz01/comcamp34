@@ -93,7 +93,6 @@ export const ParentDataForm = ({
                      label='ชื่อกลาง (ถ้ามี)'
                      name='parent_mname'
                      placeholder='-'
-                     required
                      setObj={setData}
                      obj={data}
                      value={data.parent_mname}
@@ -198,7 +197,6 @@ export const ParentDataForm = ({
                      label='ชื่อกลาง (ถ้ามี)'
                      name='emergency_mname'
                      placeholder='-'
-                     required
                      setObj={setData}
                      obj={data}
                      value={data.emergency_mname}
