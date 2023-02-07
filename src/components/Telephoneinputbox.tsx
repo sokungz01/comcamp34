@@ -31,7 +31,7 @@ const TelInput = ({
 
    const handleChange = (event: any) => {
       const phoneNumber = event.target.value;
-      setvalid(phoneNumber.length == 10 && isNumber(phoneNumber));
+      setvalid(phoneNumber.length == 10 && isNumber(phoneNumber) && phoneNumber[0] == "0");
       setObj({ ...obj, [name]: phoneNumber });
    };
    return (

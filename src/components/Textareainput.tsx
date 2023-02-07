@@ -22,12 +22,9 @@ const Inputbox = ({
    required?: boolean;
 }) => {
    const [valid, setValid] = useState<boolean>(false);
-   const Reg = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (!(event.target instanceof HTMLTextAreaElement)) return;
-      const value = event.target.value;
-      if (Reg.test(value) === true) setValid(true);
-      else setValid(false);
+      value = event.target.value;
       setObj({...obj, [name]:value});
    };
 
