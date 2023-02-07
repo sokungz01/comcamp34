@@ -26,7 +26,7 @@ const FAQSection=()=>{
             <div className="col-span-2 relative lg:block hidden" data-aos="fade-down">
                 <img src="assets/frontPage/FAQwhiteboard.svg" className="w-3/4 m-auto mt-0 md:mt-[15%] xl:mt-[25%]"/>
             </div>
-            <div className="lg:col-span-3 col-span-full lg:my-auto mt-4 md:cursor-pointer ml-8 lg:mr-0 mr-24 sm:mr-36 lg:ml-8 relative z-10" data-aos="fade-down">
+            <div className="lg:col-span-3 col-span-full lg:my-auto mt-4 lg:cursor-pointer ml-8 lg:mr-0 mr-24 sm:mr-36 lg:ml-8 relative z-10" data-aos="fade-down">
                 {question.map((item,index)=>(
                     index<4 &&
                     <div className={`bg-inherit`} onClick={()=>{ toggleFAQ(index)}}>
