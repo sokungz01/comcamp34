@@ -21,7 +21,6 @@ const Inputbox = ({
    placeholder?: string;
    required?: boolean;
 }) => {
-   const [valid, setValid] = useState<boolean>(false);
    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (!(event.target instanceof HTMLTextAreaElement)) return;
       value = event.target.value;
@@ -45,7 +44,6 @@ const Inputbox = ({
                rows={row}
                placeholder={placeholder}
             ></textarea>
-            {valid ? <p className='text-red-900'>Please enter valid form</p> : <label></label>}
          </div>
       </>
    );

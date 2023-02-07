@@ -17,17 +17,10 @@ const Inputbox = ({
    required?: boolean;
    value: string;
 }) => {
-   const [valid, setValid] = useState<boolean>(false);
-   const Reg = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (!(event.target instanceof HTMLInputElement)) return;
       const value = event.target.value;
-
-      if (Reg.test(value) === true) setValid(true);
-      else setValid(false);
       setObj({ ...obj, [name]: value });
    };
-
    return (
       <div>
          <div className='flex mb-2'>
@@ -45,7 +38,6 @@ const Inputbox = ({
             onChange={handleChange}
             required={required}
          />
-         {valid ? <p className='text-orange text-xs'>Please enter valid form</p> : <label></label>}
       </div>
    );
 };
