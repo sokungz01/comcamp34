@@ -1,4 +1,3 @@
-
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import {useEffect} from "react";
@@ -11,7 +10,7 @@ export const FAQPage = () => {
     return(
         <>
         <Navbar/>
-           <div className="flex h-screen flex-col">
+           <div className="flex sm:h-screen lg:h-full flex-col">
                 <FAQPageComponent/>
             </div>
         </>
