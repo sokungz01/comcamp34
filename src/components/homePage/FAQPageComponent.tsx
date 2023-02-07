@@ -18,7 +18,7 @@ const FAQPageComponent = () => {
       <div className='w-full h-full lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/bgFAQpage.png")]'>
          <div className='relative max-w-7xl m-auto my-8 lg:my-16 flex justify-center font-bai-jamjuree'>
             <div
-               className='w-5/6 lg:my-auto mt-4 cursor-pointer relative z-10'
+               className='w-5/6 lg:my-auto mt-4 md:cursor-pointer relative z-10'
                data-aos='fade-down'
             >
                <p className='font-semibold text-7xl tracking-wider drop-shadow-lg text-red1 font-teko mb-4'>
