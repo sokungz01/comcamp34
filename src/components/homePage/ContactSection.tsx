@@ -19,8 +19,8 @@ const ContactSection = () => {
                   <div className='font-teko xl:text-6xl md:text-4xl text-3xl text-red1 tracking-wider flex flex-row gap-3'>
                      <p>Address</p>
                      <svg
-                        width='auto'
-                        height='auto'
+                        width='100%'
+                        height='100%'
                         viewBox='0 0 35 54'
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
@@ -54,8 +54,8 @@ const ContactSection = () => {
                      <div className='font-teko xl:text-6xl md:text-4xl text-3xl text-red1 tracking-wider flex flex-row gap-3 items-center'>
                         <p>Contact</p>
                         <svg
-                           width='auto'
-                           height='auto'
+                           width='100%'
+                           height='100%'
                            viewBox='0 0 52 69'
                            fill='none'
                            xmlns='http://www.w3.org/2000/svg'
@@ -114,8 +114,8 @@ const ContactSection = () => {
                               <svg
                                  xmlns='http://www.w3.org/2000/svg'
                                  viewBox='0 0 50 50'
-                                 width='auto'
-                                 height='auto'
+                                 width='100%'
+                                 height='100%'
                                  className='lg:h-[60px] lg:w-[60px] h-[30px] w-[30px]'
                               >
                                  {" "}
@@ -129,8 +129,8 @@ const ContactSection = () => {
                               <svg
                                  xmlns='http://www.w3.org/2000/svg'
                                  viewBox='0 0 30 30'
-                                 width='auto'
-                                 height='auto'
+                                 width='100%'
+                                 height='100%'
                                  className='lg:h-[60px] lg:w-[60px] h-[30px] w-[30px]'
                               >
                                  {" "}
@@ -144,8 +144,8 @@ const ContactSection = () => {
                               <svg
                                  xmlns='http://www.w3.org/2000/svg'
                                  viewBox='0 0 30 30'
-                                 width='auto'
-                                 height='auto'
+                                 width='100%'
+                                 height='100%'
                                  className='lg:h-[60px] lg:w-[60px] h-[30px] w-[30px]'
                               >
                                  {" "}

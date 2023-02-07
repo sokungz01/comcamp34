@@ -12,5 +12,19 @@ body.swal2-shown > [aria-hidden="true"] {
 @layer base {
   html {
       -webkit-tap-highlight-color: transparent;
+#Hammer {
+  animation-name: HammerTimelineanimate;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes HammerTimelineanimate {
+  from {
+      transform: rotate(30deg);
+  }
+
+  to {
+      transform: rotate(-45deg);
   }
 }
