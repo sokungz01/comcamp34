@@ -9,6 +9,8 @@ import FAQSection from '@/components/homePage/FAQSection';
 import ContactSection from '@/components/homePage/ContactSection';
 import LearningSection from '@/components/homePage/LearningSection';
 import TimelineSection from '@/components/homePage/TimelineSection';
+import Sponsor from '@/components/homePage/SponsorSection';
+import SponsorSection from '@/components/homePage/SponsorSection';
 export const FrontPage = () => {
     useEffect(() => {
         AOS.init();
@@ -24,6 +26,7 @@ export const FrontPage = () => {
                 <ConditionsSection/> 
                 <TimelineSection/>
                 <FAQSection/>
+                <SponsorSection/>
                 <ContactSection/>
             </div>
         </>
