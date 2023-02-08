@@ -7,34 +7,14 @@ import study_plan_name from "@/components/registrationForm/DropdownData/study_pl
 import grade_data from "@/components/registrationForm/DropdownData/grade_data.json";
 import DropdownSearch from "../DropdownSearch";
 import university_data from "@/components/registrationForm/DropdownData/university.json";
+import { Education } from "@/types/RegistrationType";
 
-export const EducationForm = ({
-   data,
-   setData,
-}: {
-   data: {
-      school_name: string;
-      location: string;
-      grade: string;
-      study_plan: string;
-      gpax: string;
-      university_1: string;
-      facalty_1: string;
-      major_1: string;
-      university_2: string;
-      facalty_2: string;
-      major_2: string;
-      university_3: string;
-      facalty_3: string;
-      major_3: string;
-   };
-   setData: any;
-}) => {
-   const provinces = provinces_data.map((item) => ({
+export const EducationForm = ({ data, setData }: { data: Education; setData: any }) => {
+   const provinces = provinces_data.map(item => ({
       label: item.name_th,
       value: item.name_en,
    }));
-   const university = university_data.map((item) => ({
+   const university = university_data.map(item => ({
       label: item.name,
       value: item.name,
    }));
@@ -103,15 +83,15 @@ export const EducationForm = ({
                </div>
                <div className='flex flex-row lg:mt-0 mt-2'>
                   <div className='lg:w-4/6 w-1/2 mr-2'>
-                  <DropdownSearch
-                     label='แผนการเรียน'
-                     name='study_plan'
-                     obj={data}
-                     setObj={setData}
-                     defaultValue={{ label: data.study_plan, value: data.study_plan }}
-                     data={study_plan}
-                     placeholder='แผนการเรียน'
-                     required
+                     <DropdownSearch
+                        label='แผนการเรียน'
+                        name='study_plan'
+                        obj={data}
+                        setObj={setData}
+                        defaultValue={{ label: data.study_plan, value: data.study_plan }}
+                        data={study_plan}
+                        placeholder='แผนการเรียน'
+                        required
                      />
                   </div>
                   <div className='lg:w-4/6 w-1/2'>
@@ -144,11 +124,10 @@ export const EducationForm = ({
                      defaultValue={{ label: data.university_1, value: data.university_1 }}
                      data={university}
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     required
-                     />
+                  />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-               <SelectInput
+                  <SelectInput
                      label='คณะ'
                      name='facalty_1'
                      options={faculty}
@@ -173,7 +152,7 @@ export const EducationForm = ({
             </h6>
             <div className='lg:flex'>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-               <DropdownSearch
+                  <DropdownSearch
                      label='มหาวิทยาลัย'
                      name='university_2'
                      obj={data}
@@ -181,8 +160,7 @@ export const EducationForm = ({
                      defaultValue={{ label: data.university_2, value: data.university_2 }}
                      data={university}
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     required
-                     />
+                  />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput
@@ -210,7 +188,7 @@ export const EducationForm = ({
             </h6>
             <div className='lg:flex lg:mb-12 mb-4'>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
-               <DropdownSearch
+                  <DropdownSearch
                      label='มหาวิทยาลัย'
                      name='university_3'
                      obj={data}
@@ -218,8 +196,7 @@ export const EducationForm = ({
                      defaultValue={{ label: data.university_3, value: data.university_3 }}
                      data={university}
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
-                     required
-                     />
+                  />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput

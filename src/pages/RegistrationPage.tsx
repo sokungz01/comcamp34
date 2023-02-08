@@ -11,12 +11,21 @@ import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
 import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
+import {
+   Education,
+   Interest,
+   ParentData,
+   Personal,
+   UploadFile,
+   QuestionPage1,
+   QuestionPage2,
+} from "@/types/RegistrationType";
 export const RegistrationPage = () => {
-   const [dataPersonalInfoForm, setPersonalInfoForm] = useState({
-      pname: "",
-      fname: "",
-      mname: "",
-      sname: "",
+   const [dataPersonalInfoForm, setPersonalInfoForm] = useState<Personal>({
+      prefix: "",
+      firstname: "",
+      middlename: "",
+      surname: "",
       nickname: "",
       date: "",
       month: "",
@@ -33,7 +42,7 @@ export const RegistrationPage = () => {
       special: "",
       notebook: false,
    });
-   const [dataEducationForm, setEducationForm] = useState({
+   const [dataEducationForm, setEducationForm] = useState<Education>({
       school_name: "",
       location: "",
       grade: "",
@@ -49,7 +58,7 @@ export const RegistrationPage = () => {
       facalty_3: "",
       major_3: "",
    });
-   const [dataInterestForm, setInterestForm] = useState({
+   const [dataInterestForm, setInterestForm] = useState<Interest>({
       status: false,
       course: "",
       a: "",
@@ -59,36 +68,36 @@ export const RegistrationPage = () => {
       by2: "",
       no_previous_camp: false,
    });
-   const [dataParentDataForm, setParentDataForm] = useState({
-      parent_pname: "",
-      parent_fname: "",
-      parent_mname: "",
-      parent_sname: "",
+   const [dataParentDataForm, setParentDataForm] = useState<ParentData>({
+      parent_prefix: "",
+      parent_firstname: "",
+      parent_middlename: "",
+      parent_surname: "",
       parent_relation: "",
       parent_mobile: "",
       parent_email: "",
       same_parent: false,
-      emergency_pname: "",
-      emergency_fname: "",
-      emergency_mname: "",
-      emergency_sname: "",
+      emergency_prefix: "",
+      emergency_firstname: "",
+      emergency_middlename: "",
+      emergency_surname: "",
       emergency_relation: "",
       emergency_mobile: "",
       emergency_email: "",
    });
-   const [dataUploadFilesForm, setUploadFilesForm] = useState({
+   const [dataUploadFilesForm, setUploadFilesForm] = useState<UploadFile>({
       image_URL: "",
       agreement_URL: "",
       card_URL: "",
       pp7_URL: "",
       pp1_URL: "",
    });
-   const [dataQuestionFormpage1, setQuestionFormpage1] = useState({
+   const [dataQuestionFormpage1, setQuestionFormpage1] = useState<QuestionPage1>({
       q1: "",
       q2: "",
       q3: "",
    });
-   const [dataQuestionFormpage2, setQuestionFormpage2] = useState({
+   const [dataQuestionFormpage2, setQuestionFormpage2] = useState<QuestionPage2>({
       q4: "",
       q5: "",
       q6: "",
@@ -106,7 +115,7 @@ export const RegistrationPage = () => {
             dataInterestForm,
             dataParentDataForm,
             dataQuestionFormpage1,
-            dataQuestionFormpage2
+            dataQuestionFormpage2,
          );
          Swal.fire({
             html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
@@ -187,9 +196,9 @@ export const RegistrationPage = () => {
    const nextPage = () => {
       if (page === 1) {
          if (
-            dataPersonalInfoForm.pname.length &&
-            dataPersonalInfoForm.fname.length &&
-            dataPersonalInfoForm.sname.length &&
+            dataPersonalInfoForm.prefix.length &&
+            dataPersonalInfoForm.firstname.length &&
+            dataPersonalInfoForm.surname.length &&
             dataPersonalInfoForm.nickname.length &&
             dataPersonalInfoForm.date.length &&
             dataPersonalInfoForm.month.length &&
@@ -205,8 +214,7 @@ export const RegistrationPage = () => {
             dataPersonalInfoForm.allergic_medicine.length &&
             dataPersonalInfoForm.underlying.length &&
             dataPersonalInfoForm.travelby.length &&
-            dataPersonalInfoForm.allergic.length &&
-            dataPersonalInfoForm.special.length
+            dataPersonalInfoForm.allergic.length
          ) {
             setPage(page + 1);
          } else {
@@ -268,16 +276,16 @@ export const RegistrationPage = () => {
          }
       } else if (page === 4) {
          if (
-            dataParentDataForm.parent_pname.length &&
-            dataParentDataForm.parent_fname.length &&
-            dataParentDataForm.parent_sname.length &&
+            dataParentDataForm.parent_prefix.length &&
+            dataParentDataForm.parent_firstname.length &&
+            dataParentDataForm.parent_surname.length &&
             dataParentDataForm.parent_relation.length &&
             dataParentDataForm.parent_mobile.length == 10 &&
             dataParentDataForm.parent_mobile[0] === "0" &&
             isNumber(dataParentDataForm.parent_mobile) &&
-            dataParentDataForm.emergency_pname.length &&
-            dataParentDataForm.emergency_fname.length &&
-            dataParentDataForm.emergency_sname.length &&
+            dataParentDataForm.emergency_prefix.length &&
+            dataParentDataForm.emergency_firstname.length &&
+            dataParentDataForm.emergency_surname.length &&
             dataParentDataForm.emergency_relation.length &&
             dataParentDataForm.emergency_mobile.length == 10 &&
             dataParentDataForm.emergency_mobile[0] === "0" &&
@@ -329,16 +337,16 @@ export const RegistrationPage = () => {
    };
    return (
       <>
-         <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative'>
-            <div className='flex justify-between py-4'>
-               <div className='flex flex-row ml-8'>
+         <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
+            <div className='flex justify-between py-4 '>
+               <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
                   <svg
                      xmlns='http://www.w3.org/2000/svg'
                      fill='none'
                      viewBox='0 0 24 24'
                      strokeWidth='1.5'
                      stroke='currentColor'
-                     className='w-12 h-12'
+                     className='lg:w-12 lg:h-12 w-6 h-6'
                   >
                      <path
                         strokeLinecap='round'
@@ -346,12 +354,12 @@ export const RegistrationPage = () => {
                         d='M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z'
                      />
                   </svg>
-                  <p className='text-base-black font-semibold mt-2.5 ml-4'>
+                  <p className='text-base-black font-semibold lg:mt-2.5lg:ml-4 ml-2 text-sm lg:text-base'>
                      administrator@comcamp.io
                   </p>
                </div>
                <Link to='/'>
-                  <button className='bg-red2 text-white py-2 px-8 rounded-lg font-semibold mr-12'>
+                  <button className='bg-red2 text-white lg:py-2 lg:px-8 py-1.5 px-4 rounded-lg font-semibold text-sm lg:text-base mr-2 lg:mr-12'>
                      Log out
                   </button>
                </Link>

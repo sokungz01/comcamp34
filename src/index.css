@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+img {
+   pointer-events: none;
+}
 .stroke-pink {
    -webkit-text-stroke: 0.5px #d2364c; /* width and color */
 }
