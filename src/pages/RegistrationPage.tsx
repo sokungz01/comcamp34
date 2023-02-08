@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
@@ -20,7 +20,10 @@ import {
    QuestionPage1,
    QuestionPage2,
 } from "@/types/RegistrationType";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 export const RegistrationPage = () => {
+   const navigate = useNavigate();
    const [dataPersonalInfoForm, setPersonalInfoForm] = useState<Personal>({
       prefix: "",
       firstname: "",
@@ -167,6 +170,15 @@ export const RegistrationPage = () => {
             `,
          });
       }
+   };
+   const handleLogout = () => {
+      signOut(auth)
+         .then(() => {
+            navigate("/");
+         })
+         .catch(error => {
+            // An error happened.
+         });
    };
    const [page, setPage] = useState<number>(0);
    function isNumber(str: any) {
@@ -358,11 +370,13 @@ export const RegistrationPage = () => {
                      administrator@comcamp.io
                   </p>
                </div>
-               <Link to='/'>
-                  <button className='bg-red2 text-white lg:py-2 lg:px-8 py-1.5 px-4 rounded-lg font-semibold text-sm lg:text-base mr-2 lg:mr-12'>
-                     Log out
-                  </button>
-               </Link>
+
+               <button
+                  className='bg-red2 text-white lg:py-2 lg:px-8 py-1.5 px-4 rounded-lg font-semibold text-sm lg:text-base mr-2 lg:mr-12'
+                  onClick={handleLogout}
+               >
+                  Log out
+               </button>
             </div>
             <div className='flex justify-center'>
                <p className='xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-teko tracking-widest text-red2 font-semibold mt-3 mb-3'>
