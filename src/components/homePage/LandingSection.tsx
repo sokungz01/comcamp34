@@ -1,13 +1,7 @@
 import isMobile from 'is-mobile';
-import React from 'react'
 import { Parallax } from 'react-scroll-parallax';
 
-
-
-
-
 const LandingSection: React.FC = () => {
-
     return (
         <div className="min-h-screen overflow-hidden flex flex-col content-start justify-center font-teko tracking-wider bg-base-white">
 
