@@ -1,12 +1,12 @@
 const ContactSection = () => {
    return (
-         <div className='bg-base-black w-full'>
+      <div className='bg-base-black w-full'>
          <div className='font-teko text-base-white text-5xl text-center tracking-widest lg:hidden my-8'>
             Contact
          </div>
          <div className='flex flex-row justify-between items-center overflow-x-hidden'>
             <div
-               className="lg:bg-[url('/assets/frontPage/bgContactSection.svg')] bg-[url('/assets/frontPage/bgContactSectionMobile.svg')] lg:h-[100vh] h-[80vh] w-[50vw] bg-no-repeat bg-left bg-contain"
+               className="lg:bg-[url('/assets/frontPage/contact-bg-desktop.svg')] bg-[url('/assets/frontPage/contact-bg-mobile.svg')] lg:h-[100vh] h-[80vh] w-[50vw] bg-no-repeat bg-left bg-contain"
                data-aos='fade-right'
                data-aos-duration='1000'
             ></div>
