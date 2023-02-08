@@ -3,6 +3,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import { FrontPage } from "@/pages/FrontPage";
 import { RegistrationPage } from "@/pages/RegistrationPage";
 import { FAQPage } from "@/pages/FAQPage";
+import LoginPage from "./pages/LoginPage";
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
          <BrowserRouter basename='/'>
             <Routes>
                <Route path='/' element={<FrontPage />} />
-               <Route path='/registration' element={<RegistrationPage />} />
+               <Route path='/registration' element={<LoginPage />} />
                <Route path='/faq' element={<FAQPage />} />
                <Route path='*' element={<FrontPage />} />
             </Routes>
