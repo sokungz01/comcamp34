@@ -14,7 +14,6 @@ const FAQPageComponent = () => {
    }, []);
 
    return (
-      
       <div className='w-full h-full lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/bgFAQpage.png")]'>
          <div className='relative max-w-7xl m-auto my-8 lg:my-16 flex justify-center font-bai-jamjuree'>
             <div
@@ -84,7 +83,6 @@ const FAQPageComponent = () => {
             </div>
          </div>
       </div>
- 
    );
 };
 export default FAQPageComponent;
