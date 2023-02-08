@@ -3,28 +3,25 @@ import SelectInput from "@/components/SelectInput";
 import CheckboxInput from "@/components/Checkboxinput";
 import Textareainput from "@/components/Textareainput";
 import course_name from "@/components/registrationForm/DropdownData/course_name.json";
-import { useState } from "react";
+import { Interest } from "@/types/RegistrationType";
+import { useState, useEffect } from "react";
 
-export const InterestForm = ({
-   data,
-   setData,
-}: {
-   data: {
-      status: boolean;
-      course: string;
-      a: string;
-      camp1: string;
-      by1: string;
-      camp2: string;
-      by2: string;
-      no_previous_camp: boolean;
-   };
-   setData: any;
-}) => {
+export const InterestForm = ({ data, setData }: { data: Interest; setData: any }) => {
    const course = course_name.map(item => ({
       label: item.name,
       value: item.name,
    }));
+
+   useEffect(() => {
+      setData({
+         ...data,
+         camp1: "",
+         by1: "",
+         camp2: "",
+         by2: "",
+      });
+   }, [data.no_previous_camp]);
+
    return (
       <div className='flex justify-center mt-8 mb-8'>
          <div className='bg-green1 bg-opacity-30 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 py-4 w-11/12'>
@@ -80,11 +77,9 @@ export const InterestForm = ({
                </div>
             </div>
             <div className='flex lg:flex-row flex-col text-black font-semibold lg:text-lg text-sm lg:mt-6 mt-3'>
-               <div className="mr-24">
-               ค่ายที่เคยเข้าร่วมแล้วประทับใจ 2 ลำดับของน้อง ๆ*
-               </div>
-            <div className="flex mt-4 lg:mt-0">
-               <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
+               <div className='mr-24'>ค่ายที่เคยเข้าร่วมแล้วประทับใจ 2 ลำดับของน้อง ๆ*</div>
+               <div className='flex mt-4 lg:mt-0'>
+                  <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
                      ไม่เคยเข้าร่วมค่ายใด ๆ มาก่อน
                   </h6>
                   <CheckboxInput
@@ -93,11 +88,14 @@ export const InterestForm = ({
                      obj={data}
                      setObj={setData}
                      checked={data.no_previous_camp}
+                     onclick={() => {
+                        // if(){
+                        // }
+                     }}
                   />
+               </div>
             </div>
-            </div>
-            <div className='flex mt-2'>
-            </div>
+            <div className='flex mt-2'></div>
             <div className='lg:flex lg:mt-6 lg:ml-12'>
                <div className='lg:w-3/12 lg:mr-24 mt-2 lg:mt-0'>
                   <Inputbox

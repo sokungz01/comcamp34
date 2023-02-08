@@ -1,17 +1,8 @@
 import Textarea from "@/components/Textareainput";
 import { useState } from "react";
+import { QuestionPage2 } from "@/types/RegistrationType";
 
-export const QuestionFormpage2 = ({
-   data,
-   setData,
-}: {
-   data: {
-      q4: string;
-      q5: string;
-      q6: string;
-   };
-   setData: any;
-}) => {
+export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setData: any }) => {
    return (
       <>
          <div className='flex justify-center mt-8'>
