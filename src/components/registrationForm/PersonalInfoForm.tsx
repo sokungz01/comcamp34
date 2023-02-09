@@ -9,6 +9,7 @@ import month_data from "@/components/registrationForm/DropdownData/month_data.js
 import year_data from "@/components/registrationForm/DropdownData/year_data.json";
 import provinces_data from "@/components/registrationForm/DropdownData/provinces_data.json";
 import shirtsize_data from "@/components/registrationForm/DropdownData/shirtsize_data.json";
+import { useEffect } from "react";
 import { Personal } from "@/types/RegistrationType";
 
 export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: any }) => {
@@ -17,6 +18,11 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
       value: item.name_th,
    }));
 
+   useEffect(() => {
+      const format_date = data.date + "-" + data.month + "-" + data.birth_year;
+      setData({ ...data, "birth_date": format_date });
+      // console.log(format_date);
+   }, [data.date, data.month, data.birth_year]);
    return (
       <>
          <div className='flex justify-center mt-8'>
