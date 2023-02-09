@@ -94,10 +94,11 @@ const AboutSection = () => {
             <div className="mx-auto relative w-full h-[600vh] hidden xl:block" ref={divRef}>
                 <div className="sticky top-5 mx-auto flex">
                     <div className="w-full relative overflow-hidden h-screen">
-                        {textToggle ? <p className="text-9xl absolute text-yellow1 mt-[2.5%] ml-[2.5%] font-teko tracking-widest" data-aos="fade-right">
+                        {textToggle ? <p className="text-9xl absolute text-yellow1 mt-[2.5%] ml-[2.5%] font-teko tracking-widest" 
+                        data-aos="fade-right">
                             What is Comcamp?
                         </p> : null}
-                        {textToggle ? <p className="text-3xl absolute text-base-black mt-[27.5%] xl:mt-[20%] ml-[2.5%] mr-[35%] 
+                        {textToggle ? <p className="text-3xl absolute text-base-black mt-[27.5%] xl:mt-[40vh] ml-[2.5%] mr-[35%] 
                          z-50 font-bai-jamjuree" data-aos="fade-right">
                             ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น เพื่อให้น้อง ๆ
                             ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อ
@@ -153,7 +154,8 @@ const AboutSection = () => {
                     </div>
                     {textMobileToggle ? 
                     <div
-                        className="text-[3.75vw] sm:text-xl text-base-black absolute left-0 z-1000 bottom-[25vh] ml-8 mr-[40%]" 
+                        className="text-[2vh] sm:text-3xl text-base-black absolute left-0 z-1000 mt-[50vh] sm:mt-[55vh] ml-4 sm:ml-10
+                        mr-[40%] sm:mr-[37.5%]" 
                         data-aos="fade-right">
                         ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น เพื่อให้น้อง ๆ
                         ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อ
