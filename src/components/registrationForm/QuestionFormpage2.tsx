@@ -19,6 +19,7 @@ export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setD
                <Textarea
                   question='4.น้อง ๆ คิดว่า ในอีก 10 ปีข้างหน้า อะไรจะเปลี่ยนแปลงไป และอะไรจะยังคงเหมือนเดิมบ้าง (ยกตัวอย่างมาอย่างน้อย 3 ข้อ ไม่จำเป็นต้องเป็นเรื่องเทคโนโลยี) และน้อง ๆ คิดว่าตัวเองจะปรับตัวให้เข้ากับสิ่งที่เปลี่ยนแปลงอย่างไร และจะใช้ประโยชน์จากสิ่งที่จะไม่เปลี่ยนแปลงได้อย่างไรบ้าง'
                   name='q4'
+                  row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q4}
@@ -26,6 +27,7 @@ export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setD
                <Textarea
                   question='5.ถ้าหากน้องได้รับทุนในการทำธุรกิจก้อนหนึ่ง น้องจะเลือกทำธุรกิจอะไร เพราะอะไรน้องถึงเลือกทำธุรกิจนั้น และจะสร้างเทคโนโลยีอะไรมาเพื่อมาพัฒนาธุรกิจของตนเอง และเพราะอะไรถึงเลือกเทคโนโลยีนั้น'
                   name='q5'
+                  row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q5}
@@ -33,6 +35,7 @@ export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setD
                <Textarea
                   question='6.จงแต่งเรื่องจากคำที่กำหนดให้ต่อไปนี้  comcamp34, นัมโดซาน, ห่านบางมด, y2k, พุดดิ้งมะพร้าวอ่อน, ทรงอย่างแบด, โมโม่, ตึกแดง'
                   name='q6'
+                  row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q6}

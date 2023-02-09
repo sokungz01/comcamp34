@@ -7,45 +7,46 @@ export type Personal = {
    date: string;
    month: string;
    birth_year: string;
+   birth_date: string;
    mobile: string;
    email: string;
    province: string;
+   travelby: string;
    shirt_size: string;
    medicine: string;
-   allergic_medicine: string;
    underlying: string;
-   travelby: string;
-   allergic: string;
+   allergic_food: string;
+   allergic_medicine: string;
    special: string;
    notebook: boolean;
 };
 
 export interface Education {
    school_name: string;
-   location: string;
-   grade: string;
+   school_province: string;
    study_plan: string;
+   student_level: string;
    gpax: string;
    university_1: string;
-   facalty_1: string;
+   faculty_1: string;
    major_1: string;
    university_2: string;
-   facalty_2: string;
+   faculty_2: string;
    major_2: string;
    university_3: string;
-   facalty_3: string;
+   faculty_3: string;
    major_3: string;
-};
+}
 export interface Interest {
-   status: boolean;
-   course: string;
-   a: string;
+   comcamp_previous: boolean;
+   major_interest: string;
+   reason_major_interest: string;
    camp1: string;
-   by1: string;
+   camp1_by: string;
    camp2: string;
-   by2: string;
+   camp2_by: string;
    no_previous_camp: boolean;
-};
+}
 export interface ParentData {
    parent_prefix: string;
    parent_firstname: string;
@@ -62,22 +63,22 @@ export interface ParentData {
    emergency_relation: string;
    emergency_mobile: string;
    emergency_email: string;
-};
+}
 export interface UploadFile {
    image_URL: string;
    agreement_URL: string;
    card_URL: string;
    pp7_URL: string;
    pp1_URL: string;
-};
+}
 
 export interface QuestionPage1 {
    q1: string;
    q2: string;
    q3: string;
-};
+}
 export interface QuestionPage2 {
    q4: string;
    q5: string;
    q6: string;
-};
+}

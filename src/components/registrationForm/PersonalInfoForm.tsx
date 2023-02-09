@@ -234,12 +234,12 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                      <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
                         <Inputbox
                            label='อาหารที่แพ้'
-                           name='allergic'
+                           name='allergic_food'
                            placeholder='กุ้ง,ปลาหมึก'
                            required
                            obj={data}
                            setObj={setData}
-                           value={data.allergic}
+                           value={data.allergic_food}
                         />
                      </div>
                      <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
