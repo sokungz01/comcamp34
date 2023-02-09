@@ -6,11 +6,12 @@ import React,{useEffect} from "react";
 import Navbar from '@/components/homePage/Navbar';
 import LandingSection from '@/components/homePage/LandingSection';
 import FAQSection from '@/components/homePage/FAQSection';
+import TimelineSection from '@/components/homePage/TimelineSection';
 import ContactSection from '@/components/homePage/ContactSection';
 import LearningSection from '@/components/homePage/LearningSection';
-import TimelineSection from '@/components/homePage/TimelineSection';
-import Sponsor from '@/components/homePage/SponsorSection';
+import AboutSection from '@/components/homePage/AboutSection';
 import SponsorSection from '@/components/homePage/SponsorSection';
+
 export const FrontPage = () => {
     useEffect(() => {
         AOS.init();
@@ -22,6 +23,7 @@ export const FrontPage = () => {
         </div>
            <div className="flex h-screen flex-col">
                 <LandingSection/>
+                <AboutSection/>
                 <LearningSection/>
                 <ConditionsSection/> 
                 <TimelineSection/>
