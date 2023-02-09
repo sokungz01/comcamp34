@@ -22,9 +22,9 @@ export const FrontPage = () => {
                 <LandingSection/>
                 <AboutSection/>
                 <LearningSection/>
-                {/* <ConditionsSection/>  */}
-                {/* <FAQSection/> */}
-                {/* <ContactSection/> */}
+                <ConditionsSection/>
+                <FAQSection/>
+                <ContactSection/>
             </div>
         </>
     );
