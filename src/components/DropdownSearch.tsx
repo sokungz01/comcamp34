@@ -13,7 +13,7 @@ const DropdownSearch = ({
    label?: string;
    name: string;
    data: { label: string; value: string }[];
-   defaultValue?: { label: string; value: string }; //default value
+   defaultValue: { label: string; value: string }; //default value
    obj: object;
    setObj: any;
    placeholder?: string;
@@ -51,7 +51,7 @@ const DropdownSearch = ({
                placeholder={placeholder ? placeholder : "Select..."}
                options={data}
                onChange={handleChange}
-               defaultValue={defaultValue ? defaultValue : ""}
+               defaultValue={defaultValue.value === "" ? null : defaultValue}
             />
             <span className='absolute pointer-events-none w-[30px] h-full lg:top-1 top-0 right-2 flex align-center justify-center text-red1 font-bold lg:text-3xl text-xl'>
                ⌄
