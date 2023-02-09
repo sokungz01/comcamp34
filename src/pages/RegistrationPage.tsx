@@ -445,7 +445,7 @@ export const RegistrationPage = () => {
             </div>
 
             <div className='absolute z-0 bottom-0 w-full'>
-               <img src='/assets/regisPage/building.svg' className='w-full' />
+               <img src='/assets/regisPage/bgLogin.png' className='w-full opacity-50' />
             </div>
          </div>
       </>
