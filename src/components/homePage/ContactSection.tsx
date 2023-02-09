@@ -1,12 +1,12 @@
 const ContactSection = () => {
    return (
-      <div className='bg-base-black w-full overflow-x-hidden min-h-screen'>
+      <div className='bg-base-black w-full'>
          <div className='font-teko text-base-white text-5xl text-center tracking-widest lg:hidden my-8'>
             Contact
          </div>
-         <div className='flex flex-row justify-between items-center'>
+         <div className='flex flex-row justify-between items-center overflow-x-hidden'>
             <div
-               className="lg:bg-[url('/assets/frontPage/bgContactSection.svg')] bg-[url('/assets/frontPage/bgContactSectionMobile.svg')] lg:h-[100vh] h-[80vh] w-[50vw] bg-no-repeat bg-left bg-contain"
+               className="lg:bg-[url('/assets/frontPage/contact-bg-desktop.svg')] bg-[url('/assets/frontPage/contact-bg-mobile.svg')] lg:h-[100vh] h-[80vh] w-[50vw] bg-no-repeat bg-left bg-contain"
                data-aos='fade-right'
                data-aos-duration='1000'
             ></div>
@@ -16,11 +16,11 @@ const ContactSection = () => {
                data-aos-duration='1000'
             >
                <div className='flex flex-col'>
-                  <div className='font-teko xl:text-6xl lg:text-4xl text-3xl text-red1 tracking-wider flex flex-row gap-3'>
+                  <div className='font-teko xl:text-6xl md:text-4xl text-3xl text-red1 tracking-wider flex flex-row gap-3'>
                      <p>Address</p>
                      <svg
-                        width='auto'
-                        height='auto'
+                        width='100%'
+                        height='100%'
                         viewBox='0 0 35 54'
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
@@ -39,7 +39,7 @@ const ContactSection = () => {
                         />
                      </svg>
                   </div>
-                  <div className='font-bai-jamjuree xl:text-3xl lg:text-2xl text-sm text-black'>
+                  <div className='font-bai-jamjuree xl:text-3xl md:text-2xl text-sm text-black'>
                      ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์
                      <br />
                      มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
@@ -51,11 +51,11 @@ const ContactSection = () => {
                </div>
                <div className='flex flex-row min-w-xl flex-wrap'>
                   <div className='lg:mt-12 mt-3 flex flex-col'>
-                     <div className='font-teko xl:text-6xl lg:text-4xl text-3xl text-red1 tracking-wider flex flex-row gap-3 items-center'>
+                     <div className='font-teko xl:text-6xl md:text-4xl text-3xl text-red1 tracking-wider flex flex-row gap-3 items-center'>
                         <p>Contact</p>
                         <svg
-                           width='auto'
-                           height='auto'
+                           width='100%'
+                           height='100%'
                            viewBox='0 0 52 69'
                            fill='none'
                            xmlns='http://www.w3.org/2000/svg'
@@ -81,7 +81,7 @@ const ContactSection = () => {
                            />
                         </svg>
                      </div>
-                     <div className='font-bai-jamjuree xl:text-3xl lg:text-2xl text-sm text-black flex flex-row lg:mr-14 mr-8 mt-2'>
+                     <div className='font-bai-jamjuree xl:text-3xl md:text-2xl text-sm text-black flex flex-row lg:mr-14 mr-8 mt-2'>
                         <div className='flex flex-col justify-start'>
                            <p>พี่โม</p>
                            <p>พี่แพร์</p>
@@ -105,17 +105,17 @@ const ContactSection = () => {
                      </div>
                   </div>
                   <div className='flex flex-col lg:mt-12 mt-3'>
-                     <p className='font-teko xl:text-6xl lg:text-4xl text-3xl text-red1 tracking-wider'>
+                     <p className='font-teko xl:text-6xl md:text-4xl text-3xl text-red1 tracking-wider'>
                         Social Media
                      </p>
-                     <div className='font-bai-jamjuree xl:text-3xl lg:text-2xl text-sm text-black flex flex-row mt-2'>
+                     <div className='font-bai-jamjuree xl:text-3xl md:text-2xl text-sm text-black flex flex-row mt-2'>
                         <div>
                            <div className='flex flex-row items-center'>
                               <svg
                                  xmlns='http://www.w3.org/2000/svg'
                                  viewBox='0 0 50 50'
-                                 width='auto'
-                                 height='auto'
+                                 width='100%'
+                                 height='100%'
                                  className='lg:h-[60px] lg:w-[60px] h-[30px] w-[30px]'
                               >
                                  {" "}
@@ -129,8 +129,8 @@ const ContactSection = () => {
                               <svg
                                  xmlns='http://www.w3.org/2000/svg'
                                  viewBox='0 0 30 30'
-                                 width='auto'
-                                 height='auto'
+                                 width='100%'
+                                 height='100%'
                                  className='lg:h-[60px] lg:w-[60px] h-[30px] w-[30px]'
                               >
                                  {" "}
@@ -144,8 +144,8 @@ const ContactSection = () => {
                               <svg
                                  xmlns='http://www.w3.org/2000/svg'
                                  viewBox='0 0 30 30'
-                                 width='auto'
-                                 height='auto'
+                                 width='100%'
+                                 height='100%'
                                  className='lg:h-[60px] lg:w-[60px] h-[30px] w-[30px]'
                               >
                                  {" "}

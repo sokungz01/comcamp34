@@ -9,34 +9,9 @@ import month_data from "@/components/registrationForm/DropdownData/month_data.js
 import year_data from "@/components/registrationForm/DropdownData/year_data.json";
 import provinces_data from "@/components/registrationForm/DropdownData/provinces_data.json";
 import shirtsize_data from "@/components/registrationForm/DropdownData/shirtsize_data.json";
+import { Personal } from "@/types/RegistrationType";
 
-export const PersonalInfoForm = ({
-   data,
-   setData,
-}: {
-   data: {
-      pname: string;
-      fname: string;
-      mname: string;
-      sname: string;
-      nickname: string;
-      date: string;
-      month: string;
-      birth_year: string;
-      mobile: string;
-      email: string;
-      province: string;
-      shirt_size: string;
-      medicine: string;
-      allergic_medicine: string;
-      underlying: string;
-      travelby: string;
-      allergic: string;
-      special: string;
-      notebook: boolean;
-   };
-   setData: any;
-}) => {
+export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: any }) => {
    const provinces = provinces_data.map(item => ({
       label: item.name_th,
       value: item.name_th,
@@ -59,10 +34,10 @@ export const PersonalInfoForm = ({
                   <div className='col-span-1 lg:col-span-1 w-full xl:pr-2 lg:pr-1'>
                      <SelectInput
                         label='คำนำหน้าชื่อ'
-                        name='pname'
+                        name='prefix'
                         obj={data}
                         setObj={setData}
-                        value={data.pname}
+                        value={data.prefix}
                         options={[
                            { label: "นาย", value: "นาย" },
                            { label: "นาง", value: "นาง" },
@@ -74,33 +49,33 @@ export const PersonalInfoForm = ({
                   <div className='col-span-2  w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 pl-3'>
                      <Inputbox
                         label='ชื่อ'
-                        name='fname'
+                        name='firstname'
                         placeholder='ธนาธร'
                         obj={data}
                         setObj={setData}
-                        value={data.fname}
+                        value={data.firstname}
                         required
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                      <Inputbox
                         label='ชื่อกลาง (ถ้ามี)'
-                        name='mname'
+                        name='middlename'
                         placeholder='-'
                         obj={data}
                         setObj={setData}
-                        value={data.mname}
+                        value={data.middlename}
                      />
                   </div>
                   <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 lg:pl-1'>
                      <Inputbox
                         label='นามสกุล'
-                        name='sname'
+                        name='surname'
                         placeholder='อารมณ์ดี'
                         required
                         obj={data}
                         setObj={setData}
-                        value={data.sname}
+                        value={data.surname}
                      />
                   </div>
                </div>
@@ -259,12 +234,12 @@ export const PersonalInfoForm = ({
                      <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
                         <Inputbox
                            label='อาหารที่แพ้'
-                           name='allergic'
+                           name='allergic_food'
                            placeholder='กุ้ง,ปลาหมึก'
                            required
                            obj={data}
                            setObj={setData}
-                           value={data.allergic}
+                           value={data.allergic_food}
                         />
                      </div>
                      <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
@@ -279,7 +254,6 @@ export const PersonalInfoForm = ({
                               { label: "อาหารเจ", value: "อาหารเจ" },
                            ]}
                            placeholder='เลือก'
-                           required
                         />
                      </div>
                   </div>

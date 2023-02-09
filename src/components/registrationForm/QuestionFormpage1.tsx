@@ -1,17 +1,8 @@
 import Textarea from "@/components/Textareainput";
 import { useState } from "react";
+import { QuestionPage1 } from "@/types/RegistrationType";
 
-export const QuestionFormpage1 = ({
-   data,
-   setData,
-}: {
-   data: {
-      q1: string;
-      q2: string;
-      q3: string;
-   };
-   setData: any;
-}) => {
+export const QuestionFormpage1 = ({ data, setData }: { data: QuestionPage1; setData: any }) => {
    return (
       <>
          <div className='flex justify-center mt-8'>
@@ -28,14 +19,16 @@ export const QuestionFormpage1 = ({
                <Textarea
                   question='1.น้อง ๆ คาดหวังอะไรจากค่าย comcamp'
                   name='q1'
+                  row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q1}
                />
-               
+
                <Textarea
                   question='2.หากน้องได้มาเข้าร่วมค่าย comcamp โดยที่น้องยังไม่ค่อยมีพื้นฐานทางด้านคอมพิวเตอร์มาก่อน และน้องสามารถเลือกกลุ่มได้ น้องจะเลือกอยู่กับกลุ่มที่ยังไม่มีพื้นฐานทางด้านคอมพิวเตอร์เหมือนกัน หรือกลุ่มที่มีพื้นฐานคอมพิวเตอร์ในระดับกลาง-สูง พร้อมเหตุผล'
                   name='q2'
+                  row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q2}
@@ -43,6 +36,7 @@ export const QuestionFormpage1 = ({
                <Textarea
                   question='3.หากระหว่างการเข้าค่าย comcamp น้อง ๆ พบว่าเพื่อนในกลุ่มมีปัญหา ไม่สนุกกับการทำกิจกรรม หรือไม่อยากมีส่วนร่วมกับกิจกรรมที่กำลังเกิดขึ้น น้อง ๆ จะมีวิธีการพูดคุยหรือแก้ไขปัญหานี้กับเพื่อนคนนั้นอย่างไร?'
                   name='q3'
+                  row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q3}

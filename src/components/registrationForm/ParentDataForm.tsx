@@ -4,38 +4,17 @@ import SelectInput from "@/components/SelectInput";
 import TelInput from "@/components/Telephoneinputbox";
 import EmailInput from "@/components/EmailInput";
 import CheckboxInput from "@/components/Checkboxinput";
+import { ParentData } from "@/types/RegistrationType";
 
-export const ParentDataForm = ({
-   data,
-   setData,
-}: {
-   data: {
-      parent_pname: string;
-      parent_fname: string;
-      parent_mname: string;
-      parent_sname: string;
-      parent_relation: string;
-      parent_mobile: string;
-      parent_email: string;
-      same_parent: boolean;
-      emergency_pname: string;
-      emergency_fname: string;
-      emergency_mname: string;
-      emergency_sname: string;
-      emergency_relation: string;
-      emergency_mobile: string;
-      emergency_email: string;
-   };
-   setData: any;
-}) => {
+export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: any }) => {
    useEffect(() => {
       if (data.same_parent) {
          setData({
             ...data,
-            emergency_pname: data.parent_pname,
-            emergency_fname: data.parent_fname,
-            emergency_mname: data.parent_mname,
-            emergency_sname: data.parent_sname,
+            emergency_prefix: data.parent_prefix,
+            emergency_firstname: data.parent_firstname,
+            emergency_middlename: data.parent_middlename,
+            emergency_surname: data.parent_surname,
             emergency_relation: data.parent_relation,
             emergency_mobile: data.parent_mobile,
             emergency_email: data.parent_email,
@@ -43,10 +22,10 @@ export const ParentDataForm = ({
       }
    }, [
       data.same_parent,
-      data.parent_pname,
-      data.parent_fname,
-      data.parent_mname,
-      data.parent_sname,
+      data.parent_prefix,
+      data.parent_firstname,
+      data.parent_middlename,
+      data.parent_surname,
       data.parent_relation,
       data.parent_mobile,
       data.parent_email,
@@ -65,7 +44,7 @@ export const ParentDataForm = ({
                <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
                   <SelectInput
                      label='คำนำหน้าชื่อ'
-                     name='parent_pname'
+                     name='parent_prefix'
                      options={[
                         { label: "นาย", value: "นาย" },
                         { label: "นาง", value: "นาง" },
@@ -74,39 +53,39 @@ export const ParentDataForm = ({
                      required
                      setObj={setData}
                      obj={data}
-                     value={data.parent_pname}
+                     value={data.parent_prefix}
                   />
                </div>
                <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
                   <Inputbox
                      label='ชื่อ'
-                     name='parent_fname'
+                     name='parent_firstname'
                      placeholder='สมชาย'
                      required
                      setObj={setData}
                      obj={data}
-                     value={data.parent_fname}
+                     value={data.parent_firstname}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
                   <Inputbox
                      label='ชื่อกลาง (ถ้ามี)'
-                     name='parent_mname'
+                     name='parent_middlename'
                      placeholder='-'
                      setObj={setData}
                      obj={data}
-                     value={data.parent_mname}
+                     value={data.parent_middlename}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
                   <Inputbox
                      label='นามสกุล'
-                     name='parent_sname'
+                     name='parent_surname'
                      placeholder='อารมณ์ดี'
                      required
                      setObj={setData}
                      obj={data}
-                     value={data.parent_sname}
+                     value={data.parent_surname}
                   />
                </div>
             </div>
@@ -159,7 +138,6 @@ export const ParentDataForm = ({
                      checked={data.same_parent}
                      obj={data}
                      setObj={setData}
-                     
                   />
                </div>
             </div>
@@ -167,7 +145,7 @@ export const ParentDataForm = ({
                <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
                   <SelectInput
                      label='คำนำหน้าชื่อ'
-                     name='emergency_pname'
+                     name='emergency_prefix'
                      options={[
                         { label: "นาย", value: "นาย" },
                         { label: "นาง", value: "นาง" },
@@ -176,42 +154,42 @@ export const ParentDataForm = ({
                      required
                      setObj={setData}
                      obj={data}
-                     value={data.emergency_pname}
+                     value={data.emergency_prefix}
                      disabled={data.same_parent}
                   />
                </div>
                <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
                   <Inputbox
                      label='ชื่อ'
-                     name='emergency_fname'
+                     name='emergency_firstname'
                      placeholder='สมหญิง'
                      required
                      setObj={setData}
                      obj={data}
-                     value={data.emergency_fname}
+                     value={data.emergency_firstname}
                      disabled={data.same_parent}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
                   <Inputbox
                      label='ชื่อกลาง (ถ้ามี)'
-                     name='emergency_mname'
+                     name='emergency_middlename'
                      placeholder='-'
                      setObj={setData}
                      obj={data}
-                     value={data.emergency_mname}
+                     value={data.emergency_middlename}
                      disabled={data.same_parent}
                   />
                </div>
                <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
                   <Inputbox
                      label='นามสกุล'
-                     name='emergency_sname'
+                     name='emergency_surname'
                      placeholder='อารมณ์ดี'
                      required
                      setObj={setData}
                      obj={data}
-                     value={data.emergency_sname}
+                     value={data.emergency_surname}
                      disabled={data.same_parent}
                   />
                </div>

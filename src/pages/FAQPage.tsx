@@ -1,8 +1,7 @@
-
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import {useEffect} from "react";
-import Navbar from '@/components/registrationForm/Navbar';
+import Navbar from '@/components/homePage/Navbar';
 import FAQPageComponent from '@/components/homePage/FAQPageComponent';
 export const FAQPage = () => {
     useEffect(() => {
@@ -11,7 +10,7 @@ export const FAQPage = () => {
     return(
         <>
         <Navbar/>
-           <div className="flex h-screen flex-col">
+           <div className="flex sm:h-screen lg:h-full flex-col">
                 <FAQPageComponent/>
             </div>
         </>

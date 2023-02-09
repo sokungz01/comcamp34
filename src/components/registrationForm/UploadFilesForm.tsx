@@ -1,18 +1,7 @@
 import { useState } from "react";
 import FileUploaderComponent from "../FileUploaderComponent";
-const UploadFilesForm = ({
-   data,
-   setData,
-}: {
-   data: {
-      image_URL: string;
-      agreement_URL: string;
-      card_URL: string;
-      pp7_URL: string;
-      pp1_URL: string;
-   };
-   setData: any;
-}) => {
+import { UploadFile } from "@/types/RegistrationType";
+const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) => {
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-[#FAD9AA] bg-opacity-70 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 pt-4 pb-12'>
@@ -38,7 +27,7 @@ const UploadFilesForm = ({
                            label='หนังสือขออนุญาตผู้ปกครอง'
                            name='agreement'
                            fileType='pdf'
-                           downloadURL='https://google.com'
+                           downloadURL='https://drive.google.com/file/d/1xaXUaF4kqbo0HF_bcBGS-C-QUN3ezW6P/view?usp=share_link'
                            path=''
                         />
                      </div>
