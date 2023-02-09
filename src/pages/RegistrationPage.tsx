@@ -33,6 +33,7 @@ export const RegistrationPage = () => {
       date: "",
       month: "",
       birth_year: "",
+      birth_date: "",
       mobile: "",
       email: "",
       province: "",
@@ -41,34 +42,34 @@ export const RegistrationPage = () => {
       allergic_medicine: "",
       underlying: "",
       travelby: "",
-      allergic: "",
+      allergic_food: "",
       special: "",
       notebook: false,
    });
    const [dataEducationForm, setEducationForm] = useState<Education>({
       school_name: "",
-      location: "",
-      grade: "",
+      school_province: "",
+      student_level: "",
       study_plan: "",
       gpax: "",
       university_1: "",
-      facalty_1: "",
+      faculty_1: "",
       major_1: "",
       university_2: "",
-      facalty_2: "",
+      faculty_2: "",
       major_2: "",
       university_3: "",
-      facalty_3: "",
+      faculty_3: "",
       major_3: "",
    });
    const [dataInterestForm, setInterestForm] = useState<Interest>({
-      status: false,
-      course: "",
-      a: "",
+      comcamp_previous: false,
+      major_interest: "",
+      reason_major_interest: "",
       camp1: "",
-      by1: "",
+      camp1_by: "",
       camp2: "",
-      by2: "",
+      camp2_by: "",
       no_previous_camp: false,
    });
    const [dataParentDataForm, setParentDataForm] = useState<ParentData>({
@@ -226,7 +227,7 @@ export const RegistrationPage = () => {
             dataPersonalInfoForm.allergic_medicine.length &&
             dataPersonalInfoForm.underlying.length &&
             dataPersonalInfoForm.travelby.length &&
-            dataPersonalInfoForm.allergic.length
+            dataPersonalInfoForm.allergic_food.length
          ) {
             setPage(page + 1);
          } else {
@@ -245,8 +246,8 @@ export const RegistrationPage = () => {
       } else if (page === 2) {
          if (
             dataEducationForm.school_name.length &&
-            dataEducationForm.location.length &&
-            dataEducationForm.grade.length &&
+            dataEducationForm.school_province.length &&
+            dataEducationForm.student_level.length &&
             dataEducationForm.study_plan.length &&
             dataEducationForm.gpax.length &&
             checkGrade(dataEducationForm.gpax)
@@ -267,10 +268,10 @@ export const RegistrationPage = () => {
          }
       } else if (page === 3) {
          if (
-            dataInterestForm.course.length &&
-            dataInterestForm.a.length &&
+            dataInterestForm.major_interest.length &&
+            dataInterestForm.reason_major_interest.length &&
             (dataInterestForm.no_previous_camp === true ||
-               (dataInterestForm.camp1.length && dataInterestForm.by1.length))
+               (dataInterestForm.camp1.length && dataInterestForm.camp1_by.length))
          ) {
             setPage(page + 1);
          } else {
@@ -394,7 +395,7 @@ export const RegistrationPage = () => {
                   ) : null}
                   {page === 3 ? (
                      <InterestForm data={dataInterestForm} setData={setInterestForm} />
-                  ) : null}
+                     ) : null}
                   {page === 4 ? (
                      <ParentDataForm data={dataParentDataForm} setData={setParentDataForm} />
                   ) : null}

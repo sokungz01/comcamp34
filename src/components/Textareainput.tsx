@@ -31,13 +31,12 @@ const Inputbox = ({
       <>
          <div className='flex flex-col'>
             <div className='flex'>
-               <p className="lg:text-lg text-sm"> {question ?  (question) : null} </p>
-               <p className='text-red-900'> {required ? ("*") : null}</p> 
+               <div className="lg:text-lg text-sm flex flex-row"> {question ?  (question) : null} <p className="text-orange">{required ? ("*") : null}</p></div>
             </div>
             <textarea
                className={
                   className +
-                  "lg:px-8 lg:py-12 px-3 py-6 lg:mx-7 mx-1 lg:mb-8 mt-4 mb-6 lg:rounded-2xl rounded-lg text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none resize-none"
+                  " block lg:px-8 lg:py-3 px-3 py-2 lg:mx-7 mx-1 lg:mb-8 mt-4 mb-6 lg:rounded-2xl rounded-lg text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none resize-none"
                }
                name={name}
                onChange={handleChange}

@@ -16,9 +16,9 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
       setData({
          ...data,
          camp1: "",
-         by1: "",
+         camp1_by: "",
          camp2: "",
-         by2: "",
+         camp2_by: "",
       });
    }, [data.no_previous_camp]);
 
@@ -36,11 +36,11 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                   เคยเข้าร่วมค่ายคอมแคมป์มาก่อนหรือไม่
                </h6>
                <CheckboxInput
-                  name='status'
+                  name='comcamp_previous'
                   label=' '
                   obj={data}
                   setObj={setData}
-                  checked={data.status}
+                  checked={data.comcamp_previous}
                />
                <p className='ml-2'>(เคย)</p>
             </div>
@@ -48,32 +48,37 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                หากน้อง ๆ มีความสนใจที่จะเข้าศึกษาต่อในภาควิชาวิศวกรรมคอมพิวเตอร์มจธ. น้อง ๆ
                จะเลือกเรียนหลักสูตรใด เพราะเหตุใด*
             </p>
-            <div className='lg:flex lg:pl-12 lg:mt-6 mt-3'>
-               <div className='lg:flex'>
-                  <h6 className='lg:mr-6 lg:mb-0 mb-3'> หลักสูตร </h6>
-                  <div className='w-full'>
-                     <SelectInput
-                        label=' '
-                        name='course'
-                        placeholder='หลักสูตรที่สนใจ'
-                        options={course}
+            <div className='flex flex-row lg:mt-6 mt-3'>
+               <div className='lg:flex lg:flex-row justify-between w-full'>
+                  <div className="lg:flex-col lg:w-1/3">
+                     <h6 className='lg:mb-0'> หลักสูตร </h6>
+                       <div className="lg:mt-1.5">
+                        <SelectInput
+                              label=' '
+                              name='major_interest'
+                              placeholder='หลักสูตรที่สนใจ'
+                              options={course}
+                              obj={data}
+                              setObj={setData}
+                              value={data.major_interest}
+                           />
+                       </div>
+                  </div>
+                  <div className='lg:flex lg:flex-col lg:w-2/3 lg:mt-0 mt-2'>
+                  <h6 className='lg:mb-0 lg:ml-8'>เหตุผล</h6>
+                     <div className="w-full">
+                        <Textareainput
+                        question=''
+                        name='reason_major_interest'
+                        row={6}
                         obj={data}
                         setObj={setData}
-                        value={data.course}
+                        value={data.reason_major_interest}
                      />
-                  </div>
+                     </div>
                </div>
-               <div className='lg:flex lg:ml-6 lg:mt-0 mt-2'>
-                  <h6 className='lg:mb-0'>เหตุผล</h6>
-                  <Textareainput
-                     question=''
-                     name='a'
-                     row={2}
-                     className='xl:px-80 lg:px-36 lg:ml-6 py-3 lg:rounded-2xl rounded-xl'
-                     obj={data}
-                     setObj={setData}
-                     value={data.a}
-                  />
+               </div>
+               <div>
                </div>
             </div>
             <div className='flex lg:flex-row flex-col text-black font-semibold lg:text-lg text-sm lg:mt-6 mt-3'>
@@ -88,10 +93,6 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                      obj={data}
                      setObj={setData}
                      checked={data.no_previous_camp}
-                     onclick={() => {
-                        // if(){
-                        // }
-                     }}
                   />
                </div>
             </div>
@@ -111,11 +112,11 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                <div className='lg:w-7/12 lg:mt-0 mt-2'>
                   <Inputbox
                      label='มหาวิทยาลัยหรือหน่วยงานที่จัด'
-                     name='by1'
+                     name='camp1_by'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี'
                      obj={data}
                      setObj={setData}
-                     value={data.by1}
+                     value={data.camp1_by}
                      disabled={data.no_previous_camp}
                   />
                </div>
@@ -135,11 +136,11 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                <div className='lg:w-7/12 lg:mt-0 mt-2'>
                   <Inputbox
                      label='มหาวิทยาลัยหรือหน่วยงานที่จัด'
-                     name='by2'
+                     name='camp2_by'
                      placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี'
                      obj={data}
                      setObj={setData}
-                     value={data.by2}
+                     value={data.camp2_by}
                      disabled={data.no_previous_camp}
                   />
                </div>

@@ -61,22 +61,22 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                   <div className='lg:w-4/6 w-1/2 mr-2'>
                      <SelectInput
                         label='จังหวัดที่ตั้งสถานศึกษา'
-                        name='location'
+                        name='school_province'
                         options={provinces}
                         obj={data}
                         setObj={setData}
-                        value={data.location}
+                        value={data.school_province}
                         required
                      />
                   </div>
                   <div className='lg:w-4/6 w-1/2 lg:mr-2'>
                      <SelectInput
                         label='ระดับการศึกษาปัจจุบัน'
-                        name='grade'
+                        name='student_level'
                         options={grade}
                         obj={data}
                         setObj={setData}
-                        value={data.grade}
+                        value={data.student_level}
                         required
                      />
                   </div>
@@ -129,11 +129,11 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput
                      label='คณะ'
-                     name='facalty_1'
+                     name='faculty_1'
                      options={faculty}
                      obj={data}
                      setObj={setData}
-                     value={data.facalty_1}
+                     value={data.faculty_1}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -165,11 +165,11 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput
                      label='คณะ'
-                     name='facalty_2'
+                     name='faculty_2'
                      options={faculty}
                      obj={data}
                      setObj={setData}
-                     value={data.facalty_2}
+                     value={data.faculty_2}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
@@ -201,11 +201,11 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
                   <SelectInput
                      label='คณะ'
-                     name='facalty_3'
+                     name='faculty_3'
                      options={faculty}
                      obj={data}
                      setObj={setData}
-                     value={data.facalty_3}
+                     value={data.faculty_3}
                   />
                </div>
                <div className='lg:w-2/6 lg:mt-0 mt-2'>
