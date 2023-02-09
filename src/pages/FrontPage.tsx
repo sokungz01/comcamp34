@@ -6,6 +6,7 @@ import React,{useEffect} from "react";
 import Navbar from '@/components/homePage/Navbar';
 import LandingSection from '@/components/homePage/LandingSection';
 import FAQSection from '@/components/homePage/FAQSection';
+import TimelineSection from '@/components/homePage/TimelineSection';
 import ContactSection from '@/components/homePage/ContactSection';
 import LearningSection from '@/components/homePage/LearningSection';
 import AboutSection from '@/components/homePage/AboutSection';
