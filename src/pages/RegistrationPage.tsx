@@ -24,6 +24,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 export const RegistrationPage = () => {
    const navigate = useNavigate();
+   const [page, setPage] = useState<number>(0);
    const [dataPersonalInfoForm, setPersonalInfoForm] = useState<Personal>({
       prefix: "",
       firstname: "",
@@ -181,7 +182,6 @@ export const RegistrationPage = () => {
             // An error happened.
          });
    };
-   const [page, setPage] = useState<number>(0);
    function isNumber(str: any) {
       if (str.trim() === "") {
          return false;
