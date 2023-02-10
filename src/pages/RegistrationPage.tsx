@@ -278,7 +278,18 @@ export const RegistrationPage = () => {
             FillFormSwal();
          }
       } else if (page === 5) {
-         setPage(page + 1);
+         if (
+            dataUploadFilesForm.agreement_URL?.length &&
+            dataUploadFilesForm.card_URL?.length &&
+            dataUploadFilesForm.image_URL?.length &&
+            dataUploadFilesForm.pp7_URL?.length &&
+            dataUploadFilesForm.pp1_URL?.length
+         ) {
+            await updateData(token, page, dataUploadFilesForm);
+            setPage(page + 1);
+         } else {
+            FillFormSwal();
+         }
       } else if (page === 6) {
          if (
             dataQuestionFormpage1.q1?.length &&
