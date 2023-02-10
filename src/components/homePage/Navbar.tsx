@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "/assets/nav-logo.png";
 import { Link } from "react-router-dom";
+import { Link as NavLink } from "react-scroll";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
    const [hamburger, setHamburger] = useState(false);
    return (
       <nav
@@ -43,42 +44,72 @@ const Navbar: React.FC = () => {
             }`}
          >
             <div className='lg:text-xl lg:flex lg:flex-grow lg:justify-center '>
-               <a
-                  href='#responsive-header'
-                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4'
+               <NavLink
+                  activeClass='active'
+                  to='about'
+                  spy={true}
+                  smooth='easeInOutQuad'
+                  offset={0}
+                  duration={1500}
+                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                >
                   About
-               </a>
-               <a
-                  href='#responsive-header'
-                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4'
+               </NavLink>
+               <NavLink
+                  activeClass='active'
+                  to='learning'
+                  spy={true}
+                  smooth='easeInOutQuad'
+                  offset={0}
+                  duration={2000}
+                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                >
                   Learning
-               </a>
-               <a
-                  href='#responsive-header'
-                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4'
+               </NavLink>
+               <NavLink
+                  activeClass='active'
+                  to='conditions'
+                  spy={true}
+                  smooth='easeInOutQuad'
+                  offset={0}
+                  duration={2500}
+                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                >
                   Conditions
-               </a>
-               <a
-                  href='#responsive-header'
-                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4'
+               </NavLink>
+               <NavLink
+                  activeClass='active'
+                  to='timeline'
+                  spy={true}
+                  smooth='easeInOutQuad'
+                  offset={0}
+                  duration={3000}
+                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                >
                   Timeline
-               </a>
-               <a
-                  href='#responsive-header'
-                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4'
+               </NavLink>
+               <NavLink
+                  activeClass='active'
+                  to='faq'
+                  spy={true}
+                  smooth='easeInOutQuad'
+                  offset={0}
+                  duration={3500}
+                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                >
                   FAQ
-               </a>
-               <a
-                  href='#responsive-header'
-                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500'
+               </NavLink>
+               <NavLink
+                  activeClass='active'
+                  to='contact'
+                  spy={true}
+                  smooth='easeInOutQuad'
+                  offset={0}
+                  duration={4000}
+                  className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                >
                   Contact
-               </a>
+               </NavLink>
             </div>
             <div>
                <Link

@@ -1,10 +1,15 @@
 const TimelineSection = () => {
    return (
-      <div className='w-full text-center bg-contain bg-base-white bg-[url("/assets/frontPage/timeline-bg.svg")]'>
-         <div className='flex mx-auto justify-center relative ' data-aos='fade-down' data-aos-delay="200">
-            <p
-               className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8 ml-2 font-teko tracking-wider '
-            >
+      <div
+         id='timeline'
+         className='w-full text-center bg-contain bg-base-white bg-[url("/assets/frontPage/timeline-bg.svg")]'
+      >
+         <div
+            className='flex mx-auto justify-center relative '
+            data-aos='fade-down'
+            data-aos-delay='200'
+         >
+            <p className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8 ml-2 font-teko tracking-wider '>
                Timeline
             </p>
             <img
@@ -20,14 +25,18 @@ const TimelineSection = () => {
                data-aos='zoom-in'
                data-aos-delay='300'
             >
-               <img src='assets/frontPage/timeline-image-1-desktop.png' alt='' className="px-16 xl:px-10" />
+               <img
+                  src='assets/frontPage/timeline-image-1-desktop.png'
+                  alt=''
+                  className='px-16 xl:px-10'
+               />
             </div>
             <div
                className='mx-auto relative block lg:hidden'
                data-aos='zoom-in'
                data-aos-delay='300'
             >
-               <img src='assets/frontPage/timeline-image-1-mobile.png' alt='' className="px-5"/>
+               <img src='assets/frontPage/timeline-image-1-mobile.png' alt='' className='px-5' />
             </div>
          </div>
       </div>

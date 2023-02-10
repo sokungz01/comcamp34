@@ -14,7 +14,10 @@ const FAQSection = () => {
       setSelectedQuestion(0);
    }, []);
    return (
-      <div className='w-full text-center lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/faq-bg-desktop.png")] bg-[url("/assets/frontPage/faq-bg-mobile.png")]'>
+      <div
+         id='faq'
+         className='w-full text-center lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/faq-bg-desktop.png")] bg-[url("/assets/frontPage/faq-bg-mobile.png")]'
+      >
          <div className='relative max-w-[1380px] m-auto my-32 grid lg:grid-cols-7 grid-cols-5 gap-1 font-bai-jamjuree text-center'>
             <div className='col-span-full lg:hidden flex flex-col' data-aos='fade-down'>
                <p className='font-semibold text-7xl tracking-wider drop-shadow-lg text-red1 font-teko'>
@@ -23,7 +26,7 @@ const FAQSection = () => {
                <p className='font-normal text-xl mt-1'>คำถามที่พบบ่อย</p>
             </div>
             <div className='lg:block hidden' data-aos='fade-left'>
-               <img src='assets/frontPage/faq-image-person-1.png' className="w-[90%] mt-4"/>
+               <img src='assets/frontPage/faq-image-person-1.png' className='w-[90%] mt-4' />
             </div>
             <div className='col-span-2 relative lg:block hidden' data-aos='fade-down'>
                <img

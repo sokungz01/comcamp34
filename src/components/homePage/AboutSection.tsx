@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Parallax } from "react-scroll-parallax";
+
 const AboutSection = () => {
    const divRef = useRef<HTMLDivElement>(null);
    const imgRef = useRef<HTMLImageElement>(null);
@@ -93,7 +93,7 @@ const AboutSection = () => {
    }, []);
 
    return (
-      <div className={`w-full flex bg-${string}`}>
+      <div id='about' className={`w-full flex bg-${string}`}>
          <div className='mx-auto relative w-full h-[600vh] hidden xl:block' ref={divRef}>
             <div className='sticky top-5 mx-auto flex'>
                <div className='w-full relative overflow-hidden h-screen '>
@@ -175,7 +175,10 @@ const AboutSection = () => {
                   id='mobile_notebook'
                >
                   <div className='relative w-fit h-fit flex'>
-                     <img src='/assets/frontPage/about-image-notebook.svg' className='w-[50vh] z-20 h-full' />
+                     <img
+                        src='/assets/frontPage/about-image-notebook.svg'
+                        className='w-[50vh] z-20 h-full'
+                     />
                      <div className='w-[250vw] right-0 h-full py-6 absolute z-100 pr-4'>
                         <div className='bg-[#EB7D3E] h-full w-full'></div>
                      </div>
