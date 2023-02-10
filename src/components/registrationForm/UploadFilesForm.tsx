@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FileUploaderComponent from "../FileUploaderComponent";
+import FileUploaderComponent from "@/components/FileUploaderComponent";
 import { UploadFile } from "@/types/RegistrationType";
 
 const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) => {

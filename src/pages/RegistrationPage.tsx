@@ -27,7 +27,9 @@ import { auth } from "@/lib/firebase";
 import { getData, updateData } from "@/lib/Fetch";
 export const RegistrationPage = () => {
    const navigate = useNavigate();
-   const [page, setPage] = useState<number>(0);
+   const [page, setPage] = useState<number>(
+      parseInt(sessionStorage.getItem("syncPage") as string) || 0,
+   );
 
    const [dateData, setDateData] = useState<DateForm>({
       day: "",
@@ -106,7 +108,7 @@ export const RegistrationPage = () => {
       pp7_URL: "",
       pp7_Name: "",
       pp1_URL: "",
-      pp1_Name: ""
+      pp1_Name: "",
    });
    const [dataQuestionFormpage1, setQuestionFormpage1] = useState<QuestionPage1>({
       q1: "",
@@ -326,6 +328,7 @@ export const RegistrationPage = () => {
             });
       }
    }, [page]);
+
    return (
       <>
          <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
