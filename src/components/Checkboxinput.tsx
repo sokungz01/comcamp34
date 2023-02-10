@@ -33,7 +33,7 @@ const CheckboxInput = ({
                   name={name}
                   placeholder={placeholder}
                   onChange={handleChange}
-                  checked={checked == null ? false : true}
+                  checked={checked}
                   className='form-check-input appearance-none cursor-pointer rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                />
                {label ? <p>{label}</p> : <p>{name}</p>}

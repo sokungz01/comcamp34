@@ -14,6 +14,7 @@ const LoginPage = () => {
             if (res.status === 200 || res.status === 201) {
                setIsLogin(true);
                // Set Token (Session)
+               sessionStorage.setItem("syncPage", res.data.page );
                sessionStorage.setItem("token", res.data.accessToken);
                sessionStorage.setItem("email", result.user.email as string);
                sessionStorage.setItem("photoURL", result.user.photoURL as string);
