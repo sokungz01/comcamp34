@@ -66,10 +66,15 @@ export interface ParentData {
 }
 export interface UploadFile {
    image_URL: string;
+   image_Name: string;
    agreement_URL: string;
+   agreement_Name: string;
    card_URL: string;
+   card_Name: string;
    pp7_URL: string;
+   pp7_Name: string;
    pp1_URL: string;
+   pp1_Name: string;
 }
 
 export interface QuestionPage1 {

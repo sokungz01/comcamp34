@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FileUploaderComponent from "../FileUploaderComponent";
 import { UploadFile } from "@/types/RegistrationType";
+
 const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) => {
    return (
       <div className='flex justify-center mt-8'>
@@ -17,43 +18,58 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                      <div className='mr-0 xl:mr-4 w-full'>
                         <FileUploaderComponent
                            label='ภาพถ่ายอิสระของผู้สมัครที่เห็นใบหน้าชัดเจน'
-                           name='photo'
+                           filePath='image_URL'
                            fileType='image'
-                           path=''
+                           obj={data}
+                           fileName={data.image_Name}
+                           setObj={setData}
+                           value={data.image_URL}
                         />
                      </div>
                      <div className='ml-0 mt-4 xl:mt-0 xl:ml-4 w-full h-full'>
                         <FileUploaderComponent
                            label='หนังสือขออนุญาตผู้ปกครอง'
-                           name='agreement'
+                           filePath='agreement_URL'
                            fileType='pdf'
                            downloadURL='https://drive.google.com/file/d/1xaXUaF4kqbo0HF_bcBGS-C-QUN3ezW6P/view?usp=share_link'
-                           path=''
+                           obj={data}
+                           fileName={data.agreement_Name}
+                           setObj={setData}
+                           value={data.agreement_URL}
                         />
                      </div>
                   </div>
                   <div className='mt-4 xl:mt-8 w-full xl:w-3/4 2xl:w-4/5'>
                      <FileUploaderComponent
                         label='สำเนาบัตรประจำตัวประชาชนหรือสำเนาบัตรนักเรียนของผู้สมัคร'
-                        name='card'
+                        filePath='card_URL'
                         fileType='pdf'
-                        path=''
+                        obj={data}
+                        fileName={data.card_Name}
+                        setObj={setData}
+                        value={data.card_URL}
                      />
                   </div>
                   <div className='mt-4 xl:mt-8 w-full xl:w-3/4 2xl:w-4/5'>
                      <FileUploaderComponent
                         label='เอกสารรับรองความเป็นนักเรียนหรือเอกสารรับรองผลการศึกษา (ปพ.7)'
-                        name='pp7'
+                        filePath='pp7_URL'
                         fileType='pdf'
-                        path=''
+                        obj={data}
+                        fileName={data.pp7_Name}
+                        setObj={setData}
+                        value={data.pp7_URL}
                      />
                   </div>
                   <div className='mt-4 xl:mt-8 w-full xl:w-3/4 2xl:w-4/5'>
                      <FileUploaderComponent
                         label='ระเบียนแสดงผลการศึกษาของระดับชั้นมัธยมศึกษาตอนปลาย (ปพ.1) หรือหนังสือแสดงผลการเรียนเฉลี่ย'
-                        name='pp1'
+                        filePath='pp1_URL'
                         fileType='pdf'
-                        path=''
+                        obj={data}
+                        fileName={data.pp1_Name}
+                        setObj={setData}
+                        value={data.pp1_URL}
                      />
                   </div>
                </div>
