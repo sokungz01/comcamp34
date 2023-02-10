@@ -1,6 +1,7 @@
 import Textarea from "@/components/Textareainput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QuestionPage2 } from "@/types/RegistrationType";
+import { getData, updateData } from "@/lib/Fetch";
 
 export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setData: any }) => {
    return (
@@ -39,6 +40,14 @@ export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setD
                   setObj={setData}
                   obj={data}
                   value={data.q6}
+               />
+               <Textarea
+                  question='7.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur orci nisl, vel lacinia massa viverra eu. Nullam sit amet turpis rhoncus, interdum massa ut, dapibus mi. Pellentesque porta, ante sed fermentum gravida, ante enim faucibus augue, at dignissim ligula nisi et mauris. Suspendisse elementum, sapien sed pulvinar fringilla, leo orci finibus mi, molestie tincidunt massa nulla id orci. Etiam luctus mattis elit pretium pretium. Suspendisse vitae malesuada libero, vitae suscipit quam.'
+                  name='q7'
+                  row={6}
+                  setObj={setData}
+                  obj={data}
+                  value={data.q7}
                />
             </div>
          </div>

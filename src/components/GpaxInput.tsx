@@ -30,7 +30,7 @@ const GpaxInput = ({
       } else {
          setValid(true);
       }
-      setObj({...obj, [name]:value});
+      setObj({ ...obj, [name]: value });
    };
 
    return (
@@ -46,7 +46,7 @@ const GpaxInput = ({
             className='w-full bg-white xl:text-2xl lg:text-2xl text-md border shadow-lg py-2.5 pl-2.5 px-6 -mt-1.5 xl:mt-1 lg:mt-1 rounded-lg text-base-black invalid:ring-red1'
             placeholder={placeholder}
             name={name}
-            value={value}
+            value={value == null ? "" : value}
             onChange={handleChange}
             required={required}
          />

@@ -22,6 +22,7 @@ const DropdownSearch = ({
    const handleChange = (e: any) => {
       setObj({ ...obj, [name]: e.value });
    };
+
    return (
       <div>
          <div className='flex mb-2'>
@@ -51,7 +52,8 @@ const DropdownSearch = ({
                placeholder={placeholder ? placeholder : "Select..."}
                options={data}
                onChange={handleChange}
-               defaultValue={defaultValue.value === "" ? null : defaultValue}
+               // defaultValue={defaultValue.label === "" ? defaultValue : null
+               value={defaultValue.value === "" || defaultValue.value == null ? null : defaultValue}
             />
             <span className='absolute pointer-events-none w-[30px] h-full lg:top-1 top-0 right-2 flex align-center justify-center text-red1 font-bold lg:text-3xl text-xl'>
                ⌄

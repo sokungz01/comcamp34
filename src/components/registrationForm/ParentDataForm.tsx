@@ -8,6 +8,7 @@ import { ParentData } from "@/types/RegistrationType";
 
 export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: any }) => {
    useEffect(() => {
+      console.log(data);
       if (data.same_parent) {
          setData({
             ...data,

@@ -9,20 +9,29 @@ import month_data from "@/components/registrationForm/DropdownData/month_data.js
 import year_data from "@/components/registrationForm/DropdownData/year_data.json";
 import provinces_data from "@/components/registrationForm/DropdownData/provinces_data.json";
 import shirtsize_data from "@/components/registrationForm/DropdownData/shirtsize_data.json";
-import { useEffect } from "react";
-import { Personal } from "@/types/RegistrationType";
+import { useState, useEffect } from "react";
+import { Personal, DateForm } from "@/types/RegistrationType";
 
-export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: any }) => {
+ export const PersonalInfoForm = ({
+   data,
+   setData,
+   dateData,
+   setDateData,
+}: {
+   data: Personal;
+   setData: any;
+   dateData: DateForm;
+   setDateData: any;
+}) => {
    const provinces = provinces_data.map(item => ({
       label: item.name_th,
       value: item.name_th,
    }));
 
    useEffect(() => {
-      const format_date = data.date + "-" + data.month + "-" + data.birth_year;
-      setData({ ...data, "birth_date": format_date });
-      // console.log(format_date);
-   }, [data.date, data.month, data.birth_year]);
+      const format_date = dateData.day + "-" + dateData.month + "-" + dateData.year;
+      setData({ ...data, birth_date: format_date });
+   }, [dateData.day, dateData.month, dateData.year]);
    return (
       <>
          <div className='flex justify-center mt-8'>
@@ -102,12 +111,12 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                         <div className='w-3/5 lg:pr-0.5 pr-2'>
                            <SelectInput
                               label='วัน'
-                              name='date'
+                              name='day'
                               options={date_data}
                               required
-                              obj={data}
-                              setObj={setData}
-                              value={data.date}
+                              obj={dateData}
+                              setObj={setDateData}
+                              value={dateData.day}
                            />
                         </div>
                         <div className='w-full lg:pr-0.5 lg:pl-0.5 pr-1 pl-1'>
@@ -116,19 +125,19 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                               name='month'
                               options={month_data}
                               required
-                              obj={data}
-                              setObj={setData}
-                              value={data.month}
+                              obj={dateData}
+                              setObj={setDateData}
+                              value={dateData.month}
                            />
                         </div>
                         <div className='w-2/3 lg:pl-0.5 pr-1 pl-1'>
                            <SelectInput
                               label='ปีเกิด'
-                              name='birth_year'
+                              name='year'
                               options={year_data}
-                              obj={data}
-                              setObj={setData}
-                              value={data.birth_year}
+                              obj={dateData}
+                              setObj={setDateData}
+                              value={dateData.year}
                               required
                            />
                         </div>
@@ -190,7 +199,6 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                            label='ยาประจำตัว'
                            name='medicine'
                            placeholder='Aspirin'
-                           required
                            obj={data}
                            setObj={setData}
                            value={data.medicine}
@@ -201,7 +209,6 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                            label='ยาที่แพ้'
                            name='allergic_medicine'
                            placeholder='Paracetamol'
-                           required
                            obj={data}
                            setObj={setData}
                            value={data.allergic_medicine}
@@ -212,7 +219,6 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                            label='โรคประจำตัว'
                            name='underlying'
                            placeholder='หอบหืด'
-                           required
                            obj={data}
                            setObj={setData}
                            value={data.underlying}
@@ -242,7 +248,6 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                            label='อาหารที่แพ้'
                            name='allergic_food'
                            placeholder='กุ้ง,ปลาหมึก'
-                           required
                            obj={data}
                            setObj={setData}
                            value={data.allergic_food}
@@ -257,6 +262,7 @@ export const PersonalInfoForm = ({ data, setData }: { data: Personal; setData: a
                            defaultValue={{ label: data.special, value: data.special }}
                            data={[
                               { label: "อาหารฮาลาล", value: "อาหารฮาลาล" },
+                              { label: "อาหารมังสวิรัติ", value: "อาหารมังสวิรัติ" },
                               { label: "อาหารเจ", value: "อาหารเจ" },
                            ]}
                            placeholder='เลือก'

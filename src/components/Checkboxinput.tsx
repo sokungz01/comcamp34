@@ -18,11 +18,10 @@ const CheckboxInput = ({
    value?: string;
    required?: boolean;
    checked?: boolean;
-   onclick?:any;
-}) => {  
-
+   onclick?: any;
+}) => {
    const handleChange = (e: any) => {
-      setObj({...obj, [name]:e.target.checked});
+      setObj({ ...obj, [name]: e.target.checked });
    };
    return (
       <>
@@ -34,7 +33,7 @@ const CheckboxInput = ({
                   name={name}
                   placeholder={placeholder}
                   onChange={handleChange}
-                  defaultChecked={checked}
+                  checked={checked == null ? false : true}
                   className='form-check-input appearance-none cursor-pointer rounded-md h-5 w-5 border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                />
                {label ? <p>{label}</p> : <p>{name}</p>}

@@ -17,21 +17,25 @@ const Inputbox = ({
    className?: string;
    obj?: object;
    setObj?: any;
-   value : string;
+   value: string;
    placeholder?: string;
    required?: boolean;
 }) => {
    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (!(event.target instanceof HTMLTextAreaElement)) return;
       const value = event.target.value;
-      setObj({...obj, [name]:value});
+      setObj({ ...obj, [name]: value });
    };
 
    return (
       <>
          <div className='flex flex-col'>
             <div className='flex'>
-               <div className="lg:text-lg text-sm flex flex-row"> {question ?  (question) : null} <p className="text-orange">{required ? ("*") : null}</p></div>
+               <div className='lg:text-lg text-sm flex flex-row'>
+                  {" "}
+                  {question ? question : null}{" "}
+                  <p className='text-orange'>{required ? "*" : null}</p>
+               </div>
             </div>
             <textarea
                className={
@@ -42,7 +46,7 @@ const Inputbox = ({
                onChange={handleChange}
                rows={row}
                placeholder={placeholder}
-               value={value}
+               value={value == null ? "" : value}
             ></textarea>
          </div>
       </>

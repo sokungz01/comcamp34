@@ -1,7 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getData, updateData } from "@/lib/Fetch";
 
 export const ConsentForm = ({ setPage }: { setPage: any }) => {
    const [acceptPolicy, setAcceptPolicy] = useState<boolean>(false);
+
+   useEffect(() => {
+      const token = sessionStorage.getItem("token") as string;
+      getData(token, 0)
+         .then((res: any) => {
+            setAcceptPolicy(res.data.data.consent);
+            setPage(1);
+         })
+         .catch(error => {
+            console.log(error);
+         });
+   }, []);
+
    return (
       <div className='relative h-full font-bai-jamjuree flex justify-center items-center mt-8'>
          <div className='xl:w-2/3 lg:2/3 md:w-4/5 sm:w-4/5 w-11/12 flex flex-col p-2 lg:p-5 xl:p-5 bg-[#D9D9D9] bg-opacity-20 rounded-lg '>
@@ -115,7 +129,11 @@ export const ConsentForm = ({ setPage }: { setPage: any }) => {
 
             <button
                className='mt-4 py-2 text-lg text-white disabled:text-white/50 bg-red1 hover:bg-red2 disabled:bg-red3 rounded-lg '
-               onClick={() => setPage(1)}
+               onClick={async () => {
+                  const token = sessionStorage.getItem("token") as string;
+                  const res = await updateData(token, 0, {});
+                  setPage(1);
+               }}
                disabled={acceptPolicy === false}
             >
                ยอมรับ

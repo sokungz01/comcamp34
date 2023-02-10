@@ -39,6 +39,7 @@ const FAQSection = () => {
                   (item, index) =>
                      index < 4 && (
                         <div
+                           key={index}
                            className={`bg-inherit`}
                            onClick={() => {
                               toggleFAQ(index);
@@ -64,7 +65,7 @@ const FAQSection = () => {
                                     viewBox='0 0 24 24'
                                     fill='none'
                                     stroke='#17171B'
-                                    stroke-width='2'
+                                    strokeWidth='2'
                                  >
                                     <line x1='12' y1='5' x2='12' y2='19'></line>
                                     <line x1='5' y1='12' x2='19' y2='12'></line>
@@ -76,7 +77,7 @@ const FAQSection = () => {
                                     viewBox='0 0 24 24'
                                     fill='none'
                                     stroke='#000000'
-                                    stroke-width='2'
+                                    strokeWidth='2'
                                  >
                                     <line x1='5' y1='12' x2='19' y2='12'></line>
                                  </svg>
@@ -106,7 +107,7 @@ const FAQSection = () => {
                         viewBox='0 0 24 24'
                         fill='none'
                         stroke='#ca3450'
-                        stroke-width='3'
+                        strokeWidth='3'
                      >
                         <path d='M9 18l6-6-6-6' />
                      </svg>
@@ -118,7 +119,10 @@ const FAQSection = () => {
                className='block lg:hidden bottom-0 sm:-bottom-10 absolute -z-5 sm:w-1/6 w-1/4 right-0'
             />
             <div className='col-span-1 relative hidden lg:block' data-aos='fade-right'>
-               <img src='assets/frontPage/faq-image-person-2.png' className='bottom-0 absolute right-0' />
+               <img
+                  src='assets/frontPage/faq-image-person-2.png'
+                  className='bottom-0 absolute right-0'
+               />
             </div>
          </div>
       </div>
