@@ -100,7 +100,7 @@ const AboutSection = () => {
                   {textToggle ? (
                      <p
                         className='text-9xl absolute text-yellow1 mt-[2.5%] ml-[2.5%] font-teko tracking-widest'
-                        data-aos='fade-right'
+                        data-aos='zoom-in'
                      >
                         What is Comcamp?
                      </p>
@@ -109,7 +109,7 @@ const AboutSection = () => {
                      <p
                         className='text-3xl absolute text-base-black mt-[27.5%] xl:mt-[40vh] ml-[2.5%] mr-[35%] 
                          z-50 font-bai-jamjuree'
-                        data-aos='fade-right'
+                        data-aos='zoom-in'
                      >
                         ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
                         เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ
@@ -126,14 +126,14 @@ const AboutSection = () => {
                      ref={imgRef}
                   >
                      <img
-                        src='/assets/frontPage/notebook.svg'
+                        src='/assets/frontPage/about-image-notebook.svg'
                         className='absolute z-50 m-auto w-[90%]'
                      />
                      <div className='absolute top-0 left-[-400%] h-[90%] pt-8 '>
                         <div className='bg-[#EB7D3E] w-[300vh] h-full'></div>
                      </div>
                      <img
-                        src='/assets/frontPage/coffee.svg'
+                        src='/assets/frontPage/about-image-coffee.svg'
                         className='absolute z-50 m-auto w-[15vh] left-[50%] bottom-[-20%]'
                      />
                   </div>
@@ -146,7 +146,7 @@ const AboutSection = () => {
                      ref={imgRef}
                   >
                      <img
-                        src='/assets/frontPage/book.svg'
+                        src='/assets/frontPage/about-image-book.svg'
                         className='absolute z-50 m-auto w-[90%]'
                      />
                   </div>
@@ -168,14 +168,14 @@ const AboutSection = () => {
                   >
                      What is Comcamp?
                   </p>
-                  <img src='/assets/frontPage/bookMobile.svg' className='w-[15vh]' />
+                  <img src='/assets/frontPage/about-image-book-mobile.svg' className='w-[15vh]' />
                </div>
                <div
                   className='flex absolute bottom-[15vh] sm:bottom-[10vh] left-[-20%] w-full z-100'
                   id='mobile_notebook'
                >
                   <div className='relative w-fit h-fit flex'>
-                     <img src='/assets/frontPage/notebook.svg' className='w-[50vh] z-20 h-full' />
+                     <img src='/assets/frontPage/about-image-notebook.svg' className='w-[50vh] z-20 h-full' />
                      <div className='w-[250vw] right-0 h-full py-6 absolute z-100 pr-4'>
                         <div className='bg-[#EB7D3E] h-full w-full'></div>
                      </div>
@@ -185,7 +185,7 @@ const AboutSection = () => {
                   <div
                      className='text-[2vh] sm:text-3xl text-base-black absolute left-0 z-1000 mt-[50vh] sm:mt-[55vh] ml-4 sm:ml-10
                         mr-[40%] sm:mr-[37.5%] font-bai-jamjuree'
-                     data-aos='fade-right'
+                     data-aos='zoom-in'
                   >
                      ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
                      เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ

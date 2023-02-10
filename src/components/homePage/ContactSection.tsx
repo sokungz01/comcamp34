@@ -1,7 +1,7 @@
 const ContactSection = () => {
    return (
       <div className='bg-base-black w-full'>
-         <div className='font-teko text-base-white text-5xl text-center tracking-widest lg:hidden my-8'>
+         <div className='font-teko text-base-white text-5xl text-center tracking-widest lg:hidden my-8' data-aos="fade-down">
             Contact
          </div>
          <div className='flex flex-row justify-between items-center overflow-x-hidden'>
