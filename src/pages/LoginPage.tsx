@@ -1,17 +1,40 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegistrationPage } from "./RegistrationPage";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/lib/firebase";
+import { test, Login } from "@/lib/Fetch";
+import { CustomSwal } from "@/lib/CustomSwal";
 const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
    const login = async () => {
       const result = await signInWithPopup(auth, provider);
       if (result) {
-         console.log("Success");
-         console.log(result);
-         setIsLogin(true);
+         try {
+            const res = await Login(result.user.uid);
+            if (res.status === 200 || res.status === 201) {
+               setIsLogin(true);
+               // Set Token (Session)
+               sessionStorage.setItem("token", res.data.accessToken);
+               sessionStorage.setItem("email", result.user.email as string);
+               sessionStorage.setItem("photoURL", result.user.photoURL as string);
+            }
+         } catch (error) {
+            console.log("You're Already Done");
+            CustomSwal();
+         }
       }
    };
+   useEffect(() => {
+      if (sessionStorage.getItem("token")) {
+         setIsLogin(true);
+      }
+      test().then(res => {
+         // console.log(res);
+      });
+
+      return () => {};
+   }, []);
+
    return isLogin ? (
       <RegistrationPage />
    ) : (

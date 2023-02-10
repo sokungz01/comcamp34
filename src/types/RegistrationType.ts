@@ -4,9 +4,6 @@ export type Personal = {
    middlename: string;
    surname: string;
    nickname: string;
-   date: string;
-   month: string;
-   birth_year: string;
    birth_date: string;
    mobile: string;
    email: string;
@@ -41,9 +38,9 @@ export interface Interest {
    comcamp_previous: boolean;
    major_interest: string;
    reason_major_interest: string;
-   camp1: string;
+   camp_1: string;
    camp1_by: string;
-   camp2: string;
+   camp_2: string;
    camp2_by: string;
    no_previous_camp: boolean;
 }
@@ -86,4 +83,11 @@ export interface QuestionPage2 {
    q4: string;
    q5: string;
    q6: string;
+   q7: string;
+}
+
+export interface DateForm {
+   day: string;
+   month: string;
+   year: string;
 }

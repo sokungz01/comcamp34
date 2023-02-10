@@ -15,9 +15,9 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
    useEffect(() => {
       setData({
          ...data,
-         camp1: "",
+         camp_1: "",
          camp1_by: "",
-         camp2: "",
+         camp_2: "",
          camp2_by: "",
       });
    }, [data.no_previous_camp]);
@@ -101,11 +101,11 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                <div className='lg:w-3/12 lg:mr-24 mt-2 lg:mt-0'>
                   <Inputbox
                      label='ชื่อค่ายลำดับที่ 1'
-                     name='camp1'
+                     name='camp_1'
                      placeholder='Comcamp 31'
                      obj={data}
                      setObj={setData}
-                     value={data.camp1}
+                     value={data.camp_1}
                      disabled={data.no_previous_camp}
                   />
                </div>
@@ -125,11 +125,11 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                <div className='lg:w-3/12 lg:mr-24 mt-2 lg:mt-0'>
                   <Inputbox
                      label='ชื่อค่ายลำดับที่ 2'
-                     name='camp2'
+                     name='camp_2'
                      placeholder='Comcamp 33'
                      obj={data}
                      setObj={setData}
-                     value={data.camp2}
+                     value={data.camp_2}
                      disabled={data.no_previous_camp}
                   />
                </div>

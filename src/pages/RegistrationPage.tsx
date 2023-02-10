@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
 import { ConsentForm } from "@/components/registrationForm/ConsentForm";
@@ -11,6 +11,7 @@ import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
 import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
+import { FillFormSwal } from "@/lib/CustomSwal";
 import {
    Education,
    Interest,
@@ -19,21 +20,26 @@ import {
    UploadFile,
    QuestionPage1,
    QuestionPage2,
+   DateForm,
 } from "@/types/RegistrationType";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { getData, updateData } from "@/lib/Fetch";
 export const RegistrationPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(0);
+
+   const [dateData, setDateData] = useState<DateForm>({
+      day: "",
+      month: "",
+      year: "",
+   });
    const [dataPersonalInfoForm, setPersonalInfoForm] = useState<Personal>({
       prefix: "",
       firstname: "",
       middlename: "",
       surname: "",
       nickname: "",
-      date: "",
-      month: "",
-      birth_year: "",
       birth_date: "",
       mobile: "",
       email: "",
@@ -67,9 +73,9 @@ export const RegistrationPage = () => {
       comcamp_previous: false,
       major_interest: "",
       reason_major_interest: "",
-      camp1: "",
+      camp_1: "",
       camp1_by: "",
-      camp2: "",
+      camp_2: "",
       camp2_by: "",
       no_previous_camp: false,
    });
@@ -111,24 +117,20 @@ export const RegistrationPage = () => {
       q4: "",
       q5: "",
       q6: "",
+      q7: "",
    });
 
-   const ConfirmationPopup = () => {
+   const ConfirmationPopup = async () => {
       if (
-         dataQuestionFormpage2.q4.length &&
-         dataQuestionFormpage2.q5.length &&
-         dataQuestionFormpage2.q6.length
+         dataQuestionFormpage2.q4?.length &&
+         dataQuestionFormpage2.q5?.length &&
+         dataQuestionFormpage2.q6?.length &&
+         dataQuestionFormpage2.q7?.length
       ) {
-         console.log(
-            dataPersonalInfoForm,
-            dataEducationForm,
-            dataInterestForm,
-            dataParentDataForm,
-            dataQuestionFormpage1,
-            dataQuestionFormpage2,
-         );
+         const token = sessionStorage.getItem("token") as string;
+         await updateData(token, page, dataQuestionFormpage2);
          Swal.fire({
-            html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
+            html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
             icon: "warning",
             iconColor: "#000",
             background: "#FDFDFD",
@@ -149,7 +151,7 @@ export const RegistrationPage = () => {
          }).then(result => {
             if (result.isConfirmed) {
                Swal.fire({
-                  html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social media</p>  </div> ',
+                  html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social media</p>  </div> ',
                   icon: "success",
                   background: "#FDFDFD",
                   showConfirmButton: true,
@@ -165,17 +167,7 @@ export const RegistrationPage = () => {
             }
          });
       } else {
-         Swal.fire({
-            html: '<p class="text-3xl font-semibold font-bai-jamjuree"> กรุณากรอกข้อมูลให้ครบถ้วน :)</p>',
-            icon: "error",
-            background: "#FDFDFD",
-            showConfirmButton: true,
-            confirmButtonColor: "#B12E45",
-            confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
-            backdrop: `
-            rgba(0,0,0,0.6)
-            `,
-         });
+         FillFormSwal();
       }
    };
    const handleLogout = () => {
@@ -186,6 +178,7 @@ export const RegistrationPage = () => {
          .catch(error => {
             // An error happened.
          });
+      sessionStorage.clear();
    };
    function isNumber(str: any) {
       if (str.trim() === "") {
@@ -211,169 +204,141 @@ export const RegistrationPage = () => {
       }
       return false;
    }
-   const nextPage = () => {
+   const nextPage = async () => {
+      const token = sessionStorage.getItem("token") as string;
       if (page === 1) {
          if (
-            dataPersonalInfoForm.prefix.length &&
-            dataPersonalInfoForm.firstname.length &&
-            dataPersonalInfoForm.surname.length &&
-            dataPersonalInfoForm.nickname.length &&
-            dataPersonalInfoForm.date.length &&
-            dataPersonalInfoForm.month.length &&
-            dataPersonalInfoForm.birth_year.length &&
-            dataPersonalInfoForm.mobile.length == 10 &&
+            dataPersonalInfoForm.prefix?.length &&
+            dataPersonalInfoForm.firstname?.length &&
+            dataPersonalInfoForm.surname?.length &&
+            dataPersonalInfoForm.nickname?.length &&
+            dataPersonalInfoForm.birth_date &&
+            dataPersonalInfoForm.mobile?.length == 10 &&
             dataPersonalInfoForm.mobile[0] == "0" &&
             isNumber(dataPersonalInfoForm.mobile) &&
-            dataPersonalInfoForm.email.length &&
+            dataPersonalInfoForm.email?.length &&
             checkEmail(dataPersonalInfoForm.email) &&
-            dataPersonalInfoForm.province.length &&
-            dataPersonalInfoForm.shirt_size.length &&
-            dataPersonalInfoForm.medicine.length &&
-            dataPersonalInfoForm.allergic_medicine.length &&
-            dataPersonalInfoForm.underlying.length &&
-            dataPersonalInfoForm.travelby.length &&
-            dataPersonalInfoForm.allergic_food.length
+            dataPersonalInfoForm.province?.length &&
+            dataPersonalInfoForm.shirt_size?.length &&
+            dataPersonalInfoForm.travelby?.length
          ) {
+            await updateData(token, page, dataPersonalInfoForm);
             setPage(page + 1);
          } else {
-            Swal.fire({
-               html: '<p class="text-3xl font-semibold font-bai-jamjuree"> กรุณากรอกข้อมูลให้ครบถ้วน :)</p>',
-               icon: "error",
-               background: "#FDFDFD",
-               showConfirmButton: true,
-               confirmButtonColor: "#B12E45",
-               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
-               backdrop: `
-                  rgba(0,0,0,0.6)
-                  `,
-            });
+            FillFormSwal();
          }
       } else if (page === 2) {
          if (
-            dataEducationForm.school_name.length &&
-            dataEducationForm.school_province.length &&
-            dataEducationForm.student_level.length &&
-            dataEducationForm.study_plan.length &&
-            dataEducationForm.gpax.length &&
+            dataEducationForm.school_name?.length &&
+            dataEducationForm.school_province?.length &&
+            dataEducationForm.student_level?.length &&
+            dataEducationForm.study_plan?.length &&
+            dataEducationForm.gpax &&
             checkGrade(dataEducationForm.gpax)
          ) {
+            await updateData(token, page, dataEducationForm);
             setPage(page + 1);
          } else {
-            Swal.fire({
-               html: '<p class="text-3xl font-semibold font-bai-jamjuree"> กรุณากรอกข้อมูลให้ครบถ้วน :)</p>',
-               icon: "error",
-               background: "#FDFDFD",
-               showConfirmButton: true,
-               confirmButtonColor: "#B12E45",
-               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
-               backdrop: `
-                  rgba(0,0,0,0.6)
-                  `,
-            });
+            FillFormSwal();
          }
       } else if (page === 3) {
          if (
-            dataInterestForm.major_interest.length &&
-            dataInterestForm.reason_major_interest.length &&
+            dataInterestForm.major_interest?.length &&
+            dataInterestForm.reason_major_interest?.length &&
             (dataInterestForm.no_previous_camp === true ||
-               (dataInterestForm.camp1.length && dataInterestForm.camp1_by.length))
+               (dataInterestForm.camp_1?.length && dataInterestForm.camp1_by?.length))
          ) {
+            await updateData(token, page, dataInterestForm);
             setPage(page + 1);
          } else {
-            Swal.fire({
-               html: '<p class="text-3xl font-semibold font-bai-jamjuree"> กรุณากรอกข้อมูลให้ครบถ้วน :)</p>',
-               icon: "error",
-               background: "#FDFDFD",
-               showConfirmButton: true,
-               confirmButtonColor: "#B12E45",
-               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
-               backdrop: `
-               rgba(0,0,0,0.6)
-               `,
-            });
+            FillFormSwal();
          }
       } else if (page === 4) {
          if (
-            dataParentDataForm.parent_prefix.length &&
-            dataParentDataForm.parent_firstname.length &&
-            dataParentDataForm.parent_surname.length &&
-            dataParentDataForm.parent_relation.length &&
-            dataParentDataForm.parent_mobile.length == 10 &&
+            dataParentDataForm.parent_prefix?.length &&
+            dataParentDataForm.parent_firstname?.length &&
+            dataParentDataForm.parent_surname?.length &&
+            dataParentDataForm.parent_relation?.length &&
+            dataParentDataForm.parent_mobile?.length == 10 &&
             dataParentDataForm.parent_mobile[0] === "0" &&
             isNumber(dataParentDataForm.parent_mobile) &&
-            dataParentDataForm.emergency_prefix.length &&
-            dataParentDataForm.emergency_firstname.length &&
-            dataParentDataForm.emergency_surname.length &&
-            dataParentDataForm.emergency_relation.length &&
-            dataParentDataForm.emergency_mobile.length == 10 &&
+            dataParentDataForm.emergency_prefix?.length &&
+            dataParentDataForm.emergency_firstname?.length &&
+            dataParentDataForm.emergency_surname?.length &&
+            dataParentDataForm.emergency_relation?.length &&
+            dataParentDataForm.emergency_mobile?.length == 10 &&
             dataParentDataForm.emergency_mobile[0] === "0" &&
             isNumber(dataParentDataForm.emergency_mobile)
          ) {
+            await updateData(token, page, dataParentDataForm);
             setPage(page + 1);
          } else {
-            Swal.fire({
-               html: '<p class="text-3xl font-semibold font-bai-jamjuree"> กรุณากรอกข้อมูลให้ครบถ้วน :)</p>',
-               icon: "error",
-               background: "#FDFDFD",
-               showConfirmButton: true,
-               confirmButtonColor: "#B12E45",
-               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
-               backdrop: `
-               rgba(0,0,0,0.6)
-               `,
-            });
+            FillFormSwal();
          }
       } else if (page === 5) {
          setPage(page + 1);
       } else if (page === 6) {
          if (
-            dataQuestionFormpage1.q1.length &&
-            dataQuestionFormpage1.q2.length &&
-            dataQuestionFormpage1.q3.length
+            dataQuestionFormpage1.q1?.length &&
+            dataQuestionFormpage1.q2?.length &&
+            dataQuestionFormpage1.q3?.length
          ) {
+            await updateData(token, page, dataQuestionFormpage1);
             setPage(page + 1);
          } else {
-            Swal.fire({
-               html: '<p class="text-3xl font-semibold font-bai-jamjuree"> กรุณากรอกข้อมูลให้ครบถ้วน :)</p>',
-               icon: "error",
-               background: "#FDFDFD",
-               showConfirmButton: true,
-               confirmButtonColor: "#B12E45",
-               confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
-               backdrop: `
-               rgba(0,0,0,0.6)
-               `,
-            });
+            FillFormSwal();
          }
       }
    };
-
    const prevPage = () => {
       if (page > 1) {
          setPage(page - 1);
       }
    };
+   const listData = [
+      setPersonalInfoForm,
+      setEducationForm,
+      setInterestForm,
+      setParentDataForm,
+      setUploadFilesForm,
+      setQuestionFormpage1,
+      setQuestionFormpage2,
+   ];
+
+   useEffect(() => {
+      const token = sessionStorage.getItem("token") as string;
+
+      if (page !== 0) {
+         getData(token, page)
+            .then(res => {
+               listData[page - 1](res?.data.data as any);
+               if (page === 1) {
+                  const split_date = res?.data.data.birth_date.split("-");
+                  setDateData({
+                     day: split_date[0],
+                     month: split_date[1],
+                     year: split_date[2],
+                  });
+               }
+            })
+            .catch(error => {
+               // console.log(error);
+            });
+      }
+   }, [page]);
    return (
       <>
          <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
             <div className='flex justify-between py-4 '>
                <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
-                  <svg
-                     xmlns='http://www.w3.org/2000/svg'
-                     fill='none'
-                     viewBox='0 0 24 24'
-                     strokeWidth='1.5'
-                     stroke='currentColor'
-                     className='lg:w-12 lg:h-12 w-6 h-6'
-                  >
-                     <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        d='M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z'
-                     />
-                  </svg>
+                  <img
+                     src={`${sessionStorage.getItem("photoURL")}`}
+                     alt='Profile'
+                     referrerPolicy='no-referrer'
+                     className='lg:w-12 lg:h-12 w-6 h-6 rounded-full'
+                  />
                   <p className='text-base-black font-semibold lg:mt-2.5lg:ml-4 ml-2 text-sm lg:text-base'>
-                     administrator@comcamp.io
+                     {sessionStorage.getItem("email")}
                   </p>
                </div>
 
@@ -393,14 +358,19 @@ export const RegistrationPage = () => {
                <div className='w-full h-full relative z-10'>
                   {page === 0 || page <= 0 ? <ConsentForm setPage={setPage} /> : null}
                   {page === 1 ? (
-                     <PersonalInfoForm data={dataPersonalInfoForm} setData={setPersonalInfoForm} />
+                     <PersonalInfoForm
+                        data={dataPersonalInfoForm}
+                        setData={setPersonalInfoForm}
+                        dateData={dateData}
+                        setDateData={setDateData}
+                     />
                   ) : null}
                   {page === 2 ? (
                      <EducationForm data={dataEducationForm} setData={setEducationForm} />
                   ) : null}
                   {page === 3 ? (
                      <InterestForm data={dataInterestForm} setData={setInterestForm} />
-                     ) : null}
+                  ) : null}
                   {page === 4 ? (
                      <ParentDataForm data={dataParentDataForm} setData={setParentDataForm} />
                   ) : null}
