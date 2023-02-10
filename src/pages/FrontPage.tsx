@@ -11,6 +11,7 @@ import ContactSection from '@/components/homePage/ContactSection';
 import LearningSection from '@/components/homePage/LearningSection';
 import AboutSection from '@/components/homePage/AboutSection';
 import SponsorSection from '@/components/homePage/SponsorSection';
+import Footer from '@/components/homePage/Footer';
 
 export const FrontPage = () => {
     useEffect(() => {
@@ -30,6 +31,7 @@ export const FrontPage = () => {
                 <FAQSection/>
                 <SponsorSection/>
                 <ContactSection/>
+                <Footer/>
             </div>
         </>
     );

@@ -23,7 +23,7 @@ const FAQSection = () => {
                <p className='font-normal text-xl mt-1'>คำถามที่พบบ่อย</p>
             </div>
             <div className='lg:block hidden' data-aos='fade-left'>
-               <img src='assets/frontPage/faq-image-person-1.png' />
+               <img src='assets/frontPage/faq-image-person-1.png' className="w-[90%] mt-4"/>
             </div>
             <div className='col-span-2 relative lg:block hidden' data-aos='fade-down'>
                <img

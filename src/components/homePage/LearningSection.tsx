@@ -9,8 +9,8 @@ const LearningSection = () => {
          </p>
          <div className='m-auto mb-32 mt-14 relative overflow-x-hidden hidden lg:block'>
             <img
-               src='assets/frontPage/learning-image-phone-desktop.png'
-               className='w-[71.5%]  ml-auto mb-auto'
+               src='assets/frontPage/learning-image-phone-desktop.svg'
+               className='w-[71.5%]  ml-auto mb-auto mt-[-1%]'
                data-aos='fade-left'
                data-aos-delay='200'
             />
@@ -72,12 +72,12 @@ const LearningSection = () => {
          </div>
          <div className='m-auto mb-32 mt-14 relative overflow-x-hidden block lg:hidden'>
             <img
-               src='assets/frontPage/learning-image-phone-1-mobile.svg'
+               src='assets/frontPage/learning-image-phone-1-mobile.png'
                className='mr-auto w-full'
                data-aos='fade-left'
             />
             <img
-               src='assets/frontPage/learning-image-phone-2-mobile.svg.svg'
+               src='assets/frontPage/learning-image-phone-2-mobile.png'
                className='ml-auto w-1/2'
                data-aos='fade-right'
             />
@@ -115,7 +115,7 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-10 text-right mr-2'>
                         C Programming
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left'>
+                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
                         อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน? มาเรียนรู้กับพื้นฐานทางภาษาของ
                         โปรแกรมเมอร์ C language และ Flowchart เครื่องมือที่จะทำให้
                         การทำความเข้าใจโค้ดไม่ใช่เรื่องยาก อีกต่อไป งานนี้บอกเลยว่า
@@ -130,7 +130,7 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-10 text-right mr-2'>
                         Microcontroller
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left'>
+                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
                         ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบเสมือนเครื่อง คอมพิวเตอร์
                         ขนาดเท่าฝ่ามือ ของคุณ เพื่อสรรค์สร้าง เทคโนโลยีสุดล้ำแห่งอนาคต
                      </p>
@@ -143,7 +143,7 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-[1.75rem] text-right mr-2'>
                         Web <br /> Development
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left'>
+                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0 text-left mr-[1%]'>
                         สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ ด้วย HTML
                         ตกแต่งหน้าตา เว็บไซต์รวมถึงเพิ่มลูกเล่นตาม ต้องการ ด้วย CSS และ Javascript
                      </p>
