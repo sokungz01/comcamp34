@@ -92,10 +92,15 @@ export const RegistrationPage = () => {
    });
    const [dataUploadFilesForm, setUploadFilesForm] = useState<UploadFile>({
       image_URL: "",
+      image_Name: "",
       agreement_URL: "",
+      agreement_Name: "",
       card_URL: "",
+      card_Name: "",
       pp7_URL: "",
+      pp7_Name: "",
       pp1_URL: "",
+      pp1_Name: ""
    });
    const [dataQuestionFormpage1, setQuestionFormpage1] = useState<QuestionPage1>({
       q1: "",
