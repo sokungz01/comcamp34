@@ -27,3 +27,16 @@ export const FillFormSwal = () => {
       backdrop: `rgba(0,0,0,0.6)`,
    });
 };
+
+export const ComingSoonSwal = () => {
+   return Swal.fire({
+      html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย!</p> <p> ไม่อยู่ในช่วงเวลาการรับสมัคร </p></div>',
+      icon: "error",
+      background: "#FDFDFD",
+      showConfirmButton: true,
+      confirmButtonColor: "#B12E45",
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
+      backdrop: `rgba(0,0,0,0.6)`,
+   });
+};
+
