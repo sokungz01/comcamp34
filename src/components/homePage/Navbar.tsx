@@ -8,7 +8,7 @@ const Navbar = () => {
    const location = useLocation();
    return (
       <nav
-         className={`flex items-center flex-wrap bg-base-white p-3 font-teko tracking-wider drop-shadow-xl ${
+         className={`z-[10000] fixed w-full flex items-center flex-wrap bg-base-white p-3 font-teko tracking-wider drop-shadow-xl ${
             hamburger ? "justify-between" : "justify-end"
          }`}
       >
@@ -61,7 +61,7 @@ const Navbar = () => {
                   }`}
                >
                   <div className='lg:text-xl lg:flex lg:flex-grow lg:justify-center '>
-                     <NavLink
+                     <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='about'
                         spy={true}
@@ -72,7 +72,7 @@ const Navbar = () => {
                      >
                         About
                      </NavLink>
-                     <NavLink
+                     <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='learning'
                         spy={true}
@@ -83,7 +83,7 @@ const Navbar = () => {
                      >
                         Learning
                      </NavLink>
-                     <NavLink
+                     <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='conditions'
                         spy={true}
@@ -94,7 +94,7 @@ const Navbar = () => {
                      >
                         Conditions
                      </NavLink>
-                     <NavLink
+                     <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='timeline'
                         spy={true}
@@ -105,7 +105,7 @@ const Navbar = () => {
                      >
                         Timeline
                      </NavLink>
-                     <NavLink
+                     <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='faq'
                         spy={true}
@@ -116,7 +116,7 @@ const Navbar = () => {
                      >
                         FAQ
                      </NavLink>
-                     <NavLink
+                     <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='contact'
                         spy={true}
