@@ -2,7 +2,7 @@ const ConditionsSection = () => {
    return (
       <div
          id='conditions'
-         className='w-full text-center bg-contain bg-base-white lg:bg-[url("/assets/frontPage/condition-bg-desktop.png")] bg-[url("/assets/frontPage/condition-bg-mobile.png")]'
+         className='pt-20 w-full text-center bg-contain bg-base-white lg:bg-[url("/assets/frontPage/condition-bg-desktop.png")] bg-[url("/assets/frontPage/condition-bg-mobile.png")]'
       >
          <p
             className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8  font-teko tracking-wider '

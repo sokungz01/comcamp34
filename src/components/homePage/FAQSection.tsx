@@ -16,7 +16,7 @@ const FAQSection = () => {
    return (
       <div
          id='faq'
-         className='w-full text-center lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/faq-bg-desktop.png")] bg-[url("/assets/frontPage/faq-bg-mobile.png")]'
+         className='pt-20 w-full text-center lg:bg-contain bg-base-white lg:bg-[url("/assets/frontPage/faq-bg-desktop.png")] bg-[url("/assets/frontPage/faq-bg-mobile.png")]'
       >
          <div className='relative max-w-[1380px] m-auto my-32 grid lg:grid-cols-7 grid-cols-5 gap-1 font-bai-jamjuree text-center'>
             <div className='col-span-full lg:hidden flex flex-col' data-aos='fade-down'>

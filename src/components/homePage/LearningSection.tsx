@@ -1,6 +1,6 @@
 const LearningSection = () => {
    return (
-      <div id='learning' className='w-full text-center bg-contain bg-base-white'>
+      <div id='learning' className='pt-20 w-full text-center bg-contain bg-base-white'>
          <p
             className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8 font-teko tracking-wider'
             data-aos='fade-down'
