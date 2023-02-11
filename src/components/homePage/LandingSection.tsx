@@ -23,7 +23,7 @@ const LandingSection: React.FC = () => {
                </Link>
             </div>
          </div>
-         <Parallax speed={isMobile() ? 30 : 250}>
+         <Parallax speed={isMobile() ? 30 : 100}>
             <img
                className='relative lg:-bottom-1/3 w-screen -bottom-2/3'
                data-aos='fade-up'
