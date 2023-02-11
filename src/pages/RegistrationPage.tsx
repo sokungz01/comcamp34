@@ -25,6 +25,7 @@ import {
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { getData, updateData } from "@/lib/Fetch";
+import { checkEmail, checkGrade, isMobileNumber } from "@/utils/validate";
 export const RegistrationPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(
@@ -182,30 +183,6 @@ export const RegistrationPage = () => {
          });
       sessionStorage.clear();
    };
-   function isNumber(str: any) {
-      if (str.trim() === "") {
-         return false;
-      }
-      if (str.includes("E") === true || str.includes("e") === true) {
-         return false;
-      }
-      return !isNaN(str);
-   }
-   function checkEmail(str: any) {
-      const RegEx =
-         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (RegEx.test(str)) {
-         return true;
-      }
-      return false;
-   }
-   function checkGrade(str: any) {
-      const Reg = /^(\d{1}\.){1}\d{2}$/;
-      if (Reg.test(str) && parseFloat(str) <= 4) {
-         return true;
-      }
-      return false;
-   }
    const nextPage = async () => {
       const token = sessionStorage.getItem("token") as string;
       if (page === 1) {
@@ -217,7 +194,7 @@ export const RegistrationPage = () => {
             dataPersonalInfoForm.birth_date &&
             dataPersonalInfoForm.mobile?.length == 10 &&
             dataPersonalInfoForm.mobile[0] == "0" &&
-            isNumber(dataPersonalInfoForm.mobile) &&
+            isMobileNumber(dataPersonalInfoForm.mobile) &&
             dataPersonalInfoForm.email?.length &&
             checkEmail(dataPersonalInfoForm.email) &&
             dataPersonalInfoForm.province?.length &&
@@ -263,14 +240,14 @@ export const RegistrationPage = () => {
             dataParentDataForm.parent_relation?.length &&
             dataParentDataForm.parent_mobile?.length == 10 &&
             dataParentDataForm.parent_mobile[0] === "0" &&
-            isNumber(dataParentDataForm.parent_mobile) &&
+            isMobileNumber(dataParentDataForm.parent_mobile) &&
             dataParentDataForm.emergency_prefix?.length &&
             dataParentDataForm.emergency_firstname?.length &&
             dataParentDataForm.emergency_surname?.length &&
             dataParentDataForm.emergency_relation?.length &&
             dataParentDataForm.emergency_mobile?.length == 10 &&
             dataParentDataForm.emergency_mobile[0] === "0" &&
-            isNumber(dataParentDataForm.emergency_mobile)
+            isMobileNumber(dataParentDataForm.emergency_mobile)
          ) {
             await updateData(token, page, dataParentDataForm);
             setPage(page + 1);

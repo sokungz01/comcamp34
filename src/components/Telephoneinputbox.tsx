@@ -1,3 +1,4 @@
+import { isMobileNumber } from "@/utils/validate";
 import { useState } from "react";
 
 const TelInput = ({
@@ -20,19 +21,10 @@ const TelInput = ({
    disabled?: boolean;
 }) => {
    const [valid, setvalid] = useState<boolean>(true);
-   function isNumber(str: any) {
-      if (str.trim() === "") {
-         return false;
-      }
-      if (str.includes("E") === true || str.includes("e") === true) {
-         return false;
-      }
-      return !isNaN(str);
-   }
 
    const handleChange = (event: any) => {
       const phoneNumber = event.target.value;
-      setvalid(phoneNumber.length == 10 && isNumber(phoneNumber) && phoneNumber[0] == "0");
+      setvalid(isMobileNumber(phoneNumber));
       setObj({ ...obj, [name]: phoneNumber });
    };
    return (

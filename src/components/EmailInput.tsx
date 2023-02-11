@@ -1,3 +1,4 @@
+import { checkEmail } from "@/utils/validate";
 import { useState } from "react";
 const EmailInput = ({
    label,
@@ -19,12 +20,10 @@ const EmailInput = ({
    disabled?: boolean;
 }) => {
    const [valid, setValid] = useState<boolean>(true);
-   const RegEx =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (!(e.target instanceof HTMLInputElement)) return;
       const email = e.target.value;
-      if (RegEx.test(email) === false) setValid(false);
+      if (checkEmail(email) === false) setValid(false);
       else setValid(true);
       setObj({ ...obj, [name]: email });
    };
