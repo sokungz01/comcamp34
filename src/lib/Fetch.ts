@@ -1,21 +1,10 @@
 import axios from "axios";
 const url = import.meta.env.VITE_backend_URL;
 
-let fetch = axios.create({
-   baseURL: url,
-   // headers :
-   // withCredentials: true,
-});
-
-export const test = async () => {
-   const response = await fetch.post("/api/hello");
-   return response;
-};
-
 export const Login = async (secret: string) => {
    try {
    } catch (err) {}
-   const response = await fetch.post(`/api/users/${secret}`);
+   const response = await axios.post(`${url}/api/users/${secret}`);
    return response;
 };
 
