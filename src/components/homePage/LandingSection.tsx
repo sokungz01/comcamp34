@@ -30,7 +30,7 @@ const LandingSection: React.FC = () => {
                data-aos-offset='-1000'
                data-aos-delay='50'
                data-aos-duration='3000'
-               src='/assets/frontPage/bgTower.png'
+               src='/assets/frontPage/landing-bg-tower.png'
             />
          </Parallax>
       </div>
