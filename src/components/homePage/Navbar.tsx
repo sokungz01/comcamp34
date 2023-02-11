@@ -31,7 +31,7 @@ const Navbar = () => {
                   <Link to='/'>
                      <img className='lg:w-16 w-14' src={logo} />
                   </Link>
-               </div>{" "}
+               </div>
                <div className='block lg:hidden'>
                   <button
                      onClick={() => setHamburger(!hamburger)}

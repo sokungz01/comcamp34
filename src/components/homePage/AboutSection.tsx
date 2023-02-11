@@ -93,7 +93,7 @@ const AboutSection = () => {
    }, []);
 
    return (
-      <div id='about' className={`w-full flex bg-${string}`}>
+      <div className={`w-full flex bg-${string}`}>
          <div className='mx-auto relative w-full h-[600vh] hidden xl:block' ref={divRef}>
             <div className='sticky top-5 mx-auto flex'>
                <div className='w-full relative overflow-hidden h-screen '>
@@ -152,6 +152,7 @@ const AboutSection = () => {
                   </div>
                </div>
             </div>
+            <div id='about'></div>
          </div>
          <div
             className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden`}

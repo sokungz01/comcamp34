@@ -2,7 +2,7 @@ const TimelineSection = () => {
    return (
       <div
          id='timeline'
-         className='w-full text-center bg-contain bg-base-white bg-[url("/assets/frontPage/timeline-bg.svg")]'
+         className='pt-20 w-full text-center bg-contain bg-base-white bg-[url("/assets/frontPage/timeline-bg.svg")]'
       >
          <div
             className='flex mx-auto justify-center relative '
