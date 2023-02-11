@@ -1,5 +1,7 @@
 import question from "@/components/homePage/FAQdata.json";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import LeftArrow from "/assets/svg/LeftArrow.svg";
 const FAQPageComponent = () => {
    const [selectedQuestion, setSelectedQuestion] = useState<any>(null);
 
@@ -20,7 +22,7 @@ const FAQPageComponent = () => {
                className='w-5/6 lg:my-auto mt-4 lg:cursor-pointer relative z-10'
                data-aos='fade-down'
             >
-               <p className='font-semibold text-7xl tracking-wider drop-shadow-lg text-red1 font-teko mb-4'>
+               <p className='font-semibold text-7xl tracking-wider drop-shadow-lg text-red1 font-teko mb-4 mt-10'>
                   FAQ
                </p>
                {question.map((item, index) => (
@@ -31,14 +33,12 @@ const FAQPageComponent = () => {
                      }}
                   >
                      <div
-                        className={`flex justify-between pt-4 pb-2 border-b-[3px] ${
-                           selectedQuestion === index
+                        className={`flex justify-between pt-4 pb-2 border-b-[3px] ${selectedQuestion === index
                               ? "border-base-black/50"
                               : "border-base-black/25"
-                        } 
-                        ${selectedQuestion != index ? "hover:bg-[#f8e4cc]" : null} ${
-                           selectedQuestion === index ? "bg-yellow3/50" : "bg-base-white"
-                        }`}
+                           } 
+                        ${selectedQuestion != index ? "hover:bg-[#f8e4cc]" : null} ${selectedQuestion === index ? "bg-yellow3/50" : "bg-base-white"
+                           }`}
                      >
                         <p className='ml-1 mr-5 text-base lg:text-lg font-semibold text-left text-base-black/75'>
                            {item.question}
@@ -69,17 +69,27 @@ const FAQPageComponent = () => {
                         )}
                      </div>
                      <div
-                        className={`text-base lg:text-lg  ${
-                           selectedQuestion === index ? "max-h-[8rem]" : "max-h-0 overflow-hidden"
-                        } font-normal text-left  
-                                ${
-                                   selectedQuestion === index ? "pt-4 px-3 pb-2" : "p-0"
-                                } bg-white transition-all duration-100 ease-linear`}
+                        className={`text-base lg:text-lg  ${selectedQuestion === index ? "max-h-[8rem]" : "max-h-0 overflow-hidden"
+                           } font-normal text-left  
+                                ${selectedQuestion === index ? "pt-4 px-3 pb-2" : "p-0"
+                           } bg-white transition-all duration-100 ease-linear`}
                      >
                         {item.answer}
                      </div>
                   </div>
                ))}
+               <Link to="/">
+               <button>
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                     className="w-10 h-10 mt-4"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="#ca3450" stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                     <path d="M15 18l-6-6 6-6" /></svg>
+               </button>
+               </Link>
             </div>
          </div>
       </div>
