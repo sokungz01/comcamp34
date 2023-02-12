@@ -10,6 +10,7 @@ const AboutSection = () => {
    const [textToggle, setTextToggle] = useState<boolean>(false);
    const [textMobileToggle, setMobileTextToggle] = useState<boolean>(false);
    useEffect(() => {
+      setString("base-black");
       const handleScroll = () => {
          let notebook: any = document.getElementById("notebook");
          let book: any = document.getElementById("book");
@@ -27,10 +28,14 @@ const AboutSection = () => {
             const divPosStage1 = div.offsetTop + div.offsetHeight / 3.5;
             const divPosStage2 = div.offsetTop + div.offsetHeight / 1.75;
             const divPosStage3 = div.offsetTop + div.offsetHeight / 1.25;
+            const divPosStage4 = div.offsetTop + div.offsetHeight / 1.15;
+            const divPosStageEnd = div.offsetTop + div.offsetHeight / 0.25;
             const mobileDivPosStage1 = mobileDiv.offsetTop + mobileDiv.offsetHeight / 3;
             const mobileDivPosStage2 = mobileDiv.offsetTop + mobileDiv.offsetHeight / 1.25;
+            const mobileDivPosStage3 = mobileDiv.offsetTop + mobileDiv.offsetHeight / 1.15;
+            const mobileDivPosStageEnd = mobileDiv.offsetTop + mobileDiv.offsetHeight / 0.5;
             if (scrollPos < divPosStage1) {
-               //setString("base-black");
+               setString("base-black");
                notebook.style.left = 100 + value * 0.35 + "px";
                notebook.style.top = top_notebook + -value * 0.26 + "px";
                book.style.left = left_book + value * 0.5 + "px";
@@ -39,7 +44,7 @@ const AboutSection = () => {
                //coffee.style.top = -100+(value * 0.4) + 100 + "px";
             }
             if (scrollPos >= divPosStage1 && scrollPos < divPosStage2) {
-               //setString("base-black");
+               setString("base-black");
                if (scrollPos > divPosStage1 + (divPosStage2 - divPosStage1) / 2) {
                   setNoteBookRotation(prevNotebookRotation => {
                      return Math.min(0, prevNotebookRotation + window.scrollY / 100);
@@ -66,9 +71,12 @@ const AboutSection = () => {
                   "px";
                setTextToggle(false);
             }
-            if (divPosStage3 <= scrollPos) {
-               //setString("base-black");
+            if (divPosStage3 <= scrollPos && scrollPos<divPosStage4) {
+               setString("base-black");
                setTextToggle(true);
+            }
+            if(divPosStage4<= scrollPos && scrollPos<divPosStageEnd){
+               setString("base-white");
             }
             if (scrollPos < mobileDivPosStage1) {
                //setString("blue1");
@@ -80,8 +88,12 @@ const AboutSection = () => {
                mobile_notebook.style.left = -20 + (70 - -20) * percent + "%";
                setMobileTextToggle(false);
             }
-            if (mobileDivPosStage2 < scrollPos) {
+            if (mobileDivPosStage2 <= scrollPos && mobileDivPosStage3 > scrollPos ) {
                setMobileTextToggle(true);
+               setString("base-black");
+            }
+            if(mobileDivPosStage3<=scrollPos && scrollPos< mobileDivPosStageEnd){
+               setString("base-white");
             }
          }
       };
@@ -92,10 +104,11 @@ const AboutSection = () => {
       };
    }, []);
 
+
    return (
       <div className={`w-full flex bg-${string}`}>
-         <div className='mx-auto relative w-full h-[600vh] hidden xl:block' ref={divRef}>
-            <div className='sticky top-5 mx-auto flex'>
+         <div className='mx-auto relative w-full h-[600vh] hidden xl:block transition delay-100 ease-in-out' ref={divRef}>
+            <div className='sticky top-10 mx-auto flex'>
                <div className='w-full relative overflow-hidden h-screen '>
                   {textToggle ? (
                      <p
@@ -107,7 +120,7 @@ const AboutSection = () => {
                   ) : null}
                   {textToggle ? (
                      <p
-                        className='text-3xl absolute text-base-black mt-[27.5%] xl:mt-[40vh] ml-[2.5%] mr-[35%] 
+                        className='text-3xl absolute text-base-black mt-[27.5%] xl:mt-[41vh] ml-[2.5%] mr-[35%] 
                          z-50 font-bai-jamjuree'
                         data-aos='zoom-in'
                      >
@@ -154,8 +167,8 @@ const AboutSection = () => {
             </div>
             <div id='about'></div>
          </div>
-         <div
-            className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden`}
+         <div 
+            className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden transition delay-100 ease-in-out`}
             ref={mobileDivRef}
          >
             <div className='h-screen sticky flex flex-col top-0 overflow-hidden'>
@@ -181,19 +194,20 @@ const AboutSection = () => {
                         className='w-[50vh] z-20 h-full'
                      />
                      <div className='w-[250vw] right-0 h-full py-6 absolute z-100 pr-4'>
-                        <div className='bg-[#EB7D3E] h-full w-full'></div>
+                        <div className='bg-[#EB7D3E] h-full w-full'>
+                        </div>
                      </div>
                   </div>
                </div>
                {textMobileToggle ? (
                   <div
-                     className='text-[2vh] sm:text-3xl text-base-black absolute left-0 z-1000 mt-[50vh] sm:mt-[55vh] ml-4 sm:ml-10
+                     className='text-[2vh] sm:text-3xl text-base-black absolute left-0 z-1000 mt-[50vh] sm:mt-[54vh] ml-4 sm:ml-10
                         mr-[40%] sm:mr-[37.5%] font-bai-jamjuree'
                      data-aos='zoom-in'
                   >
                      ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
                      เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ
-                     เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อ และ
+                     เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อและ
                      ยังได้ร่วมสนุกกับกิจกรรมสันทนาการจากพี่ ๆ CPE อีกด้วย
                   </div>
                ) : null}
