@@ -1,3 +1,4 @@
+import { checkGrade } from "@/utils/validate";
 import { useState } from "react";
 
 const GpaxInput = ({
@@ -19,13 +20,10 @@ const GpaxInput = ({
 }) => {
    const [valid, setValid] = useState<boolean>(false);
 
-   const Reg = /^(\d{1}\.){1}\d{2}$/;
-
    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (!(event.target instanceof HTMLInputElement)) return;
       const value = event.target.value;
-
-      if (Reg.test(value) === true && parseFloat(value) <= 4) {
+      if (checkGrade(value)) {
          setValid(false);
       } else {
          setValid(true);
@@ -48,6 +46,8 @@ const GpaxInput = ({
             name={name}
             value={value == null ? "" : value}
             onChange={handleChange}
+            minLength={3}
+            maxLength={4}
             required={required}
          />
          {valid ? <p className='text-orange'>Please enter valid form</p> : <label></label>}

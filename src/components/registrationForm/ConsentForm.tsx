@@ -9,7 +9,9 @@ export const ConsentForm = ({ setPage }: { setPage: any }) => {
       getData(token, 0)
          .then((res: any) => {
             setAcceptPolicy(res.data.data.consent);
-            setPage(1);
+            if (res.data.data.consent) {
+               setPage(1);
+            }
          })
          .catch(error => {
             console.log(error);

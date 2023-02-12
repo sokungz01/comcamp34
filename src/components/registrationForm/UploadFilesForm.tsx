@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FileUploaderComponent from "@/components/FileUploaderComponent";
+import { getData, updateData } from "@/lib/Fetch";
 import { UploadFile } from "@/types/RegistrationType";
 
 const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) => {
+   const [status, setStatus] = useState<boolean>(false)
+
+   useEffect(() => {
+      if(status === true) {
+         const token = sessionStorage.getItem("token") as string;
+         updateData(token, 5, data).then(() => {
+            setStatus(false);
+         })
+      }
+   }, [status])
+   
+   
+
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-[#FAD9AA] bg-opacity-70 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 pt-4 pb-12'>
@@ -24,6 +38,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                            fileName={data.image_Name}
                            setObj={setData}
                            value={data.image_URL}
+                           setStatus={setStatus}
                         />
                      </div>
                      <div className='ml-0 mt-4 xl:mt-0 xl:ml-4 w-full h-full'>
@@ -36,6 +51,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                            fileName={data.agreement_Name}
                            setObj={setData}
                            value={data.agreement_URL}
+                           setStatus={setStatus}
                         />
                      </div>
                   </div>
@@ -48,6 +64,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                         fileName={data.card_Name}
                         setObj={setData}
                         value={data.card_URL}
+                        setStatus={setStatus}
                      />
                   </div>
                   <div className='mt-4 xl:mt-8 w-full xl:w-3/4 2xl:w-4/5'>
@@ -59,6 +76,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                         fileName={data.pp7_Name}
                         setObj={setData}
                         value={data.pp7_URL}
+                        setStatus={setStatus}
                      />
                   </div>
                   <div className='mt-4 xl:mt-8 w-full xl:w-3/4 2xl:w-4/5'>
@@ -70,6 +88,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                         fileName={data.pp1_Name}
                         setObj={setData}
                         value={data.pp1_URL}
+                        setStatus={setStatus}
                      />
                   </div>
                </div>

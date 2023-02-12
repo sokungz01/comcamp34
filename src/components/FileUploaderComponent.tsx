@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { storage } from "@/lib/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-
+import { nanoid } from "nanoid";
+import { FileTooBigSwal } from "@/lib/CustomSwal";
 const FileUploaderComponent = ({
    filePath,
    label,
@@ -12,6 +13,7 @@ const FileUploaderComponent = ({
    obj,
    setObj,
    value,
+   setStatus
 }: {
    filePath: string;
    label?: string;
@@ -22,10 +24,12 @@ const FileUploaderComponent = ({
    obj: object;
    setObj: any;
    value: string;
+   setStatus?: any;
 }) => {
    const [file, setFile]: any = useState();
    const [fileData, setFileData]: any = useState();
-   const [isUpload, setIsUpload] = useState<boolean>(false);
+   const [isUpload, setIsUpload] = useState<boolean>(value != undefined && value != null && value != ""? true : false );
+   
    const handleFile = async (e: any) => {
       if (!(e.target instanceof HTMLInputElement)) return;
       setFile(e.target.files[0].name);
@@ -33,7 +37,7 @@ const FileUploaderComponent = ({
    };
 
    useEffect(() => {
-      if (file != null) {
+      if (file != null && file != undefined) {
          uploadFile();
       }
    }, [file]);
@@ -42,19 +46,32 @@ const FileUploaderComponent = ({
       if (file == null) {
          alert("โปรดแนบไฟล์ " + label);
          return;
-      } else if (file) {
-         const storageRef = ref(storage, `${filePath}/${file}`);
+      }
+      else if(fileData.size > 10 *1024*1024){
+         FileTooBigSwal();
+         return;
+      } 
+      else if (file) {
+         const filearr= file.split(".");
+         const ext = filearr[filearr.length-1];
+         // filename without extension
+         // join all array except last element
+         const filename = filearr.slice(0, filearr.length-1).join("_").replace(/\s/g, "_");
+         const newFileName = filename + "_" + nanoid(8) + "." + ext;
+         
+         const storageRef = ref(storage, `${filePath}/${newFileName}`);
          uploadBytes(storageRef, fileData)
             .then(e => {
                //upload file success
-               console.log(e);
-               console.log("upload success");
             })
             .then(path => {
                const url = getDownloadURL(storageRef);
-               url.then(e =>
-                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file }),
+               url.then(e => {
+                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file })
+                  setStatus(true);
+               }
                );
+               
             });
       }
       // else if upload submit, call method to store file in firebase storage maybe by format -> "userId_file" in defined path
@@ -62,10 +79,10 @@ const FileUploaderComponent = ({
       setIsUpload(true);
    };
    const deleteFile = () => {
-      if (!isUpload) return;
       setFile(null);
       setObj({ ...obj, [filePath]: "", [filePath.split("_")[0].concat("_Name")]: "" });
       setIsUpload(false);
+      setStatus(true);
    };
 
    return (
@@ -161,7 +178,7 @@ const FileUploaderComponent = ({
                                  xmlns='http://www.w3.org/2000/svg'
                                  fill='none'
                                  viewBox='0 0 24 24'
-                                 stroke-width='1.5'
+                                 strokeWidth='1.5'
                                  stroke='currentColor'
                                  className='w-4 h-4 mr-2'
                               >
