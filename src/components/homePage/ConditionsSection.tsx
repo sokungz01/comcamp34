@@ -5,21 +5,21 @@ const ConditionsSection = () => {
          className='pt-20 w-full text-center bg-contain bg-base-white lg:bg-[url("/assets/frontPage/condition-bg-desktop.png")] bg-[url("/assets/frontPage/condition-bg-mobile.png")]'
       >
          <p
-            className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8  font-teko tracking-wider '
+            className='text-red2 drop-shadow-lg lg:text-8xl text-6xl md:text-8xl font-semibold mt-8 font-teko tracking-wider'
             data-aos='fade-down'
             data-aos-delay='200'
          >
             Conditions
          </p>
-         <div className='max-w-7xl m-auto my-32 grid lg:grid-cols-4 grid-cols-1 gap-1 font-bai-jamjuree text-center '>
+         <div className='max-w-6xl m-auto my-32 grid lg:grid-cols-4 grid-cols-1 gap-1 font-bai-jamjuree text-center '>
             <div className='mx-auto relative ' data-aos='flip-up' data-aos-delay='300'>
                <img src='assets/frontPage/condition-image-card-1.png' />
                <p className='absolute bottom-[15%] mx-5 inset-x-0'>
                   กำลังศึกษาอยู่
                   <br />
-                  ชั้นมัธยมศึกษาปีที่ 4-5หรือ
+                  ชั้นมัธยมศึกษาปีที่ 4-5
                   <br />
-                  เทียบเท่า
+                  หรือเทียบเท่า
                   <br />
                   ในปีการศึกษา 2565
                </p>
@@ -44,14 +44,17 @@ const ConditionsSection = () => {
                   และสถานที่ที่กำหนด
                   <br />
                   ตลอดโครงการ
+                  <br />
                </p>
             </div>
             <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='600'>
                <img src='assets/frontPage/condition-image-card-4.png' />
-               <p className='absolute bottom-[15%] ml-5 inset-x-0'>
+               <p className='absolute bottom-[15%] mx-5 inset-x-0'>
                   ผู้ปกครองอนุญาตให้
                   <br />
                   นักเรียนเข้ากิจกรรม
+                  <br />
+                  <br />
                </p>
             </div>
          </div>

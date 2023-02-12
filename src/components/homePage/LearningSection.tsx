@@ -22,7 +22,7 @@ const LearningSection = () => {
                   <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75'>
                      อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน?
                      มาเรียนรู้กับพื้นฐานทางภาษาของโปรแกรมเมอร์ C language และ Flowchart
-                     เครื่องมือที่จะทำให้ การทำความเข้าใจโค้ดไม่ใช่เรื่องยากอีกต่อไป
+                     เครื่องมือที่จะทำให้การทำความเข้าใจโค้ดไม่ใช่เรื่องยากอีกต่อไป
                      งานนี้บอกเลยว่าคนอ่านโค้ดไม่ได้ก็เข้าใจได้!
                   </p>
                </div>
@@ -41,8 +41,8 @@ const LearningSection = () => {
                      Web <br /> Development
                   </p>
                   <p className='tracking-widest text-[0.9vw] font-bai-jamjuree texl-left text-base-black/75 mt-2'>
-                     สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ ด้วย HTML
-                     ตกแต่งหน้าตา เว็บไซต์รวมถึงเพิ่มลูกเล่นตาม ต้องการ ด้วย CSS และ Javascript
+                     สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ด้วย HTML
+                     ตกแต่งหน้าตาเว็บไซต์รวมถึงเพิ่มลูกเล่นตามต้องการด้วย CSS และ Javascript
                   </p>
                </div>
             </div>
@@ -55,8 +55,8 @@ const LearningSection = () => {
                      Data Analytics and Visualization
                   </p>
                   <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75 mt-2'>
-                     ดูสิ! ท่องเน็ตทีไร โฆษณาตรงใจทุกที? มาไขขำตอบ ผ่านวิชานี้กัน! เรียนรู้ภาษา
-                     Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูล ด้วย Pandas
+                     ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกทีมาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
+                     Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
                   </p>
                </div>
                <div data-aos='zoom-in' data-aos-delay='300'>
@@ -64,8 +64,8 @@ const LearningSection = () => {
                      Build a Game
                   </p>
                   <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75'>
-                     ชอบเล่นเกม ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?
-                     เรียนรู้การสร้างเกมเบื้องต้น ด้วย Unity และ C#
+                     ชอบเล่นเกม? ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?
+                     เรียนรู้การสร้างเกมเบื้องต้นด้วย Unity และ C#
                   </p>
                </div>
             </div>
@@ -88,8 +88,8 @@ const LearningSection = () => {
                         Data Analytics and Visualization{" "}
                      </p>
                      <p className='tracking-widest sm:text-lg md:text-xl  text-[3vw] font-bai-jamjuree text-base-black/75 mt-2 text-left'>
-                        ดูสิ! ท่องเน็ตทีไร โฆษณาตรงใจทุกที? มาไขขำตอบ ผ่านวิชานี้กัน! เรียนรู้ภาษา
-                        Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูล ด้วย Pandas
+                        ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกทีมาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
+                        Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
                      </p>
                   </div>
                   <div
@@ -101,8 +101,8 @@ const LearningSection = () => {
                         Build a Game
                      </p>
                      <p className='tracking-widest sm:text-xl text-[3vw] font-bai-jamjuree text-base-black/75 mt-0s text-left'>
-                        ชอบเล่นเกม ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?
-                        เรียนรู้การสร้างเกมเบื้องต้น ด้วย Unity และ C#
+                        ชอบเล่นเกม? ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?
+                        เรียนรู้การสร้างเกมเบื้องต้นด้วย Unity และ C#
                      </p>
                   </div>
                </div>
@@ -116,10 +116,10 @@ const LearningSection = () => {
                         C Programming
                      </p>
                      <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
-                        อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน? มาเรียนรู้กับพื้นฐานทางภาษาของ
-                        โปรแกรมเมอร์ C language และ Flowchart เครื่องมือที่จะทำให้
-                        การทำความเข้าใจโค้ดไม่ใช่เรื่องยาก อีกต่อไป งานนี้บอกเลยว่า
-                        คนอ่านโค้ดไม่ได้ก็เข้าใจได้!
+                        อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน?
+                        มาเรียนรู้กับพื้นฐานทางภาษาของโปรแกรมเมอร์ C language และ Flowchart
+                        เครื่องมือที่จะทำให้การทำความเข้าใจโค้ดไม่ใช่เรื่องยากอีกต่อไป
+                        งานนี้บอกเลยว่าคนอ่านโค้ดไม่ได้ก็เข้าใจได้!
                      </p>
                   </div>
                   <div
@@ -131,8 +131,9 @@ const LearningSection = () => {
                         Microcontroller
                      </p>
                      <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
-                        ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบเสมือนเครื่อง คอมพิวเตอร์
-                        ขนาดเท่าฝ่ามือ ของคุณ เพื่อสรรค์สร้าง เทคโนโลยีสุดล้ำแห่งอนาคต
+                        ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบ
+                        เสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
+                        เพื่อสรรค์สร้างเทคโนโลยีสุดล้ำแห่งอนาคต
                      </p>
                   </div>
                   <div
@@ -144,8 +145,8 @@ const LearningSection = () => {
                         Web <br /> Development
                      </p>
                      <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0 text-left mr-[1%]'>
-                        สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ ด้วย HTML
-                        ตกแต่งหน้าตา เว็บไซต์รวมถึงเพิ่มลูกเล่นตาม ต้องการ ด้วย CSS และ Javascript
+                        สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ด้วย HTML
+                        ตกแต่งหน้าตาเว็บไซต์รวมถึงเพิ่มลูกเล่นตามต้องการด้วย CSS และ Javascript
                      </p>
                   </div>
                </div>
