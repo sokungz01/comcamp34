@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+img {
+   pointer-events: none;
+}
+.stroke-pink {
+   -webkit-text-stroke: 0.5px #d2364c; /* width and color */
+}
+
+body.swal2-shown > [aria-hidden="true"] {
+   transition: 0.1s filter;
+   filter: blur(1px);
+}
+
+@layer base {
+   html {
+      -webkit-tap-highlight-color: transparent;
+   }
+   #Hammer {
+      animation-name: HammerTimelineanimate;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+   }
+
+   @keyframes HammerTimelineanimate {
+      from {
+         transform: rotate(30deg);
+      }
+
+      to {
+         transform: rotate(-45deg);
+      }
+   }
+}
