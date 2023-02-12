@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { storage } from "@/lib/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-
+import { nanoid } from "nanoid";
+import { FileTooBigSwal } from "@/lib/CustomSwal";
 const FileUploaderComponent = ({
    filePath,
    label,
@@ -25,7 +26,8 @@ const FileUploaderComponent = ({
 }) => {
    const [file, setFile]: any = useState();
    const [fileData, setFileData]: any = useState();
-   const [isUpload, setIsUpload] = useState<boolean>(false);
+   const [isUpload, setIsUpload] = useState<boolean>(value != undefined && value != null && value != ""? true : false );
+   
    const handleFile = async (e: any) => {
       if (!(e.target instanceof HTMLInputElement)) return;
       setFile(e.target.files[0].name);
@@ -33,7 +35,7 @@ const FileUploaderComponent = ({
    };
 
    useEffect(() => {
-      if (file != null) {
+      if (file != null && file != undefined) {
          uploadFile();
       }
    }, [file]);
@@ -42,13 +44,23 @@ const FileUploaderComponent = ({
       if (file == null) {
          alert("โปรดแนบไฟล์ " + label);
          return;
-      } else if (file) {
-         const storageRef = ref(storage, `${filePath}/${file}`);
+      }
+      else if(fileData.size > 10 *1024*1024){
+         FileTooBigSwal();
+         return;
+      } 
+      else if (file) {
+         const filearr= file.split(".");
+         const ext = filearr[filearr.length-1];
+         // filename without extension
+         // join all array except last element
+         const filename = filearr.slice(0, filearr.length-1).join("_").replace(/\s/g, "_");
+         const newFileName = filename + "_" + nanoid(8) + "." + ext;
+         
+         const storageRef = ref(storage, `${filePath}/${newFileName}`);
          uploadBytes(storageRef, fileData)
             .then(e => {
                //upload file success
-               console.log(e);
-               console.log("upload success");
             })
             .then(path => {
                const url = getDownloadURL(storageRef);
@@ -62,7 +74,6 @@ const FileUploaderComponent = ({
       setIsUpload(true);
    };
    const deleteFile = () => {
-      if (!isUpload) return;
       setFile(null);
       setObj({ ...obj, [filePath]: "", [filePath.split("_")[0].concat("_Name")]: "" });
       setIsUpload(false);
