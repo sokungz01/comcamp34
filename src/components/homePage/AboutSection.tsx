@@ -76,7 +76,7 @@ const AboutSection = () => {
                setTextToggle(true);
             }
             if(divPosStage4<= scrollPos && scrollPos<divPosStageEnd){
-               setString("base-white");
+               setString("base-black");
             }
             if (scrollPos < mobileDivPosStage1) {
                //setString("blue1");
@@ -93,7 +93,7 @@ const AboutSection = () => {
                setString("base-black");
             }
             if(mobileDivPosStage3<=scrollPos && scrollPos< mobileDivPosStageEnd){
-               setString("base-white");
+               setString("base-black");
             }
          }
       };
@@ -107,8 +107,8 @@ const AboutSection = () => {
 
    return (
       <div className={`w-full flex bg-${string}`}>
-         <div className='mx-auto relative w-full h-[600vh] hidden xl:block transition delay-100 ease-in-out' ref={divRef}>
-            <div className='sticky top-10 mx-auto flex'>
+         <div className='mx-auto relative w-full h-[600vh] hidden xl:block' ref={divRef}>
+            <div className='sticky top-12 mx-auto flex'>
                <div className='w-full relative overflow-hidden h-screen '>
                   {textToggle ? (
                      <p
@@ -126,7 +126,7 @@ const AboutSection = () => {
                      >
                         ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
                         เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ
-                        เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อ และ
+                        เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อและ
                         ยังได้ร่วมสนุกกับกิจกรรมสันทนาการจากพี่ ๆ CPE อีกด้วย
                      </p>
                   ) : null}
@@ -168,7 +168,7 @@ const AboutSection = () => {
             <div id='about'></div>
          </div>
          <div 
-            className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden transition delay-100 ease-in-out`}
+            className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden`}
             ref={mobileDivRef}
          >
             <div className='h-screen sticky flex flex-col top-0 overflow-hidden'>
