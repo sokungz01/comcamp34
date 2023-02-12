@@ -27,3 +27,13 @@ export const updateData = async (token: string, page: number, data: object) => {
 
    return response;
 };
+
+export const submitData = async (token: string) => {
+   const response = axios.post(`${url}/api/pages/submit`, {}, {
+      headers: {
+         "access-token": token,
+      },
+   });
+
+   return response;
+};

@@ -13,18 +13,23 @@ export const checkEmail = (str: any) => {
    }
    return false;
 };
-function isNumber (str: any){
-    if (str.trim() === "") {
-       return false;
-    }
-    if (str.includes("E") === true || str.includes("e") === true) {
-       return false;
-    }
-    return !isNaN(str);
- }
-export const isMobileNumber = (str:any) => {
-    if(str.length == 10 && isNumber(str) && str[0] == "0" && (str[1] == "8" || str[1] == "9" || str[1] == "6")){
-        return true;
-    }
-    return false;
+function isNumber(str: any) {
+   if (str.trim() === "") {
+      return false;
+   }
+   if (str.includes("E") === true || str.includes("e") === true) {
+      return false;
+   }
+   return !isNaN(str);
 }
+export const isMobileNumber = (str: any) => {
+   if (
+      str.length == 10 &&
+      isNumber(str) &&
+      str[0] == "0" &&
+      (str[1] == "8" || str[1] == "9" || str[1] == "6")
+   ) {
+      return true;
+   }
+   return false;
+};
