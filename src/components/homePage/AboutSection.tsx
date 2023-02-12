@@ -105,7 +105,7 @@ const AboutSection = () => {
    }, []);
 
    return (
-      <div className={`w-full flex bg-${string}`}>
+      <div id="about" className={`w-full flex bg-${string}`}>
          <div className='mx-auto relative w-full h-[600vh] hidden xl:block' ref={divRef}>
             <div className='sticky top-12 mx-auto flex'>
                <div className='w-full relative overflow-hidden h-screen '>
@@ -164,11 +164,11 @@ const AboutSection = () => {
                   </div>
                </div>
             </div>
-            <div id='about'></div>
          </div>
          <div
             className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden`}
             ref={mobileDivRef}
+            id="about"
          >
             <div className='h-screen sticky flex flex-col top-0 overflow-hidden'>
                <div

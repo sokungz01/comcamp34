@@ -23,7 +23,7 @@ export const FillFormSwal = () => {
       background: "#FDFDFD",
       showConfirmButton: true,
       confirmButtonColor: "#B12E45",
-      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ปิด</p>',
       backdrop: `rgba(0,0,0,0.6)`,
    });
 };
@@ -35,7 +35,7 @@ export const ComingSoonSwal = () => {
       background: "#FDFDFD",
       showConfirmButton: true,
       confirmButtonColor: "#B12E45",
-      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">โอเค</p>',
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ปิด</p>',
       backdrop: `rgba(0,0,0,0.6)`,
    });
 };
