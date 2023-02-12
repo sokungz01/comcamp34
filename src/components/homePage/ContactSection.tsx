@@ -10,12 +10,12 @@ const ContactSection = () => {
          <div className='flex flex-row justify-between items-center overflow-x-hidden'>
             <div
                className="lg:bg-[url('/assets/frontPage/contact-bg-desktop.svg')] bg-[url('/assets/frontPage/contact-bg-mobile.svg')] lg:h-[100vh] h-[80vh] w-[50vw] bg-no-repeat bg-left bg-contain"
-               data-aos='fade-right'
+               data-aos='fade-down'
                data-aos-duration='1000'
             ></div>
             <div
                className='bg-base-white lg:rounded-[30px] rounded-l-[30px] lg:my-8 lg:mr-16 lg:p-16 p-6 h-fit'
-               data-aos='fade-left'
+               data-aos='fade-up'
                data-aos-duration='1000'
             >
                <div className='flex flex-col'>

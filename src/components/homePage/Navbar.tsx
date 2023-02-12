@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "/assets/nav-logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { Link as NavLink } from "react-scroll";
+import { ComingSoonSwal } from "@/lib/CustomSwal";
 
 const Navbar = () => {
    const [hamburger, setHamburger] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
                   <Link to='/'>
                      <img className='lg:w-16 w-14' src={logo} />
                   </Link>
-               </div>{" "}
+               </div>
                <div className='block lg:hidden'>
                   <button
                      onClick={() => setHamburger(!hamburger)}
@@ -88,7 +89,7 @@ const Navbar = () => {
                         to='conditions'
                         spy={true}
                         smooth='easeInOutQuad'
-                        offset={0}
+                        offset={-100}
                         duration={2500}
                         className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                      >
@@ -129,12 +130,15 @@ const Navbar = () => {
                      </NavLink>
                   </div>
                   <div>
-                     <Link
+                     {/* <Link
                         to='/registration'
-                        className={`inline-block lg:text-xl lg:font-normal px-8 py-1 leading-none text-red2 hover:bg-red2 lg:border-2 lg:border-red2 hover:border-transparent hover:text-base-white bg-base-white mt-4 lg:mt-0 rounded-xl `}
-                     >
+                     > */}
+                       <button 
+                           onClick={ComingSoonSwal}
+                           className={`inline-block lg:text-xl lg:font-normal px-8 py-1 leading-none text-red2 hover:bg-red2 lg:border-2 lg:border-red2 hover:border-transparent hover:text-base-white bg-base-white mt-4 lg:mt-0 rounded-xl `}>
                         Register
-                     </Link>
+                       </button>
+                     {/* </Link> */}
                   </div>
                </div>
             </>
