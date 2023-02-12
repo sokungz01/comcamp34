@@ -48,7 +48,7 @@ const ConditionsSection = () => {
             </div>
             <div className='mx-auto relative' data-aos='flip-right' data-aos-delay='600'>
                <img src='assets/frontPage/condition-image-card-4.png' />
-               <p className='absolute bottom-[15%] ml-5 inset-x-0'>
+               <p className='absolute bottom-[15%] mx-5 inset-x-0'>
                   ผู้ปกครองอนุญาตให้
                   <br />
                   นักเรียนเข้ากิจกรรม
