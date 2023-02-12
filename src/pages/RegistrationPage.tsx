@@ -265,7 +265,6 @@ export const RegistrationPage = () => {
             dataUploadFilesForm.pp7_URL?.length &&
             dataUploadFilesForm.pp1_URL?.length
          ) {
-            await updateData(token, page, dataUploadFilesForm);
             setPage(page + 1);
          } else {
             FillFormSwal();
@@ -292,8 +291,6 @@ export const RegistrationPage = () => {
             await updateData(token, page, dataInterestForm);
          } else if (page == 4) {
             await updateData(token, page, dataParentDataForm);
-         } else if (page == 5) {
-            await updateData(token, page, dataUploadFilesForm);
          } else if (page == 6) {
             await updateData(token, page, dataQuestionFormpage1);
          } else if (page == 7) {
@@ -314,7 +311,6 @@ export const RegistrationPage = () => {
 
    useEffect(() => {
       const token = sessionStorage.getItem("token") as string;
-
       if (page !== 0) {
          getData(token, page)
             .then(res => {

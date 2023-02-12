@@ -13,6 +13,7 @@ const FileUploaderComponent = ({
    obj,
    setObj,
    value,
+   setStatus
 }: {
    filePath: string;
    label?: string;
@@ -23,6 +24,7 @@ const FileUploaderComponent = ({
    obj: object;
    setObj: any;
    value: string;
+   setStatus?: any;
 }) => {
    const [file, setFile]: any = useState();
    const [fileData, setFileData]: any = useState();
@@ -64,9 +66,12 @@ const FileUploaderComponent = ({
             })
             .then(path => {
                const url = getDownloadURL(storageRef);
-               url.then(e =>
-                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file }),
+               url.then(e => {
+                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file })
+                  setStatus(true);
+               }
                );
+               
             });
       }
       // else if upload submit, call method to store file in firebase storage maybe by format -> "userId_file" in defined path
@@ -77,6 +82,7 @@ const FileUploaderComponent = ({
       setFile(null);
       setObj({ ...obj, [filePath]: "", [filePath.split("_")[0].concat("_Name")]: "" });
       setIsUpload(false);
+      setStatus(true);
    };
 
    return (
