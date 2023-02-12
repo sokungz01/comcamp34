@@ -12,7 +12,7 @@ const ConditionsSection = () => {
             Conditions
          </p>
          <div className='xl:max-w-7xl max-w-4xl m-auto my-32 grid lg:grid-cols-4 grid-cols-1 gap-1 font-bai-jamjuree text-center xl:text-lg text-md '>
-            <div className='mx-auto relative ' data-aos='flip-up' data-aos-delay='300'>
+            <div className='mx-auto relative ' data-aos='flip-right' data-aos-delay='300'>
                <img src='assets/frontPage/condition-image-card-1.png' />
                <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   กำลังศึกษาอยู่
@@ -24,7 +24,7 @@ const ConditionsSection = () => {
                   ในปีการศึกษา 2565
                </p>
             </div>
-            <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='400'>
+            <div className='mx-auto relative' data-aos='flip-left' data-aos-delay='400'>
                <img src='assets/frontPage/condition-image-card-2.png' />
                <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   มีความสนใจ
@@ -36,7 +36,7 @@ const ConditionsSection = () => {
                   โดยไม่จำเป็นต้องมีพื้นฐาน
                </p>
             </div>
-            <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='500'>
+            <div className='mx-auto relative' data-aos='flip-right' data-aos-delay='500'>
                <img src='assets/frontPage/condition-image-card-3.png' />
                <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   สามารถเข้าพักในระยะเวลา
@@ -47,7 +47,7 @@ const ConditionsSection = () => {
                   <br />
                </p>
             </div>
-            <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='600'>
+            <div className='mx-auto relative' data-aos='flip-left' data-aos-delay='600'>
                <img src='assets/frontPage/condition-image-card-4.png' />
                <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   ผู้ปกครองอนุญาตให้
