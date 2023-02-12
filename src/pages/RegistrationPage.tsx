@@ -24,7 +24,7 @@ import {
 } from "@/types/RegistrationType";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { getData, updateData } from "@/lib/Fetch";
+import { getData, submitData, updateData } from "@/lib/Fetch";
 import { checkEmail, checkGrade, isMobileNumber } from "@/utils/validate";
 export const RegistrationPage = () => {
    const navigate = useNavigate();
@@ -153,6 +153,9 @@ export const RegistrationPage = () => {
             `,
          }).then(result => {
             if (result.isConfirmed) {
+               const token = sessionStorage.getItem("token") as string;
+               submitData(token);
+               sessionStorage.clear();
                Swal.fire({
                   html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social media</p>  </div> ',
                   icon: "success",
@@ -280,8 +283,22 @@ export const RegistrationPage = () => {
          }
       }
    };
-   const prevPage = () => {
+   const prevPage = async () => {
+      const token = sessionStorage.getItem("token") as string;
       if (page > 1) {
+         if (page == 2) {
+            await updateData(token, page, dataEducationForm);
+         } else if (page == 3) {
+            await updateData(token, page, dataInterestForm);
+         } else if (page == 4) {
+            await updateData(token, page, dataParentDataForm);
+         } else if (page == 5) {
+            await updateData(token, page, dataUploadFilesForm);
+         } else if (page == 6) {
+            await updateData(token, page, dataQuestionFormpage1);
+         } else if (page == 7) {
+            await updateData(token, page, dataQuestionFormpage2);
+         }
          setPage(page - 1);
       }
    };

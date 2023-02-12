@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FileUploaderComponent from "@/components/FileUploaderComponent";
+import { getData, updateData } from "@/lib/Fetch";
 import { UploadFile } from "@/types/RegistrationType";
 
 const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) => {
+   useEffect(() => {
+      const token = sessionStorage.getItem("token") as string;
+      updateData(token, 5, data);
+   }, [data.image_URL, data.image_Name, data.agreement_URL, data.agreement_Name, data.card_URL, data.card_Name, data.pp7_URL, data.pp7_Name, data.pp1_URL, data.pp1_Name]);
+
    return (
       <div className='flex justify-center mt-8'>
          <div className='bg-[#FAD9AA] bg-opacity-70 w-11/12 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 pt-4 pb-12'>
