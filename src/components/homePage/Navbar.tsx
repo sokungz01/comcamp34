@@ -89,7 +89,7 @@ const Navbar = () => {
                         to='conditions'
                         spy={true}
                         smooth='easeInOutQuad'
-                        offset={0}
+                        offset={-100}
                         duration={2500}
                         className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
                      >
