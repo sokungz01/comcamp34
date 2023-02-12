@@ -11,10 +11,10 @@ const ConditionsSection = () => {
          >
             Conditions
          </p>
-         <div className='max-w-6xl m-auto my-32 grid lg:grid-cols-4 grid-cols-1 gap-1 font-bai-jamjuree text-center '>
+         <div className='xl:max-w-7xl max-w-4xl m-auto my-32 grid lg:grid-cols-4 grid-cols-1 gap-1 font-bai-jamjuree text-center xl:text-lg text-md '>
             <div className='mx-auto relative ' data-aos='flip-up' data-aos-delay='300'>
                <img src='assets/frontPage/condition-image-card-1.png' />
-               <p className='absolute bottom-[15%] mx-5 inset-x-0'>
+               <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   กำลังศึกษาอยู่
                   <br />
                   ชั้นมัธยมศึกษาปีที่ 4-5
@@ -26,7 +26,7 @@ const ConditionsSection = () => {
             </div>
             <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='400'>
                <img src='assets/frontPage/condition-image-card-2.png' />
-               <p className='absolute bottom-[15%] mx-5 inset-x-0'>
+               <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   มีความสนใจ
                   <br />
                   ในด้านคอมพิวเตอร์และ
@@ -38,7 +38,7 @@ const ConditionsSection = () => {
             </div>
             <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='500'>
                <img src='assets/frontPage/condition-image-card-3.png' />
-               <p className='absolute bottom-[15%] mx-5 inset-x-0'>
+               <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   สามารถเข้าพักในระยะเวลา
                   <br />
                   และสถานที่ที่กำหนด
@@ -49,7 +49,7 @@ const ConditionsSection = () => {
             </div>
             <div className='mx-auto relative' data-aos='flip-up' data-aos-delay='600'>
                <img src='assets/frontPage/condition-image-card-4.png' />
-               <p className='absolute bottom-[15%] mx-5 inset-x-0'>
+               <p className='absolute xl:bottom-[12%] bottom-[15%] mx-5 inset-x-0'>
                   ผู้ปกครองอนุญาตให้
                   <br />
                   นักเรียนเข้ากิจกรรม
