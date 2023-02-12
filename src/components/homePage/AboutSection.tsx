@@ -71,11 +71,11 @@ const AboutSection = () => {
                   "px";
                setTextToggle(false);
             }
-            if (divPosStage3 <= scrollPos && scrollPos<divPosStage4) {
+            if (divPosStage3 <= scrollPos && scrollPos < divPosStage4) {
                setString("base-black");
                setTextToggle(true);
             }
-            if(divPosStage4<= scrollPos && scrollPos<divPosStageEnd){
+            if (divPosStage4 <= scrollPos && scrollPos < divPosStageEnd) {
                setString("base-black");
             }
             if (scrollPos < mobileDivPosStage1) {
@@ -88,11 +88,11 @@ const AboutSection = () => {
                mobile_notebook.style.left = -20 + (70 - -20) * percent + "%";
                setMobileTextToggle(false);
             }
-            if (mobileDivPosStage2 <= scrollPos && mobileDivPosStage3 > scrollPos ) {
+            if (mobileDivPosStage2 <= scrollPos && mobileDivPosStage3 > scrollPos) {
                setMobileTextToggle(true);
                setString("base-black");
             }
-            if(mobileDivPosStage3<=scrollPos && scrollPos< mobileDivPosStageEnd){
+            if (mobileDivPosStage3 <= scrollPos && scrollPos < mobileDivPosStageEnd) {
                setString("base-black");
             }
          }
@@ -103,7 +103,6 @@ const AboutSection = () => {
          window.removeEventListener("scroll", handleScroll);
       };
    }, []);
-
 
    return (
       <div className={`w-full flex bg-${string}`}>
@@ -124,10 +123,10 @@ const AboutSection = () => {
                          z-50 font-bai-jamjuree'
                         data-aos='zoom-in'
                      >
-                        ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
-                        เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ
-                        เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อและ
-                        ยังได้ร่วมสนุกกับกิจกรรมสันทนาการจากพี่ ๆ CPE อีกด้วย
+                        ค่าย Comcamp คือค่ายที่ทางภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
+                        เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์การเรียนรู้เสมือนน้อง ๆ
+                        เป็นส่วนหนึ่งของรั้วแสดเหลืองโดยในค่ายมีการแนะแนวศึกษาต่อ
+                        และยังได้ร่วมสนุกกับกิจกรรมสันทนาการจากพี่ ๆ CPE อีกด้วย
                      </p>
                   ) : null}
                   <div
@@ -167,7 +166,7 @@ const AboutSection = () => {
             </div>
             <div id='about'></div>
          </div>
-         <div 
+         <div
             className={`mx-auto relative w-full h-[400vh] bg-${string} block xl:hidden`}
             ref={mobileDivRef}
          >
@@ -194,8 +193,7 @@ const AboutSection = () => {
                         className='w-[50vh] z-20 h-full'
                      />
                      <div className='w-[250vw] right-0 h-full py-6 absolute z-100 pr-4'>
-                        <div className='bg-[#EB7D3E] h-full w-full'>
-                        </div>
+                        <div className='bg-[#EB7D3E] h-full w-full'></div>
                      </div>
                   </div>
                </div>
@@ -205,10 +203,10 @@ const AboutSection = () => {
                         mr-[40%] sm:mr-[37.5%] font-bai-jamjuree'
                      data-aos='zoom-in'
                   >
-                     ค่าย Comcamp คือ ค่ายที่ทางภาควิชา วิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
-                     เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์ การเรียนรู้เสมือนน้อง ๆ
-                     เป็นส่วนหนึ่งของรั้วแสดเหลือง โดยในค่ายมีการแนะแนวศึกษาต่อและ
-                     ยังได้ร่วมสนุกกับกิจกรรมสันทนาการจากพี่ ๆ CPE อีกด้วย
+                     ค่าย Comcamp คือค่ายที่ทางภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
+                     เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์การเรียนรู้เสมือนน้อง ๆ
+                     เป็นส่วนหนึ่งของรั้วแสดเหลืองโดยในค่ายมีการแนะแนวศึกษาต่อ
+                     และยังได้ร่วมสนุกกับกิจกรรมสันทนาการจากพี่ ๆ CPE อีกด้วย
                   </div>
                ) : null}
             </div>
