@@ -38,7 +38,7 @@ const LandingSection: React.FC = () => {
                src='/assets/frontPage/landing-bg-tower-desktop.png'
             />
             <img
-               className='relative w-screen -bottom-[57%] lg:hidden block'
+               className='relative w-screen -bottom-[59%] lg:hidden block'
                data-aos='fade-up'
                data-aos-offset='-1000'
                data-aos-delay='50'
