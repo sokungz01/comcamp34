@@ -19,7 +19,7 @@ const TimelineSection = () => {
                alt='Hammer'
             />
          </div>
-         <div className='max-w-7xl m-auto my-20 grid grid-cols-1 gap-1 font-bai-jamjuree text-center '>
+         <div className='max-w-5xl 2xl:max-w-7xl m-auto mt-10 mb-20 grid grid-cols-1 gap-1 font-bai-jamjuree text-center '>
             <div
                className='mx-auto relative hidden lg:block '
                data-aos='zoom-in'
