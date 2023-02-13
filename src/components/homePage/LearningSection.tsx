@@ -31,8 +31,7 @@ const LearningSection = () => {
                      Microcontroller
                   </p>
                   <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75'>
-                     ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบ
-                     เสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
+                     ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบเสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
                      เพื่อสรรค์สร้างเทคโนโลยีสุดล้ำแห่งอนาคต
                   </p>
                </div>
@@ -55,7 +54,7 @@ const LearningSection = () => {
                      Data Analytics and Visualization
                   </p>
                   <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75 mt-2'>
-                     ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกทีมาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
+                     ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกที มาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
                      Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
                   </p>
                </div>
@@ -88,7 +87,7 @@ const LearningSection = () => {
                         Data Analytics and Visualization{" "}
                      </p>
                      <p className='tracking-widest sm:text-lg md:text-xl  text-[3vw] font-bai-jamjuree text-base-black/75 mt-2 text-left'>
-                        ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกทีมาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
+                        ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกที มาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
                         Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
                      </p>
                   </div>
@@ -131,8 +130,7 @@ const LearningSection = () => {
                         Microcontroller
                      </p>
                      <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
-                        ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบ
-                        เสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
+                        ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบเสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
                         เพื่อสรรค์สร้างเทคโนโลยีสุดล้ำแห่งอนาคต
                      </p>
                   </div>
