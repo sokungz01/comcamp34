@@ -21,7 +21,7 @@ const LandingSection: React.FC = () => {
                > */}
                <button
                   onClick={ComingSoonSwal}
-                  className='z-[9999] inline-block mx-auto lg:text-3xl lg:font-normal px-8 py-2 leading-none text-base-white bg-red2 lg:border-2 lg:border-red2 my-4 lg:mt-8 rounded-xl'
+                  className='z-[998] inline-block mx-auto lg:text-3xl lg:font-normal px-6 py-1 lg:px-10 lg:py-0.5 leading-none text-base-white bg-red2 lg:border-2 lg:border-red2 my-4 lg:mt-8 rounded-lg'
                >
                   Register
                </button>
@@ -30,7 +30,7 @@ const LandingSection: React.FC = () => {
          </div>
          <Parallax speed={isMobile() ? 30 : 100}>
             <img
-               className='relative xl:-bottom-[38%] -bottom-[50%] w-screen lg:block hidden'
+               className='relative 2xl:-bottom-[40%] xl:-bottom-[45%] -bottom-[50%] w-screen lg:block hidden'
                data-aos='fade-up'
                data-aos-offset='-1000'
                data-aos-delay='50'
@@ -38,7 +38,7 @@ const LandingSection: React.FC = () => {
                src='/assets/frontPage/landing-bg-tower-desktop.png'
             />
             <img
-               className='relative w-screen -bottom-[57%] lg:hidden block'
+               className='relative w-screen -bottom-[59%] lg:hidden block'
                data-aos='fade-up'
                data-aos-offset='-1000'
                data-aos-delay='50'
