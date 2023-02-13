@@ -119,9 +119,9 @@ const AboutSection = () => {
                   ) : null}
                   {textToggle ? (
                      <p
-                        className='text-3xl absolute text-base-black mt-[27.5%] xl:mt-[41vh] ml-[2.5%] mr-[35%] 
-                         z-50 font-bai-jamjuree'
-                        data-aos='zoom-in'
+                        className='2xl:text-4xl lg:text-3xl absolute text-base-black lg:mt-[27.5%] xl:mt-[36vh] xl:ml-[3.5%]  lg:ml-[5%] mr-[35%] 
+                         z-50 font-bai-jamjuree lg:leading-normal 2xl:leading-normal'
+                        // data-aos='zoom-in'
                      >
                         ค่าย Comcamp คือค่ายที่ทางภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
                         เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์การเรียนรู้เสมือนน้อง ๆ
@@ -199,9 +199,9 @@ const AboutSection = () => {
                </div>
                {textMobileToggle ? (
                   <div
-                     className='text-[2vh] sm:text-3xl text-base-black absolute left-0 z-1000 mt-[50vh] sm:mt-[54vh] ml-4 sm:ml-10
-                        mr-[40%] sm:mr-[37.5%] font-bai-jamjuree'
-                     data-aos='zoom-in'
+                     className='text-[2vh] sm:text-3xl text-base-black absolute left-0 z-1000 mt-[50vh] sm:mt-[51vh] ml-4 sm:ml-10
+                        mr-[40%] sm:mr-[37.5%] font-bai-jamjuree sm:leading-normal'
+                     // data-aos='zoom-in'
                   >
                      ค่าย Comcamp คือค่ายที่ทางภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ได้จัดขึ้น
                      เพื่อให้น้อง ๆ ได้มาสัมผัสประสบการณ์การเรียนรู้เสมือนน้อง ๆ

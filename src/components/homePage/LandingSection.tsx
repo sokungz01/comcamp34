@@ -21,7 +21,7 @@ const LandingSection: React.FC = () => {
                > */}
                <button
                   onClick={ComingSoonSwal}
-                  className='z-[998] inline-block mx-auto lg:text-3xl lg:font-normal px-10 py-0.5 leading-none text-base-white bg-red2 lg:border-2 lg:border-red2 my-4 lg:mt-8 rounded-lg'
+                  className='z-[998] inline-block mx-auto lg:text-3xl lg:font-normal px-6 py-1 lg:px-10 lg:py-0.5 leading-none text-base-white bg-red2 lg:border-2 lg:border-red2 my-4 lg:mt-8 rounded-lg'
                >
                   Register
                </button>
