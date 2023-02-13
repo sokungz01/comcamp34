@@ -1,5 +1,5 @@
 export const checkGrade = (str: any) => {
-   const RegEx = /^(\d{1}\.){1}\d{1}|\d{2}$/;
+   const RegEx = /^(\d{1}\.)\d{1}(\d{1}|\s*$)/;
    if (RegEx.test(str) && parseFloat(str) <= 4 && str.length >= 3 && str.length <= 4) {
       return true;
    }
