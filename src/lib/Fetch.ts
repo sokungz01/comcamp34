@@ -1,10 +1,8 @@
 import axios from "axios";
 const url = import.meta.env.VITE_backend_URL;
 
-export const Login = async (secret: string) => {
-   try {
-   } catch (err) {}
-   const response = await axios.post(`${url}/api/users/${secret}`);
+export const Login = async (idToken: string) => {
+   const response = await axios.post(`${url}/api/users`, {}, { headers: { "id-token": idToken } });
    return response;
 };
 
@@ -29,11 +27,15 @@ export const updateData = async (token: string, page: number, data: object) => {
 };
 
 export const submitData = async (token: string) => {
-   const response = axios.post(`${url}/api/pages/submit`, {}, {
-      headers: {
-         "access-token": token,
+   const response = axios.post(
+      `${url}/api/pages/submit`,
+      {},
+      {
+         headers: {
+            "access-token": token,
+         },
       },
-   });
+   );
 
    return response;
 };

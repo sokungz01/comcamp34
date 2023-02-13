@@ -8,9 +8,11 @@ const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
    const login = async () => {
       const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+
       if (result) {
          try {
-            const res = await Login(result.user.uid);
+            const res = await Login(idToken);
             if (res.status === 200 || res.status === 201) {
                setIsLogin(true);
                // Set Token (Session)
@@ -19,9 +21,12 @@ const LoginPage = () => {
                sessionStorage.setItem("email", result.user.email as string);
                sessionStorage.setItem("photoURL", result.user.photoURL as string);
             }
+            if (res.status == 208) {
+               // User Already Submit Form
+               CustomSwal();
+            }
          } catch (error) {
-            console.log("You're Already Done");
-            CustomSwal();
+            console.log("ERROR");
          }
       }
    };
