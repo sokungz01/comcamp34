@@ -23,6 +23,7 @@ export const QuestionFormpage1 = ({ data, setData }: { data: QuestionPage1; setD
                   setObj={setData}
                   obj={data}
                   value={data.q1}
+                  required
                />
 
                <Textarea
@@ -32,6 +33,7 @@ export const QuestionFormpage1 = ({ data, setData }: { data: QuestionPage1; setD
                   setObj={setData}
                   obj={data}
                   value={data.q2}
+                  required
                />
                <Textarea
                   question='3. หากระหว่างการเข้าค่าย Comcamp น้อง ๆ พบว่าเพื่อนในกลุ่มมีปัญหา ไม่สนุกกับการทำกิจกรรม หรือไม่อยากมีส่วนร่วมกับกิจกรรมที่กำลังเกิดขึ้น น้อง ๆ จะมีวิธีการพูดคุยหรือแก้ไขปัญหานี้กับเพื่อนคนนั้นอย่างไร?'
@@ -40,6 +42,7 @@ export const QuestionFormpage1 = ({ data, setData }: { data: QuestionPage1; setD
                   setObj={setData}
                   obj={data}
                   value={data.q3}
+                  required
                />
             </div>
          </div>

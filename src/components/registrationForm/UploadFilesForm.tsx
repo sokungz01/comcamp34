@@ -31,7 +31,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                   <div className='flex xl:flex-row flex-col'>
                      <div className='mr-0 xl:mr-4 w-full'>
                         <FileUploaderComponent
-                           label='ภาพถ่ายอิสระของผู้สมัครที่เห็นใบหน้าชัดเจน (JPEG/PNG)'
+                           label='ภาพถ่ายอิสระของผู้สมัครที่เห็นใบหน้าชัดเจน (JPG/JPEG/PNG)'
                            filePath='image_URL'
                            fileType='image'
                            obj={data}

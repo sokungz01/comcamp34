@@ -48,7 +48,7 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                   <Inputbox
                      label='ชื่อสถานศึกษาปัจจุบัน'
                      name='school_name'
-                     placeholder='โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ กำแพงเพชร'
+                     placeholder='โรงเรียนคอมแค้ม เขต 34'
                      required
                      obj={data}
                      setObj={setData}

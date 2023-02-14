@@ -133,7 +133,7 @@ export const RegistrationPage = () => {
          const token = sessionStorage.getItem("token") as string;
          await updateData(token, page, dataQuestionFormpage2);
          Swal.fire({
-            html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไข้ข้อมูลได้อีก</p> </div> ',
+            html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
             icon: "warning",
             iconColor: "#000",
             background: "#FDFDFD",
@@ -157,7 +157,7 @@ export const RegistrationPage = () => {
                submitData(token);
                sessionStorage.clear();
                Swal.fire({
-                  html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social media</p>  </div> ',
+                  html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media</p>  </div> ',
                   icon: "success",
                   background: "#FDFDFD",
                   showConfirmButton: true,
