@@ -14,7 +14,7 @@ export const ConsentForm = ({ setPage }: { setPage: any }) => {
             }
          })
          .catch(error => {
-            console.log(error);
+            // console.log(error);
          });
    }, []);
 
