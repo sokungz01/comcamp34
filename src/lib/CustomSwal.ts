@@ -41,7 +41,7 @@ export const FileTooBigSwal = () => {
 };
 export const InvalidFileTypeSwal = () => {
    return Swal.fire({
-      html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย! ชนิดไฟล์ไม่ถูกต้อง</p> <p>รองรับเฉพาะไฟล์ PDF,JPG,JPEG และ PNG เท่านั้นนะคร้าบ</p></div>',
+      html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย! ชนิดไฟล์ไม่ถูกต้อง</p> <p>รองรับเฉพาะไฟล์ PDF,JPG,JPEG และ PNG เท่านั้น</p></div>',
       icon: "error",
       background: "#FDFDFD",
       showConfirmButton: true,
