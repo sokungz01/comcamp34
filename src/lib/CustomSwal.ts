@@ -30,7 +30,7 @@ export const FillFormSwal = () => {
 
 export const FileTooBigSwal = () => {
    return Swal.fire({
-      html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย!</p> <p> ไฟล์ขนาดใหญ่เกินไป </p></div>',
+      html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย! ไฟล์มีขนาดใหญ่เกินไป</p> <p>ไฟล์ขนาดใหญ่สูงสุดไม่เกิน (10MB)</p></div>',
       icon: "error",
       background: "#FDFDFD",
       showConfirmButton: true,
