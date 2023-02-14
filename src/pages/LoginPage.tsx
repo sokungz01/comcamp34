@@ -2,26 +2,31 @@ import { useEffect, useState } from "react";
 import { RegistrationPage } from "./RegistrationPage";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/lib/firebase";
-import { test, Login } from "@/lib/Fetch";
+import { Login } from "@/lib/Fetch";
 import { CustomSwal } from "@/lib/CustomSwal";
 const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
    const login = async () => {
       const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+
       if (result) {
          try {
-            const res = await Login(result.user.uid);
+            const res = await Login(idToken);
             if (res.status === 200 || res.status === 201) {
                setIsLogin(true);
                // Set Token (Session)
-               sessionStorage.setItem("syncPage", res.data.page );
+               sessionStorage.setItem("syncPage", res.data.page);
                sessionStorage.setItem("token", res.data.accessToken);
                sessionStorage.setItem("email", result.user.email as string);
                sessionStorage.setItem("photoURL", result.user.photoURL as string);
             }
+            if (res.status == 208) {
+               // User Already Submit Form
+               CustomSwal();
+            }
          } catch (error) {
-            console.log("You're Already Done");
-            CustomSwal();
+            console.log("ERROR");
          }
       }
    };
@@ -29,9 +34,6 @@ const LoginPage = () => {
       if (sessionStorage.getItem("token")) {
          setIsLogin(true);
       }
-      test().then(res => {
-         // console.log(res);
-      });
 
       return () => {};
    }, []);

@@ -18,36 +18,42 @@ export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setD
                   </p>
                </div>
                <Textarea
-                  question='4.น้อง ๆ คิดว่า ในอีก 10 ปีข้างหน้า อะไรจะเปลี่ยนแปลงไป และอะไรจะยังคงเหมือนเดิมบ้าง (ยกตัวอย่างมาอย่างน้อย 3 ข้อ ไม่จำเป็นต้องเป็นเรื่องเทคโนโลยี) และน้อง ๆ คิดว่าตัวเองจะปรับตัวให้เข้ากับสิ่งที่เปลี่ยนแปลงอย่างไร และจะใช้ประโยชน์จากสิ่งที่จะไม่เปลี่ยนแปลงได้อย่างไรบ้าง'
+                  question='4. น้อง ๆ คิดว่า ในอีก 10 ปีข้างหน้า อะไรจะเปลี่ยนแปลงไป และอะไรจะยังคงเหมือนเดิมบ้าง (ยกตัวอย่างมาอย่างน้อย 3 ข้อ ไม่จำเป็นต้องเป็นเรื่องเทคโนโลยี) และน้อง ๆ คิดว่าตัวเองจะปรับตัวให้เข้ากับสิ่งที่เปลี่ยนแปลงอย่างไร และจะใช้ประโยชน์จากสิ่งที่จะไม่เปลี่ยนแปลงได้อย่างไรบ้าง'
                   name='q4'
                   row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q4}
+                  required
                />
                <Textarea
-                  question='5.ถ้าหากน้องได้รับทุนในการทำธุรกิจก้อนหนึ่ง น้องจะเลือกทำธุรกิจอะไร เพราะอะไรน้องถึงเลือกทำธุรกิจนั้น และจะสร้างเทคโนโลยีอะไรมาเพื่อมาพัฒนาธุรกิจของตนเอง และเพราะอะไรถึงเลือกเทคโนโลยีนั้น'
+                  question='5. ถ้าหากน้องได้รับทุนในการทำธุรกิจก้อนหนึ่ง น้องจะเลือกทำธุรกิจอะไร เพราะอะไรน้องถึงเลือกทำธุรกิจนั้น และจะสร้างเทคโนโลยีอะไรมาเพื่อมาพัฒนาธุรกิจของตนเอง และเพราะอะไรถึงเลือกเทคโนโลยีนั้น'
                   name='q5'
                   row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q5}
+                  required
                />
                <Textarea
-                  question='6.จงแต่งเรื่องจากคำที่กำหนดให้ต่อไปนี้  comcamp34, นัมโดซาน, ห่านบางมด, y2k, พุดดิ้งมะพร้าวอ่อน, ทรงอย่างแบด, โมโม่, ตึกแดง'
+                  question='6. จงแต่งเรื่องจากคำที่กำหนดให้ต่อไปนี้  Comcamp 34, นัมโดซาน, ห่านบางมด, Y2K, พุดดิ้งมะพร้าวอ่อน, ทรงอย่างแบด, โมโม่, ตึกแดง'
                   name='q6'
                   row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q6}
+                  required
                />
+               <p className="lg:text-lg text-sm">7. ภาควิชาคอมพิวเตอร์กำลังจัดงาน Comcamp 34 ให้น้อง ๆ ทุกคนที่ผ่านเข้ารอบ โดยมีการจัดเลี้ยงน้ำชาต้อนรับภายในเวลา 1 ชม. โดยในชามีส่วนผสมของน้ำตาล ซึ่งพี่ยิมได้ซื้อน้ำตาลมา 512 ก้อน แล้วพบว่ามีการหยิบยาเบื่อหนูมา 1 ก้อน ซึ่งมีลักษณะคล้ายน้ำตาล ไม่สามารถแยกด้วยตาเปล่าได้ พี่ยิมซึ่งเป็นพี่ที่มีเกรดเฉลี่ยเป็นอันดับ 1 ของภาควิชา ได้ค้นหาวิธีทดสอบโดยการใช้มดมาชิมน้ำตาล</p>
+               <p className="lg:text-lg text-sm font-semibold">คำถาม : พี่ยิมต้องใช้มดจำนวนน้อยที่สุดกี่ตัวในการหาว่าก้อนไหนเป็นยาเบื่อหนู (ยาเบื่อหนูออกฤทธิ์ภายในเวลา 1 ชม.) จงเขียนอธิบายหลักการโดยละเอียด</p>
                <Textarea
-                  question='7.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur orci nisl, vel lacinia massa viverra eu. Nullam sit amet turpis rhoncus, interdum massa ut, dapibus mi. Pellentesque porta, ante sed fermentum gravida, ante enim faucibus augue, at dignissim ligula nisi et mauris. Suspendisse elementum, sapien sed pulvinar fringilla, leo orci finibus mi, molestie tincidunt massa nulla id orci. Etiam luctus mattis elit pretium pretium. Suspendisse vitae malesuada libero, vitae suscipit quam.'
+                  question=' '
                   name='q7'
                   row={6}
                   setObj={setData}
                   obj={data}
                   value={data.q7}
+                  required
                />
             </div>
          </div>

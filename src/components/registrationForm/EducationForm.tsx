@@ -48,7 +48,7 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                   <Inputbox
                      label='ชื่อสถานศึกษาปัจจุบัน'
                      name='school_name'
-                     placeholder='โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ กำแพงเพชร'
+                     placeholder='โรงเรียนคอมแค้ม เขต 34'
                      required
                      obj={data}
                      setObj={setData}
@@ -123,7 +123,7 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                      setObj={setData}
                      defaultValue={{ label: data.university_1, value: data.university_1 }}
                      data={university}
-                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
+                     placeholder='มหาวิทยาลัย'
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -159,7 +159,7 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                      setObj={setData}
                      defaultValue={{ label: data.university_2, value: data.university_2 }}
                      data={university}
-                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
+                     placeholder='มหาวิทยาลัย'
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>
@@ -195,7 +195,7 @@ export const EducationForm = ({ data, setData }: { data: Education; setData: any
                      setObj={setData}
                      defaultValue={{ label: data.university_3, value: data.university_3 }}
                      data={university}
-                     placeholder='มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าฯ ธนบุรี'
+                     placeholder='มหาวิทยาลัย'
                   />
                </div>
                <div className='lg:w-2/6 lg:mr-8 lg:mt-0 mt-2'>

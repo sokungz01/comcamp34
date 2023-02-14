@@ -32,9 +32,10 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                </p>
             </div>
             <div className='flex mt-3'>
-               <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
+               <h6 className='text-black font-semibold lg:text-xl text-xs lg:mr-6 mr-2'>
                   เคยเข้าร่วมค่ายคอมแคมป์มาก่อนหรือไม่
                </h6>
+               <div className="lg:mt-1 -mt-0.5">
                <CheckboxInput
                   name='comcamp_previous'
                   label=' '
@@ -42,12 +43,13 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                   setObj={setData}
                   checked={data.comcamp_previous}
                />
-               <p className='ml-2'>(เคย)</p>
+               </div>
+               <p className="ml-1 lg:ml-4 font-semibold text-xs lg:text-xl">(เคย)</p>
             </div>
-            <p className='text-black lg:text-center text-xs lg:text-lg lg:mt-6 mt-2'>
-               หากน้อง ๆ มีความสนใจที่จะเข้าศึกษาต่อในภาควิชาวิศวกรรมคอมพิวเตอร์มจธ. น้อง ๆ
-               จะเลือกเรียนหลักสูตรใด เพราะเหตุใด*
-            </p>
+            <div className='flex text-black font-semibold text-sm lg:text-xl lg:mt-6 mt-2'>
+               <p>หากน้อง ๆ จะเข้าศึกษาต่อในภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. น้องๆ จะเลือกเรียนหลักสูตรใด เพราะเหตุใด</p>
+               <p className="text-orange">*</p>
+            </div>
             <div className='flex flex-row lg:mt-6 mt-3'>
                <div className='lg:flex lg:flex-row justify-between w-full'>
                   <div className="lg:flex-col lg:w-1/3">
@@ -81,10 +83,10 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                <div>
                </div>
             </div>
-            <div className='flex lg:flex-row flex-col text-black font-semibold lg:text-lg text-sm lg:mt-6 mt-3'>
-               <div className='mr-24'>ค่ายที่เคยเข้าร่วมแล้วประทับใจ 2 ลำดับของน้อง ๆ*</div>
+            <div className='flex lg:flex-row flex-col text-black font-semibold lg:text-xl text-sm lg:mt-6 mt-3'>
+               <div className='mr-0 lg:mr-24 flex'><p>ค่ายที่เคยเข้าร่วมแล้วประทับใจ 2 ลำดับของน้องๆ</p><p className="text-orange">*</p></div>
                <div className='flex mt-4 lg:mt-0'>
-                  <h6 className='text-black font-semibold lg:text-lg text-sm lg:mr-6 mr-2'>
+                  <h6 className='text-black font-semibold lg:text-xl text-sm lg:mr-6 mr-2'>
                      ไม่เคยเข้าร่วมค่ายใด ๆ มาก่อน
                   </h6>
                   <CheckboxInput
