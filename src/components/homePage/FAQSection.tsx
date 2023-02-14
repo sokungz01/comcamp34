@@ -101,8 +101,8 @@ const FAQSection = () => {
                         </div>
                      ),
                )}
-               <Link to='faq'>
-                  <p className='text-left text-base lg:text-lg  font-semibold text-red1 mt-2 flex'>
+               <Link to='/faq'>
+                  <p className='text-left text-base lg:text-lg font-bold text-red1 mt-2 flex'>
                      ดูเพิ่มเติม
                      <svg
                         className='w-6 h-6 my-auto'

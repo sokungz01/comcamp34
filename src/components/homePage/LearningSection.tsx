@@ -19,10 +19,11 @@ const LearningSection = () => {
                   <p className='font-teko tracking-widest text-[3vw] drop-shadow-lg text-base-black'>
                      C Programming
                   </p>
-                  <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75'>
-                     อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน?
-                     มาเรียนรู้กับพื้นฐานทางภาษาของโปรแกรมเมอร์ C language และ Flowchart
-                     เครื่องมือที่จะทำให้การทำความเข้าใจโค้ดไม่ใช่เรื่องยากอีกต่อไป
+                  <p className='text-[0.9vw] font-bai-jamjuree text-base-black/75'>
+                     อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน? <br/>
+                     มาเรียนรู้กับพื้นฐานทางภาษาของโปรแกรมเมอร์ <br/> 
+                     C language และ Flowchart เครื่องมือที่จะทำให้<br/>
+                     การทำความเข้าใจโค้ดไม่ใช่เรื่องยากอีกต่อไป<br/>
                      งานนี้บอกเลยว่าคนอ่านโค้ดไม่ได้ก็เข้าใจได้!
                   </p>
                </div>
@@ -30,9 +31,8 @@ const LearningSection = () => {
                   <p className='font-teko tracking-widest text-[3vw] drop-shadow-lg text-base-black'>
                      Microcontroller
                   </p>
-                  <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75'>
-                     ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบ
-                     เสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
+                  <p className='text-[0.9vw] font-bai-jamjuree text-base-black/75'>
+                     ปลดล็อกศักยภาพในการควบคุมอุปกรณ์ที่เปรียบเสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ<br/>
                      เพื่อสรรค์สร้างเทคโนโลยีสุดล้ำแห่งอนาคต
                   </p>
                </div>
@@ -40,9 +40,10 @@ const LearningSection = () => {
                   <p className='font-teko tracking-widest text-[3vw] drop-shadow-lg text-right leading-10 mr-8 text-base-black'>
                      Web <br /> Development
                   </p>
-                  <p className='tracking-widest text-[0.9vw] font-bai-jamjuree texl-left text-base-black/75 mt-2'>
-                     สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ด้วย HTML
-                     ตกแต่งหน้าตาเว็บไซต์รวมถึงเพิ่มลูกเล่นตามต้องการด้วย CSS และ Javascript
+                  <p className=' text-[0.9vw] font-bai-jamjuree texl-left text-base-black/75 mt-2'>
+                     สร้างเว็บไซต์ด้วยตนเองไม่ยาก <br/>
+                     เรียนรู้การสร้างเว็บไซต์จากศูนย์ด้วย HTML<br/>
+                     ตกแต่งหน้าตาเว็บไซต์รวมถึงเพิ่มลูกเล่น<br/>ตามต้องการด้วย CSS และ Javascript
                   </p>
                </div>
             </div>
@@ -54,17 +55,18 @@ const LearningSection = () => {
                   >
                      Data Analytics and Visualization
                   </p>
-                  <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75 mt-2'>
-                     ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกทีมาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
-                     Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
+                  <p className=' text-[0.9vw] font-bai-jamjuree text-base-black/75 mt-2'>
+                     ทําไมนะ? ท่องเน็ตทีไร โฆษณาตรงใจทุกที <br/>
+                     มาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา Python <br/>
+                     ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
                   </p>
                </div>
                <div data-aos='zoom-in' data-aos-delay='300'>
                   <p className='font-teko tracking-widest text-[3vw] drop-shadow-lg text-base-black leading-10 mt-2 xl:mt-[12.5%]'>
                      Build a Game
                   </p>
-                  <p className='tracking-widest text-[0.9vw] font-bai-jamjuree text-base-black/75'>
-                     ชอบเล่นเกม? ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?
+                  <p className='text-[0.9vw] font-bai-jamjuree text-base-black/75'>
+                     ชอบเล่นเกม? ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?<br/>
                      เรียนรู้การสร้างเกมเบื้องต้นด้วย Unity และ C#
                   </p>
                </div>
@@ -85,11 +87,12 @@ const LearningSection = () => {
                <div className='h-1/2 w-3/5 ml-auto flex flex-col mt-[10%] md:[20%] sm:mt-[20%]'>
                   <div className='ml-4' data-aos='zoom-in' data-aos-delay='100'>
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-10 text-left'>
-                        Data Analytics and Visualization{" "}
+                        Data Analytics and Visualization
                      </p>
-                     <p className='tracking-widest sm:text-lg md:text-xl  text-[3vw] font-bai-jamjuree text-base-black/75 mt-2 text-left'>
-                        ทําไมนะ? ท่องเน็ตทีไรโฆษณาตรงใจทุกทีมาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา
-                        Python ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
+                     <p className=' sm:text-lg md:text-xl  text-[3vw] font-bai-jamjuree text-base-black/75 mt-2 text-left'>
+                        ทําไมนะ? ท่องเน็ตทีไร โฆษณาตรงใจทุกที <br/>
+                        มาไขคําตอบผ่านวิชานี้กัน! เรียนรู้ภาษา Python 
+                        ไปจนถึงกระบวนท่าในการวิเคราะห์ข้อมูลด้วย Pandas
                      </p>
                   </div>
                   <div
@@ -100,7 +103,7 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-10 text-left'>
                         Build a Game
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[3vw] font-bai-jamjuree text-base-black/75 mt-0s text-left'>
+                     <p className='sm:text-xl text-[3vw] font-bai-jamjuree text-base-black/75 mt-0s text-left'>
                         ชอบเล่นเกม? ทำไมเราไม่ลองสร้างเกมมาเล่นเองกันบ้างหล่ะ?
                         เรียนรู้การสร้างเกมเบื้องต้นด้วย Unity และ C#
                      </p>
@@ -115,7 +118,7 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-10 text-right mr-2'>
                         C Programming
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
+                     <p className=' sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
                         อยากเขียนโปรแกรมเป็น… แต่ไม่รู้จะเริ่มตรงไหน?
                         มาเรียนรู้กับพื้นฐานทางภาษาของโปรแกรมเมอร์ C language และ Flowchart
                         เครื่องมือที่จะทำให้การทำความเข้าใจโค้ดไม่ใช่เรื่องยากอีกต่อไป
@@ -130,9 +133,8 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-10 text-right mr-2'>
                         Microcontroller
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
-                        ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบ
-                        เสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
+                     <p className='sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0s text-left mr-[2%]'>
+                        ปลดล็อคศักยภาพในการควบคุมอุปกรณ์ที่เปรียบเสมือนเครื่องคอมพิวเตอร์ขนาดเท่าฝ่ามือของคุณ
                         เพื่อสรรค์สร้างเทคโนโลยีสุดล้ำแห่งอนาคต
                      </p>
                   </div>
@@ -144,7 +146,7 @@ const LearningSection = () => {
                      <p className='font-teko tracking-widest text-[7.5vw] sm:text-5xl drop-shadow-lg text-base-black leading-[1.75rem] text-right mr-2'>
                         Web <br /> Development
                      </p>
-                     <p className='tracking-widest sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0 text-left mr-[1%]'>
+                     <p className=' sm:text-xl text-[2.75vw] font-bai-jamjuree text-base-black/75 mt-0 text-left mr-[1%]'>
                         สร้างเว็บไซต์ด้วยตนเองไม่ยาก เรียนรู้การสร้างเว็บไซต์จากศูนย์ด้วย HTML
                         ตกแต่งหน้าตาเว็บไซต์รวมถึงเพิ่มลูกเล่นตามต้องการด้วย CSS และ Javascript
                      </p>

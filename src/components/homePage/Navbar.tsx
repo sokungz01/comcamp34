@@ -61,7 +61,7 @@ const Navbar = () => {
                      hamburger ? "block" : "hidden"
                   }`}
                >
-                  <div className='lg:text-xl lg:flex lg:flex-grow lg:justify-center '>
+                  <div className='lg:text-2xl lg:flex lg:flex-grow lg:justify-center '>
                      <NavLink onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='about'
@@ -69,7 +69,7 @@ const Navbar = () => {
                         smooth='easeInOutQuad'
                         offset={0}
                         duration={1500}
-                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
+                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mx-4 cursor-pointer'
                      >
                         About
                      </NavLink>
@@ -80,7 +80,7 @@ const Navbar = () => {
                         smooth='easeInOutQuad'
                         offset={0}
                         duration={2000}
-                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
+                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mx-4 cursor-pointer'
                      >
                         Learning
                      </NavLink>
@@ -91,7 +91,7 @@ const Navbar = () => {
                         smooth='easeInOutQuad'
                         offset={-100}
                         duration={2500}
-                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
+                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mx-4 cursor-pointer'
                      >
                         Conditions
                      </NavLink>
@@ -102,7 +102,7 @@ const Navbar = () => {
                         smooth='easeInOutQuad'
                         offset={0}
                         duration={3000}
-                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
+                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mx-4 cursor-pointer'
                      >
                         Timeline
                      </NavLink>
@@ -113,7 +113,7 @@ const Navbar = () => {
                         smooth='easeInOutQuad'
                         offset={0}
                         duration={3500}
-                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
+                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mx-4 cursor-pointer'
                      >
                         FAQ
                      </NavLink>
@@ -124,7 +124,7 @@ const Navbar = () => {
                         smooth='easeInOutQuad'
                         offset={0}
                         duration={4000}
-                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mr-4 cursor-pointer'
+                        className='block mt-4 lg:inline-block lg:mt-0 text-base-black hover:text-gray-500 lg:mx-4 cursor-pointer'
                      >
                         Contact
                      </NavLink>
