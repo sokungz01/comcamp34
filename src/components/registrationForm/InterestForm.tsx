@@ -46,7 +46,7 @@ export const InterestForm = ({ data, setData }: { data: Interest; setData: any }
                </div>
                <p className="ml-1 lg:ml-4 font-semibold text-xs lg:text-xl">(เคย)</p>
             </div>
-            <div className='flex justify-center text-black lg:text-center text-sm lg:text-xl lg:mt-6 mt-2'>
+            <div className='flex text-black font-semibold text-sm lg:text-xl lg:mt-6 mt-2'>
                <p>หากน้อง ๆ มีความสนใจที่จะเข้าศึกษาต่อในภาควิชาวิศวกรรมคอมพิวเตอร์มจธ. น้อง ๆ
                จะเลือกเรียนหลักสูตรใด เพราะเหตุใด</p>
                <p className="text-orange">*</p>

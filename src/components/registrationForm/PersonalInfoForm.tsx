@@ -61,7 +61,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                         required
                      />
                   </div>
-                  <div className='col-span-2  w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 pl-3'>
+                  <div className='col-span-2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 pl-3'>
                      <Inputbox
                         label='ชื่อ'
                         name='firstname'
@@ -95,7 +95,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                   </div>
                </div>
                <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6'>
-                  <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-2 lg:pr-1'>
+                  <div className='lg:col-span-3 xl:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-2 lg:pr-1'>
                      <Inputbox
                         label='ชื่อเล่น'
                         name='nickname'
@@ -106,7 +106,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                         value={data.nickname}
                      />
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
+                  <div className='lg:col-span-4 xl:col-span-2 col-span-3 mt-2 lg:mt-0 xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                      <div className='flex flex-row'>
                         <div className='w-3/5 lg:pr-0.5 pr-2'>
                            <SelectInput
@@ -143,7 +143,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                         </div>
                      </div>
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
+                  <div className='xl:col-span-2 lg:col-span-3 col-span-3 mt-2 xl:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                      <TelInput
                         label='เบอร์โทรศัพท์'
                         name='mobile'
@@ -154,7 +154,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                         value={data.mobile}
                      />
                   </div>
-                  <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 lg:pl-1'>
+                  <div className='xl:col-span-2 lg:col-span-3 col-span-3 mt-2 xl:mt-0 w-full xl:pl-2 lg:pl-1'>
                      <EmailInput
                         label='Email'
                         name='email'
@@ -166,10 +166,10 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                      />
                   </div>
                </div>
-               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-16 mt-2'>
-                  <div className='col-span-3'>
+               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-16 mt-3'>
+                  <div className='xl:col-span-3 lg:col-span-7 col-span-3'>
                      <div className='flex flex-row'>
-                        <div className='w-1/2 mr-4'>
+                        <div className='lg:w-full xl:w-1/2 w-1/2 mr-4'>
                            <SelectInput
                               label='จังหวัดที่พักอาศัย'
                               name='province'
@@ -180,7 +180,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                               value={data.province}
                            />
                         </div>
-                        <div className='w-1/2 lg:w-1/3 ml-4'>
+                        <div className='w-1/2 xl:w-1/3 lg:w-full ml-4'>
                            <SelectInput
                               label='ขนาดเสื้อ'
                               name='shirt_size'
@@ -193,8 +193,8 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                         </div>
                      </div>
                   </div>
-                  <div className='lg:col-span-4 col-span-3 flex lg:flex-row flex-col mt-2 lg:mt-0'>
-                     <div className='w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
+                  <div className='lg:col-span-7 xl:col-span-4 col-span-3 flex lg:flex-row flex-col mt-2 lg:mt-2 xl:mt-0'>
+                     <div className='w-full xl:pl-2 xl:pr-2 lg:pr-1'>
                         <Inputbox
                            label='ยาประจำตัว'
                            name='medicine'
@@ -214,7 +214,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                            value={data.allergic_medicine}
                         />
                      </div>
-                     <div className='w-full xl:pl-2 lg:pl-1 mt-2 lg:mt-0 lg:pr-2'>
+                     <div className='w-full xl:pl-2 lg:pl-1'>
                         <Inputbox
                            label='โรคประจำตัว'
                            name='underlying'
@@ -226,10 +226,10 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                      </div>
                   </div>
                </div>
-               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6 mt-2'>
+               <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-3 mt-2'>
                   <div className='col-span-3'>
                      <div className='flex flex-row'>
-                        <div className='lg:w-11/12 w-full lg:placeholder:mr-4'>
+                        <div className='xl:w-11/12 w-full lg:placeholder:mr-4 xl:pl-2 lg:pr-1'>
                            <Inputbox
                               label='วิธีการเดินทางมามหาวิทยาลัย'
                               name='travelby'
@@ -243,7 +243,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                      </div>
                   </div>
                   <div className='lg:col-span-4 col-span-3 flex lg:flex-row flex-col'>
-                     <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
+                     <div className='xl:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 mt-2 lg:mt-0'>
                         <Inputbox
                            label='อาหารที่แพ้'
                            name='allergic_food'
@@ -253,7 +253,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                            value={data.allergic_food}
                         />
                      </div>
-                     <div className='lg:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
+                     <div className='xl:w-1/2 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                         <DropdownSearch
                            label='อาหารที่ต้องการเป็นพิเศษ'
                            name='special'
