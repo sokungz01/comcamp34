@@ -112,7 +112,8 @@ const FileUploaderComponent = ({
                   <a
                      href={downloadURL}
                      target='_blank'
-                     className= "w-full sm:w-[26%] lg:w-[70%] xl:w-[50%] mb-4 lg:mb-0  bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-0"   >
+                     className='w-full sm:w-[26%] lg:w-[40%] xl:w-[50%] mb-4 lg:mb-0 hover:bg-blue2 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-0'
+                  >
                      <div className='flex flex-row justify-center items-center'>
                         <svg
                            xmlns='http://www.w3.org/2000/svg'
@@ -137,7 +138,9 @@ const FileUploaderComponent = ({
                         name={filePath}
                         onChange={handleFile}
                         className={
-                           "form-control appearance-none bg-blue-100 w-full sm:w-[26%] lg:w-[45%] xl:w-2/5 z-10 opacity-0 py-0 lg:py-2 h-1/2 xl:ml-5 2xl:ml-6"
+                           downloadURL
+                           ? "form-control appearance-none bg-blue-100 w-full sm:w-[26%] lg:w-[42.5%] lg:ml-16  xl:ml-8 2xl:ml-12 xl:w-2/5 z-10 opacity-0 py-0 lg:py-2 h-1/2"
+                           : "form-control appearance-none bg-blue-100 w-full sm:w-[26%] lg:w-[42.5%] xl:w-2/5 z-10 opacity-0 py-0 lg:py-2 h-1/2 xl:ml-5 2xl:ml-6"
                         }
                         accept={
                            fileType == "pdf"
@@ -150,7 +153,7 @@ const FileUploaderComponent = ({
                      <button
                         className={
                            downloadURL
-                              ? "absolute w-full sm:w-[26%] lg:w-[40%] xl:w-2/5 bg-blue1 hover:bg-blue2 mt-8 lg:mt-0 lg:right-10 xl:right-0 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              ? "absolute w-full sm:w-[26%] lg:w-[40%] xl:w-2/5 bg-blue1 hover:bg-blue2 mt-8 lg:mt-0 lg:right-0 xl:right-0 rounded-lg text-white font-teko tracking-wider py-0.5"
                               : "absolute w-full sm:w-[26%] lg:w-[45%] xl:w-2/5 bg-blue1 hover:bg-blue2 xl:ml-5 2xl:ml-4 rounded-lg text-white font-teko tracking-wider py-0.5"
                         }
                      >
@@ -177,7 +180,7 @@ const FileUploaderComponent = ({
                   <div
                      className={
                         downloadURL
-                           ? `h-full xl:w-3/4 w-full flex flex-col items-center justify-center`
+                           ? `xl:w-3/4 w-full flex flex-col items-center justify-center mt-3`
                            : "flex flex-col items-center justify-center w-full lg:mr-3 lg:ml-3 lg:mt-3"
                      }
                   >
@@ -189,7 +192,7 @@ const FileUploaderComponent = ({
                         }
                      >
                         <a href={value} target='_blank'>
-                           <button className='lg:h-full w-full bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5'>
+                           <button className='lg:h-full w-full bg-blue1 hover:bg-blue2 rounded-lg text-white font-teko tracking-wider py-0.5'>
                               <div className='flex flex-row justify-center items-center'>
                                  <svg
                                     xmlns='http://www.w3.org/2000/svg'
@@ -209,15 +212,15 @@ const FileUploaderComponent = ({
                               </div>
                            </button>
                         </a>
-                     </div>
-                     <div className='grid grid-cols-5 mr-3'>
-                        <div className='col-span-4 overflow-hidden'>
-                           <p className='truncate text-xs'> {fileName} </p>
-                        </div>
-                        <div className='col-span-1 flex justify-end'>
-                           <button className='' onClick={() => deleteFile()}>
-                              <img src='/assets/regisPage/trash.svg' className='w-5 h-5' />
-                           </button>
+                        <div className='grid grid-cols-4 items-center mt-3'>
+                           <div className='col-span-4 flex justify-between overflow-hidden'>
+                              <div className='w-[90%]'>
+                                 <p className='truncate text-xs'> {fileName} </p>
+                              </div>
+                              <button className='' onClick={() => deleteFile()}>
+                                 <img src='/assets/regisPage/trash.svg' className='w-5 h-5' />
+                              </button>
+                           </div>
                         </div>
                      </div>
                   </div>
