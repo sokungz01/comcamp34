@@ -13,7 +13,7 @@ const FileUploaderComponent = ({
    obj,
    setObj,
    value,
-   setStatus
+   setStatus,
 }: {
    filePath: string;
    label?: string;
@@ -28,8 +28,10 @@ const FileUploaderComponent = ({
 }) => {
    const [file, setFile]: any = useState();
    const [fileData, setFileData]: any = useState();
-   const [isUpload, setIsUpload] = useState<boolean>(value != undefined && value != null && value != ""? true : false );
-   
+   const [isUpload, setIsUpload] = useState<boolean>(
+      value != undefined && value != null && value != "" ? true : false,
+   );
+
    const handleFile = async (e: any) => {
       if (!(e.target instanceof HTMLInputElement)) return;
       setFile(e.target.files[0].name);
@@ -46,19 +48,20 @@ const FileUploaderComponent = ({
       if (file == null) {
          alert("โปรดแนบไฟล์ " + label);
          return;
-      }
-      else if(fileData.size > 10 *1024*1024){
+      } else if (fileData.size > 10 * 1024 * 1024) {
          FileTooBigSwal();
          return;
-      } 
-      else if (file) {
-         const filearr= file.split(".");
-         const ext = filearr[filearr.length-1];
+      } else if (file) {
+         const filearr = file.split(".");
+         const ext = filearr[filearr.length - 1];
          // filename without extension
          // join all array except last element
-         const filename = filearr.slice(0, filearr.length-1).join("_").replace(/\s/g, "_");
+         const filename = filearr
+            .slice(0, filearr.length - 1)
+            .join("_")
+            .replace(/\s/g, "_");
          const newFileName = filename + "_" + nanoid(8) + "." + ext;
-         
+
          const storageRef = ref(storage, `${filePath}/${newFileName}`);
          uploadBytes(storageRef, fileData)
             .then(e => {
@@ -67,11 +70,9 @@ const FileUploaderComponent = ({
             .then(path => {
                const url = getDownloadURL(storageRef);
                url.then(e => {
-                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file })
+                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file });
                   setStatus(true);
-               }
-               );
-               
+               });
             });
       }
       // else if upload submit, call method to store file in firebase storage maybe by format -> "userId_file" in defined path
@@ -87,7 +88,7 @@ const FileUploaderComponent = ({
 
    return (
       <>
-         <div className='grid lg:grid-cols-3 xl:grid-cols-5 grid-cols-1 bg-white rounded-lg shadow-lg px-5 py-4 justify-center items-center'>
+         <div className='h-full grid lg:grid-cols-3 xl:grid-cols-5 grid-cols-1 bg-white rounded-lg shadow-lg px-5 py-4 justify-center items-center'>
             <div className='xl:col-span-2 lg:col-span-2 col-span-1 w-full'>
                <div className='flex flex-row justify-center lg:justify-start'>
                   {label ? (
@@ -103,11 +104,7 @@ const FileUploaderComponent = ({
                   <a
                      href={downloadURL}
                      target='_blank'
-                     className={
-                        isUpload
-                           ? "w-1/2 mb-4 lg:mb-0 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:-mt-6"
-                           : "w-1/2 mb-4 lg:mb-0 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5"
-                     }
+                     className= "w-full sm:w-[26%] lg:w-[50%] mb-4 lg:mb-0  bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-8"
                   >
                      <div className='flex flex-row justify-center items-center'>
                         <svg
@@ -133,7 +130,7 @@ const FileUploaderComponent = ({
                         name={filePath}
                         onChange={handleFile}
                         className={
-                           "form-control appearance-none bg-blue-100 h-full w-1/2 lg:w-1/3 xl:w-2/5 z-10 opacity-0 py-0 lg:py-2  xl:ml-0 2xl:ml-0"
+                           "form-control appearance-none bg-blue-100 h-full w-full sm:w-[26%] lg:w-[45%] xl:w-1/3 z-10 opacity-0 py-0 lg:py-2  xl:ml-0 2xl:ml-0"
                         }
                         accept={
                            fileType == "pdf"
@@ -146,8 +143,8 @@ const FileUploaderComponent = ({
                      <button
                         className={
                            downloadURL
-                              ? "absolute w-1/2 lg:w-1/3 bg-blue1 mt-8 lg:mt-0 lg:right-10 xl:right-12 2xl:right-16 rounded-lg text-white font-teko tracking-wider py-0.5"
-                              : "absolute w-1/2 lg:w-1/3 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              ? "absolute w-full sm:w-[26%] lg:w-[40%] xl:w-1/3 bg-blue1 hover:bg-blue2 mt-8 lg:mt-0 lg:right-10 xl:right-12 2xl:right-16 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              : "absolute w-full sm:w-[26%] lg:w-[45%] xl:w-1/3 bg-blue1 hover:bg-blue2 rounded-lg text-white font-teko tracking-wider py-0.5"
                         }
                      >
                         <div className='flex flex-row justify-center items-center'>
@@ -170,32 +167,44 @@ const FileUploaderComponent = ({
                      </button>
                   </>
                ) : (
-                  <div className='w-1/2 xl:w-1/3 lg:mr-3 lg:ml-3'>
-                     <a href={value} target='_blank'>
-                        <button className='lg:h-full w-full bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5'>
-                           <div className='flex flex-row justify-center items-center'>
-                              <svg
-                                 xmlns='http://www.w3.org/2000/svg'
-                                 fill='none'
-                                 viewBox='0 0 24 24'
-                                 strokeWidth='1.5'
-                                 stroke='currentColor'
-                                 className='w-4 h-4 mr-2'
-                              >
-                                 <path
-                                    stroke-linecap='round'
-                                    stroke-linejoin='round'
-                                    d='M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418'
-                                 />
-                              </svg>
-
-                              <p>Preview File</p>
-                           </div>
-                        </button>
-                     </a>
+                  <div
+                     className={
+                        downloadURL
+                           ? `h-full xl:w-3/4 w-full flex flex-col items-center justify-center`
+                           : "flex flex-col items-center justify-center w-full lg:mr-3 lg:ml-3 lg:mt-3"
+                     }
+                  >
+                     <div className={
+                        downloadURL? `xl:w-2/3 lg:w-2/3 sm:w-1/4 w-full lg:mt-5 xl:ml-1 lg:ml-1`:
+                        "xl:w-2/5 lg:w-1/2 sm:w-1/4 w-full"
+                     }>
+                        <a href={value} target='_blank'>
+                           <button className=
+                           'lg:h-full w-full bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5'
+                           >
+                              <div className='flex flex-row justify-center items-center'>
+                                 <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    fill='none'
+                                    viewBox='0 0 24 24'
+                                    strokeWidth='1.5'
+                                    stroke='currentColor'
+                                    className='w-4 h-4 mr-2'
+                                 >
+                                    <path
+                                       stroke-linecap='round'
+                                       stroke-linejoin='round'
+                                       d='M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418'
+                                    />
+                                 </svg>
+                                 <p>Preview File</p>
+                              </div>
+                           </button>
+                        </a>
+                     </div>
                      <div className='grid grid-cols-5 mr-3'>
                         <div className='col-span-4 overflow-hidden'>
-                           <p className='truncate'> {fileName} </p>
+                           <p className='truncate text-xs'> {fileName} </p>
                         </div>
                         <div className='col-span-1 flex justify-end'>
                            <button className='' onClick={() => deleteFile()}>
