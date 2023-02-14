@@ -104,7 +104,7 @@ const FileUploaderComponent = ({
                   <a
                      href={downloadURL}
                      target='_blank'
-                     className= "w-full sm:w-[26%] lg:w-[50%] mb-4 lg:mb-0  bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-8"
+                     className= "w-full sm:w-[26%] lg:w-[70%] xl:w-[50%] mb-4 lg:mb-0  bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-0"
                   >
                      <div className='flex flex-row justify-center items-center'>
                         <svg
@@ -130,7 +130,7 @@ const FileUploaderComponent = ({
                         name={filePath}
                         onChange={handleFile}
                         className={
-                           "form-control appearance-none bg-blue-100 h-full w-full sm:w-[26%] lg:w-[45%] xl:w-1/3 z-10 opacity-0 py-0 lg:py-2  xl:ml-0 2xl:ml-0"
+                           "form-control appearance-none bg-blue-100 w-full sm:w-[26%] lg:w-[45%] xl:w-2/5 z-10 opacity-0 py-0 lg:py-2 h-1/2 xl:ml-5 2xl:ml-6"
                         }
                         accept={
                            fileType == "pdf"
@@ -143,8 +143,8 @@ const FileUploaderComponent = ({
                      <button
                         className={
                            downloadURL
-                              ? "absolute w-full sm:w-[26%] lg:w-[40%] xl:w-1/3 bg-blue1 hover:bg-blue2 mt-8 lg:mt-0 lg:right-10 xl:right-12 2xl:right-16 rounded-lg text-white font-teko tracking-wider py-0.5"
-                              : "absolute w-full sm:w-[26%] lg:w-[45%] xl:w-1/3 bg-blue1 hover:bg-blue2 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              ? "absolute w-full sm:w-[26%] lg:w-[40%] xl:w-2/5 bg-blue1 hover:bg-blue2 mt-8 lg:mt-0 lg:right-10 xl:right-0 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              : "absolute w-full sm:w-[26%] lg:w-[45%] xl:w-2/5 bg-blue1 hover:bg-blue2 xl:ml-5 2xl:ml-4 rounded-lg text-white font-teko tracking-wider py-0.5"
                         }
                      >
                         <div className='flex flex-row justify-center items-center'>
