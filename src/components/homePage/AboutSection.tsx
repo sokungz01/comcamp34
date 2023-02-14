@@ -29,10 +29,10 @@ const AboutSection = () => {
             const mobileDivPosStage2 = mobileDiv.offsetTop + mobileDiv.offsetHeight / 1.25;
             const mobileDivPosStage3 = mobileDiv.offsetTop + mobileDiv.offsetHeight / 1.15;
             if (scrollPos < divPosStage1) {
-               notebook.style.left = 100 + value * 0.35 + "px";
-               notebook.style.top = top_notebook + -value * 0.26 + "px";
-               book.style.left = left_book + value * 0.5 + "px";
-               book.style.top = -top_book + value * 0.25 + 100 + "px";
+               notebook.style.left = 100 + value * 0.5 + "px";
+               notebook.style.top = top_notebook + -value * 0.385 + "px";
+               book.style.left = left_book + value * 0.8 + "px";
+               book.style.top = -top_book + value * 0.375 + 100 + "px";
             }
             if (scrollPos >= divPosStage1 && scrollPos < divPosStage2) {
                if (scrollPos > divPosStage1 + (divPosStage2 - divPosStage1) / 2) {
@@ -80,7 +80,7 @@ const AboutSection = () => {
 
    return (
       <div id="about" className="w-full flex bg-base-black">
-         <div className='mx-auto relative w-full h-[600vh] hidden xl:block' ref={divRef}>
+         <div className='mx-auto relative w-full h-[400vh] hidden xl:block' ref={divRef}>
             <div className='sticky top-12 mx-auto flex'>
                <div className='w-full relative overflow-hidden h-screen '>
                   {textToggle ? (
@@ -140,7 +140,7 @@ const AboutSection = () => {
             </div>
          </div>
          <div
-            className={`mx-auto relative w-full h-[400vh] bg-base-black block xl:hidden`}
+            className={`mx-auto relative w-full h-[200vh] bg-base-black block xl:hidden`}
             ref={mobileDivRef}
             id="about"
          >
