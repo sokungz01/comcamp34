@@ -41,7 +41,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                </p>
             </div>
             <div className='grid lg:grid-cols-7 grid-cols-3 mt-2 lg:mt-8'>
-               <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
+               <div className='col-span-1 lg:col-span-1 w-full xl:pr-2 lg:pr-1 '>
                   <SelectInput
                      label='คำนำหน้าชื่อ'
                      name='parent_prefix'
@@ -56,7 +56,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      value={data.parent_prefix}
                   />
                </div>
-               <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
+               <div className='col-span-2  w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 pl-3'>
                   <Inputbox
                      label='ชื่อ'
                      name='parent_firstname'
@@ -67,7 +67,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      value={data.parent_firstname}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <Inputbox
                      label='ชื่อกลาง (ถ้ามี)'
                      name='parent_middlename'
@@ -77,7 +77,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      value={data.parent_middlename}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <Inputbox
                      label='นามสกุล'
                      name='parent_surname'
@@ -90,7 +90,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                </div>
             </div>
             <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6'>
-               <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-6 lg:pr-2'>
+               <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-2 lg:pr-1 '>
                   <Inputbox
                      label='ความสัมพันธ์'
                      name='parent_relation'
@@ -101,7 +101,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      value={data.parent_relation}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <TelInput
                      label='เบอร์โทรศัพท์'
                      name='parent_mobile'
@@ -112,7 +112,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      value={data.parent_mobile}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <EmailInput
                      label='Email'
                      name='parent_email'
@@ -142,7 +142,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                </div>
             </div>
             <div className='grid lg:grid-cols-7 grid-cols-3 mt-1 lg:mt-1'>
-               <div className='col-span-1 lg:col-span-1 w-full xl:pr-6 lg:pr-2'>
+               <div className='col-span-1 lg:col-span-1 w-full xl:pr-2 lg:pr-1'>
                   <SelectInput
                      label='คำนำหน้าชื่อ'
                      name='emergency_prefix'
@@ -158,7 +158,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      disabled={data.same_parent}
                   />
                </div>
-               <div className='col-span-2  w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2 pl-3'>
+               <div className='col-span-2  w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1 pl-3'>
                   <Inputbox
                      label='ชื่อ'
                      name='emergency_firstname'
@@ -170,7 +170,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      disabled={data.same_parent}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <Inputbox
                      label='ชื่อกลาง (ถ้ามี)'
                      name='emergency_middlename'
@@ -181,7 +181,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      disabled={data.same_parent}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-0 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <Inputbox
                      label='นามสกุล'
                      name='emergency_surname'
@@ -195,7 +195,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                </div>
             </div>
             <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6'>
-               <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-6 lg:pr-2'>
+               <div className='lg:col-span-1 col-span-3 mt-2 lg:mt-0 w-full xl:pr-2 lg:pr-1'>
                   <Inputbox
                      label='ความสัมพันธ์'
                      name='emergency_relation'
@@ -208,7 +208,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                   />
                </div>
 
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 xl:pr-6 lg:pr-2 lg:pl-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <TelInput
                      label='เบอร์โทรศัพท์'
                      name='emergency_mobile'
@@ -220,7 +220,7 @@ export const ParentDataForm = ({ data, setData }: { data: ParentData; setData: a
                      disabled={data.same_parent}
                   />
                </div>
-               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-6 lg:pl-2 xl:pr-6 lg:pr-2'>
+               <div className='lg:col-span-2 col-span-3 mt-2 lg:mt-1 w-full xl:pl-2 xl:pr-2 lg:pr-1 lg:pl-1'>
                   <EmailInput
                      label='Email'
                      name='emergency_email'

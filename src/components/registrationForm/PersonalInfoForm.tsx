@@ -229,9 +229,9 @@ import { Personal, DateForm } from "@/types/RegistrationType";
                <div className='grid lg:grid-cols-7 grid-cols-3 lg:mt-6 mt-2'>
                   <div className='col-span-3'>
                      <div className='flex flex-row'>
-                        <div className='lg:w-1/2 w-full lg:placeholder:mr-4'>
+                        <div className='lg:w-11/12 w-full lg:placeholder:mr-4'>
                            <Inputbox
-                              label='วิธีการเดินทางมหาวิทยาลัย'
+                              label='วิธีการเดินทางมามหาวิทยาลัย'
                               name='travelby'
                               placeholder='รถยนต์ส่วนตัว'
                               required
