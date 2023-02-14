@@ -112,7 +112,7 @@ const FileUploaderComponent = ({
                   <a
                      href={downloadURL}
                      target='_blank'
-                     className='w-full sm:w-[26%] lg:w-[40%] xl:w-[50%] mb-4 lg:mb-0 hover:bg-blue2 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-0'
+                     className='w-full sm:w-[26%] lg:w-[70%] xl:w-[50%] mb-4 lg:mb-0 hover:bg-blue2 bg-blue1 rounded-lg text-white font-teko tracking-wider py-0.5 lg:mr-0'
                   >
                      <div className='flex flex-row justify-center items-center'>
                         <svg
