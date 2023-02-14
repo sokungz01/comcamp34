@@ -41,8 +41,10 @@ export const QuestionFormpage2 = ({ data, setData }: { data: QuestionPage2; setD
                   obj={data}
                   value={data.q6}
                />
+               <p className="lg:text-lg text-sm">7.ภาควิชาคอมพิวเตอร์กำลังจัดงาน Comcamp 34 ให้น้อง ๆ ทุกคนที่ผ่านเข้ารอบ โดยมีการจัดเลี้ยงน้ำชาต้อนรับภายในเวลา 1 ชม. โดยในชามีส่วนผสมของน้ำตาล ซึ่งพี่ยิมได้ซื้อน้ำตาลมา 512 ก้อน แล้วพบว่ามีการหยิบยาเบื่อหนูมา 1 ก้อน ซึ่งมีลักษณะคล้ายน้ำตาล ไม่สามารถแยกด้วยตาเปล่าได้ พี่ยิมซึ่งเป็นพี่ที่มีเกรดเฉลี่ยเป็นอันดับ 1 ของภาควิชา ได้ค้นหาวิธีทดสอบโดยการใช้มดมาชิมน้ำตาล</p>
+               <p className="lg:text-lg text-sm font-semibold">คำถาม : พี่ยิมต้องใช้มดจำนวนน้อยที่สุดกี่ตัวในการหาว่าก้อนไหนเป็นยาเบื่อหนู (ยาเบื่อหนูออกฤทธิ์ภายในเวลา 1 ชม.) จงเขียนอธิบายหลักการโดยละเอียด</p>
                <Textarea
-                  question='7.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur orci nisl, vel lacinia massa viverra eu. Nullam sit amet turpis rhoncus, interdum massa ut, dapibus mi. Pellentesque porta, ante sed fermentum gravida, ante enim faucibus augue, at dignissim ligula nisi et mauris. Suspendisse elementum, sapien sed pulvinar fringilla, leo orci finibus mi, molestie tincidunt massa nulla id orci. Etiam luctus mattis elit pretium pretium. Suspendisse vitae malesuada libero, vitae suscipit quam.'
+                  question=' '
                   name='q7'
                   row={6}
                   setObj={setData}
