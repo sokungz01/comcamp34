@@ -11,7 +11,7 @@ import { ParentDataForm } from "@/components/registrationForm/ParentDataForm";
 import { QuestionFormpage1 } from "@/components/registrationForm/QuestionFormpage1";
 import { QuestionFormpage2 } from "@/components/registrationForm/QuestionFormpage2";
 import Swal from "sweetalert2";
-import { FillFormSwal } from "@/lib/CustomSwal";
+import { FillFormSwal, SubmitDone, SubmitError } from "@/lib/CustomSwal";
 import {
    Education,
    Interest,
@@ -154,22 +154,14 @@ export const RegistrationPage = () => {
          }).then(result => {
             if (result.isConfirmed) {
                const token = sessionStorage.getItem("token") as string;
-               submitData(token);
-               sessionStorage.clear();
-               Swal.fire({
-                  html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media</p>  </div> ',
-                  icon: "success",
-                  background: "#FDFDFD",
-                  showConfirmButton: true,
-                  confirmButtonColor: "#FDFDFD",
-                  confirmButtonText:
-                     '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
-                  backdrop: `
-                  rgba(0,0,0,0.6)
-                  `,
-               }).then(() => {
-                  location.href = "/";
-               });
+               submitData(token)
+                  .then(res => {
+                     sessionStorage.clear();
+                     SubmitDone();
+                  })
+                  .catch(error => {
+                     SubmitError();
+                  });
             }
          });
       } else {
