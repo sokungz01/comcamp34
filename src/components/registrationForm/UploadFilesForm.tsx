@@ -47,7 +47,7 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
                            label='หนังสือขออนุญาตผู้ปกครอง (PDF)'
                            filePath='agreement_URL'
                            fileType='pdf'
-                           downloadURL='https://drive.google.com/file/d/1xaXUaF4kqbo0HF_bcBGS-C-QUN3ezW6P/view?usp=share_link'
+                           downloadURL='https://drive.google.com/file/d/1SxCD5C3g3Vl715wNPhG89wBxjpwVk9-h/view'
                            obj={data}
                            fileName={data.agreement_Name}
                            setObj={setData}
