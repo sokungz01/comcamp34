@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 export const InterestForm = ({ data, setData }: { data: Interest; setData: any }) => {
    const course = course_name.map(item => ({
       label: item.name,
-      value: item.name,
+      value: item.value,
    }));
 
    useEffect(() => {
