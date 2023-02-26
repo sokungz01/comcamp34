@@ -4,6 +4,9 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/lib/firebase";
 import { Login } from "@/lib/Fetch";
 import { CustomSwal } from "@/lib/CustomSwal";
+import { registerEvent } from "@/gaEvents";
+import { loginEvent } from "@/gaEvents";
+
 const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
    const login = async () => {
@@ -16,6 +19,7 @@ const LoginPage = () => {
             if (res.status === 200 || res.status === 201) {
                setIsLogin(true);
                // Set Token (Session)
+               registerEvent();
                sessionStorage.setItem("syncPage", res.data.page);
                sessionStorage.setItem("token", res.data.accessToken);
                sessionStorage.setItem("email", result.user.email as string);
@@ -33,6 +37,8 @@ const LoginPage = () => {
    useEffect(() => {
       if (sessionStorage.getItem("token")) {
          setIsLogin(true);
+         loginEvent();
+
       }
 
       return () => {};

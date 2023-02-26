@@ -1,11 +1,14 @@
 [
-    {
-        "name": "Regular"
-    },
-    {
-        "name": "Inter"
-    },
-    {
-        "name": "HDS"
-    }
+   {
+      "name": "หลักสูตรปกติ (Regular)",
+      "value": "Regular"
+   },
+   {
+      "name": "หลักสูตรนานาชาติ (Inter)",
+      "value": "Inter"
+   },
+   {
+      "name": "หลักสูตรวิทยาศาสตร์ข้อมูลสุขภาพ (HDS)",
+      "value": "HDS"
+   }
 ]

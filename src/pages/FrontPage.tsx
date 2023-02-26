@@ -29,7 +29,7 @@ export const FrontPage = () => {
             <ConditionsSection />
             <TimelineSection />
             <FAQSection />
-            {/* <SponsorSection /> */}
+            <SponsorSection />
             <ContactSection />
             <Footer />
             <div>
