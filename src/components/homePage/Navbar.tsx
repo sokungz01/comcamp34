@@ -131,11 +131,11 @@ const Navbar = () => {
                   </div>
                   <div>
                      <Link
-                        to='/registration'
+                        to='/result'
                      >
                        <button 
                            className={`inline-block lg:text-xl lg:font-normal px-8 py-1 leading-none text-red2 hover:bg-red2 lg:border-2 lg:border-red2 hover:border-transparent hover:text-base-white bg-base-white mt-4 lg:mt-0 rounded-xl `}>
-                        Register
+                        Result
                        </button>
                      </Link>
                   </div>

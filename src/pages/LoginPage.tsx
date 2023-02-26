@@ -6,6 +6,7 @@ import { Login } from "@/lib/Fetch";
 import { CustomSwal } from "@/lib/CustomSwal";
 import { registerEvent } from "@/gaEvents";
 import { loginEvent } from "@/gaEvents";
+import ResultPage from "./ResultPage";
 
 const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -45,7 +46,8 @@ const LoginPage = () => {
    }, []);
 
    return isLogin ? (
-      <RegistrationPage />
+      // <RegistrationPage />
+      <ResultPage/>
    ) : (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
          <div className='relative flex flex-row h-screen justify-center z-20'>
