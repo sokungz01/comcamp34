@@ -1,6 +1,7 @@
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
+import TestAuto from "@/components/ConfirmmationForm/TestAuto";
 const ResultPage = () => {
    const navigate = useNavigate();
    const handleLogout = () => {
@@ -35,15 +36,17 @@ const ResultPage = () => {
                Log out
             </button>
          </div>
-        <div className="flex h-screen">
-            <div className="m-auto">
-                Result
+         {/* Form Section */}
+         <div className='relative z-10 flex h-screen'>
+            <div className='m-auto'>
+               Result
+               <TestAuto />
             </div>
-        </div>
+         </div>
 
          <div className='absolute z-0 bottom-0 w-full'>
-               <img src='/assets/regisPage/bgLogin.png' className='w-full opacity-50' />
-        </div>
+            <img src='/assets/regisPage/bgLogin.png' className='w-full opacity-50' />
+         </div>
       </div>
    );
 };
