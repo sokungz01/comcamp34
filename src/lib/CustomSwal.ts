@@ -16,9 +16,26 @@ export const CustomSwal = () => {
    });
 };
 
+export const notPassSwal = () => {
+   return Swal.fire({
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-medium"> ท่านไม่ผ่านการคัดเลือก </p> <p class="text-lg">พบกันใหมในโอกาสครั้งถัดไป</p>  </div> ',
+      icon: "error",
+      background: "#FDFDFD",
+      showConfirmButton: true,
+      confirmButtonColor: "#FDFDFD",
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
+      backdrop: `
+      rgba(0,0,0,0.6)
+      `,
+   }).then(() => {
+      location.href = "/";
+   });
+};
+
+
 export const SubmitDone = () => {
    Swal.fire({
-      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media</p>  </div> ',
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media✨</p>  </div> ',
       icon: "success",
       background: "#FDFDFD",
       showConfirmButton: true,
@@ -40,6 +57,22 @@ export const SubmitError = () => {
       confirmButtonColor: "#B12E45",
       confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ปิด</p>',
       backdrop: `rgba(0,0,0,0.6)`,
+   });
+};
+
+export const ConfirmationDone = () => {
+   Swal.fire({
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media✨</p>  </div> ',
+      icon: "success",
+      background: "#FDFDFD",
+      showConfirmButton: true,
+      confirmButtonColor: "#FDFDFD",
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
+      backdrop: `
+      rgba(0,0,0,0.6)
+      `,
+   }).then(() => {
+      location.href = "/";
    });
 };
 

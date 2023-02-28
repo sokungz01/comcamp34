@@ -1,9 +1,14 @@
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
-import TestAuto from "@/components/ConfirmmationForm/TestAuto";
+import { useState } from "react";
+import LeftArrow from "/assets/svg/LeftArrow.svg";
+import RightArrow from "/assets/svg/RightArrow.svg";
+import { CustomSwal } from "@/lib/CustomSwal";
+import ExaminationInfo from "@/components/ConfirmmationForm/ExaminationInfo";
 const ResultPage = () => {
    const navigate = useNavigate();
+   const [page, setPage] = useState<number>(1);
    const handleLogout = () => {
       signOut(auth)
          .then(() => {
@@ -14,6 +19,14 @@ const ResultPage = () => {
          });
       sessionStorage.clear();
    };
+
+   const prevPage = () => {
+      setPage(page - 1);
+   };
+   const nextPage = () => {
+      setPage(page + 1);
+   };
+
    return (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
          <div className='flex justify-between py-4 '>
@@ -37,11 +50,43 @@ const ResultPage = () => {
             </button>
          </div>
          {/* Form Section */}
-         <div className='relative z-10 flex h-screen'>
-            <div className='m-auto'>
-               Result
-               <TestAuto />
+         <div className='flex justify-center'>
+            <div className='flex w-full justify-center'>
+               <p className='xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-teko tracking-widest text-red2 font-semibold mt-3 mb-3'>
+                  {page == 1 ? "Confirmation" : "Examination"}
+               </p>
             </div>
+         </div>
+         <div className='w-full h-full relative z-10'>
+            {page === 2 ? <ExaminationInfo /> : null}
+         </div>
+
+         <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
+            {page === 7 ? (
+               <div className='flex flex-row justify-center mb-8'>
+                  <button
+                     onClick={CustomSwal}
+                     className='text-2xl lg:text-3xl text-white font-teko bg-red2 lg:px-12 lg:py-1.5 px-8 py-1 rounded-lg '
+                  >
+                     Submit
+                  </button>
+               </div>
+            ) : null}
+            {page > 0 ? (
+               <div className='flex flex-row justify-center items-center gap-y-4 bottom-5 z-10'>
+                  {page === 1 ? null : (
+                     <button onClick={prevPage}>
+                        <img src={LeftArrow} className='w-6 lg:w-9' />
+                     </button>
+                  )}
+                  <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
+                  {page === 7 ? null : (
+                     <button onClick={nextPage}>
+                        <img src={RightArrow} className='w-6 lg:w-9' />
+                     </button>
+                  )}
+               </div>
+            ) : null}
          </div>
 
          <div className='absolute z-0 bottom-0 w-full'>
