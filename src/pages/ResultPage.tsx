@@ -7,6 +7,7 @@ import RightArrow from "/assets/svg/RightArrow.svg";
 import { CustomSwal } from "@/lib/CustomSwal";
 import ExaminationInfo from "@/components/ConfirmmationForm/ExaminationInfo";
 import ConfirmForm from "@/components/ConfirmmationForm/ConfirmForm";
+import { DateForm, Confirmation } from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
@@ -20,6 +21,22 @@ const ResultPage = () => {
          });
       sessionStorage.clear();
    };
+
+   const [dateData, setDateData] = useState<DateForm>({
+      date: "",
+      month: "",
+      year: "",
+   });
+
+   const [dataConfirmation, setdataConfirmation] = useState<Confirmation>({
+      isConfirm: "",
+      describeTravel: "",
+      transaction_Name: "",
+      transaction_URL: "",
+      transaction_date: "",
+      transaction_hours: "",
+      transaction_minutes: "",
+   });
 
    const prevPage = () => {
       setPage(page - 1);
@@ -59,8 +76,15 @@ const ResultPage = () => {
             </div>
          </div>
          <div className='w-full h-full relative z-10'>
-         {page === 1 ? <ConfirmForm /> : null}
-         {page === 2 ? <ExaminationInfo /> : null}
+            {page === 1 ? (
+               <ConfirmForm
+                  data={dataConfirmation}
+                  setData={setdataConfirmation}
+                  dateData={dateData}
+                  setDateData={setDateData}
+               />
+            ) : null}
+            {page === 2 ? <ExaminationInfo /> : null}
          </div>
 
          <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>

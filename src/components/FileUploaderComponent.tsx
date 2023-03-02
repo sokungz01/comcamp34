@@ -14,6 +14,7 @@ const FileUploaderComponent = ({
    setObj,
    value,
    setStatus,
+   disabled
 }: {
    filePath: string;
    label?: string;
@@ -21,10 +22,11 @@ const FileUploaderComponent = ({
    fileName: string;
    downloadURL?: string;
    required?: boolean;
-   obj: object;
-   setObj: any;
+   obj?: object;
+   setObj?: any;
    value: string;
    setStatus?: any;
+   disabled?:boolean;
 }) => {
    const [file, setFile]: any = useState();
    const [fileData, setFileData]: any = useState();
@@ -149,12 +151,13 @@ const FileUploaderComponent = ({
                               ? "image/jpeg,image/png" //accpet image file only jpg and png
                               : "image/jpeg,image/png,application/pdf" /* accept both image and pdf if not pass props or wrong spell file format */
                         }
+                        disabled={disabled}
                      />
                      <button
                         className={
                            downloadURL
                               ? "absolute w-full sm:w-[26%] lg:w-[40%] xl:w-2/5 bg-blue1 hover:bg-blue2 mt-8 lg:mt-0 lg:right-0 xl:right-0 rounded-lg text-white font-teko tracking-wider py-0.5"
-                              : "absolute w-full sm:w-[26%] lg:w-[45%] xl:w-2/5 bg-blue1 hover:bg-blue2 xl:ml-5 2xl:ml-4 rounded-lg text-white font-teko tracking-wider py-0.5"
+                              : `absolute w-full sm:w-[26%] lg:w-[45%] xl:w-2/5 xl:ml-5 2xl:ml-4 rounded-lg text-white font-teko tracking-wider py-0.5 ${!disabled ? "bg-blue1 hover:bg-blue2 " : "bg-blue3/70"} `
                         }
                      >
                         <div className='flex flex-row justify-center items-center'>
