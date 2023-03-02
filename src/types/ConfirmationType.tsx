@@ -6,6 +6,7 @@ export interface DateForm {
  
 export type Confirmation = {
    isConfirm: string;
+   shirt_size : string;
    describeTravel: string;
    transaction_Name: string;
    transaction_URL: string;

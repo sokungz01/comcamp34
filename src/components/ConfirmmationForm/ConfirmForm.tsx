@@ -2,20 +2,24 @@ import { useEffect, useState } from "react";
 import SelectInput from "@/components/SelectInput";
 import Inputbox from "@/components/Textareainput";
 import FileUploaderComponent from "@/components/FileUploaderComponent";
-import { DateForm,Confirmation } from "@/types/ConfirmationType";
+import { DateForm, Confirmation } from "@/types/ConfirmationType";
+import shirtsize from "@/components/registrationForm/DropdownData/shirtsize_data.json";
 const ConfirmForm = ({
    data,
    setData,
    dateData,
    setDateData,
+   confirm,
+   setConfirm,
 }: {
    data: Confirmation;
    setData: any;
    dateData: DateForm;
    setDateData: any;
+   confirm: boolean;
+   setConfirm: any;
 }) => {
    const [uploadstatus, setUploadstatus] = useState<boolean>(false);
-   const [confirm , setConfirm] = useState<boolean>(true);
    const hours = new Array();
    for (let i = 0; i < 24; i++) {
       let convert: unknown = i;
@@ -42,6 +46,10 @@ const ConfirmForm = ({
       label: items,
       value: items,
    }));
+   const shirtsize_data = shirtsize.map(items => ({
+      label: items.label,
+      value: items.value,
+   }));
 
    useEffect(() => {
       const format_date = dateData.date + "-" + dateData.month + "-" + dateData.year;
@@ -49,10 +57,8 @@ const ConfirmForm = ({
    }, [dateData.date, dateData.month, dateData.year]);
 
    useEffect(() => {
-      if(data.isConfirm === "0")
-         setConfirm(false);
-      else
-      setConfirm(true);
+      if (data.isConfirm === "0") setConfirm(false);
+      else setConfirm(true);
    }, [data.isConfirm]);
 
    return (
@@ -68,14 +74,12 @@ const ConfirmForm = ({
                      ข้อมูลที่ใช้ในการยืนยันสิทธิ์
                   </p>
                </div>
-               <div className='grid grid-cols-7 my-6 items-center'>
-                  <div className='col-span-7 lg:col-span-4'>
+               <div className='grid grid-cols-12 lg:gap-8 my-6 items-center'>
+                  <div className='col-span-12 lg:col-span-7 mt-3 lg:mt-0 lg:ml-8'>
                      <p className='lg:font-semibold font-bold lg:text-2xl text-md'>
                         น้องยืนยันที่จะเข้าร่วมค่ายคอมแคมป์ 34 หรือไม่?
                         <span className='text-orange'>*</span>
                      </p>
-                  </div>
-                  <div className='col-span-7 lg:col-span-3 mt-3 lg:mt-0'>
                      <SelectInput
                         label=' '
                         name='isConfirm'
@@ -89,10 +93,27 @@ const ConfirmForm = ({
                         value={data.isConfirm}
                      />
                   </div>
+                  <div className='hidden lg:block lg:col-span-2'></div>
+                  <div className='col-span-12 lg:col-span-3 mt-3 lg:mt-0 lg:mr-8'>
+                     <p className='lg:font-semibold font-bold lg:text-2xl text-md'>
+                        ขนาดเสื้อ
+                        <span className='text-orange'>*</span>
+                     </p>
+                     <SelectInput
+                        label=' '
+                        name='shirt_size'
+                        placeholder={"โปรดเลือก"}
+                        obj={data}
+                        setObj={setData}
+                        options={shirtsize_data}
+                        value={data.shirt_size}
+                        disabled={!confirm}
+                     />
+                  </div>
                </div>
                <div className='flex flex-col'>
                   <div>
-                     <p className='lg:font-semibold font-bold lg:text-2xl text-md'>
+                     <p className='lg:font-semibold font-bold lg:text-2xl text-md lg:ml-8'>
                         อธิบายขั้นตอนการเดินทางมามหาวิทยาลัยโดยละเอียด
                         <span className='text-orange'>*</span>
                      </p>
@@ -118,7 +139,7 @@ const ConfirmForm = ({
                      <p className='text-red2 lg:text-5xl text-xl lg:font-semibold font-bold lg:mt-8 mt-2 ml-2'>
                         หลักฐานการโอนเงิน
                      </p>
-                     <p className='text-sm lg:text-lg lg:mt-3 ml-2 lg:ml-3'>
+                     <p className='text-sm lg:text-xl lg:mt-3 ml-2 lg:ml-3'>
                         จะทำการคืนเงินค่ายืนยันสิทธิ์ให้หลังจบค่าย
                      </p>
                   </div>
@@ -154,13 +175,13 @@ const ConfirmForm = ({
                      />
                   </div>
                </div>
-               <p className='lg:font-semibold font-bold lg:text-2xl text-md mt-6'>
+               <p className='lg:font-semibold font-bold lg:text-2xl text-md mt-6 mb-3'>
                   วัน-เวลาในการโอนเงินมัดจำ (อ้างอิงจากสลิป) <span className='text-orange'>*</span>
                </p>
                <div className='grid grid-cols-12 gap-2 lg:gap-4'>
                   <div className='col-span-4 lg:col-span-2'>
                      <SelectInput
-                        label=' '
+                        label='วัน'
                         name='date'
                         placeholder={"วัน"}
                         options={[
@@ -181,7 +202,7 @@ const ConfirmForm = ({
                   </div>
                   <div className='col-span-4 lg:col-span-3'>
                      <SelectInput
-                        label=' '
+                        label='เดือน'
                         name='month'
                         placeholder={"เดือน"}
                         options={[{ label: "มีนาคม", value: "มีนาคม" }]}
@@ -193,7 +214,7 @@ const ConfirmForm = ({
                   </div>
                   <div className='col-span-4 lg:col-span-2'>
                      <SelectInput
-                        label=' '
+                        label='ปี'
                         name='year'
                         placeholder={"ปี"}
                         options={[{ label: "2023", value: "2023" }]}
@@ -201,13 +222,12 @@ const ConfirmForm = ({
                         setObj={setDateData}
                         value={dateData.year}
                         disabled={!confirm}
-
                      />
                   </div>
                   <div className='hidden lg:block lg:col-span-1'></div>
                   <div className='col-span-6 lg:col-span-2'>
                      <SelectInput
-                        label=' '
+                        label='ชั่วโมง'
                         name='transaction_hours'
                         placeholder={"ชั่วโมง"}
                         options={hours_data}
@@ -219,7 +239,7 @@ const ConfirmForm = ({
                   </div>
                   <div className='col-span-6 lg:col-span-2'>
                      <SelectInput
-                        label=' '
+                        label='นาที'
                         name='transaction_minutes'
                         placeholder={"นาที"}
                         options={minutes_data}

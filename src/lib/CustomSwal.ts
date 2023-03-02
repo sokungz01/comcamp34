@@ -62,7 +62,7 @@ export const SubmitError = () => {
 
 export const ConfirmationDone = () => {
    Swal.fire({
-      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media✨</p>  </div> ',
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> </div> ',
       icon: "success",
       background: "#FDFDFD",
       showConfirmButton: true,

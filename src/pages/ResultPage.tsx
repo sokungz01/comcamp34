@@ -1,16 +1,45 @@
 import { signOut } from "firebase/auth";
+import Swal from "sweetalert2";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
-import { CustomSwal } from "@/lib/CustomSwal";
+import { CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
 import ExaminationInfo from "@/components/ConfirmmationForm/ExaminationInfo";
 import ConfirmForm from "@/components/ConfirmmationForm/ConfirmForm";
 import { DateForm, Confirmation } from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
+   const [confirm, setConfirm] = useState<boolean>(true);
+
+   const waiveSwal = () => {
+      Swal.fire({
+         html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> คุณยืนยันที่จะ<span class="text-red1">สละสิทธิ์</span><br />การเข้าค่ายคอมแคมป์ใช่หรือไม่ </p> <p class="text-sm">หากดำเนินการแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
+         icon: "warning",
+         iconColor: "#000",
+         background: "#FDFDFD",
+         showConfirmButton: true,
+         showCancelButton: true,
+         confirmButtonColor: "#B12E45",
+         confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
+         cancelButtonColor: "#eee",
+         cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
+         customClass: {
+            actions: "flex flex-row w-full justify-center ",
+            confirmButton: "mr-2 sm:mr-8",
+            cancelButton: "ml-2 sm:ml-8",
+         },
+         backdrop: `
+      rgba(0,0,0,0.6)
+      `,
+      }).then(result => {
+         if(result.isConfirmed)
+            ConfirmationDone();
+      });
+   };
+
    const handleLogout = () => {
       signOut(auth)
          .then(() => {
@@ -30,6 +59,7 @@ const ResultPage = () => {
 
    const [dataConfirmation, setdataConfirmation] = useState<Confirmation>({
       isConfirm: "",
+      shirt_size: "",
       describeTravel: "",
       transaction_Name: "",
       transaction_URL: "",
@@ -82,6 +112,8 @@ const ResultPage = () => {
                   setData={setdataConfirmation}
                   dateData={dateData}
                   setDateData={setDateData}
+                  confirm={confirm}
+                  setConfirm={setConfirm}
                />
             ) : null}
             {page === 2 ? <ExaminationInfo /> : null}
@@ -107,7 +139,7 @@ const ResultPage = () => {
                   )}
                   <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
                   {page === 7 ? null : (
-                     <button onClick={nextPage}>
+                     <button onClick={confirm ? nextPage : waiveSwal}>
                         <img src={RightArrow} className='w-6 lg:w-9' />
                      </button>
                   )}

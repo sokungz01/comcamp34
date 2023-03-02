@@ -1,7 +1,8 @@
 [
-   { "label": "XS (รอบอก 34\")", "value": "XS" },
-   { "label": "S (รอบอก 36\")", "value": "S" },
-   { "label": "M (รอบอก 40\")", "value": "M" },
-   { "label": "L (รอบอก 44\")", "value": "L" },
-   { "label": "XL (รอบอก 48\")", "value": "XL" }
+   { "label": "S (รอบอก 33\")", "value": "S" },
+   { "label": "M (รอบอก 36\")", "value": "M" },
+   { "label": "L (รอบอก 40\")", "value": "L" },
+   { "label": "XL (รอบอก 44\")", "value": "XL" },
+   { "label": "XXL (รอบอก 48\")", "value": "XXL" },
+   { "label": "3XL (รอบอก 52\")", "value": "3XL" }
 ]
