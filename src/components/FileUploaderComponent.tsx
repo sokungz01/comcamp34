@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { storage } from "@/lib/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { nanoid } from "nanoid";
-import { FileTooBigSwal, InvalidFileTypeSwal } from "@/lib/CustomSwal";
+import { FileTooBigSwal, InvalidFileTypeSwal, InvalidImageTypeSwal } from "@/lib/CustomSwal";
 const FileUploaderComponent = ({
    filePath,
    label,
@@ -38,13 +38,16 @@ const FileUploaderComponent = ({
       if (!(e.target instanceof HTMLInputElement)) return;
 
       const file = e.target.files[0];
-      const fileAllow = ["application/pdf", "image/jpg", "image/jpeg", "image/png"];
+      const fileAllow =
+         fileType === "image"
+            ? ["image/jpg", "image/jpeg", "image/png"]
+            : ["application/pdf", "image/jpg", "image/jpeg", "image/png"];
       // Check file type before setState
       if (fileAllow.includes(file.type)) {
          setFile(file.name);
          setFileData(file);
       } else {
-         InvalidFileTypeSwal();
+         fileType === "image" ? InvalidImageTypeSwal() : InvalidFileTypeSwal();
       }
    };
 
