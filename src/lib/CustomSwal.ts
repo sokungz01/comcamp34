@@ -62,7 +62,7 @@ export const SubmitError = () => {
 
 export const ConfirmationDone = () => {
    Swal.fire({
-      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media✨</p>  </div> ',
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> </div> ',
       icon: "success",
       background: "#FDFDFD",
       showConfirmButton: true,
@@ -99,9 +99,22 @@ export const FileTooBigSwal = () => {
       backdrop: `rgba(0,0,0,0.6)`,
    });
 };
+
 export const InvalidFileTypeSwal = () => {
    return Swal.fire({
       html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย! ชนิดไฟล์ไม่ถูกต้อง</p> <p>รองรับเฉพาะไฟล์ PDF,JPG,JPEG และ PNG เท่านั้น</p></div>',
+      icon: "error",
+      background: "#FDFDFD",
+      showConfirmButton: true,
+      confirmButtonColor: "#B12E45",
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ปิด</p>',
+      backdrop: `rgba(0,0,0,0.6)`,
+   });
+};
+
+export const InvalidImageTypeSwal = () => {
+   return Swal.fire({
+      html: '<div class="font-bai-jamjuree"><p class="text-2xl font-bold"> ขออภัย! ชนิดไฟล์รูปภาพไม่ถูกต้อง</p> <p>รองรับเฉพาะไฟล์รูปภาพ JPG,JPEG และ PNG เท่านั้น</p></div>',
       icon: "error",
       background: "#FDFDFD",
       showConfirmButton: true,
