@@ -15,6 +15,7 @@ const FileUploaderComponent = ({
    value,
    setStatus,
    disabled,
+   showPreview,
 }: {
    filePath: string;
    label?: string;
@@ -27,6 +28,7 @@ const FileUploaderComponent = ({
    value: string;
    setStatus?: any;
    disabled?: boolean;
+   showPreview?: boolean;
 }) => {
    const [file, setFile]: any = useState();
    const [fileData, setFileData]: any = useState();
@@ -235,7 +237,7 @@ const FileUploaderComponent = ({
                )}
             </div>
          </div>
-         {value ? (
+         {value && showPreview ? (
             <div className='flex justify-center py-8'>
                <img src={value} className='w-full lg:w-2/5' />
             </div>

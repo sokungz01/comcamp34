@@ -172,6 +172,7 @@ const ConfirmForm = ({
                         value={data.transaction_URL}
                         required
                         disabled={!confirm}
+                        showPreview
                      />
                   </div>
                </div>
