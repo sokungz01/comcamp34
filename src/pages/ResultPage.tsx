@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
 import { CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
@@ -15,7 +15,7 @@ import {
    ExaminationPage4,
    ExaminationPage5,
 } from "@/components/ConfirmmationForm";
-import { DateForm, Confirmation, Page2 } from "@/types/ConfirmationType";
+import { DateForm, Confirmation, Page2, Page5 } from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
@@ -80,6 +80,12 @@ const ResultPage = () => {
       q2_3: "",
    });
 
+   const [dataExaminationPage5, setDataExaminationPage5] = useState<Page5>({
+      q5_1: "",
+      q5_2: "",
+      q5_3: "",
+   });
+
    const prevPage = () => {
       window.scrollTo(0, 0);
       setPage(page - 1);
@@ -132,10 +138,12 @@ const ResultPage = () => {
             ) : null}
             {page === 2 ? <ExaminationInfo /> : null}
             {page === 3 ? <ExaminationPage1 /> : null}
-            {page === 4 ? <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} /> : null}
+            {page === 4 ? (
+               <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} />
+            ) : null}
             {page === 5 ? <ExaminationPage3 /> : null}
             {page === 6 ? <ExaminationPage4 /> : null}
-            {page === 7 ? <ExaminationPage5 /> : null}
+            {page === 7 ? <ExaminationPage5 data={dataExaminationPage5} setData={setDataExaminationPage5}/> : null}
          </div>
 
          <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
@@ -173,4 +181,3 @@ const ResultPage = () => {
    );
 };
 export default ResultPage;
- 

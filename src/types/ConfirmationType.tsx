@@ -20,3 +20,9 @@ export type Page2 = {
    q2_2: string;
    q2_3: string;
 }
+
+export type Page5 = {
+   q5_1: string;
+   q5_2: string;
+   q5_3: string;
+}

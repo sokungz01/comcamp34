@@ -2,11 +2,6 @@ import { Fragment, useEffect } from "react";
 import Choice from "./Choice";
 import { Page2 } from "@/types/ConfirmationType";
 const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
-   useEffect(
-    ()=>{
-        console.log(data);
-    }
-   ),[data];
     return (
       <>
          <div className='flex justify-center mt-8'>
@@ -40,7 +35,7 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                         จากวงจรและโค้ดดังรูปหากต้องการให้หลอดไฟติดค้างตลอดเวลาจะต้องเขียนโค้ดอย่างไร
                         ?<span className='text-orange'>*</span>
                      </p>
-                     <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 py-6">
+                     <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 sm:py-6">
                         <img 
                             src="/assets/confirmationPage/q2-2.png"
                             className=" w-full sm:object-contain sm:w-3/4 lg:w-2/3 rounded-xl border-4"
@@ -109,7 +104,7 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                         2.3 จากวงจรและโค้ดดังรูปเมื่อทำการกด RUN จะเกิดอะไรขึ้นกับหลอด LED
                         <span className='text-orange'>*</span>
                      </p>
-                     <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 py-6">
+                     <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 sm:py-6">
                         <img 
                             src="/assets/confirmationPage/q2-3.png"
                             className=" w-full sm:object-contain sm:w-3/4 lg:w-2/3 rounded-xl border-4"

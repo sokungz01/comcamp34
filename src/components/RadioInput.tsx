@@ -23,8 +23,8 @@ const RadioInput = ({
    return (
       <>
          <div>
-            <div className='flex ml-6 my-2'>
-                <label className="flex flex-row items-center w-fit">
+            <div className='flex pl-6 my-2'>
+                <label className="flex flex-row items-center ">
                     <input
                         type='radio'
                         onClick={onclick}
@@ -34,7 +34,7 @@ const RadioInput = ({
                         checked={checked}
                         className="p-2 form-check-input appearance-none cursor-pointer rounded-full border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white"
                     />
-                   <span className="ml-3 font-semibold text-xl">{label}</span>
+                   <span className="w-full ml-3 font-semibold text-md sm:text-lg lg:text-xl text-clip">{label}</span>
                </label>
             </div>
          </div>
