@@ -26,7 +26,7 @@ const TimelineSection = () => {
                data-aos-delay='300'
             >
                <img
-                  src='assets/frontPage/timeline-image-1-desktop.png'
+                  src='assets/frontPage/timeline-image-2-desktop.png'
                   alt=''
                   className='px-16 xl:px-10'
                />
@@ -36,7 +36,7 @@ const TimelineSection = () => {
                data-aos='zoom-in'
                data-aos-delay='300'
             >
-               <img src='assets/frontPage/timeline-image-1-mobile.png' alt='' className='px-5' />
+               <img src='assets/frontPage/timeline-image-2-mobile.png' alt='' className='px-5' />
             </div>
          </div>
       </div>
