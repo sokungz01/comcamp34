@@ -21,7 +21,6 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                         2.1 อุปกรณ์ Microcontroller มีความใกล้เคียงกับอุปกรณ์ใดต่อไปนี้มากที่สุด
                         <span className='text-orange'>*</span>
                      </p>
-                     <div className='flex flex-col my-3'>
                         <Choice
                            name='q2_1'
                            choice1='Microwave'
@@ -33,7 +32,6 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                            obj={data}
                            setObj={setData}
                         />
-                     </div>
                   </div>
                   <hr className='h-px my-8 bg-black/30 border-0'/>
                   <div className='mt-6'>
@@ -42,7 +40,12 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                         จากวงจรและโค้ดดังรูปหากต้องการให้หลอดไฟติดค้างตลอดเวลาจะต้องเขียนโค้ดอย่างไร
                         ?<span className='text-orange'>*</span>
                      </p>
-                     <div className='flex flex-col my-3'>
+                     <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 py-6">
+                        <img 
+                            src="/assets/confirmationPage/q2-2.png"
+                            className=" w-full sm:object-contain sm:w-3/4 lg:w-2/3 rounded-xl border-4"
+                        />
+                     </div>
                         <Choice
                            name='q2_2'
                            choice1={
@@ -99,14 +102,19 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                            obj={data}
                            setObj={setData}
                         />
-                     </div>
                   </div>
+                  <hr className='h-px my-8 bg-black/30 border-0'/>
                   <div className="mt-6">
                      <p className='font-bold text-lg lg:text-2xl'>
                         2.3 จากวงจรและโค้ดดังรูปเมื่อทำการกด RUN จะเกิดอะไรขึ้นกับหลอด LED
                         <span className='text-orange'>*</span>
                      </p>
-                     <div className='flex flex-col my-3'>
+                     <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 py-6">
+                        <img 
+                            src="/assets/confirmationPage/q2-3.png"
+                            className=" w-full sm:object-contain sm:w-3/4 lg:w-2/3 rounded-xl border-4"
+                        />
+                     </div>
                         <Choice
                            name='q2_3'
                            choice1='หลอด LED สว่างเป็นเวลา 1 วินาที และดับเป็นเวลา 1 วินาทีแล้วหยุดทำงาน'
@@ -118,7 +126,6 @@ const ExaminationPage2 = ({ data, setData }: { data: Page2; setData: any }) => {
                            obj={data}
                            setObj={setData}
                         />
-                     </div>
                   </div>
                </div>
             </div>

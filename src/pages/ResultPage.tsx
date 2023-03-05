@@ -81,9 +81,11 @@ const ResultPage = () => {
    });
 
    const prevPage = () => {
+      window.scrollTo(0, 0);
       setPage(page - 1);
    };
    const nextPage = () => {
+      window.scrollTo(0, 0);
       setPage(page + 1);
    };
 

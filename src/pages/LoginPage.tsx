@@ -45,7 +45,7 @@ const LoginPage = () => {
       return () => {};
    }, []);
 
-   return isLogin ? (
+   return !isLogin ? (
       // <RegistrationPage />
       <ResultPage/>
    ) : (

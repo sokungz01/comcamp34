@@ -23,6 +23,7 @@ const Choice = ({
 }) => {
    return (
       <>
+      <div className='flex flex-col my-3 sm:ml-8'>
          <RadioInput
             name={name}
             label={choice1}
@@ -65,6 +66,7 @@ const Choice = ({
                checked={value == "e"}
             />
          ) : null}
+         </div>
       </>
    );
 };
