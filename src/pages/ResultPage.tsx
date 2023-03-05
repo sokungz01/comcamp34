@@ -6,9 +6,16 @@ import { useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
 import { CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
-import ExaminationInfo from "@/components/ConfirmmationForm/ExaminationInfo";
-import ConfirmForm from "@/components/ConfirmmationForm/ConfirmForm";
-import { DateForm, Confirmation } from "@/types/ConfirmationType";
+import {
+   ConfirmForm,
+   ExaminationInfo,
+   ExaminationPage1,
+   ExaminationPage2,
+   ExaminationPage3,
+   ExaminationPage4,
+   ExaminationPage5,
+} from "@/components/ConfirmmationForm";
+import { DateForm, Confirmation, Page2 } from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
@@ -35,8 +42,7 @@ const ResultPage = () => {
       rgba(0,0,0,0.6)
       `,
       }).then(result => {
-         if(result.isConfirmed)
-            ConfirmationDone();
+         if (result.isConfirmed) ConfirmationDone();
       });
    };
 
@@ -66,6 +72,12 @@ const ResultPage = () => {
       transaction_date: "",
       transaction_hours: "",
       transaction_minutes: "",
+   });
+
+   const [dataExaminationPage2, setDataExaminationPage2] = useState<Page2>({
+      q2_1: "",
+      q2_2: "",
+      q2_3: "",
    });
 
    const prevPage = () => {
@@ -117,6 +129,11 @@ const ResultPage = () => {
                />
             ) : null}
             {page === 2 ? <ExaminationInfo /> : null}
+            {page === 3 ? <ExaminationPage1 /> : null}
+            {page === 4 ? <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} /> : null}
+            {page === 5 ? <ExaminationPage3 /> : null}
+            {page === 6 ? <ExaminationPage4 /> : null}
+            {page === 7 ? <ExaminationPage5 /> : null}
          </div>
 
          <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
@@ -154,3 +171,4 @@ const ResultPage = () => {
    );
 };
 export default ResultPage;
+ 

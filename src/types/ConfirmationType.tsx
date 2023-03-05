@@ -14,3 +14,9 @@ export type Confirmation = {
    transaction_hours: string;
    transaction_minutes: string;
 };
+
+export type Page2 = {
+   q2_1: string;
+   q2_2: string;
+   q2_3: string;
+}
