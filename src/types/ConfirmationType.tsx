@@ -26,6 +26,10 @@ export type Page3 = {
    q3_2: string;
 }
 
+export type Page4 = {
+   q4_1: string;
+}
+
 export type Page5 = {
    q5_1: string;
    q5_2: string;
