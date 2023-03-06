@@ -15,10 +15,18 @@ import {
    ExaminationPage4,
    ExaminationPage5,
 } from "@/components/ConfirmmationForm";
-import { DateForm, Confirmation, Page2, Page3, Page4, Page5 } from "@/types/ConfirmationType";
+import {
+   DateForm,
+   Confirmation,
+   Page1,
+   Page2,
+   Page3,
+   Page4,
+   Page5,
+} from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
-   const [page, setPage] = useState<number>(6);
+   const [page, setPage] = useState<number>(1);
    const [confirm, setConfirm] = useState<boolean>(true);
 
    const waiveSwal = () => {
@@ -74,6 +82,15 @@ const ResultPage = () => {
       transaction_minutes: "",
    });
 
+   const [dataExaminationPage1, setDataExaminationPage1] = useState<Page1>({
+      q1_1: "",
+      reason_q1_1: "",
+      q1_2: "",
+      reason_q1_2: "",
+      q1_3: "",
+      reason_q1_3: "",
+   });
+
    const [dataExaminationPage2, setDataExaminationPage2] = useState<Page2>({
       q2_1: "",
       q2_2: "",
@@ -103,7 +120,6 @@ const ResultPage = () => {
       window.scrollTo(0, 0);
       setPage(page + 1);
    };
-
    return (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
          <div className='flex justify-between py-4 '>
@@ -146,7 +162,9 @@ const ResultPage = () => {
                />
             ) : null}
             {page === 2 ? <ExaminationInfo /> : null}
-            {page === 3 ? <ExaminationPage1 /> : null}
+            {page === 3 ? (
+               <ExaminationPage1 data={dataExaminationPage1} setData={setDataExaminationPage1} />
+            ) : null}
             {page === 4 ? (
                <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} />
             ) : null}
