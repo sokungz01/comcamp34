@@ -2,13 +2,28 @@ import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
 import { CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
-import ExaminationInfo from "@/components/ConfirmmationForm/ExaminationInfo";
-import ConfirmForm from "@/components/ConfirmmationForm/ConfirmForm";
-import { DateForm, Confirmation } from "@/types/ConfirmationType";
+import {
+   ConfirmForm,
+   ExaminationInfo,
+   ExaminationPage1,
+   ExaminationPage2,
+   ExaminationPage3,
+   ExaminationPage4,
+   ExaminationPage5,
+} from "@/components/ConfirmmationForm";
+import {
+   DateForm,
+   Confirmation,
+   Page1,
+   Page2,
+   Page3,
+   Page4,
+   Page5,
+} from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
@@ -35,8 +50,7 @@ const ResultPage = () => {
       rgba(0,0,0,0.6)
       `,
       }).then(result => {
-         if(result.isConfirmed)
-            ConfirmationDone();
+         if (result.isConfirmed) ConfirmationDone();
       });
    };
 
@@ -68,13 +82,44 @@ const ResultPage = () => {
       transaction_minutes: "",
    });
 
+   const [dataExaminationPage1, setDataExaminationPage1] = useState<Page1>({
+      q1_1: "",
+      reason_q1_1: "",
+      q1_2: "",
+      reason_q1_2: "",
+      q1_3: "",
+      reason_q1_3: "",
+   });
+
+   const [dataExaminationPage2, setDataExaminationPage2] = useState<Page2>({
+      q2_1: "",
+      q2_2: "",
+      q2_3: "",
+   });
+
+   const [dataExaminationPage3, setDataExaminationPage3] = useState<Page3>({
+      q3_1: "",
+      q3_2: "",
+   });
+
+   const [dataExaminationPage4, setDataExaminationPage4] = useState<Page4>({
+      q4_1: "",
+   });
+
+   const [dataExaminationPage5, setDataExaminationPage5] = useState<Page5>({
+      q5_1: "",
+      q5_2: "",
+      q5_3: "",
+   });
+
    const prevPage = () => {
+      window.scrollTo(0, 0);
       setPage(page - 1);
    };
    const nextPage = () => {
+      window.scrollTo(0, 0);
       setPage(page + 1);
    };
-
    return (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
          <div className='flex justify-between py-4 '>
@@ -117,6 +162,21 @@ const ResultPage = () => {
                />
             ) : null}
             {page === 2 ? <ExaminationInfo /> : null}
+            {page === 3 ? (
+               <ExaminationPage1 data={dataExaminationPage1} setData={setDataExaminationPage1} />
+            ) : null}
+            {page === 4 ? (
+               <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} />
+            ) : null}
+            {page === 5 ? (
+               <ExaminationPage3 data={dataExaminationPage3} setData={setDataExaminationPage3} />
+            ) : null}
+            {page === 6 ? (
+               <ExaminationPage4 data={dataExaminationPage4} setData={setDataExaminationPage4} />
+            ) : null}
+            {page === 7 ? (
+               <ExaminationPage5 data={dataExaminationPage5} setData={setDataExaminationPage5} />
+            ) : null}
          </div>
 
          <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
