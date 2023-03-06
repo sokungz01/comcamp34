@@ -15,10 +15,10 @@ import {
    ExaminationPage4,
    ExaminationPage5,
 } from "@/components/ConfirmmationForm";
-import { DateForm, Confirmation, Page2, Page5 } from "@/types/ConfirmationType";
+import { DateForm, Confirmation, Page2, Page3, Page5 } from "@/types/ConfirmationType";
 const ResultPage = () => {
    const navigate = useNavigate();
-   const [page, setPage] = useState<number>(1);
+   const [page, setPage] = useState<number>(5);
    const [confirm, setConfirm] = useState<boolean>(true);
 
    const waiveSwal = () => {
@@ -80,6 +80,11 @@ const ResultPage = () => {
       q2_3: "",
    });
 
+   const [dataExaminationPage3, setDataExaminationPage3] = useState<Page3>({
+      q3_1: "",
+      q3_2: "",
+   });
+
    const [dataExaminationPage5, setDataExaminationPage5] = useState<Page5>({
       q5_1: "",
       q5_2: "",
@@ -94,6 +99,8 @@ const ResultPage = () => {
       window.scrollTo(0, 0);
       setPage(page + 1);
    };
+
+   // console.log(dataExaminationPage3);
 
    return (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
@@ -141,9 +148,13 @@ const ResultPage = () => {
             {page === 4 ? (
                <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} />
             ) : null}
-            {page === 5 ? <ExaminationPage3 /> : null}
+            {page === 5 ? (
+               <ExaminationPage3 data={dataExaminationPage3} setData={setDataExaminationPage3} />
+            ) : null}
             {page === 6 ? <ExaminationPage4 /> : null}
-            {page === 7 ? <ExaminationPage5 data={dataExaminationPage5} setData={setDataExaminationPage5}/> : null}
+            {page === 7 ? (
+               <ExaminationPage5 data={dataExaminationPage5} setData={setDataExaminationPage5} />
+            ) : null}
          </div>
 
          <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
