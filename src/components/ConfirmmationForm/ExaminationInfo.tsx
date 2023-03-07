@@ -14,7 +14,7 @@ const ExaminationInfo = () => {
                <div className='flex justify-center'>
                   <div className='text-md md:text-xl bg-white h-full overflow-y-auto rounded-lg p-6 mb-4 mx-2 w-full lg:w-5/6'>
                      <p className='font-bold'> คำชี้แจ้ง </p>
-                     <p className='font-semibold ml-4 mt-2'>1. ข้อสอบมีทั้งหมด 5 ข้อจำนวน 5 หน้า</p>
+                     <p className='font-semibold ml-4 mt-2'>1. ข้อสอบมีทั้งหมด 5 ข้อ จำนวน 5 หน้า</p>
                      <p className='font-semibold ml-4 mt-2'>2. ข้อสอบมีทั้งหมด 5 ข้อ</p>
                      <ul className='ml-8'>
                         <li>- ข้อที่ 1 คิดเป็นร้อยละ 19 ของคะแนนทั้งหมด</li>

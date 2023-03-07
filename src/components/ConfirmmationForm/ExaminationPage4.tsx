@@ -51,7 +51,7 @@ const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
                <div className='my-7'>
                   <div>
                      <p className='font-bold text-lg lg:text-2xl'>
-                        4.1 พี่โต และ พี่คัทซึยะ กำลังถกเถียงกันเกี่ยวกับ การเขียนโปรแกรมด้วยภาษาไพธอน (Python)ข้อความใดต่อไปนี้กล่าวถูกต้อง
+                        4.1 พี่โต และ พี่คัทซึยะ กำลังถกเถียงกันเกี่ยวกับ การเขียนโปรแกรมด้วยภาษาไพธอน (Python) ข้อความใดต่อไปนี้กล่าวถูกต้อง
                         <span className='text-orange'>*</span>
                      </p>
                      <ul className='flex flex-col my-3 sm:ml-8'>

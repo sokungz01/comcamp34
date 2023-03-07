@@ -48,7 +48,7 @@ const ExaminationPage5 = ({ data, setData }: { data: Page5; setData: any }) => {
                   <hr className='h-px my-8 bg-black/30 border-0'/>
                   <div className="mt-6">
                      <p className='font-bold text-lg lg:text-2xl'>
-                        2.3 จากวงจรและโค้ดดังรูปเมื่อทำการกด RUN จะเกิดอะไรขึ้นกับหลอด LED
+                        5.3 จาก JavaScript ในภาพ เราสามารถเขียนตัวแปร y และ x ให้อยู่ในสมการคณิตศาสตร์ข้อใดต่อไปนี้
                         <span className='text-orange'>*</span>
                      </p>
                      <div className="flex h-full w-full bg-white/70 justify-center rounded-xl my-6 sm:py-6">
