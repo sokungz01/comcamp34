@@ -65,7 +65,7 @@ const ExaminationPage1 = ({ data, setData }: { data: Page1; setData: any }) => {
                            value={data.reason_q1_1}
                            obj={data}
                            setObj={setData}
-                           placeholder='เหตุผลที่เลือก'
+                           placeholder='เหตุผลที่เลือก [ตัวอย่าง: line 6 - int main()]'
                         />
                      ) : (
                         <></>
@@ -101,7 +101,7 @@ const ExaminationPage1 = ({ data, setData }: { data: Page1; setData: any }) => {
                            value={data.reason_q1_2}
                            obj={data}
                            setObj={setData}
-                           placeholder='เหตุผลที่เลือก'
+                           placeholder='เหตุผลที่เลือก [ตัวอย่าง: line 6 - int main()]'
                         />
                      ) : (
                         <></>
@@ -136,7 +136,7 @@ const ExaminationPage1 = ({ data, setData }: { data: Page1; setData: any }) => {
                            value={data.reason_q1_3}
                            obj={data}
                            setObj={setData}
-                           placeholder='เหตุผลที่เลือก'
+                           placeholder='เหตุผลที่เลือก [ตัวอย่าง: line 6 - int main()]'
                         />
                      ) : (
                         <></>

@@ -24,7 +24,7 @@ const ConfirmForm = ({
    for (let i = 0; i < 24; i++) {
       let convert: unknown = i;
       if (i < 10) {
-         hours.push("0" + (convert as string));
+        hours.push("0" + (convert as string));
          continue;
       }
       hours.push(i);
@@ -124,7 +124,27 @@ const ConfirmForm = ({
                         row={6}
                         obj={data}
                         setObj={setData}
+                        placeholder="เดินทางโดยรถตู้สาธารณะจากท่ารถตู้แม่กลองลงที่ตลาดบางปะแก้ว แล้วข้ามฝั่งขึ้นรถเมล์สาย 21/75 มาลงที่มหาวิทยาลัย"
                         value={data.describeTravel}
+                        disabled={!confirm}
+                     />
+                  </div>
+               </div>
+               <div className='flex flex-col'>
+                  <div>
+                     <p className='lg:font-semibold font-bold lg:text-2xl text-md lg:ml-8'>
+                        อธิบายขั้นตอนการเดินทางกลับบ้านโดยละเอียด
+                        <span className='text-orange'>*</span>
+                     </p>
+                  </div>
+                  <div className='w-full'>
+                     <Inputbox
+                        name='describeBackhome'
+                        row={6}
+                        obj={data}
+                        setObj={setData}
+                        placeholder="นั่งรถเมล์สาย 21/75 จากบริเวณด้านหน้ามหาวิทยาลัย ไปลงตลาดบางปะแก้ว แล้วจึงนั่งรถตู้จากตลาดบางปะแก้วกลับสู่ท่ารถตู้แม่กลอง"
+                        value={data.describeBackhome}
                         disabled={!confirm}
                      />
                   </div>
@@ -160,7 +180,7 @@ const ConfirmForm = ({
                   </div>
                </div>
                <div className='flex w-full justify-center lg:mt-3'>
-                  <div className='mt-3 lg:w-3/5'>
+                  <div className='mt-3 lg:w-5/6 xl:w-4/5'>
                      <FileUploaderComponent
                         label='หลักฐานการโอนเงินค่ามัดจำในการเข้าร่วมค่าย Comcamp 34'
                         filePath='transaction_URL'
