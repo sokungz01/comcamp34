@@ -8,6 +8,7 @@ export type Confirmation = {
    isConfirm: string;
    shirt_size : string;
    describeTravel: string;
+   describeBackhome: string;
    transaction_Name: string;
    transaction_URL: string;
    transaction_date: string;

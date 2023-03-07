@@ -129,6 +129,24 @@ const ConfirmForm = ({
                      />
                   </div>
                </div>
+               <div className='flex flex-col'>
+                  <div>
+                     <p className='lg:font-semibold font-bold lg:text-2xl text-md lg:ml-8'>
+                        อธิบายขั้นตอนการเดินทางกลับบ้านโดยละเอียด
+                        <span className='text-orange'>*</span>
+                     </p>
+                  </div>
+                  <div className='w-full'>
+                     <Inputbox
+                        name='describeBackhome'
+                        row={6}
+                        obj={data}
+                        setObj={setData}
+                        value={data.describeBackhome}
+                        disabled={!confirm}
+                     />
+                  </div>
+               </div>
                <hr className='h-px my-8 bg-black/30 border-0' />
                <div className='flex mt-3 lg:mt-0'>
                   <img

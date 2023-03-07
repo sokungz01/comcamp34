@@ -75,6 +75,7 @@ const ResultPage = () => {
       isConfirm: "",
       shirt_size: "",
       describeTravel: "",
+      describeBackhome: "",
       transaction_Name: "",
       transaction_URL: "",
       transaction_date: "",
