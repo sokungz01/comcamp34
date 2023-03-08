@@ -18,7 +18,7 @@ export const CustomSwal = () => {
 
 export const notPassSwal = () => {
    return Swal.fire({
-      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-medium"> ท่านไม่ผ่านการคัดเลือก </p> <p class="text-lg">พบกันใหมในโอกาสครั้งถัดไป</p>  </div> ',
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-medium"> ท่านไม่ผ่านการคัดเลือก </p> <p class="text-lg">พบกันใหม่ในโอกาสครั้งถัดไป</p>  </div> ',
       icon: "error",
       background: "#FDFDFD",
       showConfirmButton: true,
