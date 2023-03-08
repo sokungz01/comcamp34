@@ -8,13 +8,13 @@ const ExaminationInfo = () => {
                   ข้อสอบสำหรับคัดเลือกกลุ่มเรียน โครงการ Comcamp 34
                </p>
                <p className='text-sm text-center md:font-semibold mt-6 md:mt-2 mb-4 w-11/12 '>
-                  วันพุธที่ 15 มีนาคม 2566 เวลา 09:09 น. ถึง วันอังคารที่ 22 มีนาคม 2566 เวลา 23:59
+                  วันพุธที่ 15 มีนาคม 2566 เวลา 09:09 น. ถึง วันศุกร์ที่ 17 มีนาคม 2566 เวลา 23:59
                   น.
                </p>
                <div className='flex justify-center'>
                   <div className='text-md md:text-xl bg-white h-full overflow-y-auto rounded-lg p-6 mb-4 mx-2 w-full lg:w-5/6'>
                      <p className='font-bold'> คำชี้แจ้ง </p>
-                     <p className='font-semibold ml-4 mt-2'>1. ข้อสอบมีทั้งหมด 5 ข้อ จำนวน 5 หน้า</p>
+                     <p className='font-semibold ml-4 mt-2'>1. ข้อสอบมีทั้งหมด 5 ข้อ จำนวน 7 หน้ารวมปก</p>
                      <p className='font-semibold ml-4 mt-2'>2. ข้อสอบมีทั้งหมด 5 ข้อ</p>
                      <ul className='ml-8'>
                         <li>- ข้อที่ 1 คิดเป็นร้อยละ 19 ของคะแนนทั้งหมด</li>
@@ -27,7 +27,7 @@ const ExaminationInfo = () => {
                         คิดเป็นร้อยละ 95 ของคะแนนทั้งหมด + ร้อยละ 5 จากคำถามในการคัดเลือก ข้อที่ 7
                      </p>
                      <p className='font-semibold ml-4 mt-2'>
-                        3. ให้ส่งคำตอบ โดยกดปุ่ม ส่ง (Submit) ภายในวันอังคารที่ 22 มีนาคม 2566 เวลา
+                        3. ให้ส่งคำตอบ โดยกดปุ่ม ส่ง (Submit) ภายในวันศุกร์ที่ 17 มีนาคม 2566 เวลา
                         23.59 น.
                      </p>
                      <p className='font-semibold ml-4 mt-2'>
