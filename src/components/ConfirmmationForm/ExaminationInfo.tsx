@@ -14,8 +14,8 @@ const ExaminationInfo = () => {
                <div className='flex justify-center'>
                   <div className='text-md md:text-xl bg-white h-full overflow-y-auto rounded-lg p-6 mb-4 mx-2 w-full lg:w-5/6'>
                      <p className='font-bold'> คำชี้แจ้ง </p>
-                     <p className='font-semibold ml-4 mt-2'>1. ข้อสอบมีทั้งหมด 5 ข้อ จำนวน 7 หน้ารวมปก</p>
-                     <p className='font-semibold ml-4 mt-2'>2. ข้อสอบมีทั้งหมด 5 ข้อ</p>
+                     <p className='ml-4 mt-2'>1. ข้อสอบมีทั้งหมด 5 ข้อ จำนวน 7 หน้า รวมปก</p>
+                     <p className='ml-4 mt-2'>2. ข้อสอบ มีทั้งหมด 5 ข้อ</p>
                      <ul className='ml-8'>
                         <li>- ข้อที่ 1 คิดเป็นร้อยละ 19 ของคะแนนทั้งหมด</li>
                         <li>- ข้อที่ 2 คิดเป็นร้อยละ 19 ของคะแนนทั้งหมด</li>
@@ -26,19 +26,24 @@ const ExaminationInfo = () => {
                      <p className='ml-6'>
                         คิดเป็นร้อยละ 95 ของคะแนนทั้งหมด + ร้อยละ 5 จากคำถามในการคัดเลือก ข้อที่ 7
                      </p>
-                     <p className='font-semibold ml-4 mt-2'>
-                        3. ให้ส่งคำตอบ โดยกดปุ่ม ส่ง (Submit) ภายในวันศุกร์ที่ 17 มีนาคม 2566 เวลา
-                        23.59 น.
+                     <p className='ml-4 mt-2'>
+                        3. ให้ส่งคำตอบ โดยกดปุ่ม ส่ง (Submit){" "}
+                        <span className='font-bold'>
+                           ภายในวันศุกร์ที่ 17 มีนาคม 2566 เวลา 23.59 น.
+                        </span>
                      </p>
-                     <p className='font-semibold ml-4 mt-2'>
+                     <p className='ml-4 mt-2'>
                         4. อนุญาตให้ใช้เครื่องคิดคำนวณ โปรแกรมต่างๆ
                         หรือคอมพิวเตอร์ในการสืบค้นข้อมูลได้
                      </p>
-                     <p className='font-semibold ml-4 mt-2'>
+                     <p className='ml-4 mt-2'>
                         5. ข้อสอบไม่มีการแก้ไขใด ๆ หากมีปัญหาให้น้องเขียนสมมติฐานประกอบการตัดสินใจ
                      </p>
-                     <p className='font-semibold ml-4 mt-2'>
+                     <p className='ml-4 mt-2'>
                         6. การประเมินผลการคัดเลือก จะเน้นหลักการ และแนวคิดในการตอบคำถามเป็นหลัก
+                     </p>
+                     <p className='ml-4 mt-2'>
+                        7. ข้อสอบไม่มีผลต่อการคัดเลือกใด ๆ เป็นเพียงการวัดพื้นฐานของน้อง ๆเท่านั้น
                      </p>
 
                      <p className='font-bold text-center mt-8 text-md lg:text-xl xl:text-2xl'>
