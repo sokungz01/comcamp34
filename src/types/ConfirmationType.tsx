@@ -38,6 +38,7 @@ export type Page3 = {
 
 export type Page4 = {
    q4_1: string;
+   q4_2: string;
 }
 
 export type Page5 = {

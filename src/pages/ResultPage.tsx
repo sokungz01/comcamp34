@@ -105,6 +105,7 @@ const ResultPage = () => {
 
    const [dataExaminationPage4, setDataExaminationPage4] = useState<Page4>({
       q4_1: "",
+      q4_2: "",
    });
 
    const [dataExaminationPage5, setDataExaminationPage5] = useState<Page5>({
