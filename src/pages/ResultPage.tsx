@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
+import { checkWhitelist } from "@/lib/Fetch";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -24,11 +25,11 @@ import {
    Page4,
    Page5,
 } from "@/types/ConfirmationType";
-const ResultPage = () => {
+const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
    const [confirm, setConfirm] = useState<boolean>(true);
-
+   const [pass, setPass] = useState<boolean>(false);
    const waiveSwal = () => {
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> คุณยืนยันที่จะ<span class="text-red1">สละสิทธิ์</span><br />การเข้าค่ายคอมแคมป์ใช่หรือไม่ </p> <p class="text-sm">หากดำเนินการแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
@@ -53,7 +54,6 @@ const ResultPage = () => {
          if (result.isConfirmed) ConfirmationDone();
       });
    };
-
    const handleLogout = () => {
       signOut(auth)
          .then(() => {
@@ -123,96 +123,114 @@ const ResultPage = () => {
       setPage(page + 1);
    };
    return (
-      <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
-         <div className='flex justify-between py-4 '>
-            <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
-               <img
-                  src={`${sessionStorage.getItem("photoURL")}`}
-                  alt='Profile'
-                  referrerPolicy='no-referrer'
-                  className='lg:w-12 lg:h-12 w-6 h-6 rounded-full'
-               />
-               <p className='text-base-black font-semibold lg:mt-2.5lg:ml-4 ml-2 text-sm lg:text-base'>
-                  {sessionStorage.getItem("email")}
-               </p>
-            </div>
+      <>
+            <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
+               <div className='flex justify-between py-4 '>
+                  <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
+                     <img
+                        src={`${sessionStorage.getItem("photoURL")}`}
+                        alt='Profile'
+                        referrerPolicy='no-referrer'
+                        className='lg:w-12 lg:h-12 w-6 h-6 rounded-full'
+                     />
+                     <p className='text-base-black font-semibold lg:mt-2.5lg:ml-4 ml-2 text-sm lg:text-base'>
+                        {sessionStorage.getItem("email")}
+                     </p>
+                  </div>
 
-            <button
-               className='bg-red2 text-white lg:py-2 lg:px-8 py-1.5 px-4 rounded-lg font-semibold text-sm lg:text-base mr-2 lg:mr-12'
-               onClick={handleLogout}
-            >
-               Log out
-            </button>
-         </div>
-         {/* Form Section */}
-         <div className='flex justify-center'>
-            <div className='flex w-full justify-center'>
-               <p className='xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-teko tracking-widest text-red2 font-semibold mt-3 mb-3'>
-                  {page == 1 ? "Confirmation" : "Examination"}
-               </p>
-            </div>
-         </div>
-         <div className='w-full h-full relative z-10'>
-            {page === 1 ? (
-               <ConfirmForm
-                  data={dataConfirmation}
-                  setData={setdataConfirmation}
-                  dateData={dateData}
-                  setDateData={setDateData}
-                  confirm={confirm}
-                  setConfirm={setConfirm}
-               />
-            ) : null}
-            {page === 2 ? <ExaminationInfo /> : null}
-            {page === 3 ? (
-               <ExaminationPage1 data={dataExaminationPage1} setData={setDataExaminationPage1} />
-            ) : null}
-            {page === 4 ? (
-               <ExaminationPage2 data={dataExaminationPage2} setData={setDataExaminationPage2} />
-            ) : null}
-            {page === 5 ? (
-               <ExaminationPage3 data={dataExaminationPage3} setData={setDataExaminationPage3} />
-            ) : null}
-            {page === 6 ? (
-               <ExaminationPage4 data={dataExaminationPage4} setData={setDataExaminationPage4} />
-            ) : null}
-            {page === 7 ? (
-               <ExaminationPage5 data={dataExaminationPage5} setData={setDataExaminationPage5} />
-            ) : null}
-         </div>
-
-         <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
-            {page === 7 ? (
-               <div className='flex flex-row justify-center mb-8'>
                   <button
-                     onClick={CustomSwal}
-                     className='text-2xl lg:text-3xl text-white font-teko bg-red2 lg:px-12 lg:py-1.5 px-8 py-1 rounded-lg '
+                     className='bg-red2 text-white lg:py-2 lg:px-8 py-1.5 px-4 rounded-lg font-semibold text-sm lg:text-base mr-2 lg:mr-12'
+                     onClick={handleLogout}
                   >
-                     Submit
+                     Log out
                   </button>
                </div>
-            ) : null}
-            {page > 0 ? (
-               <div className='flex flex-row justify-center items-center gap-y-4 bottom-5 z-10'>
-                  {page === 1 ? null : (
-                     <button onClick={prevPage}>
-                        <img src={LeftArrow} className='w-6 lg:w-9' />
-                     </button>
-                  )}
-                  <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
-                  {page === 7 ? null : (
-                     <button onClick={confirm ? nextPage : waiveSwal}>
-                        <img src={RightArrow} className='w-6 lg:w-9' />
-                     </button>
-                  )}
+               {/* Form Section */}
+               <div className='flex justify-center'>
+                  <div className='flex w-full justify-center'>
+                     <p className='xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-teko tracking-widest text-red2 font-semibold mt-3 mb-3'>
+                        {page == 1 ? "Confirmation" : "Examination"}
+                     </p>
+                  </div>
                </div>
-            ) : null}
-         </div>
+               <div className='w-full h-full relative z-10'>
+                  {page === 1 ? (
+                     <ConfirmForm
+                        data={dataConfirmation}
+                        setData={setdataConfirmation}
+                        dateData={dateData}
+                        setDateData={setDateData}
+                        confirm={confirm}
+                        setConfirm={setConfirm}
+                     />
+                  ) : null}
+                  {page === 2 ? <ExaminationInfo /> : null}
+                  {page === 3 ? (
+                     <ExaminationPage1
+                        data={dataExaminationPage1}
+                        setData={setDataExaminationPage1}
+                     />
+                  ) : null}
+                  {page === 4 ? (
+                     <ExaminationPage2
+                        data={dataExaminationPage2}
+                        setData={setDataExaminationPage2}
+                     />
+                  ) : null}
+                  {page === 5 ? (
+                     <ExaminationPage3
+                        data={dataExaminationPage3}
+                        setData={setDataExaminationPage3}
+                     />
+                  ) : null}
+                  {page === 6 ? (
+                     <ExaminationPage4
+                        data={dataExaminationPage4}
+                        setData={setDataExaminationPage4}
+                     />
+                  ) : null}
+                  {page === 7 ? (
+                     <ExaminationPage5
+                        data={dataExaminationPage5}
+                        setData={setDataExaminationPage5}
+                     />
+                  ) : null}
+               </div>
 
-         <div className='absolute z-0 bottom-0 w-full'>
-            <img src='/assets/regisPage/bgLogin.png' className='w-full opacity-50' />
-         </div>
-      </div>
+               <div className='flex flex-col justify-center pt-4 relative z-10 my-8 pb-16'>
+                  {page === 7 ? (
+                     <div className='flex flex-row justify-center mb-8'>
+                        <button
+                           onClick={CustomSwal}
+                           className='text-2xl lg:text-3xl text-white font-teko bg-red2 lg:px-12 lg:py-1.5 px-8 py-1 rounded-lg '
+                        >
+                           Submit
+                        </button>
+                     </div>
+                  ) : null}
+                  {page > 0 ? (
+                     <div className='flex flex-row justify-center items-center gap-y-4 bottom-5 z-10'>
+                        {page === 1 ? null : (
+                           <button onClick={prevPage}>
+                              <img src={LeftArrow} className='w-6 lg:w-9' />
+                           </button>
+                        )}
+                        <h1 className='text-red2 text-lg lg:text-2xl px-6'>{page} of 7</h1>
+                        {page === 7 ? null : (
+                           <button onClick={confirm ? nextPage : waiveSwal}>
+                              <img src={RightArrow} className='w-6 lg:w-9' />
+                           </button>
+                        )}
+                     </div>
+                  ) : null}
+               </div>
+
+               <div className='absolute z-0 bottom-0 w-full'>
+                  <img src='/assets/regisPage/bgLogin.png' className='w-full opacity-50' />
+               </div>
+            </div>
+
+      </>
    );
 };
 export default ResultPage;

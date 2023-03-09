@@ -1,4 +1,3 @@
-import { notPassSwal } from "@/lib/CustomSwal";
 const ExaminationInfo = () => {
    return (
       <>

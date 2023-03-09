@@ -6,6 +6,20 @@ export const Login = async (idToken: string) => {
    return response;
 };
 
+export const checkWhitelist = async (token: string) => {
+   const response = await axios.post(
+      `${url}/api/confirm/checker`,
+      {},
+      {
+         headers: {
+            "access-token": token,
+         },
+      },
+   );
+
+   return response;
+};
+
 export const getData = async (token: string, page: number) => {
    const response = await axios.get(`${url}/api/pages/${page}`, {
       headers: {

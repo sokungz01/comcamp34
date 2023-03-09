@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { RegistrationPage } from "./RegistrationPage";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "@/lib/firebase";
-import { Login } from "@/lib/Fetch";
-import { CustomSwal } from "@/lib/CustomSwal";
+import { Login, checkWhitelist } from "@/lib/Fetch";
+import { CustomSwal, notPassSwal } from "@/lib/CustomSwal";
 import { registerEvent } from "@/gaEvents";
 import { loginEvent } from "@/gaEvents";
 import ResultPage from "./ResultPage";
 
 const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
+   const [isPass, setIsPass] = useState<boolean>(false);
+   const navigate = useNavigate();
    const login = async () => {
       const result = await signInWithPopup(auth, provider);
       const idToken = await result.user.getIdToken();
@@ -19,6 +22,7 @@ const LoginPage = () => {
             const res = await Login(idToken);
             if (res.status === 200 || res.status === 201) {
                setIsLogin(true);
+               await whitelistChecker(res.data.accessToken);
                // Set Token (Session)
                registerEvent();
                sessionStorage.setItem("syncPage", res.data.page);
@@ -35,18 +39,40 @@ const LoginPage = () => {
          }
       }
    };
+
+   const whitelistChecker = async (token: string) => {
+      if (token !== null) {
+         try {
+            const res = await checkWhitelist(token);
+            if (res.status === 200 && res.data.data) {
+               sessionStorage.setItem("pass", "true");
+               setIsPass(true);
+            } else {
+               sessionStorage.clear();
+               notPassSwal();
+               await signOut(auth);
+               navigate("/");
+            }
+         } catch (error) {
+            console.log(error);
+         }
+      }
+   };
    useEffect(() => {
+      if (sessionStorage.getItem("pass")) {
+         setIsPass(true);
+      }
       if (sessionStorage.getItem("token")) {
          setIsLogin(true);
          loginEvent();
-
       }
-
       return () => {};
    }, []);
-   return isLogin ? (
+   console.log(isPass);
+   return isLogin && isPass ? (
       // <RegistrationPage />
-      <ResultPage/>
+
+      <ResultPage isPass={isPass} setIsPass={setIsPass} />
    ) : (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
          <div className='relative flex flex-row h-screen justify-center z-20'>
