@@ -1,22 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Page3 } from "@/types/ConfirmationType";
 import Choice3_1 from "./data/q3_1.json";
 import Choice3_2 from "./data/q3_2.json";
 const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
-   const [question1State, setQuestion1State] = useState<Array<[]>>(
-      data.q3_1 === ""
-         ? []
-         : JSON.parse(data.q3_1).map((items: any) => {
-              return (items - 1) as number;
-           }),
-   );
-   const [question2State, setQuestion2State] = useState<Array<[]>>(
-      data.q3_2 === ""
-         ? []
-         : JSON.parse(data.q3_2).map((items: any) => {
-              return (items - 1) as number;
-           }),
-   );
+   const [q1, setQ1] = useState<Array<boolean>>(new Array(Choice3_1.length).fill(false));
+   const [q2, setQ2] = useState<Array<boolean>>(new Array(Choice3_2.length).fill(false));
+
+   const [question1State, setQuestion1State] = useState<Array<number>>([]);
+
+   const [question2State, setQuestion2State] = useState<Array<number>>([]);
+
    const isInList = (List: Array<[]>, value: Number) => {
       const indexArr = List.findIndex((items: any) => {
          return items === value;
@@ -70,6 +63,42 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
       setData({ ...data, q3_2: json });
    };
 
+   const loadData = async () => {
+      await setQuestion1State(
+         data.q3_1 === null || data.q3_1 === ""
+            ? []
+            : JSON.parse(data.q3_1).map((items: any) => {
+                 return (items - 1) as number;
+              }),
+      );
+
+      await setQuestion2State(
+         data.q3_2 === null || data.q3_2 === ""
+            ? []
+            : JSON.parse(data.q3_2).map((items: any) => {
+                 return (items - 1) as number;
+              }),
+      );
+
+      const dataTempQ1 = data.q3_1 ? JSON.parse(data.q3_1) : [];
+      const tempQ1 = [...q1];
+      dataTempQ1.map((items: any) => {
+         tempQ1[items - 1] = true;
+      });
+
+      setQ1(tempQ1);
+
+      const dataTempQ2 = data.q3_2 ? JSON.parse(data.q3_2) : [];
+      const tempQ2 = [...q2];
+      dataTempQ2.map((items: any) => {
+         tempQ2[items - 1] = true;
+      });
+      setQ2(tempQ2);
+   };
+
+   useEffect(() => {
+      loadData().then(() => {console.log(data)});
+   }, [data]);
    return (
       <>
          <div className='flex justify-center mt-8'>
@@ -85,7 +114,7 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                         <span className='text-orange'>*</span>
                      </p>
                      <ul className='flex flex-col my-3 sm:ml-8'>
-                        {Choice3_1.map((items: any, index: number) => {
+                        {q1.map((items: any, index: number) => {
                            return (
                               <li key={index} className='my-3'>
                                  <label>
@@ -93,13 +122,18 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                                        type='checkbox'
                                        id={`q3_1-${index}`}
                                        name='q3_1'
-                                       value={items.choice}
-                                       checked={isInList(question1State, index)}
-                                       onChange={() => handleOnChangeQ1(index)}
+                                       value={Choice3_1[index].choice}
+                                       checked={items}
+                                       onChange={() => {
+                                          const tempQ1 = [...q1];
+                                          tempQ1[index] = !tempQ1[index];
+                                          setQ1(tempQ1);
+                                          handleOnChangeQ1(index);
+                                       }}
                                        className='p-2 form-check-input appearance-none cursor-pointer rounded-md border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                                     />
                                     <span className='w-full ml-3 font-semibold text-md sm:text-lg lg:text-xl text-clip'>
-                                       {items.choice}
+                                       {Choice3_1[index].choice}
                                     </span>
                                  </label>
                               </li>
@@ -116,7 +150,7 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                         <span className='text-orange'>*</span>
                      </p>
                      <ul className='flex flex-col my-3 sm:ml-8'>
-                        {Choice3_2.map((items: any, index: number) => {
+                        {q2.map((items: any, index: number) => {
                            return (
                               <li key={index} className='my-3'>
                                  <label>
@@ -124,13 +158,18 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                                        type='checkbox'
                                        id={`q3_2-${index}`}
                                        name='q3_2'
-                                       value={items.choice}
-                                       checked={isInList(question2State, index)}
-                                       onChange={() => handleOnChangeQ2(index)}
+                                       value={Choice3_2[index].choice}
+                                       checked={items}
+                                       onChange={() => {
+                                          const tempQ2 = [...q2];
+                                          tempQ2[index] = !tempQ2[index];
+                                          setQ2(tempQ2);
+                                          handleOnChangeQ2(index);
+                                       }}
                                        className='p-2 form-check-input appearance-none cursor-pointer rounded-md border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                                     />
                                     <span className='w-full ml-3 font-semibold text-md sm:text-lg lg:text-xl text-clip'>
-                                       {items.choice}
+                                       {Choice3_2[index].choice}
                                     </span>
                                  </label>
                               </li>

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
-import { CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
+import { FillFormSwal, CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
 import {
    ConfirmForm,
    ExaminationInfo,
@@ -32,9 +32,53 @@ import {
 } from "@/types/ConfirmationType";
 const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) => {
    const navigate = useNavigate();
-   const [page, setPage] = useState<number>(1);
+   const [page, setPage] = useState<number>(5);
    const [confirm, setConfirm] = useState<boolean>(true);
    const [pass, setPass] = useState<boolean>(false);
+   // const ConfirmationPopup = async () => {
+   //    if (
+   //       dataExaminationPage5.q5_1?.length &&
+   //       dataExaminationPage5.q5_2?.length &&
+   //       dataExaminationPage5.q5_3?.length
+   //    ) {
+   //       const token = sessionStorage.getItem("token") as string;
+   //       await updateExaminationData(token, 5, dataExaminationPage5);;
+   //       Swal.fire({
+   //          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
+   //          icon: "warning",
+   //          iconColor: "#000",
+   //          background: "#FDFDFD",
+   //          showConfirmButton: true,
+   //          showCancelButton: true,
+   //          confirmButtonColor: "#B12E45",
+   //          confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
+   //          cancelButtonColor: "#eee",
+   //          cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
+   //          customClass: {
+   //             actions: "flex flex-row w-full justify-center ",
+   //             confirmButton: "mr-2 sm:mr-8",
+   //             cancelButton: "ml-2 sm:ml-8",
+   //          },
+   //          backdrop: `
+   //          rgba(0,0,0,0.6)
+   //          `,
+   //       }).then(result => {
+   //          if (result.isConfirmed) {
+   //             submitData(token)
+   //                .then(res => {
+   //                   sessionStorage.clear();
+   //                   SubmitDone();
+   //                })
+   //                .catch(error => {
+   //                   SubmitError();
+   //                });
+   //          }
+   //       });
+   //    } else {
+   //       FillFormSwal();
+   //    }
+   // };
+
    const waiveSwal = () => {
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> คุณยืนยันที่จะ<span class="text-red1">สละสิทธิ์</span><br />การเข้าค่ายคอมแคมป์ใช่หรือไม่ </p> <p class="text-sm">หากดำเนินการแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
@@ -130,60 +174,119 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
 
    useEffect(() => {
       const token = sessionStorage.getItem("token") as string;
-      if (page == 1) {
-         getConfirmationData(token, page)
-            .then(res => {
-               listData[page - 1](res?.data.data as any);
-               const split_date = res?.data.data.birth_date.split("-");
-               setDateData({
-                  date: split_date[0],
-                  month: split_date[1],
-                  year: split_date[2],
+      if (page > 0) {
+         if (page == 1) {
+            getConfirmationData(token, page)
+               .then(res => {
+                  listData[page - 1](res?.data.data as any);
+                  const split_date = res?.data.data.transaction_date.split("-");
+                  setDateData({
+                     date: split_date[0],
+                     month: split_date[1],
+                     year: split_date[2],
+                  });
+               })
+               .catch(error => {
+                  // console.log(error);
                });
-            })
-            .catch(error => {
-               // console.log(error);
-            });
-      }
-      if (page >= 3) {
-         getExaminationData(token, page)
+         }
+         if(page >= 3){
+            getExaminationData(token, page - 2)
             .then(res => {
                listData[page - 2](res?.data.data as any);
             })
             .catch(error => {
                // console.log(error);
             });
+         }
       }
-   }, []);
-   // handleLogout();
-   // console.log(dataConfirmation);
+   }, [page]);
+
    const prevPage = async () => {
       window.scrollTo(0, 0);
       const token = sessionStorage.getItem("token") as string;
       if (page === 1) {
-         await updateConfirmationData(token, page, dataConfirmation);
+         await updateConfirmationData(token, 1, dataConfirmation);
       } else if (page === 3) {
-         await updateExaminationData(token, page - 2, dataExaminationPage1);
+         await updateExaminationData(token, 1, dataExaminationPage1);
       } else if (page === 4) {
-         await updateExaminationData(token, page - 2, dataExaminationPage2);
+         await updateExaminationData(token, 2, dataExaminationPage2);
       } else if (page === 5) {
-         await updateExaminationData(token, page - 2, dataExaminationPage3);
+         await updateExaminationData(token, 3, dataExaminationPage3);
       } else if (page === 6) {
-         await updateExaminationData(token, page - 2, dataExaminationPage4);
+         await updateExaminationData(token, 4, dataExaminationPage4);
       } else if (page === 7) {
-         await updateExaminationData(token, page - 2, dataExaminationPage4);
+         await updateExaminationData(token, 5, dataExaminationPage4);
       }
       setPage(page - 1);
    };
    const nextPage = async () => {
-      window.scrollTo(0, 0);
-      if(page === 1){
-         if(dataConfirmation.isConfirm == "false"){
-
+      const token = sessionStorage.getItem("token") as string;
+      if (page === 1) {
+         if (
+            dataConfirmation.isConfirm != "0" &&
+            dataConfirmation.describeTravel.length &&
+            dataConfirmation.describeBackhome.length &&
+            dataConfirmation.shirt_size.length &&
+            dataConfirmation.transaction_Name.length &&
+            dataConfirmation.transaction_URL.length &&
+            dataConfirmation.transaction_date.length &&
+            dataConfirmation.transaction_hours.length &&
+            dataConfirmation.transaction_minutes.length
+         ) {
+            await updateConfirmationData(token, page, dataConfirmation);
+            setPage(page + 1);
+         } else {
+            FillFormSwal();
          }
       }
-      const token = sessionStorage.getItem("token") as string;
-      setPage(page + 1);
+      if (page === 2) {
+         setPage(page + 1);
+      }
+      if (page === 3) {
+         if (
+            dataExaminationPage1.q1_1.length &&
+            dataExaminationPage1.q1_2.length &&
+            dataExaminationPage1.q1_3.length
+         ) {
+            await updateExaminationData(token, 1, dataExaminationPage1);
+            setPage(page + 1);
+         } else {
+            FillFormSwal();
+         }
+      }
+      if (page === 4) {
+         if (
+            dataExaminationPage2.q2_1.length &&
+            dataExaminationPage2.q2_2.length &&
+            dataExaminationPage2.q2_3.length
+         ) {
+            await updateExaminationData(token, 2, dataExaminationPage2);
+            setPage(page + 1);
+         } else {
+            FillFormSwal();
+         }
+      }
+
+      if (page === 5) {
+         if (dataExaminationPage3.q3_1.length && dataExaminationPage3.q3_2.length) {
+            await updateExaminationData(token, 3, dataExaminationPage3);
+            setPage(page + 1);
+         } else {
+            FillFormSwal();
+         }
+      }
+
+      if (page === 6) {
+         if (dataExaminationPage4.q4_1.length && dataExaminationPage4.q4_2.length) {
+            await updateExaminationData(token, 4, dataExaminationPage4);
+            setPage(page + 1);
+         } else {
+            FillFormSwal();
+         }
+      }
+
+      window.scrollTo(0, 0);
    };
    return (
       <>

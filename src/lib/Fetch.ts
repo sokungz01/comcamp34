@@ -40,7 +40,6 @@ export const getConfirmationData = async (token: string, page: number) => {
    return response;
 };
 
-
 export const getExaminationData = async (token: string, page: number) => {
    const response = await axios.get(`${url}/api/confirm/exam/${page}`, {
       headers: {
@@ -52,7 +51,7 @@ export const getExaminationData = async (token: string, page: number) => {
 };
 
 export const updateData = async (token: string, page: number, data: object) => {
-   const response = axios.post(`${url}/api/pages/${page}`, data, {
+   const response = await axios.post(`${url}/api/pages/${page}`, data, {
       headers: {
          "access-token": token,
       },
@@ -62,7 +61,7 @@ export const updateData = async (token: string, page: number, data: object) => {
 };
 
 export const updateConfirmationData = async (token: string, page: number, data: object) => {
-   const response = axios.post(`${url}/api/confirm/${page}`, data, {
+   const response = await axios.post(`${url}/api/confirm/${page}`, data, {
       headers: {
          "access-token": token,
       },
@@ -70,10 +69,10 @@ export const updateConfirmationData = async (token: string, page: number, data: 
 
    return response;
 };
-
 
 export const updateExaminationData = async (token: string, page: number, data: object) => {
-   const response = axios.post(`${url}/api/confirm/exam/${page}`, data, {
+   console.log(page);
+   const response = await axios.post(`${url}/api/confirm/exam/${page}`, data, {
       headers: {
          "access-token": token,
       },
@@ -82,11 +81,8 @@ export const updateExaminationData = async (token: string, page: number, data: o
    return response;
 };
 
-
-
-
 export const submitData = async (token: string) => {
-   const response = axios.post(
+   const response = await axios.post(
       `${url}/api/pages/submit`,
       {},
       {
@@ -95,6 +91,18 @@ export const submitData = async (token: string) => {
          },
       },
    );
+   return response;
+};
 
+export const submitConfirm = async (token: string) => {
+   const response = await axios.post(
+      `${url}/api/confirm/submit`,
+      {},
+      {
+         headers: {
+            "access-token": token,
+         },
+      },
+   );
    return response;
 };

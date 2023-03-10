@@ -3,7 +3,7 @@ import { Page4 } from "@/types/ConfirmationType";
 import Choice4_1 from "./data/q4_1.json";
 import Choice4_2 from "./data/q4_2.json";
 
-const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
+const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {   
    const [question1State, setQuestion1State] = useState<Array<[]>>(
       data.q4_1 === ""
          ? []
