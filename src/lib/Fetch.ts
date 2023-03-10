@@ -71,7 +71,6 @@ export const updateConfirmationData = async (token: string, page: number, data: 
 };
 
 export const updateExaminationData = async (token: string, page: number, data: object) => {
-   console.log(page);
    const response = await axios.post(`${url}/api/confirm/exam/${page}`, data, {
       headers: {
          "access-token": token,
@@ -104,5 +103,6 @@ export const submitConfirm = async (token: string) => {
          },
       },
    );
+
    return response;
 };

@@ -10,13 +10,6 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
 
    const [question2State, setQuestion2State] = useState<Array<number>>([]);
 
-   const isInList = (List: Array<[]>, value: Number) => {
-      const indexArr = List.findIndex((items: any) => {
-         return items === value;
-      });
-      return indexArr !== -1 ? true : false;
-   };
-
    const handleOnChangeQ1 = (value: Number) => {
       const indexArr = question1State.findIndex((items: any) => {
          return items === value;
@@ -85,7 +78,6 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
       dataTempQ1.map((items: any) => {
          tempQ1[items - 1] = true;
       });
-
       setQ1(tempQ1);
 
       const dataTempQ2 = data.q3_2 ? JSON.parse(data.q3_2) : [];
@@ -97,8 +89,9 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
    };
 
    useEffect(() => {
-      loadData().then(() => {console.log(data)});
+      loadData().then(() => {});
    }, [data]);
+
    return (
       <>
          <div className='flex justify-center mt-8'>

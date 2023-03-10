@@ -5,13 +5,14 @@ import {
    updateExaminationData,
    getConfirmationData,
    getExaminationData,
+   submitConfirm
 } from "@/lib/Fetch";
 import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
-import { FillFormSwal, CustomSwal, ConfirmationDone } from "@/lib/CustomSwal";
+import { FillFormSwal, CustomSwal, ConfirmationDone , SubmitDone, SubmitError} from "@/lib/CustomSwal";
 import {
    ConfirmForm,
    ExaminationInfo,
@@ -32,52 +33,53 @@ import {
 } from "@/types/ConfirmationType";
 const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) => {
    const navigate = useNavigate();
-   const [page, setPage] = useState<number>(5);
+   const [page, setPage] = useState<number>(1);
    const [confirm, setConfirm] = useState<boolean>(true);
    const [pass, setPass] = useState<boolean>(false);
-   // const ConfirmationPopup = async () => {
-   //    if (
-   //       dataExaminationPage5.q5_1?.length &&
-   //       dataExaminationPage5.q5_2?.length &&
-   //       dataExaminationPage5.q5_3?.length
-   //    ) {
-   //       const token = sessionStorage.getItem("token") as string;
-   //       await updateExaminationData(token, 5, dataExaminationPage5);;
-   //       Swal.fire({
-   //          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
-   //          icon: "warning",
-   //          iconColor: "#000",
-   //          background: "#FDFDFD",
-   //          showConfirmButton: true,
-   //          showCancelButton: true,
-   //          confirmButtonColor: "#B12E45",
-   //          confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
-   //          cancelButtonColor: "#eee",
-   //          cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
-   //          customClass: {
-   //             actions: "flex flex-row w-full justify-center ",
-   //             confirmButton: "mr-2 sm:mr-8",
-   //             cancelButton: "ml-2 sm:ml-8",
-   //          },
-   //          backdrop: `
-   //          rgba(0,0,0,0.6)
-   //          `,
-   //       }).then(result => {
-   //          if (result.isConfirmed) {
-   //             submitData(token)
-   //                .then(res => {
-   //                   sessionStorage.clear();
-   //                   SubmitDone();
-   //                })
-   //                .catch(error => {
-   //                   SubmitError();
-   //                });
-   //          }
-   //       });
-   //    } else {
-   //       FillFormSwal();
-   //    }
-   // };
+
+   const ConfirmationPopup = async () => {
+      if (
+         dataExaminationPage5.q5_1?.length &&
+         dataExaminationPage5.q5_2?.length &&
+         dataExaminationPage5.q5_3?.length
+      ) {
+         const token = sessionStorage.getItem("token") as string;
+         await updateExaminationData(token, 5, dataExaminationPage5);;
+         Swal.fire({
+            html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
+            icon: "warning",
+            iconColor: "#000",
+            background: "#FDFDFD",
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonColor: "#B12E45",
+            confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
+            cancelButtonColor: "#eee",
+            cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
+            customClass: {
+               actions: "flex flex-row w-full justify-center ",
+               confirmButton: "mr-2 sm:mr-8",
+               cancelButton: "ml-2 sm:ml-8",
+            },
+            backdrop: `
+            rgba(0,0,0,0.6)
+            `,
+         }).then(result => {
+            if (result.isConfirmed) {
+               submitConfirm(token)
+                  .then(res => {
+                     sessionStorage.clear();
+                     SubmitDone();
+                  })
+                  .catch(error => {
+                     SubmitError();
+                  });
+            }
+         });
+      } else {
+         FillFormSwal();
+      }
+   };
 
    const waiveSwal = () => {
       Swal.fire({
@@ -216,7 +218,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       } else if (page === 6) {
          await updateExaminationData(token, 4, dataExaminationPage4);
       } else if (page === 7) {
-         await updateExaminationData(token, 5, dataExaminationPage4);
+         await updateExaminationData(token, 5, dataExaminationPage5);
       }
       setPage(page - 1);
    };
@@ -352,7 +354,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
                {page === 7 ? (
                   <div className='flex flex-row justify-center mb-8'>
                      <button
-                        onClick={CustomSwal}
+                        onClick={ConfirmationPopup}
                         className='text-2xl lg:text-3xl text-white font-teko bg-red2 lg:px-12 lg:py-1.5 px-8 py-1 rounded-lg '
                      >
                         Submit

@@ -1,29 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Page4 } from "@/types/ConfirmationType";
 import Choice4_1 from "./data/q4_1.json";
 import Choice4_2 from "./data/q4_2.json";
 
-const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {   
-   const [question1State, setQuestion1State] = useState<Array<[]>>(
-      data.q4_1 === ""
-         ? []
-         : JSON.parse(data.q4_1).map((items: any) => {
-              return (items - 1) as number;
-           }),
-   );
-   const [question2State, setQuestion2State] = useState<Array<[]>>(
-      data.q4_2 === ""
-         ? []
-         : JSON.parse(data.q4_2).map((items: any) => {
-              return (items - 1) as number;
-           }),
-   );
-   const isInList = (List: Array<[]>, value: Number) => {
-      const indexArr = List.findIndex((items: any) => {
-         return items === value;
-      });
-      return indexArr !== -1 ? true : false;
-   };
+const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
+   const [q1, setQ1] = useState<Array<boolean>>(new Array(Choice4_1.length).fill(false));
+   const [q2, setQ2] = useState<Array<boolean>>(new Array(Choice4_2.length).fill(false));
+
+   const [question1State, setQuestion1State] = useState<Array<number>>([]);
+
+   const [question2State, setQuestion2State] = useState<Array<number>>([]);
 
    const handleOnChangeQ1 = (value: Number) => {
       const indexArr = question1State.findIndex((items: any) => {
@@ -71,6 +57,42 @@ const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
       setData({ ...data, q4_2: json });
    };
 
+   const loadData = async () => {
+      await setQuestion1State(
+         data.q4_1 === null || data.q4_1 === ""
+            ? []
+            : JSON.parse(data.q4_1).map((items: any) => {
+                 return (items - 1) as number;
+              }),
+      );
+
+      await setQuestion2State(
+         data.q4_2 === null || data.q4_2 === ""
+            ? []
+            : JSON.parse(data.q4_2).map((items: any) => {
+                 return (items - 1) as number;
+              }),
+      );
+
+      const dataTempQ1 = data.q4_1 ? JSON.parse(data.q4_1) : [];
+      const tempQ1 = [...q1];
+      dataTempQ1.map((items: any) => {
+         tempQ1[items - 1] = true;
+      });
+      setQ1(tempQ1);
+
+      const dataTempQ2 = data.q4_2 ? JSON.parse(data.q4_2) : [];
+      const tempQ2 = [...q2];
+      dataTempQ2.map((items: any) => {
+         tempQ2[items - 1] = true;
+      });
+      setQ2(tempQ2);
+   };
+
+   useEffect(() => {
+      loadData().then(() => {});
+   }, [data]);
+
    return (
       <>
          <div className='flex justify-center mt-8'>
@@ -86,7 +108,7 @@ const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
                         <span className='text-orange'>*</span>
                      </div>
                      <ul className='flex flex-col my-3 sm:ml-8'>
-                        {Choice4_1.map((items: any, index: number) => {
+                     {q1.map((items: any, index: number) => {
                            return (
                               <li key={index} className='my-3'>
                                  <label>
@@ -94,13 +116,18 @@ const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
                                        type='checkbox'
                                        id={`q4_1-${index}`}
                                        name='q4_1'
-                                       value={items.choice}
-                                       checked={isInList(question1State, index)}
-                                       onChange={() => handleOnChangeQ1(index)}
+                                       value={Choice4_1[index].choice}
+                                       checked={items}
+                                       onChange={() => {
+                                          const tempQ1 = [...q1];
+                                          tempQ1[index] = !tempQ1[index];
+                                          setQ1(tempQ1);
+                                          handleOnChangeQ1(index);
+                                       }}
                                        className='p-2 form-check-input appearance-none cursor-pointer rounded-md border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                                     />
                                     <span className='w-full ml-3 font-semibold text-md sm:text-lg lg:text-xl text-clip'>
-                                       {items.choice}
+                                       {Choice4_1[index].choice}
                                     </span>
                                  </label>
                               </li>
@@ -115,21 +142,26 @@ const ExaminationPage4 = ({ data, setData }: { data: Page4; setData: any }) => {
                         <span className='text-orange'>*</span>
                      </div>
                      <ul className='flex flex-col my-3 sm:ml-8'>
-                        {Choice4_2.map((items: any, index: number) => {
+                     {q2.map((items: any, index: number) => {
                            return (
                               <li key={index} className='my-3'>
                                  <label>
                                     <input
                                        type='checkbox'
-                                       id={`q4_2-${index}`}
-                                       name='q4_2'
-                                       value={items.choice}
-                                       checked={isInList(question2State, index)}
-                                       onChange={() => handleOnChangeQ2(index)}
+                                       id={`q3_2-${index}`}
+                                       name='q3_2'
+                                       value={Choice4_2[index].choice}
+                                       checked={items}
+                                       onChange={() => {
+                                          const tempQ2 = [...q2];
+                                          tempQ2[index] = !tempQ2[index];
+                                          setQ2(tempQ2);
+                                          handleOnChangeQ2(index);
+                                       }}
                                        className='p-2 form-check-input appearance-none cursor-pointer rounded-md border-2 border-red1 bg-white checked:ring-red-700 checked:ring-2 checked:bg-red-400 checked:border-white'
                                     />
                                     <span className='w-full ml-3 font-semibold text-md sm:text-lg lg:text-xl text-clip'>
-                                       {items.choice}
+                                       {Choice4_2[index].choice}
                                     </span>
                                  </label>
                               </li>
