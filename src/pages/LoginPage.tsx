@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { RegistrationPage } from "./RegistrationPage";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "@/lib/firebase";
-import { Login, checkWhitelist } from "@/lib/Fetch";
-import { CustomSwal, notPassSwal } from "@/lib/CustomSwal";
+import { Login, checkWhitelist,getConfirmationData } from "@/lib/Fetch";
+import { AlreadyConfirm, CustomSwal, notPassSwal } from "@/lib/CustomSwal";
 import { registerEvent } from "@/gaEvents";
 import { loginEvent } from "@/gaEvents";
 import ResultPage from "./ResultPage";
@@ -44,9 +44,21 @@ const LoginPage = () => {
       if (token !== null) {
          try {
             const res = await checkWhitelist(token);
-            if (res.status === 200 && res.data.data) {
-               sessionStorage.setItem("pass", "true");
-               setIsPass(true);
+            if ((res.status === 200 || res.status === 201) && res.data.data) {
+               const data = await getConfirmationData(token,1);
+               const isSubmit = data.data.data.is_completed;
+               console.log(isSubmit);
+               // console.log(res);
+               if(isSubmit == true){
+                  sessionStorage.clear();
+                  AlreadyConfirm();
+                  await signOut(auth);
+                  navigate("/");
+               }
+               else{
+                  sessionStorage.setItem("pass", "true");
+                  setIsPass(true);
+               }
             } else {
                sessionStorage.clear();
                notPassSwal();
@@ -68,7 +80,6 @@ const LoginPage = () => {
       }
       return () => {};
    }, []);
-   console.log(isPass);
    return isLogin && isPass ? (
       // <RegistrationPage />
 

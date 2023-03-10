@@ -31,6 +31,22 @@ export const CustomSwal = () => {
    });
 };
 
+export const AlreadyConfirm = () => {
+   return Swal.fire({
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> น้องได้ทำการยืนยันสิทธิ์เรียบร้อยแล้ว </p> <p class="text-sm">โปรดติดตามกำหนดการได้ทาง Social media✨</p>  </div> ',
+      icon: "success",
+      background: "#FDFDFD",
+      showConfirmButton: true,
+      confirmButtonColor: "#FDFDFD",
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
+      backdrop: `
+      rgba(0,0,0,0.6)
+      `,
+   }).then(() => {
+      location.href = "/";
+   });
+};
+
 export const SubmitDone = () => {
    Swal.fire({
       html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการสมัครสำเร็จ </p> <p class="text-sm">โปรดติดตามการประกาศผลทาง Social Media✨</p>  </div> ',

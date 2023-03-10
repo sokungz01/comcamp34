@@ -30,6 +30,27 @@ export const getData = async (token: string, page: number) => {
    return response;
 };
 
+export const getConfirmationData = async (token: string, page: number) => {
+   const response = await axios.get(`${url}/api/confirm/${page}`, {
+      headers: {
+         "access-token": token,
+      },
+   });
+
+   return response;
+};
+
+
+export const getExaminationData = async (token: string, page: number) => {
+   const response = await axios.get(`${url}/api/confirm/exam/${page}`, {
+      headers: {
+         "access-token": token,
+      },
+   });
+
+   return response;
+};
+
 export const updateData = async (token: string, page: number, data: object) => {
    const response = axios.post(`${url}/api/pages/${page}`, data, {
       headers: {
@@ -39,6 +60,30 @@ export const updateData = async (token: string, page: number, data: object) => {
 
    return response;
 };
+
+export const updateConfirmationData = async (token: string, page: number, data: object) => {
+   const response = axios.post(`${url}/api/confirm/${page}`, data, {
+      headers: {
+         "access-token": token,
+      },
+   });
+
+   return response;
+};
+
+
+export const updateExaminationData = async (token: string, page: number, data: object) => {
+   const response = axios.post(`${url}/api/confirm/exam/${page}`, data, {
+      headers: {
+         "access-token": token,
+      },
+   });
+
+   return response;
+};
+
+
+
 
 export const submitData = async (token: string) => {
    const response = axios.post(
