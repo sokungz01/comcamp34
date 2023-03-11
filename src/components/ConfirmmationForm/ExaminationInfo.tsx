@@ -4,7 +4,7 @@ const ExaminationInfo = () => {
          <div className='flex justify-center mt-8'>
             <div className='bg-yellow3 bg-opacity-40 lg:rounded-2xl rounded-lg flex flex-col font-bai-jamjuree lg:px-16 px-6 pt-4 py-8 w-11/12'>
                <p className='text-red2 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center mt-3'>
-                  ข้อสอบสำหรับคัดเลือกกลุ่มเรียน โครงการ Comcamp 34
+                  แบบทดสอบสำหรับวัดความรู้พื้นฐาน โครงการ Comcamp 34
                </p>
                <p className='text-sm text-center md:font-semibold mt-6 md:mt-2 mb-4 w-full '>
                   วันพุธที่ 15 มีนาคม 2566 เวลา 09:09 น. ถึง วันศุกร์ที่ 17 มีนาคม 2566 เวลา 23:59
