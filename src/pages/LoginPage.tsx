@@ -47,7 +47,7 @@ const LoginPage = () => {
             if ((res.status === 200 || res.status === 201) && res.data.data) {
                const data = await getConfirmationData(token,1);
                const isSubmit = data.data.data.is_completed;
-               console.log(isSubmit);
+               // console.log(isSubmit);
                // console.log(res);
                if(isSubmit == true){
                   sessionStorage.clear();
