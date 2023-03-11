@@ -82,6 +82,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
    };
 
    const waiveSwal = () => {
+      const token = sessionStorage.getItem("token") as string;
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> คุณยืนยันที่จะ<span class="text-red1">สละสิทธิ์</span><br />การเข้าค่ายคอมแคมป์ใช่หรือไม่ </p> <p class="text-sm">หากดำเนินการแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
          icon: "warning",
@@ -102,7 +103,17 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       rgba(0,0,0,0.6)
       `,
       }).then(result => {
-         if (result.isConfirmed) ConfirmationDone();
+         console.log(dataConfirmation.isConfirm);
+         if (result.isConfirmed) {
+            submitConfirm(token)
+               .then(res => {
+                  sessionStorage.clear();
+                  SubmitDone();
+               })
+               .catch(error => {
+                  SubmitError();
+               });
+         }
       });
    };
    const handleLogout = () => {
@@ -204,6 +215,11 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       }
    }, [page]);
 
+   useEffect(()=>{
+      const token = sessionStorage.getItem("token") as string;
+      updateConfirmationData(token, 1, dataConfirmation);
+   },[dataConfirmation.isConfirm]);
+
    const prevPage = async () => {
       window.scrollTo(0, 0);
       const token = sessionStorage.getItem("token") as string;
@@ -238,7 +254,8 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
          ) {
             await updateConfirmationData(token, page, dataConfirmation);
             setPage(page + 1);
-         } else {
+         } 
+         else {
             FillFormSwal();
          }
       }
