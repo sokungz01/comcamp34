@@ -82,6 +82,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
    };
 
    const waiveSwal = () => {
+      const token = sessionStorage.getItem("token") as string;
       Swal.fire({
          html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> คุณยืนยันที่จะ<span class="text-red1">สละสิทธิ์</span><br />การเข้าค่ายคอมแคมป์ใช่หรือไม่ </p> <p class="text-sm">หากดำเนินการแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
          icon: "warning",
@@ -102,7 +103,17 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       rgba(0,0,0,0.6)
       `,
       }).then(result => {
-         if (result.isConfirmed) ConfirmationDone();
+         console.log(dataConfirmation.isConfirm);
+         if (result.isConfirmed) {
+            submitConfirm(token)
+               .then(res => {
+                  sessionStorage.clear();
+                  SubmitDone();
+               })
+               .catch(error => {
+                  SubmitError();
+               });
+         }
       });
    };
    const handleLogout = () => {
@@ -204,6 +215,11 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       }
    }, [page]);
 
+   useEffect(()=>{
+      const token = sessionStorage.getItem("token") as string;
+      updateConfirmationData(token, 1, dataConfirmation);
+   },[dataConfirmation.isConfirm]);
+
    const prevPage = async () => {
       window.scrollTo(0, 0);
       const token = sessionStorage.getItem("token") as string;
@@ -227,18 +243,19 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       if (page === 1) {
          if (
             dataConfirmation.isConfirm != "0" &&
-            dataConfirmation.describeTravel.length &&
-            dataConfirmation.describeBackhome.length &&
-            dataConfirmation.shirt_size.length &&
-            dataConfirmation.transaction_Name.length &&
-            dataConfirmation.transaction_URL.length &&
-            dataConfirmation.transaction_date.length &&
-            dataConfirmation.transaction_hours.length &&
-            dataConfirmation.transaction_minutes.length
+            dataConfirmation.describeTravel?.length &&
+            dataConfirmation.describeBackhome?.length &&
+            dataConfirmation.shirt_size?.length &&
+            dataConfirmation.transaction_Name?.length &&
+            dataConfirmation.transaction_URL?.length &&
+            dataConfirmation.transaction_date?.length &&
+            dataConfirmation.transaction_hours?.length &&
+            dataConfirmation.transaction_minutes?.length
          ) {
             await updateConfirmationData(token, page, dataConfirmation);
             setPage(page + 1);
-         } else {
+         } 
+         else {
             FillFormSwal();
          }
       }
@@ -247,9 +264,9 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       }
       if (page === 3) {
          if (
-            dataExaminationPage1.q1_1.length &&
-            dataExaminationPage1.q1_2.length &&
-            dataExaminationPage1.q1_3.length
+            dataExaminationPage1.q1_1?.length &&
+            dataExaminationPage1.q1_2?.length &&
+            dataExaminationPage1.q1_3?.length
          ) {
             await updateExaminationData(token, 1, dataExaminationPage1);
             setPage(page + 1);
@@ -259,9 +276,9 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       }
       if (page === 4) {
          if (
-            dataExaminationPage2.q2_1.length &&
-            dataExaminationPage2.q2_2.length &&
-            dataExaminationPage2.q2_3.length
+            dataExaminationPage2.q2_1?.length &&
+            dataExaminationPage2.q2_2?.length &&
+            dataExaminationPage2.q2_3?.length
          ) {
             await updateExaminationData(token, 2, dataExaminationPage2);
             setPage(page + 1);
@@ -271,7 +288,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       }
 
       if (page === 5) {
-         if (dataExaminationPage3.q3_1.length && dataExaminationPage3.q3_2.length) {
+         if (dataExaminationPage3.q3_1?.length && dataExaminationPage3.q3_2?.length) {
             await updateExaminationData(token, 3, dataExaminationPage3);
             setPage(page + 1);
          } else {
@@ -280,7 +297,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       }
 
       if (page === 6) {
-         if (dataExaminationPage4.q4_1.length && dataExaminationPage4.q4_2.length) {
+         if (dataExaminationPage4.q4_1?.length && dataExaminationPage4.q4_2?.length) {
             await updateExaminationData(token, 4, dataExaminationPage4);
             setPage(page + 1);
          } else {
