@@ -33,7 +33,7 @@ export const CustomSwal = () => {
 
 export const AlreadyConfirm = () => {
    return Swal.fire({
-      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> น้องได้ทำการยืนยันสิทธิ์เรียบร้อยแล้ว </p> <p class="text-sm">โปรดติดตามกำหนดการได้ทาง Social media✨</p>  </div> ',
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-3xl font-semibold"> น้องทำการยืนยันสิทธิ์เรียบร้อยแล้ว </p> <p class="text-sm">โปรดติดตามกำหนดการได้ทาง Social media✨</p>  </div> ',
       icon: "success",
       background: "#FDFDFD",
       showConfirmButton: true,

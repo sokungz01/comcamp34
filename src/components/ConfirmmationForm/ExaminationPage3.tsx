@@ -139,7 +139,7 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                      <p className='font-bold text-lg lg:text-2xl'>
                         3.2 นนท์เป็นผู้พัฒนาเกมคนหนึ่ง กำลังพัฒนาเกมคล้ายๆ กับเกม Among Us เป็นเกม
                         2D พัฒนาโดยใช้ Unity Game Engine โดยนนท์มีหน้าที่เขียนโค้ดโครงสร้างหลัก
-                        (Infastrcuture) ให้กับเกมเวอร์ชั่น Mobile ข้อใดต่อไปนี้ที่นนท์ทำได้ถูกต้อง
+                        (Infrastructure) ให้กับเกมเวอร์ชั่น Mobile ข้อใดต่อไปนี้ที่นนท์ทำได้ถูกต้อง
                         <span className='text-orange'>*</span>
                      </p>
                      <ul className='flex flex-col my-3 sm:ml-8'>

@@ -143,7 +143,7 @@ const ConfirmForm = ({
                         row={6}
                         obj={data}
                         setObj={setData}
-                        placeholder="นั่งรถเมล์สาย 21/75 จากบริเวณด้านหน้ามหาวิทยาลัย ไปลงตลาดบางปะแก้ว แล้วจึงนั่งรถตู้จากตลาดบางปะแก้วกลับสู่ท่ารถตู้แม่กลอง"
+                        placeholder="นั่งรถเมล์สาย 21/75 จากบริเวณด้านหน้ามหาวิทยาลัย ไปลงตลาดบางปะแก้ว แล้วนั่งรถตู้จากตลาดบางปะแก้วกลับสู่ท่ารถตู้แม่กลอง"
                         value={data.describeBackhome}
                         disabled={!confirm}
                      />
@@ -248,9 +248,9 @@ const ConfirmForm = ({
                   <div className='hidden lg:block lg:col-span-1'></div>
                   <div className='col-span-6 lg:col-span-2'>
                      <SelectInput
-                        label='ชั่วโมง'
+                        label='นาฬิกา'
                         name='transaction_hours'
-                        placeholder={"ชั่วโมง"}
+                        placeholder={"นาฬิกา"}
                         options={hours_data}
                         obj={data}
                         setObj={setData}
