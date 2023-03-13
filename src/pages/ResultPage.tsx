@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
 import RightArrow from "/assets/svg/RightArrow.svg";
-import { FillFormSwal, CustomSwal, ConfirmationDone , SubmitDone, SubmitError} from "@/lib/CustomSwal";
+import { FillFormSwal, ConfirmationSubmitDone, SubmitDone, SubmitError} from "@/lib/CustomSwal";
 import {
    ConfirmForm,
    ExaminationInfo,
@@ -69,7 +69,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
                submitConfirm(token)
                   .then(res => {
                      sessionStorage.clear();
-                     SubmitDone();
+                     ConfirmationSubmitDone();
                   })
                   .catch(error => {
                      SubmitError();

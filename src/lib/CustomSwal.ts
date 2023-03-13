@@ -74,6 +74,22 @@ export const SubmitError = () => {
    });
 };
 
+export const ConfirmationSubmitDone = () => {
+   Swal.fire({
+      html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> <p class="text-sm">โปรดติดตามกำหนดการได้ทาง Social Media✨</p>  </div> ',
+      icon: "success",
+      background: "#FDFDFD",
+      showConfirmButton: true,
+      confirmButtonColor: "#FDFDFD",
+      confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg text-red2">กลับสู่หน้าเว็บ</p>',
+      backdrop: `
+      rgba(0,0,0,0.6)
+      `,
+   }).then(() => {
+      location.href = "/";
+   });
+};
+
 export const ConfirmationDone = () => {
    Swal.fire({
       html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> บันทึกการใช้สิทธิ์สำเร็จ </p> </div> ',

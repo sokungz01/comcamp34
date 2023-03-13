@@ -103,7 +103,7 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                <div className='my-7'>
                   <div>
                      <p className='font-bold text-lg lg:text-2xl'>
-                        3.1 ข้อใดเป็น Game Engine
+                        3.1 ข้อใดเป็น Game Engine (คำตอบที่ถูกต้องมีมากกว่า 1 ข้อ)
                         <span className='text-orange'>*</span>
                      </p>
                      <ul className='flex flex-col my-3 sm:ml-8'>
@@ -140,6 +140,7 @@ const ExaminationPage3 = ({ data, setData }: { data: Page3; setData: any }) => {
                         3.2 นนท์เป็นผู้พัฒนาเกมคนหนึ่ง กำลังพัฒนาเกมคล้ายๆ กับเกม Among Us เป็นเกม
                         2D พัฒนาโดยใช้ Unity Game Engine โดยนนท์มีหน้าที่เขียนโค้ดโครงสร้างหลัก
                         (Infrastructure) ให้กับเกมเวอร์ชั่น Mobile ข้อใดต่อไปนี้ที่นนท์ทำได้ถูกต้อง
+                        (คำตอบที่ถูกต้องมีมากกว่า 1 ข้อ)
                         <span className='text-orange'>*</span>
                      </p>
                      <ul className='flex flex-col my-3 sm:ml-8'>
