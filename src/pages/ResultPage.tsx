@@ -217,7 +217,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
 
    useEffect(()=>{
       const token = sessionStorage.getItem("token") as string;
-      if(dataConfirmation.isConfirm != '' && dataConfirmation.isConfirm != null)
+      if(dataConfirmation.isConfirm != '' || dataConfirmation.isConfirm != null)
          updateConfirmationData(token, 1, dataConfirmation);
    },[dataConfirmation.isConfirm]);
 
