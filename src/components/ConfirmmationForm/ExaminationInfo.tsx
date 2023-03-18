@@ -7,7 +7,7 @@ const ExaminationInfo = () => {
                   แบบทดสอบสำหรับวัดความรู้พื้นฐาน โครงการ Comcamp 34
                </p>
                <p className='text-sm text-center md:font-semibold mt-6 md:mt-2 mb-4 w-full '>
-                  วันเสาร์ที่ 18 มีนาคม 2566 เวลา 16:00 น. ถึง วันจันทร์ 20 มีนาคม 2566 เวลา 23:59
+                  วันเสาร์ที่ 18 มีนาคม 2566 เวลา 12:00 น. ถึง วันจันทร์ 20 มีนาคม 2566 เวลา 23:59
                   น.
                </p>
                <div className='flex justify-center'>
