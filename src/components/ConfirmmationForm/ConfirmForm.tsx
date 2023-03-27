@@ -206,14 +206,8 @@ const ConfirmForm = ({
                         name='date'
                         placeholder={"วัน"}
                         options={[
-                           { label: "15", value: "15" },
-                           { label: "16", value: "16" },
-                           { label: "17", value: "17" },
-                           { label: "18", value: "18" },
-                           { label: "19", value: "19" },
-                           { label: "20", value: "20" },
-                           { label: "21", value: "21" },
-                           { label: "22", value: "22" },
+                           { label: "27", value: "27" },
+                           { label: "28", value: "28" },
                         ]}
                         obj={dateData}
                         setObj={setDateData}
