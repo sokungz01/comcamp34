@@ -16,12 +16,13 @@ const LandingSection: React.FC = () => {
                <p className='mx-auto font-normal lg:font-medium lg:text-5xl text-3xl text-red2'>
                   Open 15 February - 5 March 2023
                </p>
+               <Link to="/result">
                <button
-                  to='/result'
                   className='z-[9999] inline-block mx-auto lg:text-3xl lg:font-normal px-8 py-2 leading-none text-base-white bg-red2 lg:border-2 lg:border-red2 my-4 lg:mt-8 rounded-xl'
                   >
                   Login
                </button>
+               </ Link>
             </div>
          </div>
          <Parallax speed={isMobile() ? 30 : 100}>
