@@ -208,6 +208,10 @@ const ConfirmForm = ({
                         options={[
                            { label: "27", value: "27" },
                            { label: "28", value: "28" },
+                           { label: "29", value: "29" },
+                           { label: "30", value: "30" },
+                           { label: "31", value: "31" },
+
                         ]}
                         obj={dateData}
                         setObj={setDateData}
