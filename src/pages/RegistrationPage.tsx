@@ -22,10 +22,9 @@ import {
    QuestionPage2,
    DateForm,
 } from "@/types/RegistrationType";
-import { signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
-import { getData, submitData, updateData } from "@/lib/Fetch";
+// import { getData, submitData, updateData } from "@/lib/Fetch";
 import { checkEmail, checkGrade, isMobileNumber } from "@/utils/validate";
+
 export const RegistrationPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(
@@ -37,6 +36,7 @@ export const RegistrationPage = () => {
       month: "",
       year: "",
    });
+
    const [dataPersonalInfoForm, setPersonalInfoForm] = useState<Personal>({
       prefix: "",
       firstname: "",
@@ -56,6 +56,7 @@ export const RegistrationPage = () => {
       special: "",
       notebook: false,
    });
+
    const [dataEducationForm, setEducationForm] = useState<Education>({
       school_name: "",
       school_province: "",
@@ -72,6 +73,7 @@ export const RegistrationPage = () => {
       faculty_3: "",
       major_3: "",
    });
+
    const [dataInterestForm, setInterestForm] = useState<Interest>({
       comcamp_previous: false,
       major_interest: "",
@@ -82,6 +84,7 @@ export const RegistrationPage = () => {
       camp2_by: "",
       no_previous_camp: false,
    });
+
    const [dataParentDataForm, setParentDataForm] = useState<ParentData>({
       parent_prefix: "",
       parent_firstname: "",
@@ -99,6 +102,7 @@ export const RegistrationPage = () => {
       emergency_mobile: "",
       emergency_email: "",
    });
+
    const [dataUploadFilesForm, setUploadFilesForm] = useState<UploadFile>({
       image_URL: "",
       image_Name: "",
@@ -111,11 +115,13 @@ export const RegistrationPage = () => {
       pp1_URL: "",
       pp1_Name: "",
    });
+
    const [dataQuestionFormpage1, setQuestionFormpage1] = useState<QuestionPage1>({
       q1: "",
       q2: "",
       q3: "",
    });
+
    const [dataQuestionFormpage2, setQuestionFormpage2] = useState<QuestionPage2>({
       q4: "",
       q5: "",
@@ -124,173 +130,43 @@ export const RegistrationPage = () => {
    });
 
    const ConfirmationPopup = async () => {
-      if (
-         dataQuestionFormpage2.q4?.length &&
-         dataQuestionFormpage2.q5?.length &&
-         dataQuestionFormpage2.q6?.length &&
-         dataQuestionFormpage2.q7?.length
-      ) {
-         const token = sessionStorage.getItem("token") as string;
-         await updateData(token, page, dataQuestionFormpage2);
-         Swal.fire({
-            html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
-            icon: "warning",
-            iconColor: "#000",
-            background: "#FDFDFD",
-            showConfirmButton: true,
-            showCancelButton: true,
-            confirmButtonColor: "#B12E45",
-            confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
-            cancelButtonColor: "#eee",
-            cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
-            customClass: {
-               actions: "flex flex-row w-full justify-center ",
-               confirmButton: "mr-2 sm:mr-8",
-               cancelButton: "ml-2 sm:ml-8",
-            },
-            backdrop: `
+      Swal.fire({
+         html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
+         icon: "warning",
+         iconColor: "#000",
+         background: "#FDFDFD",
+         showConfirmButton: true,
+         showCancelButton: true,
+         confirmButtonColor: "#B12E45",
+         confirmButtonText: '<p class="px-4 md:px-6 lg:px-8 text-lg">ยืนยัน</p>',
+         cancelButtonColor: "#eee",
+         cancelButtonText: '<p class="text-base-black px-4 md:px-6 lg:px-8 text-lg">ยกเลิก</p>',
+         customClass: {
+            actions: "flex flex-row w-full justify-center ",
+            confirmButton: "mr-2 sm:mr-8",
+            cancelButton: "ml-2 sm:ml-8",
+         },
+         backdrop: `
             rgba(0,0,0,0.6)
             `,
-         }).then(result => {
-            if (result.isConfirmed) {
-               const token = sessionStorage.getItem("token") as string;
-               submitData(token)
-                  .then(res => {
-                     sessionStorage.clear();
-                     SubmitDone();
-                  })
-                  .catch(error => {
-                     SubmitError();
-                  });
-            }
-         });
-      } else {
-         FillFormSwal();
-      }
+      }).then(result => {});
    };
+
    const handleLogout = () => {
-      signOut(auth)
-         .then(() => {
-            navigate("/");
-         })
-         .catch(error => {
-            // An error happened.
-         });
+      navigate("/");
       sessionStorage.clear();
    };
+
    const nextPage = async () => {
-      const token = sessionStorage.getItem("token") as string;
-      if (page === 1) {
-         if (
-            dataPersonalInfoForm.prefix?.length &&
-            dataPersonalInfoForm.firstname?.length &&
-            dataPersonalInfoForm.surname?.length &&
-            dataPersonalInfoForm.nickname?.length &&
-            dataPersonalInfoForm.birth_date &&
-            dataPersonalInfoForm.mobile?.length == 10 &&
-            dataPersonalInfoForm.mobile[0] == "0" &&
-            isMobileNumber(dataPersonalInfoForm.mobile) &&
-            dataPersonalInfoForm.email?.length &&
-            checkEmail(dataPersonalInfoForm.email) &&
-            dataPersonalInfoForm.province?.length &&
-            dataPersonalInfoForm.shirt_size?.length &&
-            dataPersonalInfoForm.travelby?.length
-         ) {
-            await updateData(token, page, dataPersonalInfoForm);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      } else if (page === 2) {
-         if (
-            dataEducationForm.school_name?.length &&
-            dataEducationForm.school_province?.length &&
-            dataEducationForm.student_level?.length &&
-            dataEducationForm.study_plan?.length &&
-            dataEducationForm.gpax &&
-            checkGrade(dataEducationForm.gpax)
-         ) {
-            await updateData(token, page, dataEducationForm);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      } else if (page === 3) {
-         if (
-            dataInterestForm.major_interest?.length &&
-            dataInterestForm.reason_major_interest?.length &&
-            (dataInterestForm.no_previous_camp === true ||
-               (dataInterestForm.camp_1?.length && dataInterestForm.camp1_by?.length))
-         ) {
-            await updateData(token, page, dataInterestForm);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      } else if (page === 4) {
-         if (
-            dataParentDataForm.parent_prefix?.length &&
-            dataParentDataForm.parent_firstname?.length &&
-            dataParentDataForm.parent_surname?.length &&
-            dataParentDataForm.parent_relation?.length &&
-            dataParentDataForm.parent_mobile?.length == 10 &&
-            dataParentDataForm.parent_mobile[0] === "0" &&
-            isMobileNumber(dataParentDataForm.parent_mobile) &&
-            dataParentDataForm.emergency_prefix?.length &&
-            dataParentDataForm.emergency_firstname?.length &&
-            dataParentDataForm.emergency_surname?.length &&
-            dataParentDataForm.emergency_relation?.length &&
-            dataParentDataForm.emergency_mobile?.length == 10 &&
-            dataParentDataForm.emergency_mobile[0] === "0" &&
-            isMobileNumber(dataParentDataForm.emergency_mobile)
-         ) {
-            await updateData(token, page, dataParentDataForm);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      } else if (page === 5) {
-         if (
-            dataUploadFilesForm.agreement_URL?.length &&
-            dataUploadFilesForm.card_URL?.length &&
-            dataUploadFilesForm.image_URL?.length &&
-            dataUploadFilesForm.pp7_URL?.length &&
-            dataUploadFilesForm.pp1_URL?.length
-         ) {
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      } else if (page === 6) {
-         if (
-            dataQuestionFormpage1.q1?.length &&
-            dataQuestionFormpage1.q2?.length &&
-            dataQuestionFormpage1.q3?.length
-         ) {
-            await updateData(token, page, dataQuestionFormpage1);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      }
+      setPage(page + 1);
    };
+
    const prevPage = async () => {
-      const token = sessionStorage.getItem("token") as string;
       if (page > 1) {
-         if (page == 2) {
-            await updateData(token, page, dataEducationForm);
-         } else if (page == 3) {
-            await updateData(token, page, dataInterestForm);
-         } else if (page == 4) {
-            await updateData(token, page, dataParentDataForm);
-         } else if (page == 6) {
-            await updateData(token, page, dataQuestionFormpage1);
-         } else if (page == 7) {
-            await updateData(token, page, dataQuestionFormpage2);
-         }
          setPage(page - 1);
       }
    };
+
    const listData = [
       setPersonalInfoForm,
       setEducationForm,
@@ -301,40 +177,20 @@ export const RegistrationPage = () => {
       setQuestionFormpage2,
    ];
 
-   useEffect(() => {
-      const token = sessionStorage.getItem("token") as string;
-      if (page !== 0) {
-         getData(token, page)
-            .then(res => {
-               listData[page - 1](res?.data.data as any);
-               if (page === 1) {
-                  const split_date = res?.data.data.birth_date.split("-");
-                  setDateData({
-                     day: split_date[0],
-                     month: split_date[1],
-                     year: split_date[2],
-                  });
-               }
-            })
-            .catch(error => {
-               // console.log(error);
-            });
-      }
-   }, [page]);
-
    return (
       <>
          <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
             <div className='flex justify-between py-4 '>
                <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
                   <img
-                     src={`${sessionStorage.getItem("photoURL")}`}
+                     src={`https://cdn.discordapp.com/attachments/1140509663138435172/1196801468775276595/snorlax.png?ex=65b8f339&is=65a67e39&hm=e95b01ecff8dadce2562d1749f41586fef3710687147cf1d4949fee74df03a73&`}
                      alt='Profile'
                      referrerPolicy='no-referrer'
                      className='lg:w-12 lg:h-12 w-6 h-6 rounded-full'
                   />
                   <p className='text-base-black font-semibold lg:mt-2.5lg:ml-4 ml-2 text-sm lg:text-base'>
-                     {sessionStorage.getItem("email")}
+                     {/* {sessionStorage.getItem("email")} */}
+                    Snorlax@mail.xyz
                   </p>
                </div>
 

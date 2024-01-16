@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FileUploaderComponent from "@/components/FileUploaderComponent";
-import { getData, updateData } from "@/lib/Fetch";
+// import { getData, updateData } from "@/lib/Fetch";
 import { UploadFile } from "@/types/RegistrationType";
 
 const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) => {
@@ -8,14 +8,9 @@ const UploadFilesForm = ({ data, setData }: { data: UploadFile; setData: any }) 
 
    useEffect(() => {
       if(status === true) {
-         const token = sessionStorage.getItem("token") as string;
-         updateData(token, 5, data).then(() => {
-            setStatus(false);
-         })
+         setStatus(false)
       }
    }, [status])
-   
-   
 
    return (
       <div className='flex justify-center mt-8'>

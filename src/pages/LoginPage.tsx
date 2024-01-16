@@ -1,89 +1,28 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegistrationPage } from "./RegistrationPage";
-import { signInWithPopup, signOut } from "firebase/auth";
-import { auth, provider } from "@/lib/firebase";
-import { Login, checkWhitelist,getConfirmationData } from "@/lib/Fetch";
+// import { Login, checkWhitelist, getConfirmationData } from "@/lib/Fetch";
 import { AlreadyConfirm, CustomSwal, notPassSwal } from "@/lib/CustomSwal";
-import { registerEvent } from "@/gaEvents";
-import { loginEvent } from "@/gaEvents";
 import ResultPage from "./ResultPage";
 
 const LoginPage = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
    const [isPass, setIsPass] = useState<boolean>(false);
    const navigate = useNavigate();
+
    const login = async () => {
-      const result = await signInWithPopup(auth, provider);
-      const idToken = await result.user.getIdToken();
-
-      if (result) {
-         try {
-            const res = await Login(idToken);
-            if (res.status === 200 || res.status === 201) {
-               setIsLogin(true);
-               await whitelistChecker(res.data.accessToken);
-               // Set Token (Session)
-               registerEvent();
-               sessionStorage.setItem("syncPage", res.data.page);
-               sessionStorage.setItem("token", res.data.accessToken);
-               sessionStorage.setItem("email", result.user.email as string);
-               sessionStorage.setItem("photoURL", result.user.photoURL as string);
-            }
-            if (res.status == 208) {
-               // User Already Submit Form
-               CustomSwal();
-            }
-         } catch (error) {
-            console.log("ERROR");
-         }
-      }
+      setIsLogin(true);
    };
 
-   const whitelistChecker = async (token: string) => {
-      if (token !== null) {
-         try {
-            const res = await checkWhitelist(token);
-            if ((res.status === 200 || res.status === 201) && res.data.data) {
-               const data = await getConfirmationData(token,1);
-               const isSubmit = data.data.data.is_completed;
-               // console.log(isSubmit);
-               // console.log(res);
-               if(isSubmit == true){
-                  sessionStorage.clear();
-                  AlreadyConfirm();
-                  await signOut(auth);
-                  navigate("/");
-               }
-               else{
-                  sessionStorage.setItem("pass", "true");
-                  setIsPass(true);
-               }
-            } else {
-               sessionStorage.clear();
-               notPassSwal();
-               await signOut(auth);
-               navigate("/");
-            }
-         } catch (error) {
-            console.log(error);
-         }
-      }
-   };
    useEffect(() => {
-      if (sessionStorage.getItem("pass")) {
-         setIsPass(true);
-      }
-      if (sessionStorage.getItem("token")) {
-         setIsLogin(true);
-         loginEvent();
-      }
+      setIsPass(true);
+
       return () => {};
    }, []);
    return isLogin && isPass ? (
-      // <RegistrationPage />
+      <RegistrationPage />
 
-      <ResultPage isPass={isPass} setIsPass={setIsPass} />
+      // <ResultPage isPass={isPass} setIsPass={setIsPass} />
    ) : (
       <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
          <div className='relative flex flex-row h-screen justify-center z-20'>

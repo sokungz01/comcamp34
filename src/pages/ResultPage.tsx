@@ -1,4 +1,3 @@
-import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 import {
    updateConfirmationData,
@@ -7,7 +6,6 @@ import {
    getExaminationData,
    submitConfirm
 } from "@/lib/Fetch";
-import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
@@ -31,6 +29,7 @@ import {
    Page4,
    Page5,
 } from "@/types/ConfirmationType";
+
 const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
@@ -117,14 +116,7 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       });
    };
    const handleLogout = () => {
-      signOut(auth)
-         .then(() => {
-            navigate("/");
-         })
-         .catch(error => {
-            // An error happened.
-         });
-      sessionStorage.clear();
+      navigate("/");
    };
 
    const [dateData, setDateData] = useState<DateForm>({

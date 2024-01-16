@@ -32,6 +32,7 @@ import { Personal, DateForm } from "@/types/RegistrationType";
       const format_date = dateData.day + "-" + dateData.month + "-" + dateData.year;
       setData({ ...data, birth_date: format_date });
    }, [dateData.day, dateData.month, dateData.year]);
+   
    return (
       <>
          <div className='flex justify-center mt-8'>

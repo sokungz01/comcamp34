@@ -2,7 +2,6 @@ import { useState } from "react";
 import logo from "/assets/nav-logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { Link as NavLink } from "react-scroll";
-import { ComingSoonSwal } from "@/lib/CustomSwal";
 
 const Navbar = () => {
    const [hamburger, setHamburger] = useState(false);
@@ -15,9 +14,7 @@ const Navbar = () => {
       >
          {location.pathname === "/faq" ? (
             <>
-               <div
-                  className={`m-auto items-center text-base-black justify-center`}
-               >
+               <div className={`m-auto items-center text-base-black justify-center`}>
                   <Link to='/'>
                      <img className='lg:w-16 w-14' src={logo} />
                   </Link>
@@ -62,7 +59,8 @@ const Navbar = () => {
                   }`}
                >
                   <div className='lg:text-2xl lg:flex lg:flex-grow lg:justify-center '>
-                     <NavLink onClick={() => setHamburger(!hamburger)}
+                     <NavLink
+                        onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='about'
                         spy={true}
@@ -73,7 +71,8 @@ const Navbar = () => {
                      >
                         About
                      </NavLink>
-                     <NavLink onClick={() => setHamburger(!hamburger)}
+                     <NavLink
+                        onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='learning'
                         spy={true}
@@ -84,7 +83,8 @@ const Navbar = () => {
                      >
                         Learning
                      </NavLink>
-                     <NavLink onClick={() => setHamburger(!hamburger)}
+                     <NavLink
+                        onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='conditions'
                         spy={true}
@@ -95,7 +95,8 @@ const Navbar = () => {
                      >
                         Conditions
                      </NavLink>
-                     <NavLink onClick={() => setHamburger(!hamburger)}
+                     <NavLink
+                        onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='timeline'
                         spy={true}
@@ -106,7 +107,8 @@ const Navbar = () => {
                      >
                         Timeline
                      </NavLink>
-                     <NavLink onClick={() => setHamburger(!hamburger)}
+                     <NavLink
+                        onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='faq'
                         spy={true}
@@ -117,7 +119,8 @@ const Navbar = () => {
                      >
                         FAQ
                      </NavLink>
-                     <NavLink onClick={() => setHamburger(!hamburger)}
+                     <NavLink
+                        onClick={() => setHamburger(!hamburger)}
                         activeClass='active'
                         to='contact'
                         spy={true}
@@ -130,14 +133,12 @@ const Navbar = () => {
                      </NavLink>
                   </div>
                   <div>
-                     <Link
-                        to='/result'
-                     >
-                       <button 
+                     <Link to='/registration'>
+                        <button
                            className={`inline-block lg:text-xl lg:font-normal px-8 py-1 leading-none text-red2 hover:bg-red2 lg:border-2 lg:border-red2 hover:border-transparent hover:text-base-white bg-base-white mt-4 lg:mt-0 rounded-xl `}
-                           >
-                        Login
-                       </button>
+                        >
+                           Login
+                        </button>
                      </Link>
                   </div>
                </div>

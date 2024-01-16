@@ -5,6 +5,7 @@ export const checkGrade = (str: any) => {
    }
    return false;
 };
+
 export const checkEmail = (str: any) => {
    const RegEx =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -13,6 +14,7 @@ export const checkEmail = (str: any) => {
    }
    return false;
 };
+
 function isNumber(str: any) {
    if (str.trim() === "") {
       return false;
@@ -22,6 +24,7 @@ function isNumber(str: any) {
    }
    return !isNaN(str);
 }
+
 export const isMobileNumber = (str: any) => {
    if (
       str.length == 10 &&

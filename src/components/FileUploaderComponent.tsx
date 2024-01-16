@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { storage } from "@/lib/firebase";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { nanoid } from "nanoid";
 import { FileTooBigSwal, InvalidFileTypeSwal, InvalidImageTypeSwal } from "@/lib/CustomSwal";
 const FileUploaderComponent = ({
@@ -77,21 +75,19 @@ const FileUploaderComponent = ({
             .replace(/\s/g, "_");
          const newFileName = filename + "_" + nanoid(8) + "." + ext;
 
-         const storageRef = ref(storage, `${filePath}/${newFileName}`);
-         uploadBytes(storageRef, fileData)
-            .then(e => {
-               //upload file success
-            })
-            .then(path => {
-               const url = getDownloadURL(storageRef);
-               url.then(e => {
-                  setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file });
-                  setStatus(true);
-               });
-            });
+         // const storageRef = ref(storage, `${filePath}/${newFileName}`);
+         // uploadBytes(storageRef, fileData)
+         //    .then(e => {
+         //       //upload file success
+         //    })
+         //    .then(path => {
+         //       const url = getDownloadURL(storageRef);
+         //       url.then(e => {
+         //          setObj({ ...obj, [filePath]: e, [filePath.split("_")[0].concat("_Name")]: file });
+         //          setStatus(true);
+         //       });
+         //    });
       }
-      // else if upload submit, call method to store file in firebase storage maybe by format -> "userId_file" in defined path
-      // * waiting for firebase setup
       setIsUpload(true);
    };
    const deleteFile = () => {
