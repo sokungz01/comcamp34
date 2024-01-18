@@ -1,11 +1,4 @@
 import Swal from "sweetalert2";
-import {
-   updateConfirmationData,
-   updateExaminationData,
-   getConfirmationData,
-   getExaminationData,
-   submitConfirm
-} from "@/lib/Fetch";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LeftArrow from "/assets/svg/LeftArrow.svg";
@@ -30,7 +23,7 @@ import {
    Page5,
 } from "@/types/ConfirmationType";
 
-const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) => {
+const ResultPage = () => {
    const navigate = useNavigate();
    const [page, setPage] = useState<number>(1);
    const [confirm, setConfirm] = useState<boolean>(true);
@@ -43,7 +36,6 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
          dataExaminationPage5.q5_3?.length
       ) {
          const token = sessionStorage.getItem("token") as string;
-         await updateExaminationData(token, 5, dataExaminationPage5);;
          Swal.fire({
             html: ' <div class="flex flex-col font-bai-jamjuree"> <p class="text-2xl font-bold"> ยืนยันการส่งหรือไม่ </p> <p class="text-sm">หากส่งแล้วจะไม่สามารถแก้ไขข้อมูลได้อีก</p> </div> ',
             icon: "warning",
@@ -64,16 +56,6 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
             rgba(0,0,0,0.6)
             `,
          }).then(result => {
-            if (result.isConfirmed) {
-               submitConfirm(token)
-                  .then(res => {
-                     sessionStorage.clear();
-                     ConfirmationSubmitDone();
-                  })
-                  .catch(error => {
-                     SubmitError();
-                  });
-            }
          });
       } else {
          FillFormSwal();
@@ -103,16 +85,6 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       `,
       }).then(result => {
          console.log(dataConfirmation.isConfirm);
-         if (result.isConfirmed) {
-            submitConfirm(token)
-               .then(res => {
-                  sessionStorage.clear();
-                  SubmitDone();
-               })
-               .catch(error => {
-                  SubmitError();
-               });
-         }
       });
    };
    const handleLogout = () => {
@@ -177,144 +149,34 @@ const ResultPage = ({ isPass, setIsPass }: { isPass: boolean; setIsPass: any }) 
       setDataExaminationPage5,
    ];
 
-   useEffect(() => {
-      const token = sessionStorage.getItem("token") as string;
-      if (page > 0) {
-         if (page == 1) {
-            getConfirmationData(token, page)
-               .then(res => {
-                  listData[page - 1](res?.data.data as any);
-                  const split_date = res?.data.data.transaction_date.split("-");
-                  setDateData({
-                     date: split_date[0],
-                     month: split_date[1],
-                     year: split_date[2],
-                  });
-               })
-               .catch(error => {
-                  // console.log(error);
-               });
-         }
-         if(page >= 3){
-            getExaminationData(token, page - 2)
-            .then(res => {
-               listData[page - 2](res?.data.data as any);
-            })
-            .catch(error => {
-               // console.log(error);
-            });
-         }
-      }
-   }, [page]);
-
-   useEffect(()=>{
-      const token = sessionStorage.getItem("token") as string;
-      if(dataConfirmation.isConfirm != '' && dataConfirmation.isConfirm != null)
-         updateConfirmationData(token, 1, dataConfirmation);
-   },[dataConfirmation.isConfirm]);
-
    const prevPage = async () => {
       window.scrollTo(0, 0);
       const token = sessionStorage.getItem("token") as string;
-      if (page === 1) {
-         await updateConfirmationData(token, 1, dataConfirmation);
-      } else if (page === 3) {
-         await updateExaminationData(token, 1, dataExaminationPage1);
-      } else if (page === 4) {
-         await updateExaminationData(token, 2, dataExaminationPage2);
-      } else if (page === 5) {
-         await updateExaminationData(token, 3, dataExaminationPage3);
-      } else if (page === 6) {
-         await updateExaminationData(token, 4, dataExaminationPage4);
-      } else if (page === 7) {
-         await updateExaminationData(token, 5, dataExaminationPage5);
-      }
+
       setPage(page - 1);
    };
    const nextPage = async () => {
       const token = sessionStorage.getItem("token") as string;
-      if (page === 1) {
-         if (
-            dataConfirmation.isConfirm != "0" &&
-            dataConfirmation.describeTravel?.length &&
-            dataConfirmation.describeBackhome?.length &&
-            dataConfirmation.shirt_size?.length &&
-            dataConfirmation.transaction_Name?.length &&
-            dataConfirmation.transaction_URL?.length &&
-            dataConfirmation.transaction_date?.length &&
-            dataConfirmation.transaction_hours?.length &&
-            dataConfirmation.transaction_minutes?.length
-         ) {
-            await updateConfirmationData(token, page, dataConfirmation);
-            setPage(page + 1);
-         } 
-         else {
-            FillFormSwal();
-         }
-      }
-      if (page === 2) {
-         setPage(page + 1);
-      }
-      if (page === 3) {
-         if (
-            dataExaminationPage1.q1_1?.length &&
-            dataExaminationPage1.q1_2?.length &&
-            dataExaminationPage1.q1_3?.length
-         ) {
-            await updateExaminationData(token, 1, dataExaminationPage1);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      }
-      if (page === 4) {
-         if (
-            dataExaminationPage2.q2_1?.length &&
-            dataExaminationPage2.q2_2?.length &&
-            dataExaminationPage2.q2_3?.length
-         ) {
-            await updateExaminationData(token, 2, dataExaminationPage2);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      }
-
-      if (page === 5) {
-         if (dataExaminationPage3.q3_1?.length && dataExaminationPage3.q3_2?.length) {
-            await updateExaminationData(token, 3, dataExaminationPage3);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      }
-
-      if (page === 6) {
-         if (dataExaminationPage4.q4_1?.length && dataExaminationPage4.q4_2?.length) {
-            await updateExaminationData(token, 4, dataExaminationPage4);
-            setPage(page + 1);
-         } else {
-            FillFormSwal();
-         }
-      }
-
+      setPage(page + 1);
       window.scrollTo(0, 0);
    };
    return (
       <>
          <div className='bg-base-white h-full min-h-screen overflow-hidden font-bai-jamjuree relative '>
             <div className='flex justify-between py-4 '>
-               <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
+            <div className='flex flex-row justify-between items-center ml-4 lg:ml-8'>
                   <img
-                     src={`${sessionStorage.getItem("photoURL")}`}
+                     src={`https://cdn.discordapp.com/attachments/1140509663138435172/1196801468775276595/snorlax.png?ex=65b8f339&is=65a67e39&hm=e95b01ecff8dadce2562d1749f41586fef3710687147cf1d4949fee74df03a73&`}
                      alt='Profile'
                      referrerPolicy='no-referrer'
                      className='lg:w-12 lg:h-12 w-6 h-6 rounded-full'
                   />
                   <p className='text-base-black font-semibold lg:mt-2.5lg:ml-4 ml-2 text-sm lg:text-base'>
-                     {sessionStorage.getItem("email")}
+                     {/* {sessionStorage.getItem("email")} */}
+                    Snorlax@mail.xyz
                   </p>
                </div>
+
 
                <button
                   className='bg-red2 text-white lg:py-2 lg:px-8 py-1.5 px-4 rounded-lg font-semibold text-sm lg:text-base mr-2 lg:mr-12'
